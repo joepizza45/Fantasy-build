@@ -2,6 +2,7 @@
 const { getJSON, FetchError } = require('../lib/fetch');
 const { averages, fillFromData, healthFrom, makePlayer } = require('../lib/players');
 const { SPORTS } = require('../../engine');
+const { byeWeeks } = require('../lib/nfl');
 
 const B = 'https://api.sleeper.app/v1';
 const HOUR = 3600 * 1000;
@@ -16,7 +17,8 @@ const toPos = (sport, raw) => {
 };
 
 async function findUser(username) {
-  const u = await getJSON(B + '/user/' + encodeURIComponent(String(username).trim()), { ttl: HOUR });
+  username = String(username).trim().replace(/^@/, '');
+  const u = await getJSON(B + '/user/' + encodeURIComponent(username), { ttl: HOUR });
   if (!u || !u.user_id) throw new FetchError('No Sleeper user called "' + username + '"', 404);
   return u;
 }
@@ -59,6 +61,7 @@ function snapRole(weekly) {
 }
 
 async function load({ leagueId, username, rosterId }) {
+  username = username && String(username).replace(/^@/, '');
   const league = await getJSON(B + '/league/' + encodeURIComponent(leagueId), { ttl: 10 * 60 * 1000 });
   if (!league) throw new FetchError('No Sleeper league with ID ' + leagueId, 404);
   const sport = league.sport === 'nba' ? 'nba' : 'nfl';
@@ -102,7 +105,7 @@ async function load({ leagueId, username, rosterId }) {
     const news = [d.injury_body_part, d.injury_notes].filter(Boolean).join(': ');
     const name = pos === 'DST' ? (d.first_name + ' ' + d.last_name).trim() : d.full_name || (d.first_name + ' ' + d.last_name);
     const elig = (d.fantasy_positions || []).map((x) => toPos(sport, x)).filter(Boolean);
-    const p = makePlayer({ id, name, team: d.team || 'FA', pos, elig: elig.length ? elig : [pos], season: a.season, recent: a.recent, gp: a.gp, health: healthFrom(injury), role, injury, news, flags, slot });
+    const p = makePlayer({ id, name, team: d.team || 'FA', pos, elig: elig.length ? elig : [pos], age: d.age, yearsExp: d.years_exp, season: a.season, recent: a.recent, gp: a.gp, health: healthFrom(injury), role, injury, news, flags, slot });
     return current ? fillFromData(p, sport) : p;
   };
 
@@ -141,6 +144,7 @@ async function load({ leagueId, username, rosterId }) {
     if (p && p.season > 0) freeAgents.push(p);
   }
 
+  const byes = sport === 'nfl' ? await byeWeeks(season) : {};
   const slots = (league.roster_positions || []).filter((s) => BENCH_SLOTS.indexOf(s) < 0).map((s) => (s === 'DEF' ? 'DST' : s));
   const recLabel = sport === 'nfl' ? ({ 1: 'PPR', 0.5: 'Half PPR', 0: 'Standard' }[scoring.rec || 0] || scoring.rec + ' per catch') : 'league points';
   return {
@@ -148,6 +152,8 @@ async function load({ leagueId, username, rosterId }) {
     statsThrough: lastWeek ? 'Week ' + lastWeek : 'no games yet',
     scoring: recLabel, slots, teams, freeAgents,
     waiver: (league.settings || {}).waiver_type === 2 ? 'faab' : 'priority',
+    type: ({ 1: 'keeper', 2: 'dynasty' })[(league.settings || {}).type] || 'redraft',
+    byes, nextWeek: current && st.season_type === 'regular' ? st.week : null,
     notes: lastWeek ? [] : ['No ' + season + ' games played yet. Numbers come from the repo data files where available.']
   };
 }

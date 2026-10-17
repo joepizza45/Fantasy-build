@@ -98,3 +98,12 @@ test('analyze produces a full report from a small league', () => {
   assert.doesNotThrow(() => JSON.stringify(r));
   assert.throws(() => analyze(Object.assign({}, L, { teams: L.teams.map((t) => Object.assign({}, t, { isMine: false })) })), /Could not find your team/);
 });
+
+test('shrink pulls small samples harder than large ones', () => {
+  const { shrink } = require('../server/analyze');
+  const one = shrink(P({ pos: 'QB', season: 30, recent: 30, gp: 1 }), 16, 4);
+  const five = shrink(P({ pos: 'QB', season: 30, recent: 30, gp: 5 }), 16, 4);
+  assert.equal(one.season, 23); assert.ok(five.season > 27 && five.season < 30);
+  assert.equal(shrink(P({ season: 10, gp: 0, source: 'data' }), 8, 4).season > 9.5, true);
+  assert.equal(shrink(P({ season: 0, recent: 0, gp: 0 }), 8, 4).season, 0);
+});

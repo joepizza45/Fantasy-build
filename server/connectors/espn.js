@@ -2,6 +2,7 @@
    private leagues need the espn_s2 and SWID cookies from a logged-in browser. */
 const { getJSON, FetchError } = require('../lib/fetch');
 const { averages, fillFromData, healthFrom, makePlayer } = require('../lib/players');
+const { byeWeeks } = require('../lib/nfl');
 
 const HOST = 'https://lm-api-reads.fantasy.espn.com/apis/v3/games/';
 const GAME = { nfl: 'ffl', nba: 'fba' };
@@ -96,6 +97,8 @@ async function load({ leagueId, sport = 'nfl', season, teamId, espnS2, swid }) {
     week: Math.max(0, period - 1), statsThrough: sport === 'nfl' ? 'Week ' + Math.max(0, period - 1) : 'scoring period ' + period,
     scoring: 'league scoring', slots, teams, freeAgents,
     waiver: ((league.settings || {}).acquisitionSettings || {}).isUsingAcquisitionBudget ? 'faab' : 'priority',
+    type: ((league.settings || {}).draftSettings || {}).keeperCount > 0 ? 'keeper' : 'redraft',
+    byes: sport === 'nfl' ? await byeWeeks(season) : {}, nextWeek: sport === 'nfl' && period ? period : null,
     notes: ['ESPN data comes from an unofficial API and can change without notice.']
   };
 }

@@ -70,7 +70,7 @@ function makePlayer(o) {
     season: o.season || 0, recent: o.recent || 0, gp: o.gp || 0,
     health: o.health || 'healthy', role: o.role || 'steady', sched: 'neutral',
     injury: o.injury || '', news: o.news || '', flags: o.flags || [], source: o.source || 'league',
-    cost: o.cost, slot: o.slot, elig: o.elig || [o.pos]
+    cost: o.cost, slot: o.slot, elig: o.elig || [o.pos], age: o.age || null, yearsExp: o.yearsExp != null ? o.yearsExp : null
   };
 }
 

@@ -19,7 +19,7 @@ function brief(report) {
     pickupsOrTransfers: r.pickups.map((m) => ({ title: m.title, label: m.label, gain: Math.round(m.gain), text: m.text })),
     trades: r.trades.map((m) => ({ title: m.title, partner: m.partner, gain: Math.round(m.gain), text: m.text })),
     fpl: r.fpl, alerts: r.alerts,
-    myRoster: r.roster.slice(0, 22).map((p) => ({ name: p.name, team: p.team, pos: p.pos, slot: p.slot, season: p.season, recent: p.recent, health: p.health, injury: p.injury, news: p.news, role: p.role, ppg: p.ppg, vor: p.vor, cost: p.cost })),
+    myRoster: r.roster.slice(0, 30).map((p) => ({ name: p.name, team: p.team, pos: p.pos, slot: p.slot, age: p.age, bye: p.bye, season: p.season, recent: p.recent, games: p.gp, health: p.health, injury: p.injury, news: p.news, role: p.role, ppg: p.ppg, vor: p.vor, cost: p.cost })),
     bestFreeAgents: r.topFree
   };
 }
@@ -29,6 +29,8 @@ function system(report) {
   return [
     'You are a sharp, practical fantasy ' + L.sportName + ' advisor. The user manages "' + report.me.name + '" in "' + L.name + '" on ' + L.platform + '.',
     'You get a JSON analysis made from the league\'s live data: projections per ' + report.window.per + ', value over replacement for the next ' + report.window.games + ' ' + report.window.per + 's, positional ranks, and moves that a scoring model already checked.',
+    (L.type === 'dynasty' || L.type === 'keeper' ? 'This is a ' + L.type + ' league: weigh age and long-term value in trades and drops, not just this season.\n' : '') +
+    (L.nextWeek ? 'The next games are week ' + L.nextWeek + '. "bye" on a player is that player\'s bye week; mention upcoming bye crunches.\n' : '') +
     'Rules: use only players, teams and numbers that appear in the JSON. Never invent stats, injuries or news. If something is uncertain or the data is thin, say so in a few words.',
     'Lead with the most important action. Be specific: name players, give the numbers that justify each move, and say who to target in trades and why that manager might accept.',
     'Use short Markdown: a heading per section (This week, Waivers' + (L.sport === 'fpl' ? ' and transfers' : '') + ', Trades, Longer term), bullet points, under 300 words unless the user asks for more.'

@@ -2,7 +2,7 @@
    power rankings, positional strengths, lineup fixes, pickups (or FPL transfers), trade ideas and alerts.
    Player values come from engine.js, the same math the Move Check page uses. */
 const E = require('../engine');
-const { round2 } = require('./lib/players');
+const { round2, RECENT_GAMES } = require('./lib/players');
 
 const FORM_W = 0.4;
 const ELIG = {
@@ -11,6 +11,7 @@ const ELIG = {
 };
 const AVAIL = { healthy: 1, minor: 0.85, short: 0, long: 0 };
 const FA_PER_POS = 40;
+const STREAM = ['K', 'DST']; // streamed off waivers, never worth a trade
 
 const eligFor = (slot) => ELIG[slot] || (slot.indexOf('/') > 0 ? slot.split('/') : [slot]);
 const canPlay = (p, slot) => eligFor(slot).some((x) => (p.elig || [p.pos]).indexOf(x) >= 0);
@@ -23,11 +24,12 @@ function gamesLeft(L) {
 }
 
 /* Replacement level per position: what the best few free agents score. Fixed defaults for FPL or thin pools. */
-function replacement(L) {
+function replacement(L, adjust = (p) => p) {
   const repl = Object.assign({}, E.SPORTS[L.sport].repl);
   if (L.sport === 'fpl') return repl;
+  const minGp = Math.min(3, Math.max(1, L.week - 1));
   E.SPORTS[L.sport].positions.forEach((pos) => {
-    const top = L.freeAgents.filter((p) => p.pos === pos && p.health === 'healthy')
+    const top = L.freeAgents.filter((p) => p.pos === pos && p.health === 'healthy' && (p.source === 'data' || p.gp >= minGp)).map(adjust)
       .map((p) => p.season * (1 - FORM_W) + p.recent * FORM_W).sort((a, b) => b - a).slice(0, 3);
     if (top.length === 3) repl[pos] = round2(top.reduce((a, b) => a + b, 0) / 3);
   });
@@ -59,34 +61,59 @@ function fplLineup(players, weekly) {
   return xi.map((p) => ({ slot: p.pos, player: p }));
 }
 
+/* Pulls small samples toward a typical player at the position: one game's worth of weight on the prior. */
+const SHRINK_K = 1;
+function shrink(p, prior, recentN) {
+  const gp = p.source === 'data' ? 6 : p.gp || 0;
+  if (!(prior > 0) || !gp) return p;
+  const rg = Math.min(gp, recentN);
+  return Object.assign({}, p, {
+    season: (p.season * gp + prior * SHRINK_K) / (gp + SHRINK_K),
+    recent: (p.recent * rg + prior * SHRINK_K) / (rg + SHRINK_K)
+  });
+}
+
+/* Young players are protected from drop suggestions in dynasty and keeper leagues. */
+const avgAge = (arr) => { const a = arr.filter((p) => p.age); return a.length ? a.reduce((x, p) => x + p.age, 0) / a.length : 0; };
+const isYoung = (p) => (p.yearsExp != null && p.yearsExp <= 1) || (p.age && p.age <= 23);
+
 function analyze(L, opts = {}) {
   const sport = L.sport, S = E.SPORTS[sport];
-  const ctx = { G: gamesLeft(L), formW: FORM_W, repl: replacement(L) };
+  const recentN = RECENT_GAMES[sport] || 4;
+  const ctx = { G: gamesLeft(L), formW: FORM_W, repl: Object.assign({}, S.repl) };
+  const shrunk = new Map();
+  const sh = (p) => { if (!shrunk.has(p)) shrunk.set(p, shrink(p, S.repl[p.pos], recentN)); return shrunk.get(p); };
+  if (sport !== 'fpl') ctx.repl = replacement(L, (p) => sh(p));
   const val = new Map();
-  const v = (p) => { if (!val.has(p)) val.set(p, E.valuePlayer(p, sport, ctx)); return val.get(p); };
-  const weekly = (p) => v(p).ppg * (AVAIL[p.health] != null ? AVAIL[p.health] : 1);
-  const ros = (p) => v(p).ppg * (v(p).played / ctx.G);
+  const v = (p) => { if (!val.has(p)) val.set(p, E.valuePlayer(sh(p), sport, ctx)); return val.get(p); };
+  const byes = L.byes || {}, next = L.nextWeek;
+  const onBye = (p) => !!next && byes[p.team] === next;
+  const byeAhead = (p) => (next && byes[p.team] >= next ? 1 : 0);
+  const weekly = (p) => (onBye(p) ? 0 : v(p).ppg * (AVAIL[p.health] != null ? AVAIL[p.health] : 1));
+  const ros = (p) => v(p).ppg * Math.max(0, v(p).played - byeAhead(p)) / ctx.G;
+  const dynasty = L.type === 'dynasty' || L.type === 'keeper';
+  const protect = (p) => dynasty && isYoung(p);
 
   let me = L.teams.find((t) => t.isMine);
   if (!me && opts.teamId) me = L.teams.find((t) => t.id === String(opts.teamId));
   if (!me) throw Object.assign(new Error('Could not find your team in this league. Pick it from the list.'), { status: 400, teams: L.teams.map((t) => ({ id: t.id, name: t.name, owner: t.owner })) });
-  me.isMine = true;
+  L.teams.forEach((t) => { t.isMine = t === me; });
 
-  /* Lineups and power rankings */
-  const lineupOf = (t) => (sport === 'fpl' ? fplLineup(t.players, weekly) : bestLineup(t.players, L.slots, weekly));
+  /* Lineups and power rankings: strength is the best lineup's average weekly points over the window */
+  const active = (t) => t.players.filter((p) => p.slot !== 'IR');
+  const lineupOf = (players, score) => (sport === 'fpl' ? fplLineup(players, score) : bestLineup(players, L.slots, score));
+  const strengthOf = (players) => lineupOf(players, ros).reduce((a, x) => a + (x.player ? ros(x.player) : 0), 0);
   const posSlots = {};
   S.positions.forEach((pos) => { posSlots[pos] = Math.max(1, L.slots.filter((s) => s === pos).length); });
   if (sport === 'fpl') Object.assign(posSlots, { GKP: 1, DEF: 4, MID: 4, FWD: 2 });
 
   const teamInfo = L.teams.map((t) => {
-    const lu = lineupOf(t);
-    const strength = lu.reduce((a, x) => a + (x.player ? ros(x.player) : 0), 0);
     const byPos = {};
     S.positions.forEach((pos) => {
-      byPos[pos] = t.players.filter((p) => p.pos === pos && p.slot !== 'IR').map(ros).sort((a, b) => b - a)
+      byPos[pos] = active(t).filter((p) => p.pos === pos).map(ros).sort((a, b) => b - a)
         .slice(0, posSlots[pos]).reduce((a, b) => a + b, 0);
     });
-    return { t, lu, strength, byPos };
+    return { t, strength: strengthOf(active(t)), byPos };
   });
   const ranked = teamInfo.slice().sort((a, b) => b.strength - a.strength);
   const powerRankings = ranked.map((x, i) => ({
@@ -96,7 +123,8 @@ function analyze(L, opts = {}) {
   }));
 
   const mineInfo = teamInfo.find((x) => x.t === me);
-  const positions = S.positions.filter((pos) => sport !== 'nfl' || L.slots.indexOf(pos) >= 0 || pos === 'RB' || pos === 'WR').map((pos) => {
+  const usedPos = S.positions.filter((pos) => sport === 'fpl' || L.slots.some((s) => eligFor(s).indexOf(pos) >= 0));
+  const positions = usedPos.map((pos) => {
     const all = teamInfo.map((x) => x.byPos[pos]);
     const avg = all.reduce((a, b) => a + b, 0) / all.length;
     const rank = all.filter((n) => n > mineInfo.byPos[pos]).length + 1;
@@ -105,46 +133,112 @@ function analyze(L, opts = {}) {
   const weak = positions.filter((p) => p.rank > Math.ceil(p.of / 2) && p.diff < 0).sort((a, b) => a.diff - b.diff).map((p) => p.pos);
   const strong = positions.filter((p) => p.rank <= Math.ceil(p.of / 3) && p.diff > 0).sort((a, b) => b.diff - a.diff).map((p) => p.pos);
 
-  /* Lineup changes for my team */
-  const best = mineInfo.lu.filter((x) => x.player).map((x) => x.player);
+  /* Lineup changes for this week (byes and injuries count as zero) */
+  const thisWeek = lineupOf(active(me), weekly);
+  const best = thisWeek.filter((x) => x.player).map((x) => x.player);
   const current = me.players.filter((p) => p.slot === 'START');
   const ins = best.filter((p) => current.indexOf(p) < 0).sort((a, b) => weekly(b) - weekly(a));
-  const outs = current.filter((p) => best.indexOf(p) < 0).sort((a, b) => weekly(a) - weekly(b));
-  const left = outs.slice();
+  const left = current.filter((p) => best.indexOf(p) < 0).sort((a, b) => weekly(a) - weekly(b));
+  const why0 = (o) => (onBye(o) ? o.name + ' is on bye.' : AVAIL[o.health] === 0 ? o.name + ' is listed ' + (o.injury || 'out') + '.' : o.health === 'minor' ? o.name + ' is ' + (o.injury || 'questionable') + '.' : '');
   const lineupChanges = ins.map((p) => {
     const pick = (test) => { const i = left.findIndex(test); return i >= 0 ? left.splice(i, 1)[0] : null; };
     const o = pick((x) => x.pos === p.pos) || pick((x) => L.slots.some((s) => canPlay(x, s) && canPlay(p, s))) || pick(() => true);
     const gain = weekly(p) - (o ? weekly(o) : 0);
     const why = [];
-    if (o && AVAIL[o.health] === 0) why.push(o.name + ' is listed ' + (o.injury || 'out') + '.');
-    else if (o && o.health === 'minor') why.push(o.name + ' is ' + (o.injury || 'questionable') + '.');
+    if (o && why0(o)) why.push(why0(o));
     why.push(p.name + ' projects ' + E.fmt(weekly(p)) + ' against ' + (o ? E.fmt(weekly(o)) + ' for ' + o.name : 'an empty slot') + '.');
     return { start: p.name, startPos: p.pos, bench: o ? o.name : null, gain: round2(gain), text: why.join(' ') };
   }).filter((c) => c.gain > 0.2).sort((a, b) => b.gain - a.gain);
 
-  /* Pickups or transfers */
+  /* Free-agent pool: positions your lineup can use, enough games to trust */
+  const minGp = sport === 'fpl' ? 0 : Math.min(2, Math.max(1, L.week - 1));
   const pool = [];
-  S.positions.forEach((pos) => {
-    pool.push(...L.freeAgents.filter((p) => p.pos === pos).sort((a, b) => ros(b) - ros(a)).slice(0, FA_PER_POS));
+  usedPos.forEach((pos) => {
+    pool.push(...L.freeAgents.filter((p) => p.pos === pos && (p.source === 'data' || p.gp >= minGp)).sort((a, b) => ros(b) - ros(a)).slice(0, FA_PER_POS));
   });
-  const pickups = sport === 'fpl' ? fplTransfers(me, pool, L.bank || 0, ctx, v) : E.pickupMoves(me.players.filter((p) => p.slot !== 'IR'), pool, sport, ctx);
 
-  /* Trades */
-  let trades = [];
-  if (sport !== 'fpl') {
-    const myTradable = me.players.filter((p) => p.slot !== 'IR');
-    teamInfo.filter((x) => x.t !== me).forEach((x) => {
-      const theirWeak = positions.filter((q) => x.byPos[q.pos] < q.leagueAvg).map((q) => q.pos);
-      E.tradeMoves(myTradable, x.t.players.filter((p) => p.slot !== 'IR'), sport, ctx).slice(0, 2).forEach((m) => {
-        const fitsMe = weak.indexOf(m.pos) >= 0;
-        const helpsThem = m.give.some((p) => theirWeak.indexOf(p.pos) >= 0);
-        const extra = [];
-        if (fitsMe) extra.push('It fills your thinnest spot (' + m.pos + ').');
-        if (helpsThem) extra.push(x.t.name + ' is thin where you are giving, so they have a reason to say yes.');
-        trades.push(Object.assign({}, m, { give: m.give.map((p) => p.name), get: m.get.map((p) => p.name), partner: x.t.name, partnerId: x.t.id, fit: (fitsMe ? 2 : 0) + (helpsThem ? 1 : 0), text: m.text + (extra.length ? ' ' + extra.join(' ') : '') }));
+  /* Pickups: only adds that improve your best lineup over the window. FPL uses transfers instead. */
+  let pickups;
+  const myActive = active(me);
+  const myBase = strengthOf(myActive);
+  if (sport === 'fpl') pickups = fplTransfers(me, pool, L.bank || 0, ctx, v);
+  else {
+    const starters = new Set(lineupOf(myActive, ros).filter((x) => x.player).map((x) => x.player));
+    const drops = myActive.filter((p) => !starters.has(p) && !protect(p)).sort((a, b) => ros(a) - ros(b)).slice(0, 4);
+    const cands = [];
+    pool.filter((f) => f.health === 'healthy' || f.health === 'minor').forEach((f) => {
+      drops.forEach((d) => {
+        const gain = strengthOf(myActive.filter((p) => p !== d).concat([f])) - myBase;
+        if (gain >= 0.5) cands.push({ f, d, gain });
       });
     });
-    trades.sort((a, b) => b.fit - a.fit || b.gain - a.gain);
+    cands.sort((a, b) => b.gain - a.gain);
+    const usedF = new Set(), usedD = new Set(), usedPos = {};
+    pickups = [];
+    for (const c of cands) {
+      if (usedF.has(c.f) || usedD.has(c.d) || (usedPos[c.f.pos] || 0) >= (STREAM.indexOf(c.f.pos) >= 0 ? 1 : 2)) continue;
+      usedF.add(c.f); usedD.add(c.d); usedPos[c.f.pos] = (usedPos[c.f.pos] || 0) + 1;
+      const s = [c.f.name + ' (' + c.f.pos + ', ' + c.f.team + ') would start for you, adding about ' + E.fmt(c.gain) + ' points a week (' + E.fmt(c.gain * ctx.G, 0) + ' over the next ' + ctx.G + ' weeks).'];
+      s.push(c.f.name + ' averages ' + E.fmt(c.f.season) + ' over ' + c.f.gp + ' games, ' + E.fmt(c.f.recent) + ' lately.');
+      s.push(c.d.name + ' is your least useful bench player (' + E.fmt(v(c.d).ppg) + ' a game).');
+      if (c.f.gp <= 2) s.push('Small sample, so check the role news first.');
+      pickups.push({ kind: 'pickup', label: c.gain >= 2 ? 'Strong add' : 'Add', tone: 'good', title: 'Pick up ' + c.f.name + ', drop ' + c.d.name, pos: c.f.pos, gain: c.gain * ctx.G, perWeek: round2(c.gain), text: s.join(' ') });
+      if (pickups.length >= 4) break;
+    }
+  }
+
+  /* Trades: your lineup must improve; theirs must not get much worse, and the talent swap must look fair to them */
+  let trades = [];
+  if (sport !== 'fpl') {
+    const tradable = (p) => STREAM.indexOf(p.pos) < 0;
+    const mineTop = myActive.filter(tradable).sort((a, b) => ros(b) - ros(a)).slice(0, 16);
+    teamInfo.filter((x) => x.t !== me).forEach((x) => {
+      const theirActive = active(x.t);
+      const theirBase = x.strength;
+      const theirTop = theirActive.filter(tradable).sort((a, b) => ros(b) - ros(a)).slice(0, 14);
+      const useful = theirTop.filter((p) => strengthOf(myActive.concat([p])) - myBase > 0.3);
+      if (!useful.length) return;
+      const shapes = [];
+      mineTop.forEach((g) => useful.forEach((t) => shapes.push([[g], [t]])));
+      E.combos(mineTop, 2).forEach((gg) => useful.forEach((t) => shapes.push([gg, [t]])));
+      mineTop.forEach((g) => useful.forEach((t) => theirTop.forEach((t2) => { if (t2 !== t && (useful.indexOf(t2) < 0 || t2.id > t.id)) shapes.push([[g], [t, t2]]); })));
+      const found = [];
+      shapes.forEach(([give, get]) => {
+        const myGain = strengthOf(myActive.filter((p) => give.indexOf(p) < 0).concat(get)) - myBase;
+        if (myGain < 1) return;
+        const theirGain = strengthOf(theirActive.filter((p) => get.indexOf(p) < 0).concat(give)) - theirBase;
+        if (theirGain < -1) return;
+        if (dynasty && avgAge(get) - avgAge(give) >= 5) return;
+        const fair = E.compareTrade(give.map(sh), get.map(sh), sport, ctx).pct;
+        if (fair > 0.35) return;
+        found.push({ give, get, myGain, theirGain, fair, score: myGain + Math.min(theirGain, 2) * 0.75 - Math.max(0, fair - 0.1) * 6 });
+      });
+      found.sort((a, b) => b.score - a.score);
+      const seen = new Set();
+      found.filter((c) => {
+        const kg = 'g' + c.give.map((p) => p.id).join(','), kt = 't' + c.get.map((p) => p.id).join(',');
+        if (seen.has(kg) || seen.has(kt)) return false;
+        seen.add(kg); seen.add(kt); return true;
+      }).slice(0, 2).forEach((c) => {
+        const names = (arr) => arr.map((p) => p.name + (dynasty && p.age ? ' (' + p.age + ')' : '')).join(' and ');
+        const s = ['Your best lineup gains about ' + E.fmt(c.myGain) + ' points a week (' + E.fmt(c.myGain * ctx.G, 0) + ' over ' + ctx.G + ' weeks).'];
+        s.push(c.theirGain >= 0.3 ? 'Their lineup also improves by ' + E.fmt(c.theirGain) + ' a week, so it is a real win-win pitch.'
+          : c.theirGain > -0.3 ? 'Their lineup stays about the same, so they are trading depth they do not start.'
+          : 'Their lineup drops ' + E.fmt(-c.theirGain) + ' a week, so expect some pushback.');
+        const theirWeak = positions.filter((q) => x.byPos[q.pos] < q.leagueAvg).map((q) => q.pos);
+        const fills = c.give.filter((p) => theirWeak.indexOf(p.pos) >= 0).map((p) => p.pos);
+        if (fills.length) s.push(x.t.name + ' is below average at ' + Array.from(new Set(fills)).join(' and ') + ', which you are sending.');
+        if (dynasty) {
+          const ga = avgAge(c.give), ta = avgAge(c.get);
+          if (ga && ta && ta - ga >= 3) s.push('Dynasty check: you are getting older (' + E.fmt(ta, 0) + ' vs ' + E.fmt(ga, 0) + ' on average). Good for this year, weaker later.');
+          if (c.give.some(isYoung)) s.push('Dynasty check: you are giving up a young player, so weigh their future value.');
+        }
+        trades.push({ kind: 'trade', label: c.theirGain >= 0.3 ? 'Win-win' : 'Worth offering', tone: 'good',
+          title: 'Offer ' + names(c.give) + ' for ' + names(c.get), pos: c.get[0].pos, gain: c.myGain * ctx.G, perWeek: round2(c.myGain), theirPerWeek: round2(c.theirGain),
+          give: c.give.map((p) => p.name), get: c.get.map((p) => p.name), partner: x.t.name, partnerId: x.t.id, score: c.score, text: s.join(' ') });
+      });
+    });
+    trades.sort((a, b) => b.score - a.score);
     const uses = new Map();
     trades = trades.filter((m) => {
       if (m.give.some((p) => (uses.get(p) || 0) >= 2)) return false;
@@ -156,7 +250,7 @@ function analyze(L, opts = {}) {
   /* FPL: captain and rival ownership */
   let fpl = null;
   if (sport === 'fpl') {
-    const xi = mineInfo.lu.map((x) => x.player).sort((a, b) => weekly(b) - weekly(a));
+    const xi = thisWeek.map((x) => x.player).sort((a, b) => weekly(b) - weekly(a));
     const rivals = L.teams.filter((t) => t !== me && t.players.length);
     const count = new Map();
     rivals.forEach((t) => t.players.forEach((p) => count.set(p.id, (count.get(p.id) || 0) + 1)));
@@ -178,28 +272,34 @@ function analyze(L, opts = {}) {
   /* Alerts */
   const alerts = [];
   me.players.forEach((p) => {
-    if (p.slot === 'START' && AVAIL[p.health] === 0) alerts.push(p.name + ' is in your lineup but listed ' + (p.injury || 'out') + (p.news ? ' (' + p.news + ')' : '') + '.');
+    if (p.slot === 'START' && onBye(p)) alerts.push(p.name + ' is in your lineup but ' + p.team + ' are on bye in week ' + next + '.');
+    else if (p.slot === 'START' && AVAIL[p.health] === 0) alerts.push(p.name + ' is in your lineup but listed ' + (p.injury || 'out') + (p.news ? ' (' + p.news + ')' : '') + '.');
     else if (p.slot === 'START' && p.health === 'minor') alerts.push(p.name + ' is ' + (p.injury || 'questionable') + (p.news ? ' (' + p.news + ')' : '') + '. Check before kickoff.');
     if (p.slot === 'START' && !p.gp && p.source !== 'data') alerts.push('No games logged for ' + p.name + ' yet, so these numbers undervalue that player.');
   });
+  if (sport === 'nfl' && next) {
+    const upcoming = {};
+    myActive.forEach((p) => { if (byes[p.team] > next && byes[p.team] <= next + 3 && best.indexOf(p) >= 0) (upcoming[byes[p.team]] = upcoming[byes[p.team]] || []).push(p.name); });
+    Object.keys(upcoming).forEach((w) => { if (upcoming[w].length >= 2) alerts.push('Bye crunch in week ' + w + ': ' + upcoming[w].join(', ') + ' are all off. Plan cover now.'); });
+  }
   if (sport === 'fpl' && fpl.captain[0]) alerts.push('Captain pick by these numbers: ' + fpl.captain[0].name + (fpl.captain[1] ? ', then ' + fpl.captain[1].name : '') + '.');
 
   const roster = me.players.map((p) => ({
     name: p.name, team: p.team, pos: p.pos, slot: p.slot, season: p.season, recent: p.recent, gp: p.gp,
-    health: p.health, injury: p.injury, news: p.news, role: p.role, sched: p.sched, cost: p.cost,
+    health: p.health, injury: p.injury, news: p.news, role: p.role, sched: p.sched, cost: p.cost, age: p.age, bye: byes[p.team] || null,
     ppg: round2(v(p).ppg), weekly: round2(weekly(p)), vor: round2(v(p).vor), risk: v(p).riskLvl, flags: p.flags
   })).sort((a, b) => b.vor - a.vor);
 
   const topFree = pool.slice().sort((a, b) => v(b).vor - v(a).vor).slice(0, 12)
-    .map((p) => ({ name: p.name, team: p.team, pos: p.pos, ppg: round2(v(p).ppg), season: p.season, recent: p.recent, health: p.health, cost: p.cost }));
+    .map((p) => ({ name: p.name, team: p.team, pos: p.pos, ppg: round2(v(p).ppg), season: p.season, recent: p.recent, gp: p.gp, health: p.health, cost: p.cost, age: p.age }));
 
   return {
-    league: { platform: L.platform, sport, sportName: S.name, name: L.name, season: L.season, statsThrough: L.statsThrough, scoring: L.scoring, teams: L.teams.length, waiver: L.waiver, notes: L.notes || [] },
+    league: { platform: L.platform, sport, sportName: S.name, name: L.name, season: L.season, statsThrough: L.statsThrough, scoring: L.scoring, teams: L.teams.length, waiver: L.waiver, type: L.type || 'redraft', nextWeek: next || null, notes: L.notes || [] },
     me: { id: me.id, name: me.name, owner: me.owner },
     teams: L.teams.map((t) => ({ id: t.id, name: t.name, owner: t.owner })),
     window: { games: ctx.G, per: S.per, replacement: ctx.repl },
     powerRankings, positions, weak, strong,
-    lineup: { best: mineInfo.lu.map((x) => ({ slot: x.slot, name: x.player ? x.player.name : null, pos: x.player ? x.player.pos : null, weekly: x.player ? round2(weekly(x.player)) : 0 })), changes: lineupChanges },
+    lineup: { best: thisWeek.map((x) => ({ slot: x.slot, name: x.player ? x.player.name : null, pos: x.player ? x.player.pos : null, weekly: x.player ? round2(weekly(x.player)) : 0, bye: x.player ? onBye(x.player) : false })), changes: lineupChanges },
     pickups: pickups.map((m) => Object.assign({}, m, { gain: round2(m.gain) })),
     trades: trades.map((m) => Object.assign({}, m, { gain: round2(m.gain) })),
     fpl, alerts, roster, topFree
@@ -237,4 +337,4 @@ function fplTransfers(me, pool, bank, ctx, v) {
   return out;
 }
 
-module.exports = { analyze, bestLineup, fplLineup, fplTransfers, gamesLeft, replacement, canPlay };
+module.exports = { analyze, bestLineup, fplLineup, fplTransfers, gamesLeft, replacement, canPlay, shrink };
