@@ -1,0 +1,3574 @@
+{
+ "sport": "nfl",
+ "fetched_at": "2026-10-17T21:30:00Z",
+ "through": "Week 5 (last fully completed week; Week 6 games begin Sunday Oct 18, only the Thursday game has been played and is excluded). Injury news through Sat Oct 17 2026 4:45pm EDT.",
+ "scoring": "PPR (FantasyPros stats pages, scoring=PPR). K and DST use FantasyPros scoring for those positions.",
+ "notes": [
+  "season = total PPR points / games played in weeks 1-5 (summed from FantasyPros per-week stats pages, week=1..5); recent = mean of the last up to 4 games the player appeared in (weeks 1-5), so bye weeks and missed games are skipped.",
+  "Players chosen by total PPR points in weeks 1-5, capped per position: QB 36, RB 75, WR 100, TE 36, K 32, DST 32.",
+  "health comes only from the latest headline in FantasyPros injury-news (pages 1-8 of /nfl/injury-news.php, ~Oct 16 12am to Oct 17 4:45pm EDT; deeper pages repeat). Players with no headline in that window default to healthy, which means unknown, not confirmed healthy.",
+  "role is \"steady\" for all players: no usage/snap data was pulled, so rising/rotation/fringe was not assigned.",
+  "Team is the team shown on FantasyPros for the latest week the player appeared."
+ ],
+ "sources": [
+  "https://www.fantasypros.com/nfl/stats/{qb,rb,wr,te,k,dst}.php?scoring=PPR&range=week&week=1..6",
+  "https://www.fantasypros.com/nfl/injury-news.php?page=1..8"
+ ],
+ "players": [
+  {
+   "name": "Josh Allen",
+   "team": "BUF",
+   "pos": "QB",
+   "season": 29.4,
+   "recent": 27.82,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Brock Purdy",
+   "team": "SF",
+   "pos": "QB",
+   "season": 23.74,
+   "recent": 24.15,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Jared Goff",
+   "team": "DET",
+   "pos": "QB",
+   "season": 23.0,
+   "recent": 24.65,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Joe Burrow",
+   "team": "CIN",
+   "pos": "QB",
+   "season": 20.86,
+   "recent": 22.27,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Dak Prescott",
+   "team": "DAL",
+   "pos": "QB",
+   "season": 19.36,
+   "recent": 20.35,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Kirk Cousins",
+   "team": "LV",
+   "pos": "QB",
+   "season": 19.3,
+   "recent": 20.18,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Matthew Stafford",
+   "team": "LAR",
+   "pos": "QB",
+   "season": 19.0,
+   "recent": 22.48,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Drake Maye",
+   "team": "NE",
+   "pos": "QB",
+   "season": 18.86,
+   "recent": 20.38,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Jordan Love",
+   "team": "GB",
+   "pos": "QB",
+   "season": 18.64,
+   "recent": 18.18,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Bryce Young",
+   "team": "CAR",
+   "pos": "QB",
+   "season": 23.15,
+   "recent": 23.15,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Tyler Shough",
+   "team": "NO",
+   "pos": "QB",
+   "season": 18.02,
+   "recent": 16.23,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Trevor Lawrence",
+   "team": "JAC",
+   "pos": "QB",
+   "season": 17.98,
+   "recent": 15.95,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Jacoby Brissett",
+   "team": "ARI",
+   "pos": "QB",
+   "season": 17.86,
+   "recent": 18.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "C.J. Stroud",
+   "team": "HOU",
+   "pos": "QB",
+   "season": 17.84,
+   "recent": 18.18,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Aaron Rodgers",
+   "team": "PIT",
+   "pos": "QB",
+   "season": 17.44,
+   "recent": 18.68,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Patrick Mahomes II",
+   "team": "KC",
+   "pos": "QB",
+   "season": 21.4,
+   "recent": 21.4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Jalen Hurts",
+   "team": "PHI",
+   "pos": "QB",
+   "season": 16.6,
+   "recent": 14.57,
+   "health": "short",
+   "role": "steady",
+   "news": "Jalen Hurts (blood clot) placed on IR (Sat, Oct 17th 4:31pm EDT)",
+   "flags": [
+    "health=short inferred from latest FantasyPros injury headline: \"Jalen Hurts (blood clot) placed on IR\""
+   ]
+  },
+  {
+   "name": "Deshaun Watson",
+   "team": "CLE",
+   "pos": "QB",
+   "season": 16.22,
+   "recent": 16.52,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Lamar Jackson",
+   "team": "BAL",
+   "pos": "QB",
+   "season": 20.02,
+   "recent": 20.02,
+   "health": "short",
+   "role": "steady",
+   "news": "Lamar Jackson (ankle) ruled out for Week 6 (Fri, Oct 16th 1:25pm EDT)",
+   "flags": [
+    "health=short inferred from latest FantasyPros injury headline: \"Lamar Jackson (ankle) ruled out for Week 6\""
+   ]
+  },
+  {
+   "name": "Geno Smith",
+   "team": "NYJ",
+   "pos": "QB",
+   "season": 13.94,
+   "recent": 15.1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Bo Nix",
+   "team": "DEN",
+   "pos": "QB",
+   "season": 13.62,
+   "recent": 15.43,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Cam Ward",
+   "team": "TEN",
+   "pos": "QB",
+   "season": 12.94,
+   "recent": 13.25,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Jayden Daniels",
+   "team": "WAS",
+   "pos": "QB",
+   "season": 21.57,
+   "recent": 21.57,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = average of only 3 game(s) played in weeks 1-5"
+   ]
+  },
+  {
+   "name": "Malik Willis",
+   "team": "MIA",
+   "pos": "QB",
+   "season": 12.92,
+   "recent": 11.72,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Justin Herbert",
+   "team": "LAC",
+   "pos": "QB",
+   "season": 12.14,
+   "recent": 11.6,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Jameis Winston",
+   "team": "NYG",
+   "pos": "QB",
+   "season": 13.82,
+   "recent": 13.82,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Sam Darnold",
+   "team": "SEA",
+   "pos": "QB",
+   "season": 13.7,
+   "recent": 13.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Daniel Jones",
+   "team": "IND",
+   "pos": "QB",
+   "season": 10.26,
+   "recent": 10.32,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Caleb Williams",
+   "team": "CHI",
+   "pos": "QB",
+   "season": 23.0,
+   "recent": 23.0,
+   "health": "minor",
+   "role": "steady",
+   "news": "Caleb Williams (hamstring) questionable to play Sunday (Fri, Oct 16th 3:08pm EDT)",
+   "flags": [
+    "recent = average of only 2 game(s) played in weeks 1-5",
+    "health=minor inferred from latest FantasyPros injury headline: \"Caleb Williams (hamstring) questionable to play Sunday\""
+   ]
+  },
+  {
+   "name": "Michael Penix Jr.",
+   "team": "ATL",
+   "pos": "QB",
+   "season": 14.03,
+   "recent": 14.03,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Michael Penix Jr. (ribs) off injury report, will play Sunday (Fri, Oct 16th 1:18pm EDT)",
+   "flags": [
+    "recent = average of only 3 game(s) played in weeks 1-5",
+    "health=healthy inferred from latest FantasyPros injury headline: \"Michael Penix Jr. (ribs) off injury report, will play Sunday\""
+   ]
+  },
+  {
+   "name": "Kyler Murray",
+   "team": "MIN",
+   "pos": "QB",
+   "season": 10.45,
+   "recent": 10.45,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Baker Mayfield",
+   "team": "TB",
+   "pos": "QB",
+   "season": 12.37,
+   "recent": 12.37,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Baker Mayfield (thumb) uncertain for Week 7 (Fri, Oct 16th 1:07pm EDT)",
+   "flags": [
+    "recent = average of only 3 game(s) played in weeks 1-5",
+    "injury headline found but status not classified; health left as healthy default"
+   ]
+  },
+  {
+   "name": "Marcus Mariota",
+   "team": "WAS",
+   "pos": "QB",
+   "season": 11.47,
+   "recent": 11.47,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = average of only 3 game(s) played in weeks 1-5"
+   ]
+  },
+  {
+   "name": "Drew Lock",
+   "team": "SEA",
+   "pos": "QB",
+   "season": 17.1,
+   "recent": 17.1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = average of only 2 game(s) played in weeks 1-5"
+   ]
+  },
+  {
+   "name": "Tyler Huntley",
+   "team": "BAL",
+   "pos": "QB",
+   "season": 9.37,
+   "recent": 9.37,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = average of only 3 game(s) played in weeks 1-5"
+   ]
+  },
+  {
+   "name": "Jaxson Dart",
+   "team": "NYG",
+   "pos": "QB",
+   "season": 13.7,
+   "recent": 13.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = average of only 2 game(s) played in weeks 1-5"
+   ]
+  },
+  {
+   "name": "Jahmyr Gibbs",
+   "team": "DET",
+   "pos": "RB",
+   "season": 30.74,
+   "recent": 30.02,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Bijan Robinson",
+   "team": "ATL",
+   "pos": "RB",
+   "season": 24.24,
+   "recent": 22.47,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Derrick Henry",
+   "team": "BAL",
+   "pos": "RB",
+   "season": 22.36,
+   "recent": 19.12,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Kenneth Walker III",
+   "team": "KC",
+   "pos": "RB",
+   "season": 27.52,
+   "recent": 27.52,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Kyren Williams",
+   "team": "LAR",
+   "pos": "RB",
+   "season": 21.86,
+   "recent": 23.45,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Jonathan Taylor",
+   "team": "IND",
+   "pos": "RB",
+   "season": 19.48,
+   "recent": 18.07,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Javonte Williams",
+   "team": "DAL",
+   "pos": "RB",
+   "season": 19.2,
+   "recent": 17.95,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Jaylen Warren",
+   "team": "PIT",
+   "pos": "RB",
+   "season": 18.6,
+   "recent": 20.68,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Christian McCaffrey",
+   "team": "SF",
+   "pos": "RB",
+   "season": 18.26,
+   "recent": 19.38,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "James Cook III",
+   "team": "BUF",
+   "pos": "RB",
+   "season": 17.86,
+   "recent": 19.85,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Ashton Jeanty",
+   "team": "LV",
+   "pos": "RB",
+   "season": 16.92,
+   "recent": 12.98,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "D'Andre Swift",
+   "team": "CHI",
+   "pos": "RB",
+   "season": 16.16,
+   "recent": 12.1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Chuba Hubbard",
+   "team": "CAR",
+   "pos": "RB",
+   "season": 19.75,
+   "recent": 19.75,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Bucky Irving",
+   "team": "TB",
+   "pos": "RB",
+   "season": 15.74,
+   "recent": 14.6,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Aaron Jones Sr.",
+   "team": "MIN",
+   "pos": "RB",
+   "season": 14.04,
+   "recent": 15.05,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Chase Brown",
+   "team": "CIN",
+   "pos": "RB",
+   "season": 13.0,
+   "recent": 11.55,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Bhayshul Tuten",
+   "team": "JAC",
+   "pos": "RB",
+   "season": 12.74,
+   "recent": 13.47,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Rhamondre Stevenson",
+   "team": "NE",
+   "pos": "RB",
+   "season": 12.16,
+   "recent": 11.57,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Kyle Monangai",
+   "team": "CHI",
+   "pos": "RB",
+   "season": 14.82,
+   "recent": 14.82,
+   "health": "short",
+   "role": "steady",
+   "news": "Kyle Monangai (thumb/toe) officially out for Week 6 (Fri, Oct 16th 3:10pm EDT)",
+   "flags": [
+    "health=short inferred from latest FantasyPros injury headline: \"Kyle Monangai (thumb/toe) officially out for Week 6\""
+   ]
+  },
+  {
+   "name": "Quinshon Judkins",
+   "team": "CLE",
+   "pos": "RB",
+   "season": 11.26,
+   "recent": 12.33,
+   "health": "minor",
+   "role": "steady",
+   "news": "Quinshon Judkins (ankle) listed questionable Sunday (Fri, Oct 16th 1:36pm EDT)",
+   "flags": [
+    "health=minor inferred from latest FantasyPros injury headline: \"Quinshon Judkins (ankle) listed questionable Sunday\""
+   ]
+  },
+  {
+   "name": "Cam Skattebo",
+   "team": "NYG",
+   "pos": "RB",
+   "season": 10.26,
+   "recent": 9.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Jeremiyah Love",
+   "team": "ARI",
+   "pos": "RB",
+   "season": 10.22,
+   "recent": 9.53,
+   "health": "short",
+   "role": "steady",
+   "news": "Jeremiyah Love (ankle) ruled out for Week 6 (Fri, Oct 16th 1:36pm EDT)",
+   "flags": [
+    "health=short inferred from latest FantasyPros injury headline: \"Jeremiyah Love (ankle) ruled out for Week 6\""
+   ]
+  },
+  {
+   "name": "Emanuel Wilson",
+   "team": "SEA",
+   "pos": "RB",
+   "season": 10.22,
+   "recent": 12.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Brian Robinson Jr.",
+   "team": "ATL",
+   "pos": "RB",
+   "season": 10.02,
+   "recent": 11.75,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Omarion Hampton",
+   "team": "LAC",
+   "pos": "RB",
+   "season": 9.92,
+   "recent": 10.32,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Ollie Gordon II",
+   "team": "MIA",
+   "pos": "RB",
+   "season": 9.6,
+   "recent": 12.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "David Montgomery",
+   "team": "HOU",
+   "pos": "RB",
+   "season": 9.1,
+   "recent": 4.15,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Jacory Croskey-Merritt",
+   "team": "WAS",
+   "pos": "RB",
+   "season": 8.98,
+   "recent": 8.07,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Jacory Croskey-Merritt (groin) not at practice Friday (Fri, Oct 16th 2:31pm EDT)",
+   "flags": [
+    "injury headline found but status not classified; health left as healthy default"
+   ]
+  },
+  {
+   "name": "Braelon Allen",
+   "team": "NYJ",
+   "pos": "RB",
+   "season": 8.9,
+   "recent": 10.12,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Tony Pollard",
+   "team": "TEN",
+   "pos": "RB",
+   "season": 8.74,
+   "recent": 9.82,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Woody Marks",
+   "team": "HOU",
+   "pos": "RB",
+   "season": 8.66,
+   "recent": 9.57,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "MarShawn Lloyd",
+   "team": "GB",
+   "pos": "RB",
+   "season": 8.54,
+   "recent": 9.75,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Breece Hall",
+   "team": "NYJ",
+   "pos": "RB",
+   "season": 14.17,
+   "recent": 14.17,
+   "health": "short",
+   "role": "steady",
+   "news": "Breece Hall (quad) officially ruled out for Week 6 (Fri, Oct 16th 10:57am EDT)",
+   "flags": [
+    "recent = average of only 3 game(s) played in weeks 1-5",
+    "health=short inferred from latest FantasyPros injury headline: \"Breece Hall (quad) officially ruled out for Week 6\""
+   ]
+  },
+  {
+   "name": "RJ Harvey",
+   "team": "DEN",
+   "pos": "RB",
+   "season": 9.7,
+   "recent": 9.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Blake Corum",
+   "team": "LAR",
+   "pos": "RB",
+   "season": 7.68,
+   "recent": 8.25,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Alvin Kamara",
+   "team": "NO",
+   "pos": "RB",
+   "season": 9.43,
+   "recent": 9.43,
+   "health": "minor",
+   "role": "steady",
+   "news": "Alvin Kamara (back) listed questionable Sunday (Fri, Oct 16th 2:29pm EDT)",
+   "flags": [
+    "health=minor inferred from latest FantasyPros injury headline: \"Alvin Kamara (back) listed questionable Sunday\""
+   ]
+  },
+  {
+   "name": "Keaton Mitchell",
+   "team": "LAC",
+   "pos": "RB",
+   "season": 7.34,
+   "recent": 8.95,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "J.K. Dobbins",
+   "team": "DEN",
+   "pos": "RB",
+   "season": 7.22,
+   "recent": 8.12,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Tyler Allgeier",
+   "team": "ARI",
+   "pos": "RB",
+   "season": 6.86,
+   "recent": 6.33,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Rachaad White",
+   "team": "WAS",
+   "pos": "RB",
+   "season": 8.28,
+   "recent": 8.28,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Rachaad White (shoulder) in non-contact jersey in practice (Fri, Oct 16th 2:34pm EDT)",
+   "flags": [
+    "injury headline found but status not classified; health left as healthy default"
+   ]
+  },
+  {
+   "name": "Travis Etienne Jr.",
+   "team": "NO",
+   "pos": "RB",
+   "season": 10.3,
+   "recent": 10.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = average of only 3 game(s) played in weeks 1-5"
+   ]
+  },
+  {
+   "name": "Samaje Perine",
+   "team": "CIN",
+   "pos": "RB",
+   "season": 6.02,
+   "recent": 5.53,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Kimani Vidal",
+   "team": "LAC",
+   "pos": "RB",
+   "season": 5.44,
+   "recent": 6.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Kenny Gainwell",
+   "team": "TB",
+   "pos": "RB",
+   "season": 5.36,
+   "recent": 6.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "TreVeyon Henderson",
+   "team": "NE",
+   "pos": "RB",
+   "season": 6.62,
+   "recent": 6.62,
+   "health": "minor",
+   "role": "steady",
+   "news": "TreVeyon Henderson (ankle) questionable for Sunday (Fri, Oct 16th 3:39pm EDT)",
+   "flags": [
+    "health=minor inferred from latest FantasyPros injury headline: \"TreVeyon Henderson (ankle) questionable for Sunday\""
+   ]
+  },
+  {
+   "name": "Tyjae Spears",
+   "team": "TEN",
+   "pos": "RB",
+   "season": 5.06,
+   "recent": 5.23,
+   "health": "minor",
+   "role": "steady",
+   "news": "Tyjae Spears (knee) questionable for Sunday (Fri, Oct 16th 4:40pm EDT)",
+   "flags": [
+    "health=minor inferred from latest FantasyPros injury headline: \"Tyjae Spears (knee) questionable for Sunday\""
+   ]
+  },
+  {
+   "name": "Justice Hill",
+   "team": "BAL",
+   "pos": "RB",
+   "season": 5.04,
+   "recent": 5.35,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Chris Rodriguez Jr.",
+   "team": "JAC",
+   "pos": "RB",
+   "season": 4.98,
+   "recent": 5.65,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "De'Von Achane",
+   "team": "MIA",
+   "pos": "RB",
+   "season": 8.2,
+   "recent": 8.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = average of only 3 game(s) played in weeks 1-5"
+   ]
+  },
+  {
+   "name": "George Holani",
+   "team": "SEA",
+   "pos": "RB",
+   "season": 4.86,
+   "recent": 5.35,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Kendre Miller",
+   "team": "NO",
+   "pos": "RB",
+   "season": 5.95,
+   "recent": 5.95,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Ty Johnson",
+   "team": "BUF",
+   "pos": "RB",
+   "season": 7.8,
+   "recent": 7.8,
+   "health": "minor",
+   "role": "steady",
+   "news": "Ty Johnson (hamstring) limited participant Thursday (Fri, Oct 16th 12:33am EDT)",
+   "flags": [
+    "recent = average of only 3 game(s) played in weeks 1-5",
+    "health=minor inferred from latest FantasyPros injury headline: \"Ty Johnson (hamstring) limited participant Thursday\""
+   ]
+  },
+  {
+   "name": "Saquon Barkley",
+   "team": "PHI",
+   "pos": "RB",
+   "season": 5.75,
+   "recent": 5.75,
+   "health": "short",
+   "role": "steady",
+   "news": "Saquon Barkley (hamstring) ruled out Sunday (Fri, Oct 16th 4:10pm EDT)",
+   "flags": [
+    "health=short inferred from latest FantasyPros injury headline: \"Saquon Barkley (hamstring) ruled out Sunday\""
+   ]
+  },
+  {
+   "name": "Raheim Sanders",
+   "team": "CLE",
+   "pos": "RB",
+   "season": 4.54,
+   "recent": 4.28,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Mike Washington Jr.",
+   "team": "LV",
+   "pos": "RB",
+   "season": 4.18,
+   "recent": 4.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Will Shipley",
+   "team": "PHI",
+   "pos": "RB",
+   "season": 3.96,
+   "recent": 4.4,
+   "health": "short",
+   "role": "steady",
+   "news": "Will Shipley (foot) placed on IR (Fri, Oct 16th 4:06pm EDT)",
+   "flags": [
+    "health=short inferred from latest FantasyPros injury headline: \"Will Shipley (foot) placed on IR\""
+   ]
+  },
+  {
+   "name": "Emmett Johnson",
+   "team": "KC",
+   "pos": "RB",
+   "season": 4.5,
+   "recent": 4.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Tank Bigsby",
+   "team": "PHI",
+   "pos": "RB",
+   "season": 4.28,
+   "recent": 4.28,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Tyler Badie",
+   "team": "DEN",
+   "pos": "RB",
+   "season": 4.08,
+   "recent": 4.08,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Kyle Juszczyk",
+   "team": "SF",
+   "pos": "RB",
+   "season": 3.88,
+   "recent": 3.88,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Kaelon Black",
+   "team": "SF",
+   "pos": "RB",
+   "season": 3.02,
+   "recent": 1.77,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Jonah Coleman",
+   "team": "DEN",
+   "pos": "RB",
+   "season": 7.4,
+   "recent": 7.4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = average of only 2 game(s) played in weeks 1-5"
+   ]
+  },
+  {
+   "name": "Devin Singletary",
+   "team": "NYG",
+   "pos": "RB",
+   "season": 7.35,
+   "recent": 7.35,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = average of only 2 game(s) played in weeks 1-5"
+   ]
+  },
+  {
+   "name": "Sione Vaki",
+   "team": "DET",
+   "pos": "RB",
+   "season": 2.86,
+   "recent": 2.88,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Jadarian Price",
+   "team": "SEA",
+   "pos": "RB",
+   "season": 4.67,
+   "recent": 4.67,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = average of only 3 game(s) played in weeks 1-5"
+   ]
+  },
+  {
+   "name": "Chris Brooks",
+   "team": "GB",
+   "pos": "RB",
+   "season": 3.1,
+   "recent": 3.1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Roschon Johnson",
+   "team": "CHI",
+   "pos": "RB",
+   "season": 2.46,
+   "recent": 3.08,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Jordan Mason",
+   "team": "MIN",
+   "pos": "RB",
+   "season": 11.9,
+   "recent": 11.9,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = average of only 1 game(s) played in weeks 1-5"
+   ]
+  },
+  {
+   "name": "Najee Harris",
+   "team": "NYG",
+   "pos": "RB",
+   "season": 2.8,
+   "recent": 2.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Kaleb Johnson",
+   "team": "GB",
+   "pos": "RB",
+   "season": 2.12,
+   "recent": 2.65,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Rico Dowdle",
+   "team": "PIT",
+   "pos": "RB",
+   "season": 5.25,
+   "recent": 5.25,
+   "health": "minor",
+   "role": "steady",
+   "news": "Rico Dowdle (toe) officially questionable for Sunday (Fri, Oct 16th 3:53pm EDT)",
+   "flags": [
+    "recent = average of only 2 game(s) played in weeks 1-5",
+    "health=minor inferred from latest FantasyPros injury headline: \"Rico Dowdle (toe) officially questionable for Sunday\""
+   ]
+  },
+  {
+   "name": "Seth McGowan",
+   "team": "IND",
+   "pos": "RB",
+   "season": 2.02,
+   "recent": 2.27,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Corey Kiner",
+   "team": "NE",
+   "pos": "RB",
+   "season": 1.94,
+   "recent": 2.15,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Dylan Laube",
+   "team": "LV",
+   "pos": "RB",
+   "season": 1.9,
+   "recent": 2.38,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Jonathon Brooks",
+   "team": "CAR",
+   "pos": "RB",
+   "season": 4.65,
+   "recent": 4.65,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = average of only 2 game(s) played in weeks 1-5"
+   ]
+  },
+  {
+   "name": "Jaxon Smith-Njigba",
+   "team": "SEA",
+   "pos": "WR",
+   "season": 27.9,
+   "recent": 28.32,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "CeeDee Lamb",
+   "team": "DAL",
+   "pos": "WR",
+   "season": 23.02,
+   "recent": 24.92,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Christian Watson",
+   "team": "GB",
+   "pos": "WR",
+   "season": 21.88,
+   "recent": 19.18,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Amon-Ra St. Brown",
+   "team": "DET",
+   "pos": "WR",
+   "season": 20.84,
+   "recent": 18.88,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Chris Olave",
+   "team": "NO",
+   "pos": "WR",
+   "season": 19.74,
+   "recent": 17.62,
+   "health": "minor",
+   "role": "steady",
+   "news": "Chris Olave (illness) listed questionable Sunday (Fri, Oct 16th 2:29pm EDT)",
+   "flags": [
+    "health=minor inferred from latest FantasyPros injury headline: \"Chris Olave (illness) listed questionable Sunday\""
+   ]
+  },
+  {
+   "name": "Davante Adams",
+   "team": "LAR",
+   "pos": "WR",
+   "season": 19.02,
+   "recent": 22.38,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Garrett Wilson",
+   "team": "NYJ",
+   "pos": "WR",
+   "season": 17.28,
+   "recent": 18.12,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Zay Flowers",
+   "team": "BAL",
+   "pos": "WR",
+   "season": 20.45,
+   "recent": 20.45,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Zay Flowers (toe) good to go for Sunday (Fri, Oct 16th 4:46pm EDT)",
+   "flags": [
+    "health=healthy inferred from latest FantasyPros injury headline: \"Zay Flowers (toe) good to go for Sunday\""
+   ]
+  },
+  {
+   "name": "Parker Washington",
+   "team": "JAC",
+   "pos": "WR",
+   "season": 16.3,
+   "recent": 15.55,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Ja'Marr Chase",
+   "team": "CIN",
+   "pos": "WR",
+   "season": 15.98,
+   "recent": 19.18,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Matthew Golden",
+   "team": "GB",
+   "pos": "WR",
+   "season": 15.66,
+   "recent": 15.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Puka Nacua",
+   "team": "LAR",
+   "pos": "WR",
+   "season": 25.93,
+   "recent": 25.93,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = average of only 3 game(s) played in weeks 1-5"
+   ]
+  },
+  {
+   "name": "Mike Evans",
+   "team": "SF",
+   "pos": "WR",
+   "season": 15.32,
+   "recent": 14.93,
+   "health": "long",
+   "role": "steady",
+   "news": "Mike Evans (ribs/Achilles) misses practice Friday (Sat, Oct 17th 1:10am EDT)",
+   "flags": [
+    "health=long inferred from latest FantasyPros injury headline: \"Mike Evans (ribs/Achilles) misses practice Friday\""
+   ]
+  },
+  {
+   "name": "Drake London",
+   "team": "ATL",
+   "pos": "WR",
+   "season": 15.24,
+   "recent": 17.68,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Tee Higgins",
+   "team": "CIN",
+   "pos": "WR",
+   "season": 15.06,
+   "recent": 16.6,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Tetairoa McMillan",
+   "team": "CAR",
+   "pos": "WR",
+   "season": 18.62,
+   "recent": 18.62,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Malik Nabers",
+   "team": "NYG",
+   "pos": "WR",
+   "season": 14.78,
+   "recent": 15.25,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Denzel Boston",
+   "team": "CLE",
+   "pos": "WR",
+   "season": 13.8,
+   "recent": 13.78,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Denzel Boston (foot) good to go for Sunday (Fri, Oct 16th 5:07pm EDT)",
+   "flags": [
+    "health=healthy inferred from latest FantasyPros injury headline: \"Denzel Boston (foot) good to go for Sunday\""
+   ]
+  },
+  {
+   "name": "George Pickens",
+   "team": "DAL",
+   "pos": "WR",
+   "season": 13.7,
+   "recent": 15.68,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Michael Wilson",
+   "team": "ARI",
+   "pos": "WR",
+   "season": 12.82,
+   "recent": 13.38,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Justin Jefferson",
+   "team": "MIN",
+   "pos": "WR",
+   "season": 12.74,
+   "recent": 8.12,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Nico Collins",
+   "team": "HOU",
+   "pos": "WR",
+   "season": 20.87,
+   "recent": 20.87,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = average of only 3 game(s) played in weeks 1-5"
+   ]
+  },
+  {
+   "name": "Devaughn Vele",
+   "team": "NO",
+   "pos": "WR",
+   "season": 12.44,
+   "recent": 10.57,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Deebo Samuel Sr.",
+   "team": "SF",
+   "pos": "WR",
+   "season": 12.08,
+   "recent": 10.6,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Deebo Samuel Sr. (hamstring) misses practice Friday (Sat, Oct 17th 1:12am EDT)",
+   "flags": [
+    "injury headline found but status not classified; health left as healthy default"
+   ]
+  },
+  {
+   "name": "Jameson Williams",
+   "team": "DET",
+   "pos": "WR",
+   "season": 11.52,
+   "recent": 12.28,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Luther Burden III",
+   "team": "CHI",
+   "pos": "WR",
+   "season": 11.16,
+   "recent": 11.58,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Emeka Egbuka",
+   "team": "TB",
+   "pos": "WR",
+   "season": 10.66,
+   "recent": 10.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Stefon Diggs",
+   "team": "WAS",
+   "pos": "WR",
+   "season": 13.25,
+   "recent": 13.25,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Stefon Diggs (hamstring) seen at practice Friday (Fri, Oct 16th 1:08pm EDT)",
+   "flags": [
+    "injury headline found but status not classified; health left as healthy default"
+   ]
+  },
+  {
+   "name": "Kalif Raymond",
+   "team": "CHI",
+   "pos": "WR",
+   "season": 10.48,
+   "recent": 9.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Jalen Coker",
+   "team": "CAR",
+   "pos": "WR",
+   "season": 17.4,
+   "recent": 17.4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = average of only 3 game(s) played in weeks 1-5"
+   ]
+  },
+  {
+   "name": "Tre Tucker",
+   "team": "LV",
+   "pos": "WR",
+   "season": 10.36,
+   "recent": 11.78,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Wan'Dale Robinson",
+   "team": "TEN",
+   "pos": "WR",
+   "season": 10.34,
+   "recent": 10.72,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Malik Washington",
+   "team": "MIA",
+   "pos": "WR",
+   "season": 10.04,
+   "recent": 10.97,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Keon Coleman",
+   "team": "BUF",
+   "pos": "WR",
+   "season": 9.88,
+   "recent": 12.08,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Dontayvion Wicks",
+   "team": "PHI",
+   "pos": "WR",
+   "season": 9.8,
+   "recent": 8.43,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Dontayvion Wicks (hamstring) off injury report Sunday (Fri, Oct 16th 4:30pm EDT)",
+   "flags": [
+    "health=healthy inferred from latest FantasyPros injury headline: \"Dontayvion Wicks (hamstring) off injury report Sunday\""
+   ]
+  },
+  {
+   "name": "Jaylen Waddle",
+   "team": "DEN",
+   "pos": "WR",
+   "season": 9.74,
+   "recent": 11.88,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "DK Metcalf",
+   "team": "PIT",
+   "pos": "WR",
+   "season": 9.72,
+   "recent": 10.15,
+   "health": "healthy",
+   "role": "steady",
+   "news": "DK Metcalf (illness) off injury report Sunday (Sat, Oct 17th 12:40pm EDT)",
+   "flags": [
+    "health=healthy inferred from latest FantasyPros injury headline: \"DK Metcalf (illness) off injury report Sunday\""
+   ]
+  },
+  {
+   "name": "DeVonta Smith",
+   "team": "PHI",
+   "pos": "WR",
+   "season": 16.17,
+   "recent": 16.17,
+   "health": "healthy",
+   "role": "steady",
+   "news": "DeVonta Smith (hamstring/toe) off injury report Sunday (Fri, Oct 16th 4:11pm EDT)",
+   "flags": [
+    "recent = average of only 3 game(s) played in weeks 1-5",
+    "health=healthy inferred from latest FantasyPros injury headline: \"DeVonta Smith (hamstring/toe) off injury report Sunday\""
+   ]
+  },
+  {
+   "name": "Carnell Tate",
+   "team": "TEN",
+   "pos": "WR",
+   "season": 9.68,
+   "recent": 10.15,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Jakobi Meyers",
+   "team": "JAC",
+   "pos": "WR",
+   "season": 9.48,
+   "recent": 8.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Romeo Doubs",
+   "team": "NE",
+   "pos": "WR",
+   "season": 9.38,
+   "recent": 11.72,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Rashod Bateman",
+   "team": "BAL",
+   "pos": "WR",
+   "season": 9.06,
+   "recent": 11.32,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Rashod Bateman (shoulder) off injury report for Sunday (Fri, Oct 16th 4:45pm EDT)",
+   "flags": [
+    "health=healthy inferred from latest FantasyPros injury headline: \"Rashod Bateman (shoulder) off injury report for Sunday\""
+   ]
+  },
+  {
+   "name": "Josh Downs",
+   "team": "IND",
+   "pos": "WR",
+   "season": 8.98,
+   "recent": 9.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Josh Downs (hamstring) good to go for Sunday (Fri, Oct 16th 4:32pm EDT)",
+   "flags": [
+    "health=healthy inferred from latest FantasyPros injury headline: \"Josh Downs (hamstring) good to go for Sunday\""
+   ]
+  },
+  {
+   "name": "Tyquan Thornton",
+   "team": "KC",
+   "pos": "WR",
+   "season": 11.22,
+   "recent": 11.22,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Roman Wilson",
+   "team": "PIT",
+   "pos": "WR",
+   "season": 8.96,
+   "recent": 9.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Jaylin Noel",
+   "team": "HOU",
+   "pos": "WR",
+   "season": 8.86,
+   "recent": 9.25,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Darius Cooper",
+   "team": "PHI",
+   "pos": "WR",
+   "season": 8.8,
+   "recent": 11.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Rome Odunze",
+   "team": "CHI",
+   "pos": "WR",
+   "season": 8.46,
+   "recent": 8.78,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Terry McLaurin",
+   "team": "WAS",
+   "pos": "WR",
+   "season": 10.57,
+   "recent": 10.57,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Khalil Shakir",
+   "team": "BUF",
+   "pos": "WR",
+   "season": 8.32,
+   "recent": 8.15,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "DeMario Douglas",
+   "team": "NE",
+   "pos": "WR",
+   "season": 7.94,
+   "recent": 8.18,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Xavier Hutchinson",
+   "team": "HOU",
+   "pos": "WR",
+   "season": 7.9,
+   "recent": 8.32,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Chris Godwin Jr.",
+   "team": "TB",
+   "pos": "WR",
+   "season": 7.74,
+   "recent": 7.6,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Keenan Allen",
+   "team": "IND",
+   "pos": "WR",
+   "season": 9.62,
+   "recent": 9.62,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Rashee Rice",
+   "team": "KC",
+   "pos": "WR",
+   "season": 9.5,
+   "recent": 9.5,
+   "health": "short",
+   "role": "steady",
+   "news": "Rashee Rice (hamstring) ruled out Sunday (Fri, Oct 16th 2:17pm EDT)",
+   "flags": [
+    "health=short inferred from latest FantasyPros injury headline: \"Rashee Rice (hamstring) ruled out Sunday\""
+   ]
+  },
+  {
+   "name": "Cody White",
+   "team": "LV",
+   "pos": "WR",
+   "season": 7.56,
+   "recent": 9.45,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Tre' Harris",
+   "team": "LAC",
+   "pos": "WR",
+   "season": 7.5,
+   "recent": 8.12,
+   "health": "short",
+   "role": "steady",
+   "news": "Tre' Harris (hamstring) ruled out for Sunday (Fri, Oct 16th 3:28pm EDT)",
+   "flags": [
+    "health=short inferred from latest FantasyPros injury headline: \"Tre' Harris (hamstring) ruled out for Sunday\""
+   ]
+  },
+  {
+   "name": "Antonio Williams",
+   "team": "WAS",
+   "pos": "WR",
+   "season": 7.3,
+   "recent": 5.03,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "DJ Moore",
+   "team": "BUF",
+   "pos": "WR",
+   "season": 9.07,
+   "recent": 9.07,
+   "health": "healthy",
+   "role": "steady",
+   "news": "DJ Moore (shoulder) in non-contact jersey Friday in practice (Fri, Oct 16th 4:32pm EDT)",
+   "flags": [
+    "injury headline found but status not classified; health left as healthy default"
+   ]
+  },
+  {
+   "name": "Ladd McConkey",
+   "team": "LAC",
+   "pos": "WR",
+   "season": 9.07,
+   "recent": 9.07,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Ladd McConkey (foot) good to go for Sunday (Fri, Oct 16th 3:22pm EDT)",
+   "flags": [
+    "health=healthy inferred from latest FantasyPros injury headline: \"Ladd McConkey (foot) good to go for Sunday\""
+   ]
+  },
+  {
+   "name": "Mack Hollins",
+   "team": "NE",
+   "pos": "WR",
+   "season": 8.97,
+   "recent": 8.97,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Ryan Flournoy",
+   "team": "DAL",
+   "pos": "WR",
+   "season": 7.08,
+   "recent": 7.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Kendrick Bourne",
+   "team": "ARI",
+   "pos": "WR",
+   "season": 6.96,
+   "recent": 4.83,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Isaiah Williams",
+   "team": "NYJ",
+   "pos": "WR",
+   "season": 6.76,
+   "recent": 8.03,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Xavier Worthy",
+   "team": "KC",
+   "pos": "WR",
+   "season": 8.32,
+   "recent": 8.32,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Jordan Addison",
+   "team": "MIN",
+   "pos": "WR",
+   "season": 8.3,
+   "recent": 8.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Pat Bryant",
+   "team": "DEN",
+   "pos": "WR",
+   "season": 7.97,
+   "recent": 7.97,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "KC Concepcion Jr.",
+   "team": "CLE",
+   "pos": "WR",
+   "season": 6.36,
+   "recent": 6.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "KC Concepcion Jr. (concussion) off injury report Sunday (Fri, Oct 16th 1:38pm EDT)",
+   "flags": [
+    "health=healthy inferred from latest FantasyPros injury headline: \"KC Concepcion Jr. (concussion) off injury report Sunday\""
+   ]
+  },
+  {
+   "name": "Josh Cameron",
+   "team": "JAC",
+   "pos": "WR",
+   "season": 6.34,
+   "recent": 5.42,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Malachi Fields",
+   "team": "NYG",
+   "pos": "WR",
+   "season": 6.12,
+   "recent": 6.52,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Cooper Kupp",
+   "team": "SEA",
+   "pos": "WR",
+   "season": 5.98,
+   "recent": 6.1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Jahan Dotson",
+   "team": "ATL",
+   "pos": "WR",
+   "season": 5.78,
+   "recent": 6.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Rashid Shaheed",
+   "team": "SEA",
+   "pos": "WR",
+   "season": 5.66,
+   "recent": 6.73,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Dohnte Meyers",
+   "team": "CIN",
+   "pos": "WR",
+   "season": 5.62,
+   "recent": 6.08,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Isaac TeSlaa",
+   "team": "DET",
+   "pos": "WR",
+   "season": 5.54,
+   "recent": 6.92,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Courtland Sutton",
+   "team": "DEN",
+   "pos": "WR",
+   "season": 5.48,
+   "recent": 6.08,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Germie Bernard",
+   "team": "PIT",
+   "pos": "WR",
+   "season": 5.48,
+   "recent": 6.85,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Kayshon Boutte",
+   "team": "HOU",
+   "pos": "WR",
+   "season": 5.46,
+   "recent": 6.05,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Ted Hurst III",
+   "team": "TB",
+   "pos": "WR",
+   "season": 5.36,
+   "recent": 5.05,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Laquon Treadwell",
+   "team": "IND",
+   "pos": "WR",
+   "season": 5.34,
+   "recent": 6.67,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Treylon Burks",
+   "team": "WAS",
+   "pos": "WR",
+   "season": 6.4,
+   "recent": 6.4,
+   "health": "minor",
+   "role": "steady",
+   "news": "Treylon Burks (shoulder) listed as limited Thursday (Fri, Oct 16th 12:16am EDT)",
+   "flags": [
+    "health=minor inferred from latest FantasyPros injury headline: \"Treylon Burks (shoulder) listed as limited Thursday\""
+   ]
+  },
+  {
+   "name": "Efton Chism III",
+   "team": "NE",
+   "pos": "WR",
+   "season": 6.4,
+   "recent": 6.4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Brian Thomas Jr.",
+   "team": "JAC",
+   "pos": "WR",
+   "season": 5.1,
+   "recent": 4.62,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Makai Lemon",
+   "team": "PHI",
+   "pos": "WR",
+   "season": 5.06,
+   "recent": 5.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Elic Ayomanor",
+   "team": "TEN",
+   "pos": "WR",
+   "season": 5.0,
+   "recent": 4.23,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Kyle Williams",
+   "team": "NE",
+   "pos": "WR",
+   "season": 4.9,
+   "recent": 6.12,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Konata Mumpfield",
+   "team": "LAR",
+   "pos": "WR",
+   "season": 4.64,
+   "recent": 5.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Joshua Palmer",
+   "team": "BUF",
+   "pos": "WR",
+   "season": 5.75,
+   "recent": 5.75,
+   "health": "minor",
+   "role": "steady",
+   "news": "Joshua Palmer (shoulder) still limited Thursday (Fri, Oct 16th 12:37am EDT)",
+   "flags": [
+    "health=minor inferred from latest FantasyPros injury headline: \"Joshua Palmer (shoulder) still limited Thursday\""
+   ]
+  },
+  {
+   "name": "Adonai Mitchell",
+   "team": "NYJ",
+   "pos": "WR",
+   "season": 10.65,
+   "recent": 10.65,
+   "health": "short",
+   "role": "steady",
+   "news": "Adonai Mitchell (finger) out for Week 6 (Fri, Oct 16th 10:54am EDT)",
+   "flags": [
+    "recent = average of only 2 game(s) played in weeks 1-5",
+    "health=short inferred from latest FantasyPros injury headline: \"Adonai Mitchell (finger) out for Week 6\""
+   ]
+  },
+  {
+   "name": "Darnell Mooney",
+   "team": "NYG",
+   "pos": "WR",
+   "season": 3.96,
+   "recent": 3.77,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Marvin Harrison Jr.",
+   "team": "HOU",
+   "pos": "WR",
+   "season": 4.88,
+   "recent": 4.88,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Tez Johnson",
+   "team": "TB",
+   "pos": "WR",
+   "season": 3.88,
+   "recent": 4.95,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Demarcus Robinson",
+   "team": "SF",
+   "pos": "WR",
+   "season": 9.7,
+   "recent": 9.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Demarcus Robinson (ankle) will not return before bye week (Fri, Oct 16th 2:08am EDT)",
+   "flags": [
+    "recent = average of only 2 game(s) played in weeks 1-5",
+    "health=healthy inferred from latest FantasyPros injury headline: \"Demarcus Robinson (ankle) will not return before bye week\""
+   ]
+  },
+  {
+   "name": "Caleb Douglas",
+   "team": "MIA",
+   "pos": "WR",
+   "season": 9.15,
+   "recent": 9.15,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = average of only 2 game(s) played in weeks 1-5"
+   ]
+  },
+  {
+   "name": "Ryan Miller",
+   "team": "MIA",
+   "pos": "WR",
+   "season": 3.64,
+   "recent": 4.55,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Quentin Johnston",
+   "team": "LAC",
+   "pos": "WR",
+   "season": 4.53,
+   "recent": 4.53,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Quentin Johnston (chest) off injury report for Sunday (Fri, Oct 16th 3:25pm EDT)",
+   "flags": [
+    "health=healthy inferred from latest FantasyPros injury headline: \"Quentin Johnston (chest) off injury report for Sunday\""
+   ]
+  },
+  {
+   "name": "Brycen Tremayne",
+   "team": "CAR",
+   "pos": "WR",
+   "season": 4.38,
+   "recent": 4.38,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Devontez Walker",
+   "team": "BAL",
+   "pos": "WR",
+   "season": 4.38,
+   "recent": 4.38,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Chris Bell",
+   "team": "MIA",
+   "pos": "WR",
+   "season": 3.36,
+   "recent": 3.32,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "John Metchie III",
+   "team": "CAR",
+   "pos": "WR",
+   "season": 5.53,
+   "recent": 5.53,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = average of only 3 game(s) played in weeks 1-5"
+   ]
+  },
+  {
+   "name": "Trey McBride",
+   "team": "ARI",
+   "pos": "TE",
+   "season": 18.16,
+   "recent": 16.57,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Isaiah Likely",
+   "team": "NYG",
+   "pos": "TE",
+   "season": 17.08,
+   "recent": 14.4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Sam LaPorta",
+   "team": "DET",
+   "pos": "TE",
+   "season": 15.32,
+   "recent": 16.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "George Kittle",
+   "team": "SF",
+   "pos": "TE",
+   "season": 14.36,
+   "recent": 17.15,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Brock Bowers",
+   "team": "LV",
+   "pos": "TE",
+   "season": 23.73,
+   "recent": 23.73,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Brock Bowers (knee) practices in full Thursday (Fri, Oct 16th 12:20am EDT)",
+   "flags": [
+    "recent = average of only 3 game(s) played in weeks 1-5",
+    "injury headline found but status not classified; health left as healthy default"
+   ]
+  },
+  {
+   "name": "Tyler Warren",
+   "team": "IND",
+   "pos": "TE",
+   "season": 13.98,
+   "recent": 14.9,
+   "health": "minor",
+   "role": "steady",
+   "news": "Tyler Warren (groin) now questionable for Sunday (Fri, Oct 16th 4:27pm EDT)",
+   "flags": [
+    "health=minor inferred from latest FantasyPros injury headline: \"Tyler Warren (groin) now questionable for Sunday\""
+   ]
+  },
+  {
+   "name": "Juwan Johnson",
+   "team": "NO",
+   "pos": "TE",
+   "season": 13.16,
+   "recent": 12.85,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Pat Freiermuth",
+   "team": "PIT",
+   "pos": "TE",
+   "season": 12.06,
+   "recent": 11.18,
+   "health": "minor",
+   "role": "steady",
+   "news": "Pat Freiermuth (calf) now questionable Sunday (Sat, Oct 17th 12:41pm EDT)",
+   "flags": [
+    "health=minor inferred from latest FantasyPros injury headline: \"Pat Freiermuth (calf) now questionable Sunday\""
+   ]
+  },
+  {
+   "name": "Travis Kelce",
+   "team": "KC",
+   "pos": "TE",
+   "season": 13.15,
+   "recent": 13.15,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Mike Gesicki",
+   "team": "CIN",
+   "pos": "TE",
+   "season": 10.38,
+   "recent": 8.28,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Harold Fannin Jr.",
+   "team": "CLE",
+   "pos": "TE",
+   "season": 10.34,
+   "recent": 11.9,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Brenton Strange",
+   "team": "JAC",
+   "pos": "TE",
+   "season": 10.1,
+   "recent": 10.05,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Dalton Kincaid",
+   "team": "BUF",
+   "pos": "TE",
+   "season": 9.94,
+   "recent": 7.92,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "T.J. Hockenson",
+   "team": "MIN",
+   "pos": "TE",
+   "season": 9.84,
+   "recent": 8.9,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Dalton Schultz",
+   "team": "HOU",
+   "pos": "TE",
+   "season": 9.68,
+   "recent": 10.22,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Tucker Kraft",
+   "team": "GB",
+   "pos": "TE",
+   "season": 9.54,
+   "recent": 9.55,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Tyler Higbee",
+   "team": "LAR",
+   "pos": "TE",
+   "season": 9.28,
+   "recent": 11.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Tyler Higbee off injury report Sunday (Fri, Oct 16th 5:07pm EDT)",
+   "flags": [
+    "health=healthy inferred from latest FantasyPros injury headline: \"Tyler Higbee off injury report Sunday\""
+   ]
+  },
+  {
+   "name": "Michael Mayer",
+   "team": "LV",
+   "pos": "TE",
+   "season": 8.82,
+   "recent": 8.72,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Mark Andrews",
+   "team": "BAL",
+   "pos": "TE",
+   "season": 8.74,
+   "recent": 8.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Jake Ferguson",
+   "team": "DAL",
+   "pos": "TE",
+   "season": 8.24,
+   "recent": 9.65,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Darren Waller",
+   "team": "CAR",
+   "pos": "TE",
+   "season": 9.95,
+   "recent": 9.95,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Kenyon Sadiq",
+   "team": "NYJ",
+   "pos": "TE",
+   "season": 7.78,
+   "recent": 6.88,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Kenyon Sadiq (concussion) looks good to go for Week 6 (Fri, Oct 16th 10:49am EDT)",
+   "flags": [
+    "health=healthy inferred from latest FantasyPros injury headline: \"Kenyon Sadiq (concussion) looks good to go for Week 6\""
+   ]
+  },
+  {
+   "name": "Hunter Henry",
+   "team": "NE",
+   "pos": "TE",
+   "season": 7.74,
+   "recent": 8.28,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Cade Otton",
+   "team": "TB",
+   "pos": "TE",
+   "season": 7.24,
+   "recent": 7.65,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Dallas Goedert",
+   "team": "PHI",
+   "pos": "TE",
+   "season": 11.63,
+   "recent": 11.63,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = average of only 3 game(s) played in weeks 1-5"
+   ]
+  },
+  {
+   "name": "Noah Fant",
+   "team": "NO",
+   "pos": "TE",
+   "season": 8.58,
+   "recent": 8.58,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "AJ Barner",
+   "team": "SEA",
+   "pos": "TE",
+   "season": 6.06,
+   "recent": 6.75,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Darnell Washington",
+   "team": "PIT",
+   "pos": "TE",
+   "season": 6.02,
+   "recent": 6.57,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Evan Engram",
+   "team": "DEN",
+   "pos": "TE",
+   "season": 5.62,
+   "recent": 3.45,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Greg Dulcich",
+   "team": "MIA",
+   "pos": "TE",
+   "season": 5.54,
+   "recent": 5.97,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Kyle Pitts Sr.",
+   "team": "ATL",
+   "pos": "TE",
+   "season": 5.38,
+   "recent": 6.72,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Eli Raridon",
+   "team": "NE",
+   "pos": "TE",
+   "season": 6.03,
+   "recent": 6.03,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Colston Loveland",
+   "team": "CHI",
+   "pos": "TE",
+   "season": 4.8,
+   "recent": 6.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Oronde Gadsden II",
+   "team": "LAC",
+   "pos": "TE",
+   "season": 4.76,
+   "recent": 4.65,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Elijah Higgins",
+   "team": "ARI",
+   "pos": "TE",
+   "season": 4.72,
+   "recent": 5.9,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Foster Moreau",
+   "team": "HOU",
+   "pos": "TE",
+   "season": 4.3,
+   "recent": 4.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Spencer Shrader",
+   "team": "IND",
+   "pos": "K",
+   "season": 15.0,
+   "recent": 17.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Will Reichard",
+   "team": "MIN",
+   "pos": "K",
+   "season": 13.6,
+   "recent": 15.25,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Evan McPherson",
+   "team": "CIN",
+   "pos": "K",
+   "season": 10.8,
+   "recent": 8.75,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Tyler Loop",
+   "team": "BAL",
+   "pos": "K",
+   "season": 10.8,
+   "recent": 10.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Ka'imi Fairbairn",
+   "team": "HOU",
+   "pos": "K",
+   "season": 10.8,
+   "recent": 11.25,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Matt Gay",
+   "team": "LV",
+   "pos": "K",
+   "season": 10.4,
+   "recent": 10.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Jason Myers",
+   "team": "SEA",
+   "pos": "K",
+   "season": 10.4,
+   "recent": 11.25,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Dominic Zvada",
+   "team": "NYG",
+   "pos": "K",
+   "season": 10.2,
+   "recent": 11.75,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Jake Bates",
+   "team": "DET",
+   "pos": "K",
+   "season": 9.8,
+   "recent": 10.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Cam Little",
+   "team": "JAC",
+   "pos": "K",
+   "season": 9.6,
+   "recent": 9.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Chase McLaughlin",
+   "team": "TB",
+   "pos": "K",
+   "season": 9.6,
+   "recent": 9.25,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Brandon Aubrey",
+   "team": "DAL",
+   "pos": "K",
+   "season": 9.2,
+   "recent": 11.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Tyler Bass",
+   "team": "BUF",
+   "pos": "K",
+   "season": 9.0,
+   "recent": 8.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Nick Folk",
+   "team": "ATL",
+   "pos": "K",
+   "season": 9.0,
+   "recent": 8.75,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Andre Szmyt",
+   "team": "CLE",
+   "pos": "K",
+   "season": 9.0,
+   "recent": 10.25,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Chris Boswell",
+   "team": "PIT",
+   "pos": "K",
+   "season": 8.8,
+   "recent": 8.75,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Chad Ryland",
+   "team": "ARI",
+   "pos": "K",
+   "season": 8.4,
+   "recent": 6.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Ryan Fitzgerald",
+   "team": "CAR",
+   "pos": "K",
+   "season": 10.5,
+   "recent": 10.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Drew Stevens",
+   "team": "WAS",
+   "pos": "K",
+   "season": 8.2,
+   "recent": 8.75,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Cairo Santos",
+   "team": "CHI",
+   "pos": "K",
+   "season": 7.8,
+   "recent": 6.75,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Jason Sanders",
+   "team": "NYJ",
+   "pos": "K",
+   "season": 7.6,
+   "recent": 5.75,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Eddy Pineiro",
+   "team": "SF",
+   "pos": "K",
+   "season": 7.4,
+   "recent": 6.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Harrison Butker",
+   "team": "KC",
+   "pos": "K",
+   "season": 9.0,
+   "recent": 9.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Trey Smack",
+   "team": "GB",
+   "pos": "K",
+   "season": 7.0,
+   "recent": 5.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Wil Lutz",
+   "team": "DEN",
+   "pos": "K",
+   "season": 7.0,
+   "recent": 7.75,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Andy Borregales",
+   "team": "NE",
+   "pos": "K",
+   "season": 6.8,
+   "recent": 7.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Cameron Dicker",
+   "team": "LAC",
+   "pos": "K",
+   "season": 6.4,
+   "recent": 7.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Harrison Mevis",
+   "team": "LAR",
+   "pos": "K",
+   "season": 6.4,
+   "recent": 7.75,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Jake Elliott",
+   "team": "PHI",
+   "pos": "K",
+   "season": 6.2,
+   "recent": 6.25,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Daniel Carlson",
+   "team": "NO",
+   "pos": "K",
+   "season": 5.8,
+   "recent": 5.75,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Riley Patterson",
+   "team": "MIA",
+   "pos": "K",
+   "season": 5.4,
+   "recent": 4.75,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Joey Slye",
+   "team": "TEN",
+   "pos": "K",
+   "season": 4.2,
+   "recent": 4.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Minnesota Vikings",
+   "team": "MIN",
+   "pos": "DST",
+   "season": 12.2,
+   "recent": 13.25,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Cincinnati Bengals",
+   "team": "CIN",
+   "pos": "DST",
+   "season": 9.0,
+   "recent": 6.75,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Seattle Seahawks",
+   "team": "SEA",
+   "pos": "DST",
+   "season": 8.8,
+   "recent": 7.75,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Jacksonville Jaguars",
+   "team": "JAC",
+   "pos": "DST",
+   "season": 8.2,
+   "recent": 7.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Denver Broncos",
+   "team": "DEN",
+   "pos": "DST",
+   "season": 7.8,
+   "recent": 9.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Pittsburgh Steelers",
+   "team": "PIT",
+   "pos": "DST",
+   "season": 7.6,
+   "recent": 5.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "San Francisco 49ers",
+   "team": "SF",
+   "pos": "DST",
+   "season": 7.6,
+   "recent": 7.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Las Vegas Raiders",
+   "team": "LV",
+   "pos": "DST",
+   "season": 7.4,
+   "recent": 6.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "New York Jets",
+   "team": "NYJ",
+   "pos": "DST",
+   "season": 7.4,
+   "recent": 7.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "New England Patriots",
+   "team": "NE",
+   "pos": "DST",
+   "season": 7.4,
+   "recent": 7.75,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "New York Giants",
+   "team": "NYG",
+   "pos": "DST",
+   "season": 6.8,
+   "recent": 7.75,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Houston Texans",
+   "team": "HOU",
+   "pos": "DST",
+   "season": 6.8,
+   "recent": 9.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Chicago Bears",
+   "team": "CHI",
+   "pos": "DST",
+   "season": 6.6,
+   "recent": 6.75,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Green Bay Packers",
+   "team": "GB",
+   "pos": "DST",
+   "season": 6.0,
+   "recent": 7.25,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Carolina Panthers",
+   "team": "CAR",
+   "pos": "DST",
+   "season": 7.5,
+   "recent": 7.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Cleveland Browns",
+   "team": "CLE",
+   "pos": "DST",
+   "season": 6.0,
+   "recent": 7.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Tampa Bay Buccaneers",
+   "team": "TB",
+   "pos": "DST",
+   "season": 5.6,
+   "recent": 4.75,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Atlanta Falcons",
+   "team": "ATL",
+   "pos": "DST",
+   "season": 5.4,
+   "recent": 5.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Los Angeles Chargers",
+   "team": "LAC",
+   "pos": "DST",
+   "season": 5.2,
+   "recent": 6.25,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Kansas City Chiefs",
+   "team": "KC",
+   "pos": "DST",
+   "season": 6.25,
+   "recent": 6.25,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Baltimore Ravens",
+   "team": "BAL",
+   "pos": "DST",
+   "season": 5.0,
+   "recent": 4.75,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Detroit Lions",
+   "team": "DET",
+   "pos": "DST",
+   "season": 4.8,
+   "recent": 3.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Washington Commanders",
+   "team": "WAS",
+   "pos": "DST",
+   "season": 4.6,
+   "recent": 5.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Los Angeles Rams",
+   "team": "LAR",
+   "pos": "DST",
+   "season": 4.4,
+   "recent": 5.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Buffalo Bills",
+   "team": "BUF",
+   "pos": "DST",
+   "season": 4.0,
+   "recent": 3.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "New Orleans Saints",
+   "team": "NO",
+   "pos": "DST",
+   "season": 4.0,
+   "recent": 4.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Arizona Cardinals",
+   "team": "ARI",
+   "pos": "DST",
+   "season": 3.6,
+   "recent": 2.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Tennessee Titans",
+   "team": "TEN",
+   "pos": "DST",
+   "season": 3.6,
+   "recent": 4.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Philadelphia Eagles",
+   "team": "PHI",
+   "pos": "DST",
+   "season": 3.2,
+   "recent": 3.25,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Indianapolis Colts",
+   "team": "IND",
+   "pos": "DST",
+   "season": 2.6,
+   "recent": 3.25,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Miami Dolphins",
+   "team": "MIA",
+   "pos": "DST",
+   "season": 1.6,
+   "recent": 1.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  },
+  {
+   "name": "Dallas Cowboys",
+   "team": "DAL",
+   "pos": "DST",
+   "season": 1.4,
+   "recent": 1.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": []
+  }
+ ]
+}
