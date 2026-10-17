@@ -43,6 +43,7 @@ async function chat(report, messages, { signal } = {}) {
     model: c.model,
     temperature: 0.4,
     max_tokens: Number(process.env.OMNIROUTE_MAX_TOKENS) || 4000,
+    ...(process.env.OMNIROUTE_REASONING_EFFORT ? { reasoning_effort: process.env.OMNIROUTE_REASONING_EFFORT } : {}),
     messages: [
       { role: 'system', content: system(report) },
       { role: 'user', content: 'League analysis JSON:\n' + JSON.stringify(brief(report)) },
