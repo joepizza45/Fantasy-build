@@ -11,8 +11,9 @@
   "Team is the team shown on FantasyPros for the latest week the player appeared."
  ],
  "sources": [
-  "https://www.fantasypros.com/nfl/stats/{qb,rb,wr,te,k,dst}.php?scoring=PPR&range=week&week=1..6",
-  "https://www.fantasypros.com/nfl/injury-news.php?page=1..8"
+  "https://www.fantasypros.com/nfl/stats/{qb,rb,wr,te,k,dst}.php?scoring=PPR&range=week&week=1..5",
+  "https://www.fantasypros.com/nfl/injury-news.php?page=1..8",
+  "Note: Week 6 stats pages were not used; stats cover Weeks 1-5 only (Thursday Week 6 game excluded)."
  ],
  "players": [
   {
@@ -197,11 +198,11 @@
    "pos": "QB",
    "season": 16.6,
    "recent": 14.57,
-   "health": "short",
+   "health": "long",
    "role": "steady",
    "news": "Jalen Hurts (blood clot) placed on IR (Sat, Oct 17th 4:31pm EDT)",
    "flags": [
-    "health=short inferred from latest FantasyPros injury headline: \"Jalen Hurts (blood clot) placed on IR\""
+    "health=long inferred from IR status (IR requires a minimum 4-game absence), per FantasyPros headline: \"Jalen Hurts (blood clot) placed on IR\""
    ]
   },
   {
@@ -374,12 +375,12 @@
    "pos": "QB",
    "season": 12.37,
    "recent": 12.37,
-   "health": "healthy",
+   "health": "minor",
    "role": "steady",
    "news": "Baker Mayfield (thumb) uncertain for Week 7 (Fri, Oct 16th 1:07pm EDT)",
    "flags": [
     "recent = average of only 3 game(s) played in weeks 1-5",
-    "injury headline found but status not classified; health left as healthy default"
+    "health=minor inferred from latest FantasyPros injury headline: \"Baker Mayfield (thumb) uncertain for Week 7\""
    ]
   },
   {
@@ -743,11 +744,11 @@
    "pos": "RB",
    "season": 8.98,
    "recent": 8.07,
-   "health": "healthy",
+   "health": "minor",
    "role": "steady",
    "news": "Jacory Croskey-Merritt (groin) not at practice Friday (Fri, Oct 16th 2:31pm EDT)",
    "flags": [
-    "injury headline found but status not classified; health left as healthy default"
+    "health=minor inferred from latest FantasyPros injury headline: \"Jacory Croskey-Merritt (groin) not at practice Friday\""
    ]
   },
   {
@@ -882,11 +883,11 @@
    "pos": "RB",
    "season": 8.28,
    "recent": 8.28,
-   "health": "healthy",
+   "health": "minor",
    "role": "steady",
    "news": "Rachaad White (shoulder) in non-contact jersey in practice (Fri, Oct 16th 2:34pm EDT)",
    "flags": [
-    "injury headline found but status not classified; health left as healthy default"
+    "health=minor inferred from latest FantasyPros injury headline: \"Rachaad White (shoulder) in non-contact jersey in practice\""
    ]
   },
   {
@@ -1073,11 +1074,11 @@
    "pos": "RB",
    "season": 3.96,
    "recent": 4.4,
-   "health": "short",
+   "health": "long",
    "role": "steady",
    "news": "Will Shipley (foot) placed on IR (Fri, Oct 16th 4:06pm EDT)",
    "flags": [
-    "health=short inferred from latest FantasyPros injury headline: \"Will Shipley (foot) placed on IR\""
+    "health=long inferred from IR status (IR requires a minimum 4-game absence), per FantasyPros headline: \"Will Shipley (foot) placed on IR\""
    ]
   },
   {
@@ -1446,11 +1447,11 @@
    "pos": "WR",
    "season": 15.32,
    "recent": 14.93,
-   "health": "long",
+   "health": "minor",
    "role": "steady",
    "news": "Mike Evans (ribs/Achilles) misses practice Friday (Sat, Oct 17th 1:10am EDT)",
    "flags": [
-    "health=long inferred from latest FantasyPros injury headline: \"Mike Evans (ribs/Achilles) misses practice Friday\""
+    "health=minor inferred from FantasyPros headline: \"Mike Evans (ribs/Achilles) misses practice Friday\" (missed Thu and Fri practice; no out/IR designation found, so not classed long)"
    ]
   },
   {
@@ -1573,11 +1574,11 @@
    "pos": "WR",
    "season": 12.08,
    "recent": 10.6,
-   "health": "healthy",
+   "health": "minor",
    "role": "steady",
    "news": "Deebo Samuel Sr. (hamstring) misses practice Friday (Sat, Oct 17th 1:12am EDT)",
    "flags": [
-    "injury headline found but status not classified; health left as healthy default"
+    "health=minor inferred from latest FantasyPros injury headline: \"Deebo Samuel Sr. (hamstring) misses practice Friday\""
    ]
   },
   {
@@ -1619,11 +1620,11 @@
    "pos": "WR",
    "season": 13.25,
    "recent": 13.25,
-   "health": "healthy",
+   "health": "minor",
    "role": "steady",
    "news": "Stefon Diggs (hamstring) seen at practice Friday (Fri, Oct 16th 1:08pm EDT)",
    "flags": [
-    "injury headline found but status not classified; health left as healthy default"
+    "health=minor inferred from latest FantasyPros injury headline: \"Stefon Diggs (hamstring) seen at practice Friday\""
    ]
   },
   {
@@ -1979,11 +1980,11 @@
    "pos": "WR",
    "season": 9.07,
    "recent": 9.07,
-   "health": "healthy",
+   "health": "minor",
    "role": "steady",
    "news": "DJ Moore (shoulder) in non-contact jersey Friday in practice (Fri, Oct 16th 4:32pm EDT)",
    "flags": [
-    "injury headline found but status not classified; health left as healthy default"
+    "health=minor inferred from latest FantasyPros injury headline: \"DJ Moore (shoulder) in non-contact jersey Friday in practice\""
    ]
   },
   {
@@ -2366,12 +2367,12 @@
    "pos": "WR",
    "season": 9.7,
    "recent": 9.7,
-   "health": "healthy",
+   "health": "short",
    "role": "steady",
    "news": "Demarcus Robinson (ankle) will not return before bye week (Fri, Oct 16th 2:08am EDT)",
    "flags": [
     "recent = average of only 2 game(s) played in weeks 1-5",
-    "health=healthy inferred from latest FantasyPros injury headline: \"Demarcus Robinson (ankle) will not return before bye week\""
+    "health=short inferred from latest FantasyPros injury headline: \"Demarcus Robinson (ankle) will not return before bye week\""
    ]
   },
   {
@@ -2512,7 +2513,7 @@
    "news": "Brock Bowers (knee) practices in full Thursday (Fri, Oct 16th 12:20am EDT)",
    "flags": [
     "recent = average of only 3 game(s) played in weeks 1-5",
-    "injury headline found but status not classified; health left as healthy default"
+    "health=healthy inferred from latest FantasyPros injury headline: \"Brock Bowers (knee) practices in full Thursday\""
    ]
   },
   {
