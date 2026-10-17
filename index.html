@@ -237,7 +237,7 @@ function pickupMoves(mine, pool, sportKey, ctx) {
     const r = compareWaiver(f, d, 'free', sportKey, ctx);
     if (r.edge > 0) pairs.push({ f, d, r });
   }));
-  pairs.sort((x, y) => y.r.edge - x.r.edge);
+  pairs.sort((x, y) => ((y.r.key !== 'close') - (x.r.key !== 'close')) || y.r.edge - x.r.edge);
   const usedF = new Set(), usedD = new Set(), out = [];
   for (const x of pairs) {
     if (usedF.has(x.f) || usedD.has(x.d)) continue;
@@ -321,20 +321,20 @@ function healthFrom(inj) {
 }
 function normGroup(g) {
   const t = String(g || '').toLowerCase();
-  if (/free|avail|wait|pool/.test(t)) return 'pool';
+  if (/free|avail|waiv|wait|pool/.test(t)) return 'pool';
   if (/other|their|opp|rival|partner/.test(t)) return 'theirs';
-  if (/mine|own|my|user/.test(t)) return 'mine';
+  if (/\bmine\b|\bown\b|\bmy\b|user/.test(t)) return 'mine';
   return null;
 }
 function toPlayer(sport, p) {
   const flags = []; let season = Number(p.season_avg);
-  if (p.season_avg === null || p.season_avg === undefined || !(season >= 0)) {
+  if (p.season_avg == null || p.season_avg === '' || !(season >= 0)) {
     const tot = Number(p.season_total), gp = Number(p.games_played);
     if (p.season_total != null && p.games_played != null && tot >= 0 && gp > 0) { season = tot / gp; flags.push('Season average worked out from ' + tot + ' points over ' + gp + ' games.'); }
     else { season = ''; flags.push('Season average not shown. Enter it.'); }
   }
   let recent = Number(p.recent_avg);
-  if (p.recent_avg == null || !(recent >= 0)) { recent = season; if (season !== '') flags.push('Recent average not shown. Using the season average.'); }
+  if (p.recent_avg == null || p.recent_avg === '' || !(recent >= 0)) { recent = season; if (season !== '') flags.push('Recent average not shown. Using the season average.'); }
   const pos = normPos(sport, p.position); if (!pos) flags.push('Position not shown. Pick one.');
   const hf = healthFrom(p.injury); if (hf.flag) flags.push(hf.flag);
   let group = normGroup(p.group); if (!group) { group = 'mine'; flags.push('Could not tell which list this player was on. Pick one.'); }
@@ -434,7 +434,7 @@ function fullRender() { renderChrome(); renderUpload(); renderMoves(); renderLis
 
 /* ---------- events ---------- */
 document.addEventListener('click', (e) => {
-  const t = e.target.closest('[data-sport],[data-act]'); if (!t) return;
+  const t = e.target.closest('button[data-sport],[data-act]'); if (!t) return;
   if (t.dataset.sport) { state.sport = t.dataset.sport; save(); fullRender(); return; }
   switch (t.dataset.act) {
     case 'read': readShots(); break;
