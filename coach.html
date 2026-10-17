@@ -26,7 +26,7 @@
   --fpl:#A98BFF; --nfl:#7FA9FF; --nba:#FF8F5C; --on-accent:#0D1220; color-scheme:dark}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;
   padding-block:20px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-body{--accent:var(--nfl)} body[data-sport="fpl"]{--accent:var(--fpl)} body[data-sport="nba"]{--accent:var(--nba)}
+body{--accent:var(--nfl)} body[data-sport="fpl"],body[data-sport="epl"]{--accent:var(--fpl)} body[data-sport="nba"]{--accent:var(--nba)}
 *{box-sizing:border-box} .wrap{max-width:1080px;width:100%;min-width:0;margin:0 auto;display:flex;flex-direction:column;gap:16px}
 h1,h2,h3,p{margin:0} button,select,input{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
@@ -124,7 +124,7 @@ function renderConnect() {
   document.body.dataset.sport = st.platform === 'fpl' ? 'fpl' : st.sport;
   const P = st.platform, h = [];
   h.push('<div class="form"><div class="seg" role="group" aria-label="App">' + Object.keys(PLATFORMS).map((k) => '<button data-plat="' + k + '" aria-pressed="' + (k === P) + '">' + PLATFORMS[k] + '</button>').join('') + '</div>');
-  if (P !== 'fpl') h.push('<div class="seg" role="group" aria-label="Sport">' + ['nfl', 'nba'].map((k) => '<button data-sport="' + k + '" aria-pressed="' + (k === st.sport) + '">' + k.toUpperCase() + '</button>').join('') + '</div>');
+  if (P !== 'fpl') h.push('<div class="seg" role="group" aria-label="Sport">' + (P === 'sleeper' ? ['nfl', 'nba', 'epl'] : ['nfl', 'nba']).map((k) => '<button data-sport="' + k + '" aria-pressed="' + (k === st.sport) + '">' + k.toUpperCase() + '</button>').join('') + '</div>');
   h.push('</div><div class="form">');
   if (P === 'sleeper') h.push(fld('username', 'Sleeper username', st.username, 'e.g. fantasyking'));
   if (P === 'fpl') h.push(fld('entryId', 'FPL team ID', st.entryId, 'Number in your Points page URL'));
@@ -151,7 +151,7 @@ const fld = (k, label, v, ph) => '<label class="fld"><span>' + label + '</span><
 
 $('connect').addEventListener('click', (e) => {
   const b = e.target.closest('button'); if (!b) return;
-  if (b.dataset.plat) { st.platform = b.dataset.plat; st.leagues = null; st.teams = null; st.leagueId = ''; st.teamId = ''; st.msg = ['', false]; save(); renderConnect(); }
+  if (b.dataset.plat) { st.platform = b.dataset.plat; if (st.platform === 'espn' && st.sport === 'epl') st.sport = 'nfl'; st.leagues = null; st.teams = null; st.leagueId = ''; st.teamId = ''; st.msg = ['', false]; save(); renderConnect(); }
   else if (b.dataset.sport) { st.sport = b.dataset.sport; st.leagues = null; st.teams = null; st.leagueId = ''; st.teamId = ''; save(); renderConnect(); }
   else if (b.id === 'find') findLeagues();
   else if (b.id === 'go') run();

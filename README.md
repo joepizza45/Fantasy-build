@@ -20,7 +20,7 @@ Open http://localhost:8787 and pick your app:
 
 | App | What you enter | Notes |
 | --- | --- | --- |
-| Sleeper (NFL, NBA) | Your username, then pick the league. Or paste a league ID. | Public API, no login needed. Points use your league's own scoring settings. |
+| Sleeper (NFL, NBA, Premier League) | Your username, then pick the league. Or paste a league ID. | Public API, no login needed. Points use your league's own scoring settings. |
 | ESPN (NFL, NBA) | League ID from the league URL, plus your team ID if it isn't found automatically | Private leagues need the `espn_s2` and `SWID` cookies from a logged-in browser. They go to your local server only and are never saved. |
 | FPL | Your team ID (the number in your Points page URL), then a mini-league | Public API. Transfers use current prices, not your exact selling price. |
 
@@ -49,7 +49,7 @@ The coach gets only the computed analysis (rosters, projections and the moves al
 
 ## Standalone report page
 
-`npm run snapshot -- --platform sleeper --username <you> --out report.html` writes one self-contained page with the full report and no server needed. Add `--notes notes.md` to include written coach notes. A scheduled task can run this and republish the page so it stays current.
+`npm run snapshot -- --config leagues.json --out report.html` writes one self-contained page, with a tab per league in `leagues.json` and no server needed. Add `--notes-dir notes/` to include written coach notes from `notes/<key>.md`. One league also works without a config: `npm run snapshot -- --platform sleeper --username <you> --sport epl --out report.html`. A scheduled task can run this and republish the page so it stays current.
 
 ## How the numbers work
 

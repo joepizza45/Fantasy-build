@@ -44,7 +44,7 @@ function readBody(req) {
 const need = (v, what) => { if (!v || !String(v).trim()) throw Object.assign(new Error(what + ' is required'), { status: 400 }); return String(v).trim(); };
 
 async function leagues(b) {
-  if (b.platform === 'sleeper') return sleeper.listLeagues(need(b.username, 'Sleeper username'), b.sport === 'nba' ? 'nba' : 'nfl');
+  if (b.platform === 'sleeper') return sleeper.listLeagues(need(b.username, 'Sleeper username'), ['nba', 'epl'].indexOf(b.sport) >= 0 ? b.sport : 'nfl');
   if (b.platform === 'fpl') return fpl.listLeagues(need(b.entryId, 'FPL team ID'));
   throw Object.assign(new Error('League lookup works for Sleeper and FPL. For ESPN, enter the league ID from the league URL.'), { status: 400 });
 }

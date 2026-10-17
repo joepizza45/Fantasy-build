@@ -7,6 +7,7 @@ const { round2, RECENT_GAMES } = require('./lib/players');
 const FORM_W = 0.4;
 const ELIG = {
   FLEX: ['RB', 'WR', 'TE'], WRRB_FLEX: ['WR', 'RB'], REC_FLEX: ['WR', 'TE'], SUPER_FLEX: ['QB', 'RB', 'WR', 'TE'],
+  FM_FLEX: ['FWD', 'MID'], MD_FLEX: ['MID', 'DEF'], FMD_FLEX: ['FWD', 'MID', 'DEF'],
   G: ['PG', 'SG'], F: ['SF', 'PF'], UTIL: ['PG', 'SG', 'SF', 'PF', 'C'], FLEX_OUT: ['DEF', 'MID', 'FWD']
 };
 const AVAIL = { healthy: 1, minor: 0.85, short: 0, long: 0 };
@@ -19,6 +20,7 @@ const canPlay = (p, slot) => eligFor(slot).some((x) => (p.elig || [p.pos]).index
 function gamesLeft(L) {
   if (L.sport === 'fpl') return Math.max(1, Math.min(6, 38 - L.week));
   if (L.sport === 'nfl') return Math.max(1, 17 - L.week);
+  if (L.sport === 'epl') return Math.max(1, 38 - L.week);
   const frac = L.platform === 'espn' ? L.week / 175 : L.week / 24;
   return Math.max(5, Math.round(82 * (1 - Math.min(1, frac))));
 }

@@ -127,8 +127,9 @@ function exampleData(sport) {
   return E.map((r, i) => Object.assign(mkp(r[0], r[1], r[2], r[3], r[4], 'Example ' + r[1] + ' ' + String.fromCharCode(65 + i)), { ex: true }));
 }
 const state = { sport: 'fpl', players: {}, listOpen: false };
-Object.keys(SPORTS).forEach((k) => { state.players[k] = exampleData(k); });
-try { const s = JSON.parse(localStorage.getItem('movecheck3') || '{}'); if (SPORTS[s.sport]) state.sport = s.sport; } catch (e) {}
+const MANUAL = ['fpl', 'nfl', 'nba'];
+MANUAL.forEach((k) => { state.players[k] = exampleData(k); });
+try { const s = JSON.parse(localStorage.getItem('movecheck3') || '{}'); if (MANUAL.indexOf(s.sport) >= 0) state.sport = s.sport; } catch (e) {}
 const save = () => { try { localStorage.setItem('movecheck3', JSON.stringify({ sport: state.sport })); } catch (e) {} };
 const cur = () => state.players[state.sport];
 const dataSets = {};
@@ -248,7 +249,7 @@ async function readShots() {
 /* ---------- rendering ---------- */
 function renderChrome() {
   document.body.dataset.sport = state.sport;
-  $('sports').innerHTML = Object.keys(SPORTS).map((k) => '<button role="tab" data-sport="' + k + '" aria-selected="' + (k === state.sport) + '">' + (k === 'fpl' ? 'Premier League' : SPORTS[k].name) + '</button>').join('');
+  $('sports').innerHTML = MANUAL.map((k) => '<button role="tab" data-sport="' + k + '" aria-selected="' + (k === state.sport) + '">' + (k === 'fpl' ? 'Premier League' : SPORTS[k].name) + '</button>').join('');
 }
 function renderUpload() {
   const ok = !!(imp.sample && imp.lim && imp.lim.images);
@@ -326,7 +327,7 @@ document.addEventListener('dragover', (e) => { if (imp.lim && e.target.closest &
 document.addEventListener('drop', (e) => { if (imp.lim && e.target.closest && e.target.closest('[data-drop]')) { e.preventDefault(); addFiles(e.dataTransfer && e.dataTransfer.files); } });
 document.addEventListener('paste', (e) => { const f = Array.from((e.clipboardData && e.clipboardData.files) || []); if (f.length && imp.lim && imp.lim.images) addFiles(f); });
 fullRender();
-Object.keys(SPORTS).forEach(loadData);
+MANUAL.forEach(loadData);
 (async function () {
   try { if (window.claude && window.claude.use) imp.sample = await window.claude.use('sample'); if (imp.sample) imp.lim = await imp.sample.limits().catch(() => null); } catch (e) { imp.sample = null; }
   if (imp.sample && imp.lim && imp.lim.images && !imp.busy) renderUpload();

@@ -11,7 +11,11 @@ const SPORTS = {
   nba: { name: 'NBA', per: 'game', perShort: 'g', unit: 'fantasy points per game',
     positions: ['PG', 'SG', 'SF', 'PF', 'C'], repl: { PG: 24, SG: 24, SF: 24, PF: 24, C: 24 },
     games: { w4: 14, w8: 28, ros: 70 }, miss: { healthy: 0, minor: 2, short: 10, long: 35 }, step: 0.5,
-    seasonLbl: 'Season avg', recentLbl: 'Last 10 games avg' }
+    seasonLbl: 'Season avg', recentLbl: 'Last 10 games avg' },
+  epl: { name: 'Premier League', per: 'gameweek', perShort: 'GW', unit: 'league points per gameweek',
+    positions: ['GKP', 'DEF', 'MID', 'FWD'], repl: { GKP: 9, DEF: 12, MID: 13, FWD: 30 },
+    games: { w4: 4, w8: 8, ros: 30 }, miss: { healthy: 0, minor: 0.5, short: 3, long: 12 }, step: 0.5,
+    seasonLbl: 'Season avg', recentLbl: 'Last 4 GWs avg' }
 };
 const ROLES = { rising: ['Role growing', 1.08, 0], steady: ['Locked-in starter', 1.0, 0], rotation: ['Rotation risk', 0.88, 1], fringe: ['Bench or unclear', 0.68, 2] };
 const SCHEDS = { easy: ['Easy run', 1.07], neutral: ['Average run', 1.0], tough: ['Tough run', 0.93] };

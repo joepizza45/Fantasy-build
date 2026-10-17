@@ -6,13 +6,16 @@ const { byeWeeks } = require('../lib/nfl');
 
 const B = 'https://api.sleeper.app/v1';
 const HOUR = 3600 * 1000;
-const SEASON_WEEKS = { nfl: 18, nba: 25 };
+const SEASON_WEEKS = { nfl: 18, nba: 25, epl: 38 };
+const API_SPORT = { nfl: 'nfl', nba: 'nba', epl: 'clubsoccer:epl' };
+const EPL_POS = { GK: 'GKP', D: 'DEF', M: 'MID', F: 'FWD' };
 const SKILL = ['RB', 'WR', 'TE'];
 const BENCH_SLOTS = ['BN', 'IR', 'TAXI'];
 
 const toPos = (sport, raw) => {
   let p = String(raw || '').toUpperCase();
   if (sport === 'nfl' && p === 'DEF') p = 'DST';
+  if (sport === 'epl') p = EPL_POS[p] || '';
   return SPORTS[sport].positions.indexOf(p) >= 0 ? p : null;
 };
 
@@ -25,10 +28,10 @@ async function findUser(username) {
 
 async function listLeagues(username, sport) {
   const u = await findUser(username);
-  const st = await getJSON(B + '/state/' + sport, { ttl: 10 * 60 * 1000 });
+  const st = await getJSON(B + '/state/' + API_SPORT[sport], { ttl: 10 * 60 * 1000 });
   const season = st.league_season || st.season;
-  let leagues = await getJSON(B + '/user/' + u.user_id + '/leagues/' + sport + '/' + season, { ttl: 10 * 60 * 1000 });
-  if (!leagues || !leagues.length) leagues = await getJSON(B + '/user/' + u.user_id + '/leagues/' + sport + '/' + st.previous_season, { ttl: HOUR });
+  let leagues = await getJSON(B + '/user/' + u.user_id + '/leagues/' + API_SPORT[sport] + '/' + season, { ttl: 10 * 60 * 1000 });
+  if (!leagues || !leagues.length) leagues = await getJSON(B + '/user/' + u.user_id + '/leagues/' + API_SPORT[sport] + '/' + st.previous_season, { ttl: HOUR });
   return {
     user: { id: u.user_id, name: u.display_name },
     leagues: (leagues || []).map((l) => ({ id: l.league_id, name: l.name, season: l.season, teams: l.total_rosters, status: l.status }))
@@ -64,12 +67,12 @@ async function load({ leagueId, username, rosterId }) {
   username = username && String(username).replace(/^@/, '');
   const league = await getJSON(B + '/league/' + encodeURIComponent(leagueId), { ttl: 10 * 60 * 1000 });
   if (!league) throw new FetchError('No Sleeper league with ID ' + leagueId, 404);
-  const sport = league.sport === 'nba' ? 'nba' : 'nfl';
+  const sport = league.sport === 'nba' ? 'nba' : league.sport === 'clubsoccer:epl' ? 'epl' : 'nfl';
   const [rosters, users, st, db] = await Promise.all([
     getJSON(B + '/league/' + leagueId + '/rosters', { ttl: 5 * 60 * 1000 }),
     getJSON(B + '/league/' + leagueId + '/users', { ttl: HOUR }),
-    getJSON(B + '/state/' + sport, { ttl: 10 * 60 * 1000 }),
-    getJSON(B + '/players/' + sport, { ttl: 24 * HOUR, disk: true, timeout: 120000 })
+    getJSON(B + '/state/' + API_SPORT[sport], { ttl: 10 * 60 * 1000 }),
+    getJSON(B + '/players/' + API_SPORT[sport], { ttl: 24 * HOUR, disk: true, timeout: 120000 })
   ]);
 
   const season = String(league.season);
@@ -79,7 +82,7 @@ async function load({ leagueId, username, rosterId }) {
   const weeks = [];
   for (let w = 1; w <= lastWeek; w++) weeks.push(w);
   const weekStats = await Promise.all(weeks.map((w) =>
-    getJSON(B + '/stats/' + sport + '/regular/' + season + '/' + w, { ttl: w < lastWeek ? 24 * HOUR : HOUR, disk: true, timeout: 60000 }).catch(() => ({}))));
+    getJSON(B + '/stats/' + API_SPORT[sport] + '/regular/' + season + '/' + w, { ttl: w < lastWeek ? 24 * HOUR : HOUR, disk: true, timeout: 60000 }).catch(() => ({}))));
 
   const scoring = league.scoring_settings || {};
   const perPlayer = (id) => weekStats.map((ws) => {
@@ -105,7 +108,7 @@ async function load({ leagueId, username, rosterId }) {
     const news = [d.injury_body_part, d.injury_notes].filter(Boolean).join(': ');
     const name = pos === 'DST' ? (d.first_name + ' ' + d.last_name).trim() : d.full_name || (d.first_name + ' ' + d.last_name);
     const elig = (d.fantasy_positions || []).map((x) => toPos(sport, x)).filter(Boolean);
-    const p = makePlayer({ id, name, team: d.team || 'FA', pos, elig: elig.length ? elig : [pos], age: d.age, yearsExp: d.years_exp, season: a.season, recent: a.recent, gp: a.gp, health: healthFrom(injury), role, injury, news, flags, slot });
+    const p = makePlayer({ id, name, team: d.team_abbr || d.team || 'FA', pos, elig: elig.length ? elig : [pos], age: d.age, yearsExp: d.years_exp, season: a.season, recent: a.recent, gp: a.gp, health: healthFrom(injury), role, injury, news, flags, slot });
     return current ? fillFromData(p, sport) : p;
   };
 
@@ -145,8 +148,9 @@ async function load({ leagueId, username, rosterId }) {
   }
 
   const byes = sport === 'nfl' ? await byeWeeks(season) : {};
-  const slots = (league.roster_positions || []).filter((s) => BENCH_SLOTS.indexOf(s) < 0).map((s) => (s === 'DEF' ? 'DST' : s));
-  const recLabel = sport === 'nfl' ? ({ 1: 'PPR', 0.5: 'Half PPR', 0: 'Standard' }[scoring.rec || 0] || scoring.rec + ' per catch') : 'league points';
+  const slots = (league.roster_positions || []).filter((s) => BENCH_SLOTS.indexOf(s) < 0)
+    .map((s) => (sport === 'nfl' && s === 'DEF' ? 'DST' : sport === 'epl' ? EPL_POS[s] || s : s));
+  const recLabel = sport === 'epl' ? 'league scoring' : sport === 'nfl' ? ({ 1: 'PPR', 0.5: 'Half PPR', 0: 'Standard' }[scoring.rec || 0] || scoring.rec + ' per catch') : 'league points';
   return {
     platform: 'sleeper', sport, name: league.name, season, week: lastWeek,
     statsThrough: lastWeek ? 'Week ' + lastWeek : 'no games yet',
