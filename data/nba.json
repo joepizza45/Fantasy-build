@@ -1,0 +1,2130 @@
+{
+ "sport": "nba",
+ "fetched_at": "2026-10-17T00:00:00Z",
+ "through": "2025-26 regular season (final). No 2026-27 games played yet - season opens Oct 20, 2026. 'recent' equals the 2025-26 season average (no last-10 split retrieved).",
+ "scoring": "Standard points per game from 2025-26 per-game box averages: PTS + 1.2*REB + 1.5*AST + 3*STL + 3*BLK - TOV",
+ "notes": [
+  "Data gathered via web search summaries of Land of Basketball, RealGM, Stat Sniper, StatMuse, StatsCrew, TeamRankings, ESPN and others; basketball-reference/ESPN stats pages could not be fetched directly (WebFetch DNS failure).",
+  "team = 2026-27 team: offseason moves found in news this run are applied and flagged; other players keep their last reported 2025-26 team.",
+  "pos = one primary position assigned from standard listings (not read per player from a source).",
+  "Excluded for unclear 2026-27 status: Russell Westbrook (reported retired or unsigned), DeMar DeRozan (waived by SAC, unsigned), Kristaps Porzingis (FA reports conflict, undisclosed health issue), Cam Thomas (2026 FA destination not found)."
+ ],
+ "sources": [
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/nikola_jokic_full.htm",
+  "https://hashtagbasketball.com/fantasy-basketball-dynasty-rankings",
+  "https://www.nba.com/news/nba-fantasy-top-150-for-2026-27-points-leagues",
+  "https://www.espn.com/nba/story/_/id/49827564/biggest-injury-returns-2026-27-nba-season-irving-haliburton-doncic-butler-lillard",
+  "https://hashtagbasketball.com/9386/dynasty",
+  "https://statsniper.com/blog/nba/kevin-durant-trade-rumors-rockets-offseason-2026/",
+  "https://hashtagbasketball.com/31049/dynasty",
+  "https://hashtagbasketball.com/38848/dynasty",
+  "https://hashtagbasketball.com/15205/dynasty",
+  "https://bleacherreport.com/articles/25425668-latest-lakers-rumors-collin-sextons-contract-after-kessler-trade-and-grimes-sandro-deals",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/victor_wembanyama_full.htm",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/giannis_antetokounmpo_full.htm",
+  "https://www.eurohoops.net/en/nba-news/1983558/giannis-antetokounmpo-traded-to-the-miami-heat/",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/anthony_edwards_full.htm",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/cade_cunningham_full.htm",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/jaylen_brown_full.htm",
+  "https://www.wbur.org/news/2026/07/02/celtics-trade-jaylen-brown-76ers-paul-george",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/lebron_james_full.htm",
+  "https://awfulannouncing.com/nba/2026-27-opening-night-christmas-day-schedule-lebron-sixers.html",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/tyrese_maxey_full.htm",
+  "https://basketball.realgm.com/player/Jalen-Brunson/NBA/52545",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/donovan_mitchell_full.htm",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/devin_booker_full.htm",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/stephen_curry_full.htm",
+  "https://basketball.realgm.com/player/Trae-Young/NBA/88934/2026",
+  "https://www.fantasyalarm.com/articles/nba/nba-offseason/washington-wizards-2026-27-season-preview/197181",
+  "https://www.espn.co.uk/nba/player/stats/_/id/3136195/karl-anthony-towns",
+  "https://basketball.realgm.com/player/Anthony-Davis/NBA/13305",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/joel_embiid_full.htm",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/paolo_banchero_full.htm",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/franz_wagner_full.htm",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/jalen_williams_full.htm",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/chet_holmgren_full.htm",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/alperen_sengun_full.htm",
+  "https://hashtagbasketball.com/10113/player",
+  "https://www.nbcsportsbayarea.com/nba/sacramento-kings/domantas-sabonis-trade-discussions-celtics-pistons/1955089/",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/bam_adebayo_full.htm",
+  "https://rotowire.com//basketball/player/bam-adebayo-4153",
+  "https://basketball.realgm.com/player/Pascal-Siakam/NBA/81426",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/scottie_barnes_full.htm",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/evan_mobley_full.htm",
+  "https://basketball.realgm.com/player/Darius-Garland/NBA/81685",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/ja_morant_full.htm",
+  "https://www.wdam.com/2026/06/29/grizzlies-trade-ja-morant-portland/",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/lamelo_ball_full.htm",
+  "https://africa.espn.com/nba/story/_/id/49175343/hornets-trade-ball-timberwolves-reid-picks",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/zion_williamson_full.htm",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/kawhi_leonard_full.htm",
+  "https://statsniper.com/nba/player/james_harden_CLE/",
+  "https://api-hub.nba.com/news/james-harden-cavaliers-free-agency",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/deaaron_fox_full.htm",
+  "https://statsniper.com/nba/player/lauri_markkanen_UTA/",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/jamal_murray_full.htm",
+  "https://basketball.realgm.com/player/Desmond-Bane/NBA/107663",
+  "https://statsniper.com/nba/player/jaren_jacksonjr_UTA/",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/amen_thompson_full.htm",
+  "https://statsniper.com/nba/player/ausar_thompson_DET/",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/dyson_daniels_full.htm",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/josh_giddey_full.htm",
+  "https://apps.rotowire.com/basketball/player/josh-giddey-5366",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/coby_white_full.htm",
+  "https://www.thescore.com/nba/news/3555772/report-white-returns-to-hornets-on-3-year-74-m-deal",
+  "https://www.fantasyalarm.com/articles/nba/fantasy-basketball-injury-report/nba-injury-report-heading-into-2026-27-season/197178",
+  "https://basketball.realgm.com/player/Nikola-Vucevic/NBA/6925",
+  "https://bleacherreport.com/articles/25425961-nikola-vucevic-magic-reportedly-agree-contract-full-details-amid-nba-free-agency",
+  "https://basketball.realgm.com/player/Ivica-Zubac/NBA/49290",
+  "https://statsniper.com/nba/player/rudy_gobert_MIN/",
+  "https://basketball.realgm.com/player/Julius-Randle/NBA/24301",
+  "https://www.kfyrtv.com/2026/06/23/timberwolves-trading-julius-randle-nets-part-3-team-deal-ap-source-says/",
+  "https://craftednba.com/players/myles-turner",
+  "https://basketball.realgm.com/player/Walker-Kessler/NBA/132628",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/deni_avdija_full.htm",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/shaedon_sharpe_full.htm",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/jrue_holiday_full.htm",
+  "https://www.espn.com/nba/player/stats/_/id/3078576/derrick-white",
+  "https://basketball.realgm.com/player/Mikal-Bridges/NBA/52342",
+  "https://basketball.realgm.com/player/OG-Anunoby/NBA/84076",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/josh_hart_full.htm",
+  "https://statsniper.com/nba/player/tyler_herro_MIA/",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/norman_powell_full.htm",
+  "https://www.olympics.com/en/news/nba-trade-tracker-2026-live-free-agency",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/paul_george_full.htm",
+  "https://www.nbcsports.com/fantasy/basketball/news/2026-27-fantasy-basketball-kyrie-irving-tyrese-haliburton-among-big-names-returning-from-injury",
+  "https://www.statmuse.com/nba/ask/cooper-flasg-stats",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/stephon_castle_full.htm",
+  "https://www.statscrew.com/basketball/stats/p-knuepko01",
+  "https://www.covers.com/sport/basketball/nba/injuries",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/trey_murphy_iii_full.htm",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/michael_porter_jr_full.htm",
+  "https://www.rotowire.com/basketball/player/brandon-miller-5896",
+  "https://bleacherreport.com/articles/25453964-new-nba-rumors-tyrese-haliburtons-timeline-return-pacers-achilles-injury",
+  "https://www.rotowire.com/basketball/player/damian-lillard--3304",
+  "https://basketball.realgm.com/player/Austin-Reaves/NBA/106995",
+  "https://lamag.com/sports/basketball/austin-reaves-to-sign-4-year-185-million-deal-to-stay-with-lakers-per-report/",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/jalen_green_full.htm",
+  "https://www.statscrew.com/basketball/stats/p-tatumja01",
+  "https://www.boston.com/sports/boston-celtics/2026/10/09/jayson-tatum-celtics-injury-recovery/",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/zach_lavine.htm",
+  "https://basketball.realgm.com/player/Jimmy-Butler-III/NBA/6160",
+  "https://fantasynerds.com/news/story/2026/09/08/jimmy-butlers-acl-recovery-timeline-with-warriors-revealed-1618076",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/brandon_ingram_full.htm",
+  "https://statsniper.com/nba/player/mark_williams_PHX/",
+  "https://www.nba.com/news/mark-williams-return-to-suns",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/scoot_henderson_full.htm",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/anfernee_simons_full.htm",
+  "https://6abc.com/post/sources-anfernee-simons-agrees-deal-revamped-76ers/19436717/",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/jabari_smith_jr_full.htm",
+  "https://rotowire.com//basketball/player/fred-vanvleet-3935",
+  "https://basketball.realgm.com/player/Alex-Sarr/NBA/162806/2026",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/cj_mccollum_full.htm",
+  "https://www.nbcbayarea.com/nba/nba-free-agency-2026-state-date-top-players-tracker/4105607/",
+  "https://basketball.realgm.com/player/Keyonte-George/NBA/151235",
+  "https://basketball.realgm.com/player/Aaron-Gordon/NBA/24308",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/christian_braun_full.htm",
+  "https://statsniper.com/nba/player/jonathan_kuminga_ATL/",
+  "https://bleacherreport.com/articles/25448107-grading-biggest-nba-offseason-trades-and-2026-free-agency-signings",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/draymond_green_full.htm",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/onyeka_okongwu_full.htm",
+  "https://basketball.realgm.com/player/Kelel-Ware/NBA/149694",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/andrew_wiggins_full.htm",
+  "https://www.thescore.com/nba/news/3554797/report-wiggins-signing-new-3-year-64-m-deal-with-heat",
+  "https://basketball.realgm.com/player/Naz-Reid/NBA/81698/2026",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/jaden_mcdaniels_full.htm",
+  "https://statsniper.com/es/leagues/nba/player/isaiah_hartenstein_OKC/isaiah-hartenstein/",
+  "https://statsniper.com/nba/player/luguentz_dort_OKC/",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/payton_pritchard_full.htm",
+  "https://basketball.realgm.com/player/Jalen-Suggs/NBA/117344",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/wendell_carter_jr_full.htm",
+  "https://basketball.realgm.com/player/Tobias-Harris/NBA/7119",
+  "https://www.rotowire.com/basketball/player/tobias-harris-3211",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/malik_monk_full.htm",
+  "https://basketball.realgm.com/player/Keegan-Murray/NBA/163374",
+  "https://www2.teamrankings.com/nba/player/zach-edey/",
+  "https://statsniper.com/nba/player/herbert_jones_NOP/",
+  "https://www.rotowire.com/basketball/player/nicolas-claxton-4827",
+  "https://basketball.realgm.com/player/Jarrett-Allen/NBA/85599",
+  "https://statsniper.com/nba/player/immanuel_quickley_TOR/",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/rj_barrett_full.htm",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/jakob_poeltl_full.htm",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/donovan_clingan_full.htm",
+  "https://craftednba.com/players/toumani-camara",
+  "https://www.statscrew.com/basketball/stats/p-harpedy01",
+  "https://basketball.realgm.com/player/VJ-Edgecombe/Summary/211409",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/ace_bailey_full.htm",
+  "https://www.teamrankings.com/nba/player/matas-buzelis",
+  "https://statsniper.com/nba/player/reed_sheppard_HOU/",
+  "https://basketball.razzball.com/player/1003453",
+  "https://basketball.realgm.com/player/wd/Summary/187064",
+  "https://www2.teamrankings.com/nba/player/bilal-coulibaly",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/jaylen_wells_full.htm",
+  "https://en.wikipedia.org/wiki/Jaylen_Wells",
+  "https://basketball.realgm.com/player/Zaccharie-Risacher/NBA/175806",
+  "https://basketball.realgm.com/player/Kevin-Porter-Jr/NBA/95883",
+  "https://clutchpoints.com/nba/bucks-news-kevin-porter-jr-decision-giannis-antetokounmpo-trade",
+  "https://sportsbook.fanduel.com/teams/nba/roster/dejounte-murray-2443/stats",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/cameron_johnson_full.htm",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/nickeil_alexander_walker_full.htm",
+  "https://www.espn.com/nba/player/stats/_/id/4576087/peyton-watson",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/miles_bridges_full.htm",
+  "https://statsniper.com/no/leagues/nba/player/pj_washington_DAL/p-j-washington/",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/tari_eason_full.htm",
+  "https://basketball.realgm.com/wiretap/286519/Tari-Eason-Rockets-Agree-To-FiveYear-815M-Deal",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/jaime_jaquez_jr_full.htm",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/neemias_queta_full.htm",
+  "https://www.teamrankings.com/nba/player/ryan-rollins",
+  "https://www.landofbasketball.com/nba_players_season_stats/2026/collin_gillespie_full.htm",
+  "https://www.dunkest.com/en/nba/news/244108/nba-schedule-opening-night-and-christmas-day/",
+  "https://www.nbcnewyork.com/nba/nba-key-dates-2026-27-opening-night-trade-deadline-finals/6535379/?amp=1",
+  "https://www.espn.com/nba/injuries",
+  "https://www.cbssports.com/nba/news/nba-free-agency-2026-live-updates-trade-rumors-news-june-30/live/"
+ ],
+ "players": [
+  {
+   "name": "Nikola Jokic",
+   "team": "DEN",
+   "pos": "C",
+   "season": 62.1,
+   "recent": 62.1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 65 GP, 27.7 PTS, 12.9 REB, 10.7 AST, 1.4 STL, 0.8 BLK, 3.7 TOV"
+   ]
+  },
+  {
+   "name": "Luka Doncic",
+   "team": "LAL",
+   "pos": "PG",
+   "season": 57.5,
+   "recent": 57.5,
+   "health": "healthy",
+   "role": "rising",
+   "news": "Cleared for full activity since May after hamstring strain; usage expected to rise with LeBron gone (NBA.com points-league ranking).",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "role 'rising' from reported usage outlook",
+    "2025-26 box: 64 GP, 33.5 PTS, 7.7 REB, 8.3 AST, 1.6 STL, 0.5 BLK, 4.0 TOV"
+   ]
+  },
+  {
+   "name": "Shai Gilgeous-Alexander",
+   "team": "OKC",
+   "pos": "PG",
+   "season": 50.6,
+   "recent": 50.6,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 68 GP, 31.1 PTS, 4.3 REB, 6.6 AST, 1.4 STL, 0.8 BLK, 2.2 TOV"
+   ]
+  },
+  {
+   "name": "Giannis Antetokounmpo",
+   "team": "MIA",
+   "pos": "PF",
+   "season": 49.1,
+   "recent": 49.1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Traded MIL->MIA (June 2026) for Herro, Ware, Jaquez, Jakucionis and picks.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "team change: MIL->MIA",
+    "2025-26 only 36 games",
+    "2025-26 box: 36 GP, 27.6 PTS, 9.8 REB, 5.4 AST, 0.9 STL, 0.7 BLK, 3.2 TOV"
+   ]
+  },
+  {
+   "name": "Tyrese Maxey",
+   "team": "PHI",
+   "pos": "PG",
+   "season": 48.8,
+   "recent": 48.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 70 GP, 28.3 PTS, 4.1 REB, 6.6 AST, 1.9 STL, 0.8 BLK, 2.4 TOV"
+   ]
+  },
+  {
+   "name": "Cade Cunningham",
+   "team": "DET",
+   "pos": "PG",
+   "season": 48.2,
+   "recent": 48.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 64 GP, 23.9 PTS, 5.5 REB, 9.9 AST, 1.4 STL, 0.8 BLK, 3.7 TOV"
+   ]
+  },
+  {
+   "name": "Jalen Johnson",
+   "team": "ATL",
+   "pos": "PF",
+   "season": 48.1,
+   "recent": 48.1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "sources disagree on games played (72 vs 18); averages taken from hashtagbasketball profile",
+    "2025-26 box: 72 GP, 22.5 PTS, 10.3 REB, 7.9 AST, 1.2 STL, 0.4 BLK, 3.4 TOV"
+   ]
+  },
+  {
+   "name": "Kawhi Leonard",
+   "team": "LAC",
+   "pos": "SF",
+   "season": 45.9,
+   "recent": 45.9,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 65 GP, 27.9 PTS, 6.4 REB, 3.6 AST, 1.9 STL, 0.4 BLK, 2.0 TOV"
+   ]
+  },
+  {
+   "name": "Jaylen Brown",
+   "team": "PHI",
+   "pos": "SF",
+   "season": 45.2,
+   "recent": 45.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Traded BOS->PHI (July 2026) for Paul George and picks.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "team change: BOS->PHI",
+    "2025-26 box: 71 GP, 28.7 PTS, 6.9 REB, 5.1 AST, 1.0 STL, 0.4 BLK, 3.6 TOV"
+   ]
+  },
+  {
+   "name": "Joel Embiid",
+   "team": "PHI",
+   "pos": "C",
+   "season": 44.5,
+   "recent": 44.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 only 38 games",
+    "2025-26 box: 38 GP, 26.9 PTS, 7.7 REB, 3.9 AST, 0.6 STL, 1.2 BLK, 2.9 TOV"
+   ]
+  },
+  {
+   "name": "Donovan Mitchell",
+   "team": "CLE",
+   "pos": "SG",
+   "season": 44.4,
+   "recent": 44.4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 70 GP, 27.9 PTS, 4.5 REB, 5.7 AST, 1.5 STL, 0.3 BLK, 2.8 TOV"
+   ]
+  },
+  {
+   "name": "Anthony Davis",
+   "team": "WAS",
+   "pos": "PF",
+   "season": 44.2,
+   "recent": 44.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Played 20 games in 2025-26 (hand/groin), traded DAL->WAS midseason; aim was to be healthy for 2026-27, no confirmed preseason status found.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 only 20 games",
+    "current health unconfirmed",
+    "2025-26 box: 20 GP, 20.4 PTS, 11.1 REB, 2.8 AST, 1.1 STL, 1.7 BLK, 2.1 TOV"
+   ]
+  },
+  {
+   "name": "Jayson Tatum",
+   "team": "BOS",
+   "pos": "SF",
+   "season": 44.2,
+   "recent": 44.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Returned from Achilles in March 2026 (16 games); left-knee discomfort ended his playoffs but he is expected ready for 2026-27.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 only 16 games: small sample",
+    "knee issue in playoffs; current status not on an official report yet",
+    "2025-26 box: 16 GP, 21.8 PTS, 10.0 REB, 5.3 AST, 1.4 STL, 0.2 BLK, 2.4 TOV"
+   ]
+  },
+  {
+   "name": "Alperen Sengun",
+   "team": "HOU",
+   "pos": "C",
+   "season": 44.1,
+   "recent": 44.1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 72 GP, 20.4 PTS, 8.9 REB, 6.2 AST, 1.2 STL, 1.1 BLK, 3.2 TOV"
+   ]
+  },
+  {
+   "name": "Anthony Edwards",
+   "team": "MIN",
+   "pos": "SG",
+   "season": 44.0,
+   "recent": 44.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 61 GP, 28.8 PTS, 5.0 REB, 3.7 AST, 1.4 STL, 0.8 BLK, 2.9 TOV"
+   ]
+  },
+  {
+   "name": "Jamal Murray",
+   "team": "DEN",
+   "pos": "PG",
+   "season": 42.9,
+   "recent": 42.9,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 75 GP, 25.4 PTS, 4.4 REB, 7.1 AST, 0.9 STL, 0.4 BLK, 2.3 TOV"
+   ]
+  },
+  {
+   "name": "Deni Avdija",
+   "team": "POR",
+   "pos": "SF",
+   "season": 42.9,
+   "recent": 42.9,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 66 GP, 24.2 PTS, 6.9 REB, 6.7 AST, 0.8 STL, 0.6 BLK, 3.8 TOV"
+   ]
+  },
+  {
+   "name": "James Harden",
+   "team": "CLE",
+   "pos": "PG",
+   "season": 42.4,
+   "recent": 42.4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Declined option, agreed to new 3 yr/$97M deal with CLE (Aug 2026).",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 70 GP, 23.6 PTS, 4.8 REB, 8.0 AST, 1.1 STL, 0.4 BLK, 3.5 TOV"
+   ]
+  },
+  {
+   "name": "Scottie Barnes",
+   "team": "TOR",
+   "pos": "SF",
+   "season": 42.1,
+   "recent": 42.1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 80 GP, 18.1 PTS, 7.5 REB, 5.9 AST, 1.4 STL, 1.5 BLK, 2.6 TOV"
+   ]
+  },
+  {
+   "name": "Kevin Durant",
+   "team": "HOU",
+   "pos": "PF",
+   "season": 41.6,
+   "recent": 41.6,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Trade speculation around HOU after first-round exit; no completed deal found.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "trade rumors only",
+    "2025-26 box: 78 GP, 26.0 PTS, 5.4 REB, 4.8 AST, 0.8 STL, 0.9 BLK, 3.2 TOV"
+   ]
+  },
+  {
+   "name": "Josh Giddey",
+   "team": "CHI",
+   "pos": "PG",
+   "season": 41.5,
+   "recent": 41.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Had right ankle arthroscopy in May 2026; projected back around training camp.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "post-surgery ankle, cleared status not confirmed",
+    "2025-26 box: 54 GP, 17.0 PTS, 8.3 REB, 9.1 AST, 1.0 STL, 0.5 BLK, 3.6 TOV"
+   ]
+  },
+  {
+   "name": "LeBron James",
+   "team": "PHI",
+   "pos": "SF",
+   "season": 41.4,
+   "recent": 41.4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Signed with PHI in free agency after leaving LAL.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "team change: LAL->PHI",
+    "2025-26 box: 60 GP, 20.9 PTS, 6.1 REB, 7.2 AST, 1.2 STL, 0.6 BLK, 3.0 TOV"
+   ]
+  },
+  {
+   "name": "Lauri Markkanen",
+   "team": "UTA",
+   "pos": "PF",
+   "season": 41.1,
+   "recent": 41.1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 only 42 games",
+    "2025-26 box: 42 GP, 26.7 PTS, 6.9 REB, 2.1 AST, 1.0 STL, 0.5 BLK, 1.5 TOV"
+   ]
+  },
+  {
+   "name": "Bam Adebayo",
+   "team": "MIA",
+   "pos": "C",
+   "season": 41.0,
+   "recent": 41.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Rotowire notes Giannis arrival could cut his rebounding/offensive volume.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "possible usage dip with Giannis (reported opinion, not applied to numbers)",
+    "2025-26 box: 73 GP, 20.1 PTS, 10.0 REB, 3.2 AST, 1.2 STL, 0.7 BLK, 1.6 TOV"
+   ]
+  },
+  {
+   "name": "Paolo Banchero",
+   "team": "ORL",
+   "pos": "PF",
+   "season": 40.9,
+   "recent": 40.9,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 72 GP, 22.2 PTS, 8.4 REB, 5.2 AST, 0.7 STL, 0.6 BLK, 3.1 TOV"
+   ]
+  },
+  {
+   "name": "Karl-Anthony Towns",
+   "team": "NYK",
+   "pos": "C",
+   "season": 40.6,
+   "recent": 40.6,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 75 GP, 20.1 PTS, 11.9 REB, 3.0 AST, 0.9 STL, 0.5 BLK, 2.5 TOV"
+   ]
+  },
+  {
+   "name": "Jalen Brunson",
+   "team": "NYK",
+   "pos": "PG",
+   "season": 40.5,
+   "recent": 40.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 74 GP, 26.0 PTS, 3.3 REB, 6.8 AST, 0.8 STL, 0.1 BLK, 2.4 TOV"
+   ]
+  },
+  {
+   "name": "Devin Booker",
+   "team": "PHX",
+   "pos": "SG",
+   "season": 40.0,
+   "recent": 40.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 64 GP, 26.1 PTS, 3.9 REB, 6.0 AST, 0.8 STL, 0.3 BLK, 3.1 TOV"
+   ]
+  },
+  {
+   "name": "Pascal Siakam",
+   "team": "IND",
+   "pos": "PF",
+   "season": 39.9,
+   "recent": 39.9,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 62 GP, 24.0 PTS, 6.6 REB, 3.8 AST, 1.1 STL, 0.4 BLK, 2.2 TOV"
+   ]
+  },
+  {
+   "name": "Kevin Porter Jr.",
+   "team": "MIL",
+   "pos": "PG",
+   "season": 39.9,
+   "recent": 39.9,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Exercising 2026-27 player option to stay with MIL.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 only 38 games",
+    "38-game line may be a snapshot",
+    "2025-26 box: 38 GP, 17.4 PTS, 5.2 REB, 7.4 AST, 2.2 STL, 0.5 BLK, 2.9 TOV"
+   ]
+  },
+  {
+   "name": "Cooper Flagg",
+   "team": "DAL",
+   "pos": "SF",
+   "season": 39.8,
+   "recent": 39.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 70 GP, 21.0 PTS, 6.7 REB, 4.5 AST, 1.2 STL, 0.9 BLK, 2.3 TOV"
+   ]
+  },
+  {
+   "name": "Stephen Curry",
+   "team": "GSW",
+   "pos": "PG",
+   "season": 39.7,
+   "recent": 39.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 only 43 games",
+    "2025-26 box: 43 GP, 26.6 PTS, 3.6 REB, 4.7 AST, 1.1 STL, 0.4 BLK, 2.8 TOV"
+   ]
+  },
+  {
+   "name": "Evan Mobley",
+   "team": "CLE",
+   "pos": "PF",
+   "season": 39.7,
+   "recent": 39.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 65 GP, 18.2 PTS, 9.0 REB, 3.6 AST, 0.7 STL, 1.7 BLK, 1.9 TOV"
+   ]
+  },
+  {
+   "name": "Amen Thompson",
+   "team": "HOU",
+   "pos": "SF",
+   "season": 39.5,
+   "recent": 39.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 79 GP, 18.3 PTS, 7.8 REB, 5.3 AST, 1.5 STL, 0.6 BLK, 2.4 TOV"
+   ]
+  },
+  {
+   "name": "Michael Porter Jr.",
+   "team": "BKN",
+   "pos": "SF",
+   "season": 39.1,
+   "recent": 39.1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "TOV 2.3 read from unlabeled table column - unconfirmed",
+    "2025-26 box: 52 GP, 24.2 PTS, 7.1 REB, 3.0 AST, 1.1 STL, 0.3 BLK, 2.3 TOV"
+   ]
+  },
+  {
+   "name": "Austin Reaves",
+   "team": "LAL",
+   "pos": "SG",
+   "season": 38.7,
+   "recent": 38.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Re-signed with LAL (4 yr/$185M).",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 51 GP, 23.3 PTS, 4.7 REB, 5.5 AST, 1.1 STL, 0.4 BLK, 3.0 TOV"
+   ]
+  },
+  {
+   "name": "Walker Kessler",
+   "team": "LAL",
+   "pos": "C",
+   "season": 38.3,
+   "recent": 38.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Sign-and-trade UTA->LAL.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "team change: UTA->LAL",
+    "2025-26 only 5 games: tiny sample",
+    "2025-26 box: 5 GP, 14.4 PTS, 10.8 REB, 3.0 AST, 1.4 STL, 1.8 BLK, 3.2 TOV"
+   ]
+  },
+  {
+   "name": "Keyonte George",
+   "team": "UTA",
+   "pos": "PG",
+   "season": 38.3,
+   "recent": 38.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 54 GP, 23.6 PTS, 3.7 REB, 6.1 AST, 1.1 STL, 0.3 BLK, 3.1 TOV"
+   ]
+  },
+  {
+   "name": "Jalen Duren",
+   "team": "DET",
+   "pos": "C",
+   "season": 38.0,
+   "recent": 38.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 70 GP, 19.5 PTS, 10.5 REB, 2.0 AST, 0.8 STL, 0.8 BLK, 1.9 TOV"
+   ]
+  },
+  {
+   "name": "LaMelo Ball",
+   "team": "MIN",
+   "pos": "PG",
+   "season": 37.9,
+   "recent": 37.9,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Traded CHA->MIN (June 2026) with Josh Green for Naz Reid and picks.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "team change: CHA->MIN",
+    "2025-26 box: 72 GP, 20.1 PTS, 4.8 REB, 7.1 AST, 1.2 STL, 0.2 BLK, 2.8 TOV"
+   ]
+  },
+  {
+   "name": "Trey Murphy III",
+   "team": "NOP",
+   "pos": "SF",
+   "season": 37.9,
+   "recent": 37.9,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 66 GP, 21.5 PTS, 5.7 REB, 3.8 AST, 1.5 STL, 0.4 BLK, 1.8 TOV"
+   ]
+  },
+  {
+   "name": "Julius Randle",
+   "team": "BKN",
+   "pos": "PF",
+   "season": 37.8,
+   "recent": 37.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Traded MIN->BKN in three-team deal (June 2026).",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "team change: MIN->BKN",
+    "2025-26 box: 79 GP, 21.1 PTS, 6.7 REB, 5.0 AST, 1.1 STL, 0.2 BLK, 2.7 TOV"
+   ]
+  },
+  {
+   "name": "Jimmy Butler",
+   "team": "GSW",
+   "pos": "SF",
+   "season": 37.3,
+   "recent": 37.3,
+   "health": "long",
+   "role": "steady",
+   "news": "Tore right ACL Jan 19, surgery Feb 9; optimistic return target Jan-Feb 2027.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "ACL rehab, return targeted Jan-Feb 2027",
+    "2025-26 box: 38 GP, 20.0 PTS, 5.6 REB, 4.9 AST, 1.4 STL, 0.2 BLK, 1.6 TOV"
+   ]
+  },
+  {
+   "name": "Chet Holmgren",
+   "team": "OKC",
+   "pos": "C",
+   "season": 36.2,
+   "recent": 36.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 69 GP, 17.1 PTS, 8.9 REB, 1.7 AST, 0.6 STL, 1.9 BLK, 1.6 TOV"
+   ]
+  },
+  {
+   "name": "Domantas Sabonis",
+   "team": "SAC",
+   "pos": "C",
+   "season": 36.2,
+   "recent": 36.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Expected to stay in SAC after trade talks.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 line covers only 19 games (snapshot through Feb 4) - may not be final",
+    "2025-26 box: 19 GP, 15.8 PTS, 11.4 REB, 4.1 AST, 0.9 STL, 0.2 BLK, 2.7 TOV"
+   ]
+  },
+  {
+   "name": "Ja Morant",
+   "team": "POR",
+   "pos": "PG",
+   "season": 35.9,
+   "recent": 35.9,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Traded MEM->POR (June 29, 2026) for Jerami Grant and Kris Murray; crowded POR backcourt.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "team change: MEM->POR",
+    "2025-26 only 20 games",
+    "2025-26 box: 20 GP, 19.5 PTS, 3.3 REB, 8.1 AST, 1.0 STL, 0.3 BLK, 3.6 TOV"
+   ]
+  },
+  {
+   "name": "Brandon Ingram",
+   "team": "TOR",
+   "pos": "SF",
+   "season": 35.9,
+   "recent": 35.9,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 77 GP, 21.5 PTS, 5.6 REB, 3.7 AST, 0.8 STL, 0.7 BLK, 2.4 TOV"
+   ]
+  },
+  {
+   "name": "Alex Sarr",
+   "team": "WAS",
+   "pos": "C",
+   "season": 35.9,
+   "recent": 35.9,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 48 GP, 16.3 PTS, 7.4 REB, 2.7 AST, 0.8 STL, 2.0 BLK, 1.7 TOV"
+   ]
+  },
+  {
+   "name": "Derrick White",
+   "team": "BOS",
+   "pos": "SG",
+   "season": 35.4,
+   "recent": 35.4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "ESPN snapshots differ (72-77 games); 77-game line used",
+    "2025-26 box: 77 GP, 16.5 PTS, 4.4 REB, 5.4 AST, 1.1 STL, 1.3 BLK, 1.7 TOV"
+   ]
+  },
+  {
+   "name": "Stephon Castle",
+   "team": "SAS",
+   "pos": "SG",
+   "season": 35.2,
+   "recent": 35.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 68 GP, 16.7 PTS, 5.3 REB, 7.4 AST, 1.1 STL, 0.3 BLK, 3.2 TOV"
+   ]
+  },
+  {
+   "name": "Zion Williamson",
+   "team": "NOP",
+   "pos": "PF",
+   "season": 35.1,
+   "recent": 35.1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 62 GP, 21.0 PTS, 5.7 REB, 3.2 AST, 1.0 STL, 0.5 BLK, 2.0 TOV"
+   ]
+  },
+  {
+   "name": "Donovan Clingan",
+   "team": "POR",
+   "pos": "C",
+   "season": 34.9,
+   "recent": 34.9,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 77 GP, 12.1 PTS, 11.6 REB, 2.1 AST, 0.6 STL, 1.7 BLK, 1.2 TOV"
+   ]
+  },
+  {
+   "name": "Dejounte Murray",
+   "team": "NOP",
+   "pos": "PG",
+   "season": 34.8,
+   "recent": 34.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 only 14 games: small sample",
+    "2025-26 box: 14 GP, 16.7 PTS, 5.4 REB, 6.4 AST, 1.6 STL, 0.2 BLK, 3.4 TOV"
+   ]
+  },
+  {
+   "name": "De'Aaron Fox",
+   "team": "SAS",
+   "pos": "PG",
+   "season": 34.7,
+   "recent": 34.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 72 GP, 18.6 PTS, 3.8 REB, 6.2 AST, 1.2 STL, 0.3 BLK, 2.3 TOV"
+   ]
+  },
+  {
+   "name": "Jaren Jackson Jr.",
+   "team": "UTA",
+   "pos": "PF",
+   "season": 34.5,
+   "recent": 34.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "sources disagree on STL/TOV (Land of Basketball 2.0/1.4 vs Stat Sniper 1.1/2.2); Stat Sniper used",
+    "2025-26 box: 48 GP, 19.4 PTS, 5.7 REB, 2.0 AST, 1.1 STL, 1.4 BLK, 2.2 TOV"
+   ]
+  },
+  {
+   "name": "Dyson Daniels",
+   "team": "ATL",
+   "pos": "SG",
+   "season": 34.3,
+   "recent": 34.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "76 vs 82 games across sources",
+    "2025-26 box: 76 GP, 11.9 PTS, 6.8 REB, 5.9 AST, 2.0 STL, 0.4 BLK, 1.8 TOV"
+   ]
+  },
+  {
+   "name": "Ryan Rollins",
+   "team": "MIL",
+   "pos": "PG",
+   "season": 34.2,
+   "recent": 34.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 74 GP, 17.3 PTS, 4.6 REB, 5.6 AST, 1.5 STL, 0.4 BLK, 2.7 TOV"
+   ]
+  },
+  {
+   "name": "Tyler Herro",
+   "team": "MIL",
+   "pos": "SG",
+   "season": 33.9,
+   "recent": 33.9,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Traded MIA->MIL in Giannis deal.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "team change: MIA->MIL",
+    "2025-26 only 34 games (foot)",
+    "2025-26 box: 34 GP, 20.6 PTS, 4.7 REB, 4.2 AST, 0.7 STL, 0.4 BLK, 1.9 TOV"
+   ]
+  },
+  {
+   "name": "Onyeka Okongwu",
+   "team": "ATL",
+   "pos": "C",
+   "season": 33.9,
+   "recent": 33.9,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 74 GP, 15.2 PTS, 7.6 REB, 3.1 AST, 1.1 STL, 1.1 BLK, 1.7 TOV"
+   ]
+  },
+  {
+   "name": "Franz Wagner",
+   "team": "ORL",
+   "pos": "SF",
+   "season": 33.7,
+   "recent": 33.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "only 34 games (calf)",
+    "2025-26 box: 34 GP, 20.6 PTS, 5.2 REB, 3.3 AST, 0.9 STL, 0.3 BLK, 1.7 TOV"
+   ]
+  },
+  {
+   "name": "Desmond Bane",
+   "team": "ORL",
+   "pos": "SG",
+   "season": 33.7,
+   "recent": 33.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 82 GP, 20.1 PTS, 4.1 REB, 4.1 AST, 1.0 STL, 0.5 BLK, 2.0 TOV"
+   ]
+  },
+  {
+   "name": "Paul George",
+   "team": "BOS",
+   "pos": "SF",
+   "season": 33.7,
+   "recent": 33.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Traded PHI->BOS in Jaylen Brown deal.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "team change: PHI->BOS",
+    "2025-26 only 37 games (25-game suspension)",
+    "2025-26 box: 37 GP, 17.3 PTS, 5.3 REB, 3.6 AST, 1.7 STL, 0.4 BLK, 1.7 TOV"
+   ]
+  },
+  {
+   "name": "Zach Edey",
+   "team": "MEM",
+   "pos": "C",
+   "season": 33.7,
+   "recent": 33.7,
+   "health": "minor",
+   "role": "steady",
+   "news": "Shut down in mid-December 2025 (ankle); ankle/elbow procedures mentioned with no clear timeline.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 only 11 games: small sample",
+    "health timeline unclear",
+    "2025-26 box: 11 GP, 13.6 PTS, 11.1 REB, 1.1 AST, 0.6 STL, 1.9 BLK, 2.4 TOV"
+   ]
+  },
+  {
+   "name": "Nickeil Alexander-Walker",
+   "team": "ATL",
+   "pos": "SG",
+   "season": 33.7,
+   "recent": 33.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 78 GP, 20.8 PTS, 3.4 REB, 3.7 AST, 1.3 STL, 0.5 BLK, 2.1 TOV"
+   ]
+  },
+  {
+   "name": "Brandon Miller",
+   "team": "CHA",
+   "pos": "SF",
+   "season": 33.6,
+   "recent": 33.6,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "TOV 2.5 read from unlabeled table column - unconfirmed",
+    "2025-26 box: 65 GP, 20.2 PTS, 4.9 REB, 3.3 AST, 1.0 STL, 0.7 BLK, 2.5 TOV"
+   ]
+  },
+  {
+   "name": "Jalen Williams",
+   "team": "OKC",
+   "pos": "SF",
+   "season": 33.5,
+   "recent": 33.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "only 33 games",
+    "2025-26 box: 33 GP, 17.1 PTS, 4.6 REB, 5.5 AST, 1.2 STL, 0.3 BLK, 1.9 TOV"
+   ]
+  },
+  {
+   "name": "Rudy Gobert",
+   "team": "MIN",
+   "pos": "C",
+   "season": 33.1,
+   "recent": 33.1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "TOV conflict (1.4 vs 1.6); 1.4 used",
+    "2025-26 box: 76 GP, 10.9 PTS, 11.5 REB, 1.7 AST, 0.8 STL, 1.6 BLK, 1.4 TOV"
+   ]
+  },
+  {
+   "name": "VJ Edgecombe",
+   "team": "PHI",
+   "pos": "SG",
+   "season": 32.9,
+   "recent": 32.9,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 75 GP, 16.0 PTS, 5.6 REB, 4.2 AST, 1.4 STL, 0.5 BLK, 1.8 TOV"
+   ]
+  },
+  {
+   "name": "Immanuel Quickley",
+   "team": "TOR",
+   "pos": "PG",
+   "season": 32.8,
+   "recent": 32.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 70 GP, 16.4 PTS, 4.0 REB, 5.9 AST, 1.3 STL, 0.1 BLK, 1.5 TOV"
+   ]
+  },
+  {
+   "name": "Trae Young",
+   "team": "WAS",
+   "pos": "PG",
+   "season": 32.7,
+   "recent": 32.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Re-signed with WAS; played only 15 games in 2025-26 (MCL sprain).",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 only 15 games: small sample",
+    "2025-26 box: 15 GP, 17.9 PTS, 2.0 REB, 8.0 AST, 0.9 STL, 0.1 BLK, 2.6 TOV"
+   ]
+  },
+  {
+   "name": "Darius Garland",
+   "team": "LAC",
+   "pos": "PG",
+   "season": 32.4,
+   "recent": 32.4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "traded CLE->LAC midseason 2025-26",
+    "2025-26 box: 45 GP, 18.8 PTS, 2.4 REB, 6.7 AST, 1.0 STL, 0.2 BLK, 2.9 TOV"
+   ]
+  },
+  {
+   "name": "Nikola Vucevic",
+   "team": "ORL",
+   "pos": "C",
+   "season": 32.4,
+   "recent": 32.4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Signed with ORL (1 yr/$3.9M) after leaving BOS.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "team change: BOS->ORL",
+    "2025-26 box: 64 GP, 15.1 PTS, 8.4 REB, 3.3 AST, 0.6 STL, 0.6 BLK, 1.3 TOV"
+   ]
+  },
+  {
+   "name": "Jarrett Allen",
+   "team": "CLE",
+   "pos": "C",
+   "season": 32.4,
+   "recent": 32.4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 56 GP, 15.4 PTS, 8.5 REB, 1.8 AST, 1.0 STL, 0.8 BLK, 1.3 TOV"
+   ]
+  },
+  {
+   "name": "Ivica Zubac",
+   "team": "IND",
+   "pos": "C",
+   "season": 31.9,
+   "recent": 31.9,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "traded LAC->IND midseason 2025-26",
+    "2025-26 box: 48 GP, 14.1 PTS, 10.6 REB, 2.2 AST, 0.4 STL, 0.8 BLK, 1.8 TOV"
+   ]
+  },
+  {
+   "name": "RJ Barrett",
+   "team": "TOR",
+   "pos": "SF",
+   "season": 31.9,
+   "recent": 31.9,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 57 GP, 19.3 PTS, 5.3 REB, 3.3 AST, 0.7 STL, 0.3 BLK, 1.7 TOV"
+   ]
+  },
+  {
+   "name": "Norman Powell",
+   "team": "CHI",
+   "pos": "SG",
+   "season": 31.6,
+   "recent": 31.6,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Signed with CHI in free agency.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "team change: MIA->CHI (reported signing)",
+    "2025-26 box: 58 GP, 21.7 PTS, 3.5 REB, 2.5 AST, 1.1 STL, 0.2 BLK, 1.9 TOV"
+   ]
+  },
+  {
+   "name": "Shaedon Sharpe",
+   "team": "POR",
+   "pos": "SG",
+   "season": 31.5,
+   "recent": 31.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 50 GP, 20.8 PTS, 4.3 REB, 2.6 AST, 1.4 STL, 0.1 BLK, 2.9 TOV"
+   ]
+  },
+  {
+   "name": "Jrue Holiday",
+   "team": "POR",
+   "pos": "PG",
+   "season": 31.5,
+   "recent": 31.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 53 GP, 16.3 PTS, 4.6 REB, 6.1 AST, 1.0 STL, 0.1 BLK, 2.8 TOV"
+   ]
+  },
+  {
+   "name": "Jalen Suggs",
+   "team": "ORL",
+   "pos": "SG",
+   "season": 31.5,
+   "recent": 31.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 57 GP, 13.8 PTS, 3.9 REB, 5.5 AST, 1.8 STL, 0.7 BLK, 2.7 TOV"
+   ]
+  },
+  {
+   "name": "OG Anunoby",
+   "team": "NYK",
+   "pos": "SF",
+   "season": 31.3,
+   "recent": 31.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 67 GP, 16.7 PTS, 5.2 REB, 2.2 AST, 1.6 STL, 0.7 BLK, 1.8 TOV"
+   ]
+  },
+  {
+   "name": "Matas Buzelis",
+   "team": "CHI",
+   "pos": "PF",
+   "season": 30.9,
+   "recent": 30.9,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 77 GP, 16.3 PTS, 5.8 REB, 2.1 AST, 0.7 STL, 1.5 BLK, 2.1 TOV"
+   ]
+  },
+  {
+   "name": "Kon Knueppel",
+   "team": "CHA",
+   "pos": "SG",
+   "season": 30.7,
+   "recent": 30.7,
+   "health": "minor",
+   "role": "steady",
+   "news": "Uncertain for the opener per preseason injury reporting.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "uncertain for opener",
+    "2025-26 box: 81 GP, 18.5 PTS, 5.3 REB, 3.4 AST, 0.7 STL, 0.2 BLK, 2.0 TOV"
+   ]
+  },
+  {
+   "name": "CJ McCollum",
+   "team": "ATL",
+   "pos": "SG",
+   "season": 30.6,
+   "recent": 30.6,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Re-signed with ATL (1 yr).",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 76 GP, 18.7 PTS, 3.3 REB, 3.9 AST, 0.8 STL, 0.5 BLK, 1.8 TOV"
+   ]
+  },
+  {
+   "name": "Payton Pritchard",
+   "team": "BOS",
+   "pos": "PG",
+   "season": 30.5,
+   "recent": 30.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 79 GP, 17.0 PTS, 3.9 REB, 5.2 AST, 0.7 STL, 0.1 BLK, 1.4 TOV"
+   ]
+  },
+  {
+   "name": "Derik Queen",
+   "team": "NOP",
+   "pos": "C",
+   "season": 30.5,
+   "recent": 30.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "line is a 32-game snapshot (Razzball), may not be full season",
+    "2025-26 box: 32 GP, 13.2 PTS, 6.8 REB, 4.0 AST, 1.0 STL, 0.8 BLK, 2.3 TOV"
+   ]
+  },
+  {
+   "name": "Miles Bridges",
+   "team": "CHA",
+   "pos": "PF",
+   "season": 30.5,
+   "recent": 30.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 77 GP, 17.1 PTS, 5.8 REB, 3.2 AST, 0.6 STL, 0.4 BLK, 1.4 TOV"
+   ]
+  },
+  {
+   "name": "Josh Hart",
+   "team": "NYK",
+   "pos": "SG",
+   "season": 30.4,
+   "recent": 30.4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 66 GP, 12.0 PTS, 7.4 REB, 4.8 AST, 1.1 STL, 0.3 BLK, 1.9 TOV"
+   ]
+  },
+  {
+   "name": "Jabari Smith Jr.",
+   "team": "HOU",
+   "pos": "PF",
+   "season": 30.3,
+   "recent": 30.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 77 GP, 15.8 PTS, 6.9 REB, 1.9 AST, 0.7 STL, 0.9 BLK, 1.4 TOV"
+   ]
+  },
+  {
+   "name": "Andrew Wiggins",
+   "team": "MIA",
+   "pos": "SF",
+   "season": 30.0,
+   "recent": 30.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Picked up 2026-27 option and extended with MIA.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 68 GP, 15.4 PTS, 4.8 REB, 2.7 AST, 1.1 STL, 1.0 BLK, 1.5 TOV"
+   ]
+  },
+  {
+   "name": "Keegan Murray",
+   "team": "SAC",
+   "pos": "PF",
+   "season": 30.0,
+   "recent": 30.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Career-low 23 games (left ankle sprains); expected ready for training camp.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 only 23 games",
+    "2025-26 box: 23 GP, 14.0 PTS, 5.7 REB, 1.7 AST, 1.0 STL, 1.6 BLK, 1.2 TOV"
+   ]
+  },
+  {
+   "name": "P.J. Washington",
+   "team": "DAL",
+   "pos": "PF",
+   "season": 29.9,
+   "recent": 29.9,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 56 GP, 14.2 PTS, 7.0 REB, 1.8 AST, 1.0 STL, 1.1 BLK, 1.7 TOV"
+   ]
+  },
+  {
+   "name": "Mikal Bridges",
+   "team": "NYK",
+   "pos": "SF",
+   "season": 29.8,
+   "recent": 29.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 82 GP, 14.4 PTS, 3.8 REB, 3.7 AST, 1.3 STL, 0.8 BLK, 1.0 TOV"
+   ]
+  },
+  {
+   "name": "Nic Claxton",
+   "team": "CHI",
+   "pos": "C",
+   "season": 29.5,
+   "recent": 29.5,
+   "health": "minor",
+   "role": "steady",
+   "news": "Traded BKN->CHI; due for re-evaluation before Oct 21 opener, questionable at best.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "team change: BKN->CHI",
+    "pre-opener re-evaluation",
+    "2025-26 box: 69 GP, 11.7 PTS, 6.9 REB, 3.7 AST, 0.7 STL, 1.1 BLK, 1.4 TOV"
+   ]
+  },
+  {
+   "name": "Isaiah Hartenstein",
+   "team": "OKC",
+   "pos": "C",
+   "season": 29.4,
+   "recent": 29.4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 only 47 games",
+    "2025-26 box: 47 GP, 9.2 PTS, 9.4 REB, 3.5 AST, 1.0 STL, 0.8 BLK, 1.7 TOV"
+   ]
+  },
+  {
+   "name": "Jaime Jaquez Jr.",
+   "team": "MIL",
+   "pos": "SF",
+   "season": 29.4,
+   "recent": 29.4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Traded MIA->MIL in Giannis deal.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "team change: MIA->MIL",
+    "2025-26 box: 75 GP, 15.4 PTS, 5.0 REB, 4.7 AST, 0.7 STL, 0.3 BLK, 2.0 TOV"
+   ]
+  },
+  {
+   "name": "Aaron Gordon",
+   "team": "DEN",
+   "pos": "PF",
+   "season": 28.8,
+   "recent": 28.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 36 GP, 16.2 PTS, 5.8 REB, 2.7 AST, 0.6 STL, 0.3 BLK, 1.1 TOV"
+   ]
+  },
+  {
+   "name": "Naz Reid",
+   "team": "CHA",
+   "pos": "C",
+   "season": 28.7,
+   "recent": 28.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Traded MIN->CHA in LaMelo Ball deal.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "team change: MIN->CHA",
+    "2025-26 box: 77 GP, 13.6 PTS, 6.2 REB, 2.2 AST, 1.0 STL, 1.0 BLK, 1.6 TOV"
+   ]
+  },
+  {
+   "name": "Ausar Thompson",
+   "team": "DET",
+   "pos": "SF",
+   "season": 28.6,
+   "recent": 28.6,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 73 GP, 9.9 PTS, 5.7 REB, 3.1 AST, 2.0 STL, 0.9 BLK, 1.5 TOV"
+   ]
+  },
+  {
+   "name": "Jaden McDaniels",
+   "team": "MIN",
+   "pos": "PF",
+   "season": 28.4,
+   "recent": 28.4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 73 GP, 14.8 PTS, 4.2 REB, 2.7 AST, 1.1 STL, 1.0 BLK, 1.8 TOV"
+   ]
+  },
+  {
+   "name": "Jalen Green",
+   "team": "PHX",
+   "pos": "SG",
+   "season": 28.2,
+   "recent": 28.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 only 32 games",
+    "2025-26 box: 32 GP, 17.8 PTS, 3.6 REB, 2.8 AST, 1.1 STL, 0.3 BLK, 2.3 TOV"
+   ]
+  },
+  {
+   "name": "Neemias Queta",
+   "team": "BOS",
+   "pos": "C",
+   "season": 28.1,
+   "recent": 28.1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 76 GP, 10.2 PTS, 8.4 REB, 1.7 AST, 0.8 STL, 1.3 BLK, 1.0 TOV"
+   ]
+  },
+  {
+   "name": "Kel'el Ware",
+   "team": "MIL",
+   "pos": "C",
+   "season": 27.9,
+   "recent": 27.9,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Traded MIA->MIL in Giannis deal; role on new team not yet reported.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "team change: MIA->MIL",
+    "2025-26 box: 77 GP, 11.1 PTS, 9.0 REB, 0.7 AST, 0.8 STL, 1.1 BLK, 0.8 TOV"
+   ]
+  },
+  {
+   "name": "Peyton Watson",
+   "team": "DEN",
+   "pos": "SF",
+   "season": 27.9,
+   "recent": 27.9,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 54 GP, 14.6 PTS, 4.9 REB, 2.1 AST, 0.9 STL, 1.1 BLK, 1.7 TOV"
+   ]
+  },
+  {
+   "name": "Mark Williams",
+   "team": "PHX",
+   "pos": "C",
+   "season": 27.2,
+   "recent": 27.2,
+   "health": "long",
+   "role": "steady",
+   "news": "Re-signed with PHX (3 yr/$38M); injured left shoulder labrum in September, out for an extended period.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "shoulder labrum injury, extended absence",
+    "2025-26 box: 61 GP, 11.5 PTS, 7.9 REB, 1.0 AST, 0.9 STL, 1.0 BLK, 1.0 TOV"
+   ]
+  },
+  {
+   "name": "Reed Sheppard",
+   "team": "HOU",
+   "pos": "PG",
+   "season": 27.2,
+   "recent": 27.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 82 GP, 13.5 PTS, 2.9 REB, 3.4 AST, 1.5 STL, 0.7 BLK, 1.5 TOV"
+   ]
+  },
+  {
+   "name": "Collin Gillespie",
+   "team": "PHX",
+   "pos": "PG",
+   "season": 27.1,
+   "recent": 27.1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Re-signed with PHX (4 yr/$48M).",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 80 GP, 12.7 PTS, 4.1 REB, 4.6 AST, 1.2 STL, 0.2 BLK, 1.6 TOV"
+   ]
+  },
+  {
+   "name": "Coby White",
+   "team": "CHA",
+   "pos": "PG",
+   "season": 26.7,
+   "recent": 26.7,
+   "health": "short",
+   "role": "rising",
+   "news": "Re-signed with CHA (3 yr/$74M); expected larger role after Ball trade; sat out entire preseason with a calf strain.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "calf strain, missed preseason",
+    "role 'rising' from reported bigger role",
+    "sources disagree slightly on line (50 vs 52 games)",
+    "2025-26 box: 50 GP, 17.4 PTS, 3.4 REB, 4.0 AST, 0.5 STL, 0.1 BLK, 2.6 TOV"
+   ]
+  },
+  {
+   "name": "Wendell Carter Jr.",
+   "team": "ORL",
+   "pos": "C",
+   "season": 26.6,
+   "recent": 26.6,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 78 GP, 11.8 PTS, 7.4 REB, 2.0 AST, 0.8 STL, 0.6 BLK, 1.3 TOV"
+   ]
+  },
+  {
+   "name": "Bilal Coulibaly",
+   "team": "WAS",
+   "pos": "SF",
+   "season": 26.3,
+   "recent": 26.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 56 GP, 11.7 PTS, 4.3 REB, 2.6 AST, 1.3 STL, 1.0 BLK, 1.4 TOV"
+   ]
+  },
+  {
+   "name": "Myles Turner",
+   "team": "MIL",
+   "pos": "C",
+   "season": 26.2,
+   "recent": 26.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 71 GP, 11.9 PTS, 5.3 REB, 1.5 AST, 0.7 STL, 1.6 BLK, 1.2 TOV"
+   ]
+  },
+  {
+   "name": "Cedric Coward",
+   "team": "MEM",
+   "pos": "SG",
+   "season": 26.2,
+   "recent": 26.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 62 GP, 13.6 PTS, 5.9 REB, 2.8 AST, 0.6 STL, 0.4 BLK, 1.7 TOV"
+   ]
+  },
+  {
+   "name": "Tobias Harris",
+   "team": "SAS",
+   "pos": "PF",
+   "season": 26.1,
+   "recent": 26.1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Signed with SAS (2 yr/$31M).",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "team change: DET->SAS",
+    "2025-26 box: 63 GP, 13.3 PTS, 5.1 REB, 2.5 AST, 0.9 STL, 0.4 BLK, 1.0 TOV"
+   ]
+  },
+  {
+   "name": "Toumani Camara",
+   "team": "POR",
+   "pos": "PF",
+   "season": 26.0,
+   "recent": 26.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 82 GP, 13.4 PTS, 5.1 REB, 2.5 AST, 1.1 STL, 0.4 BLK, 1.8 TOV"
+   ]
+  },
+  {
+   "name": "Jakob Poeltl",
+   "team": "TOR",
+   "pos": "C",
+   "season": 25.7,
+   "recent": 25.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 46 GP, 10.7 PTS, 7.0 REB, 2.0 AST, 0.9 STL, 0.7 BLK, 1.2 TOV"
+   ]
+  },
+  {
+   "name": "Draymond Green",
+   "team": "GSW",
+   "pos": "PF",
+   "season": 25.1,
+   "recent": 25.1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 68 GP, 8.4 PTS, 5.5 REB, 5.5 AST, 0.9 STL, 0.6 BLK, 2.7 TOV"
+   ]
+  },
+  {
+   "name": "Collin Sexton",
+   "team": "LAL",
+   "pos": "SG",
+   "season": 24.6,
+   "recent": 24.6,
+   "health": "healthy",
+   "role": "rotation",
+   "news": "Signed with LAL (2 yr/$19M); expected bench role behind Doncic and Reaves.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "team change: CHA->LAL",
+    "role 'rotation' from reported bench role",
+    "2025-26 box: 68 GP, 15.4 PTS, 2.3 REB, 3.3 AST, 1.1 STL, 0.1 BLK, 2.1 TOV"
+   ]
+  },
+  {
+   "name": "Ace Bailey",
+   "team": "UTA",
+   "pos": "SF",
+   "season": 24.5,
+   "recent": 24.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 72 GP, 13.8 PTS, 4.2 REB, 1.8 AST, 0.8 STL, 0.7 BLK, 1.5 TOV"
+   ]
+  },
+  {
+   "name": "Scoot Henderson",
+   "team": "POR",
+   "pos": "PG",
+   "season": 24.2,
+   "recent": 24.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 only 30 games",
+    "2025-26 box: 30 GP, 14.2 PTS, 2.7 REB, 3.7 AST, 0.9 STL, 0.3 BLK, 2.4 TOV"
+   ]
+  },
+  {
+   "name": "Tari Eason",
+   "team": "HOU",
+   "pos": "PF",
+   "season": 24.0,
+   "recent": 24.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Re-signed with HOU (5 yr/$81.5M).",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 60 GP, 10.5 PTS, 6.3 REB, 1.5 AST, 1.2 STL, 0.5 BLK, 1.4 TOV"
+   ]
+  },
+  {
+   "name": "Christian Braun",
+   "team": "DEN",
+   "pos": "SG",
+   "season": 23.8,
+   "recent": 23.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 44 GP, 12.0 PTS, 4.8 REB, 2.7 AST, 0.7 STL, 0.3 BLK, 1.0 TOV"
+   ]
+  },
+  {
+   "name": "Dylan Harper",
+   "team": "SAS",
+   "pos": "SG",
+   "season": 23.6,
+   "recent": 23.6,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 69 GP, 11.8 PTS, 3.4 REB, 3.9 AST, 0.8 STL, 0.3 BLK, 1.4 TOV"
+   ]
+  },
+  {
+   "name": "Jonathan Kuminga",
+   "team": "MIN",
+   "pos": "PF",
+   "season": 23.2,
+   "recent": 23.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Signed with MIN (2 yr/$12.4M).",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "team change: ATL->MIN",
+    "2025-26 box: 36 GP, 12.2 PTS, 5.6 REB, 2.3 AST, 0.6 STL, 0.3 BLK, 1.9 TOV"
+   ]
+  },
+  {
+   "name": "Cam Johnson",
+   "team": "DEN",
+   "pos": "SF",
+   "season": 22.8,
+   "recent": 22.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 54 GP, 12.2 PTS, 3.8 REB, 2.4 AST, 0.7 STL, 0.4 BLK, 0.9 TOV"
+   ]
+  },
+  {
+   "name": "Herbert Jones",
+   "team": "NOP",
+   "pos": "SF",
+   "season": 22.2,
+   "recent": 22.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 56 GP, 8.9 PTS, 3.4 REB, 2.8 AST, 1.6 STL, 0.5 BLK, 1.3 TOV"
+   ]
+  },
+  {
+   "name": "Anfernee Simons",
+   "team": "PHI",
+   "pos": "SG",
+   "season": 21.5,
+   "recent": 21.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Signed with PHI (2 yr/$12.3M).",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "team change: CHI->PHI",
+    "2025-26 box: 55 GP, 14.3 PTS, 2.5 REB, 2.4 AST, 0.5 STL, 0.1 BLK, 1.2 TOV"
+   ]
+  },
+  {
+   "name": "Malik Monk",
+   "team": "SAC",
+   "pos": "SG",
+   "season": 20.8,
+   "recent": 20.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 62 GP, 12.5 PTS, 1.9 REB, 3.0 AST, 0.6 STL, 0.4 BLK, 1.5 TOV"
+   ]
+  },
+  {
+   "name": "Jaylen Wells",
+   "team": "MEM",
+   "pos": "SG",
+   "season": 20.6,
+   "recent": 20.6,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Season-ending toe surgery in March 2026; expected full recovery before 2026-27.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 69 GP, 12.5 PTS, 3.2 REB, 1.6 AST, 0.9 STL, 0.1 BLK, 1.1 TOV"
+   ]
+  },
+  {
+   "name": "Zaccharie Risacher",
+   "team": "ATL",
+   "pos": "SF",
+   "season": 19.1,
+   "recent": 19.1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "2025-26 box: 67 GP, 9.6 PTS, 3.8 REB, 1.1 AST, 0.9 STL, 0.5 BLK, 0.9 TOV"
+   ]
+  },
+  {
+   "name": "Luguentz Dort",
+   "team": "ATL",
+   "pos": "SG",
+   "season": 17.5,
+   "recent": 17.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Traded OKC->ATL in three-team deal.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "team change: OKC->ATL",
+    "2025-26 box: 69 GP, 8.3 PTS, 3.6 REB, 1.2 AST, 0.9 STL, 0.4 BLK, 0.8 TOV"
+   ]
+  },
+  {
+   "name": "Victor Wembanyama",
+   "team": "SAS",
+   "pos": "C",
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "season/recent omitted: 2025-26 regular-season turnovers not found"
+   ]
+  },
+  {
+   "name": "Kyrie Irving",
+   "team": "DAL",
+   "pos": "PG",
+   "health": "minor",
+   "role": "steady",
+   "news": "Missed all of 2025-26 (torn ACL, March 2025); expected fully recovered by end of training camp.",
+   "flags": [
+    "season/recent omitted: no 2025-26 games",
+    "returning from ACL"
+   ]
+  },
+  {
+   "name": "Tyrese Haliburton",
+   "team": "IND",
+   "pos": "PG",
+   "health": "minor",
+   "role": "steady",
+   "news": "Missed all of 2025-26 (torn Achilles, 2025 Finals); Pacers optimistic he is available on opening night.",
+   "flags": [
+    "season/recent omitted: no 2025-26 games",
+    "returning from Achilles"
+   ]
+  },
+  {
+   "name": "Damian Lillard",
+   "team": "POR",
+   "pos": "PG",
+   "health": "minor",
+   "role": "steady",
+   "news": "Missed all of 2025-26 (torn Achilles); on track for 2026-27 return, no confirmed date.",
+   "flags": [
+    "season/recent omitted: no 2025-26 games",
+    "returning from Achilles; return date unconfirmed"
+   ]
+  },
+  {
+   "name": "Zach LaVine",
+   "team": "SAC",
+   "pos": "SG",
+   "health": "healthy",
+   "role": "steady",
+   "news": "Opted into $49M option; expected to stay in SAC. Season ended after right-hand surgery (39 games).",
+   "flags": [
+    "season/recent omitted: 2025-26 turnovers per game not found",
+    "2025-26 only 39 games"
+   ]
+  },
+  {
+   "name": "Fred VanVleet",
+   "team": "HOU",
+   "pos": "PG",
+   "health": "minor",
+   "role": "steady",
+   "news": "Missed all of 2025-26 (torn ACL); expected ready for opening night per Rotowire.",
+   "flags": [
+    "season/recent omitted: no 2025-26 games",
+    "returning from ACL"
+   ]
+  }
+ ]
+}
