@@ -47,6 +47,10 @@ Any OpenAI-compatible endpoint also works: point `OMNIROUTE_URL` at it. Without 
 
 The coach gets only the computed analysis (rosters, projections and the moves already checked by the scoring model), and it is told not to invent stats or news.
 
+## Standalone report page
+
+`npm run snapshot -- --platform sleeper --username <you> --out report.html` writes one self-contained page with the full report and no server needed. Add `--notes notes.md` to include written coach notes. A scheduled task can run this and republish the page so it stays current.
+
 ## How the numbers work
 
 - Logic lives in `engine.js`, which the page and the server share: `valuePlayer`, `compareWaiver`, `compareTrade`, `pickupMoves`, `tradeMoves`.

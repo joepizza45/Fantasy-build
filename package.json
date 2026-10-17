@@ -4,7 +4,10 @@
   "description": "Fantasy pickups, trades and an AI league coach for Sleeper, ESPN and FPL",
   "scripts": {
     "start": "node server/server.js",
-    "test": "node --test"
+    "test": "node --test",
+    "snapshot": "node scripts/snapshot.js"
   },
-  "engines": { "node": ">=18" }
+  "engines": {
+    "node": ">=18"
+  }
 }
