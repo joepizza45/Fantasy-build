@@ -1,13 +1,16 @@
 {
  "sport": "nba",
- "fetched_at": "2026-10-17T00:00:00Z",
- "through": "2025-26 regular season (final). No 2026-27 games played yet - season opens Oct 20, 2026. 'recent' equals the 2025-26 season average (no last-10 split retrieved).",
+ "fetched_at": "2026-10-17T21:40:00Z",
+ "through": "2025-26 regular season (final). No 2026-27 games played yet - season opens Oct 20-21, 2026. News and rosters updated through Oct 17, 2026. 'recent' equals the 2025-26 season average (no last-10 split retrieved).",
  "scoring": "Standard points per game from 2025-26 per-game box averages: PTS + 1.2*REB + 1.5*AST + 3*STL + 3*BLK - TOV",
  "notes": [
   "Data gathered via web search summaries of Land of Basketball, RealGM, Stat Sniper, StatMuse, StatsCrew, TeamRankings, ESPN and others; basketball-reference/ESPN stats pages could not be fetched directly (WebFetch DNS failure).",
   "team = 2026-27 team: offseason moves found in news this run are applied and flagged; other players keep their last reported 2025-26 team.",
   "pos = one primary position assigned from standard listings (not read per player from a source).",
-  "Excluded for unclear 2026-27 status: Russell Westbrook (reported retired or unsigned), DeMar DeRozan (waived by SAC, unsigned), Kristaps Porzingis (FA reports conflict, undisclosed health issue), Cam Thomas (2026 FA destination not found)."
+  "Refresh Oct 17, 2026: only team, health, role and news changed for existing players; no season/recent numbers were altered. Sources: FantasyPros player pages and player-news feed (reachable), plus WebSearch summaries. WebFetch could not resolve hosts this run, so FantasyPros was read with curl; espn.com, nba.com, basketball-reference.com stay unreachable/blocked and were not worked around.",
+  "health/role marked from reported news only; day-to-day items (minor) mostly come from the FantasyPros feed of Oct 5-17 and may be stale by opening night. Injury items where the source gave no timeline carry a flag saying the tier is a guess.",
+  "Previously excluded players: DeMar DeRozan (now added: DEN) and Kristaps Porzingis (now added: GSW, out indefinitely). Still excluded: Russell Westbrook (FantasyPros lists him FA/retired after an announced retirement about 9 weeks before Oct 17; other outlets still describe him as unsigned, so unresolved) and Cam Thomas (free agent; Bucks waived him around March 2026, no 2026-27 team found).",
+  "Unverified this run: FantasyPros shows OUT/DTD tags for Sabonis, LaVine (no matching current news); Haliburton's latest FantasyPros item is 16 weeks old (left 'minor'); Kyrie Irving's preseason debut (expected Oct 11) was not confirmed to have happened. The new-player pos for DeRozan/Porzingis comes from FantasyPros eligibility."
  ],
  "sources": [
   "https://www.landofbasketball.com/nba_players_season_stats/2026/nikola_jokic_full.htm",
@@ -179,7 +182,32 @@
   "https://www.dunkest.com/en/nba/news/244108/nba-schedule-opening-night-and-christmas-day/",
   "https://www.nbcnewyork.com/nba/nba-key-dates-2026-27-opening-night-trade-deadline-finals/6535379/?amp=1",
   "https://www.espn.com/nba/injuries",
-  "https://www.cbssports.com/nba/news/nba-free-agency-2026-live-updates-trade-rumors-news-june-30/live/"
+  "https://www.cbssports.com/nba/news/nba-free-agency-2026-live-updates-trade-rumors-news-june-30/live/",
+  "https://www.fantasypros.com/nba/player-news.php",
+  "https://www.fantasypros.com/nba/players/demar-derozan.php",
+  "https://www.fantasypros.com/nba/stats/demar-derozan.php",
+  "https://www.fantasypros.com/nba/stats/kristaps-porzingis.php",
+  "https://www.fantasypros.com/nba/players/kristaps-porzingis.php",
+  "https://www.fantasypros.com/nba/players/russell-westbrook.php",
+  "https://www.fantasypros.com/nba/players/cameron-thomas.php",
+  "https://www.fantasypros.com/nba/players/kawhi-leonard.php",
+  "https://www.fantasypros.com/nba/players/brandon-ingram.php",
+  "https://www.fantasypros.com/nba/players/miles-bridges.php",
+  "https://www.fantasypros.com/nba/players/zaccharie-risacher.php",
+  "https://www.fantasypros.com/nba/players/peyton-watson.php",
+  "https://clutchpoints.com/nba/denver-nuggets/sources-nuggets-sign-demar-derozan-after-trading-peyton-watson",
+  "https://www.wsls.com/sports/2026/06/30/center-kristaps-porzingis-re-signing-with-warriors-on-two-year-40-million-deal/",
+  "https://www.flashscore.com/news/raptors-clippers-kawhi-leonard-trade/foSp1ObD/",
+  "https://www.ctvnews.ca/toronto/sports/article/kawhi-leonard-trade-to-toronto-raptors-to-be-completed-after-long-delay-report-2/",
+  "https://abc30.com/post/clippers-brandon-ingram-miss-start-season-surgery/19884436/",
+  "https://www.nba.com/news/miles-bridges-trade-hornets-suns",
+  "https://www.thecharlottepost.com/news/2026/06/28/hornets/charlotte-hornets-deal-miles-bridges-to-phoenix-suns/",
+  "https://www.kptv.com/2026/08/24/espn-source-blazers-shaedon-sharpe-out-6-months-with-torn-meniscus/",
+  "https://www.stadiumrant.com/nic-claxton-injury-update-bulls-opening-night/",
+  "https://sports.yahoo.com/articles/nic-claxton-injury-bulls-coach-171659104.html",
+  "https://www.kold.com/2026/09/11/suns-center-mark-williams-undergoes-shoulder-surgery-could-miss-extended-time/",
+  "https://bolavip.com/en/nba/why-hasnt-russell-westbrook-signed-with-an-nba-team-yet",
+  "https://www.rotowire.com/basketball/headlines/bradley-beal-injury-wont-be-ready-for-opening-night-534472"
  ],
  "players": [
   {
@@ -204,7 +232,7 @@
    "recent": 57.5,
    "health": "healthy",
    "role": "rising",
-   "news": "Cleared for full activity since May after hamstring strain; usage expected to rise with LeBron gone (NBA.com points-league ranking).",
+   "news": "Full participant in practice Oct 15, good to go for the opener (FantasyPros); usage expected to rise with LeBron gone (NBA.com points-league ranking).",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
     "role 'rising' from reported usage outlook",
@@ -286,15 +314,17 @@
   },
   {
    "name": "Kawhi Leonard",
-   "team": "LAC",
+   "team": "TOR",
    "pos": "SF",
    "season": 45.9,
    "recent": 45.9,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Traded LAC->TOR (agreed June 30, 2026) for Brandon Ingram, Gradey Dick and picks; FantasyPros (Oct 13) has him in Toronto, making his preseason debut for the Raptors.",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
+    "team change: LAC->TOR",
+    "trade first reported by ESPN June 30; an NBA cap-circumvention probe delayed it (league cleared it Sept 2, per CTV); final completion not seen in a source, but FantasyPros lists him as TOR",
     "2025-26 box: 65 GP, 27.9 PTS, 6.4 REB, 3.6 AST, 1.9 STL, 0.4 BLK, 2.0 TOV"
    ]
   },
@@ -350,7 +380,7 @@
    "recent": 44.2,
    "health": "healthy",
    "role": "steady",
-   "news": "Played 20 games in 2025-26 (hand/groin), traded DAL->WAS midseason; aim was to be healthy for 2026-27, no confirmed preseason status found.",
+   "news": "Played 20 games in 2025-26 (hand/groin), traded DAL->WAS midseason; Wizards plan extension talks (FantasyPros, ~12 weeks before Oct 17). No confirmed preseason health status found.",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
     "2025-26 only 20 games",
@@ -481,10 +511,9 @@
    "recent": 41.5,
    "health": "healthy",
    "role": "steady",
-   "news": "Had right ankle arthroscopy in May 2026; projected back around training camp.",
+   "news": "Had right ankle arthroscopy in May 2026; cleared for 5-on-5 with no restrictions and on track to be a full-go to start the season (FantasyPros, roughly 6 weeks before Oct 17).",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
-    "post-surgery ankle, cleared status not confirmed",
     "2025-26 box: 54 GP, 17.0 PTS, 8.3 REB, 9.1 AST, 1.0 STL, 0.5 BLK, 3.6 TOV"
    ]
   },
@@ -524,12 +553,13 @@
    "pos": "C",
    "season": 41.0,
    "recent": 41.0,
-   "health": "healthy",
+   "health": "minor",
    "role": "steady",
-   "news": "Rotowire notes Giannis arrival could cut his rebounding/offensive volume.",
+   "news": "Groin injury; sat out an Oct 14 preseason game but should be available for the start of the season (FantasyPros, Oct 15). Rotowire notes Giannis arrival could cut his rebounding/offensive volume.",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
     "possible usage dip with Giannis (reported opinion, not applied to numbers)",
+    "groin, expected to be available for opener",
     "2025-26 box: 73 GP, 20.1 PTS, 10.0 REB, 3.2 AST, 1.2 STL, 0.7 BLK, 1.6 TOV"
    ]
   },
@@ -555,7 +585,7 @@
    "recent": 40.6,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Knicks and Towns paused extension talks (Oct 13); no availability concern.",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
     "2025-26 box: 75 GP, 20.1 PTS, 11.9 REB, 3.0 AST, 0.9 STL, 0.5 BLK, 2.5 TOV"
@@ -641,7 +671,7 @@
    "recent": 39.7,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Signed a 2-year, $116M extension with GSW (Sept 26).",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
     "2025-26 only 43 games",
@@ -682,12 +712,13 @@
    "pos": "SF",
    "season": 39.1,
    "recent": 39.1,
-   "health": "healthy",
+   "health": "minor",
    "role": "steady",
-   "news": "",
+   "news": "Wrist injury kept him out of an Oct 8 preseason game; day-to-day (FantasyPros, Oct 9); no later update seen.",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
     "TOV 2.3 read from unlabeled table column - unconfirmed",
+    "wrist injury, no later update seen",
     "2025-26 box: 52 GP, 24.2 PTS, 7.1 REB, 3.0 AST, 1.1 STL, 0.3 BLK, 2.3 TOV"
    ]
   },
@@ -711,13 +742,14 @@
    "pos": "C",
    "season": 38.3,
    "recent": 38.3,
-   "health": "healthy",
+   "health": "minor",
    "role": "steady",
-   "news": "Sign-and-trade UTA->LAL.",
+   "news": "Sign-and-trade UTA->LAL. Jammed his left pinkie on the backboard in camp; Redick called it minor and he was a full practice participant; opener status not confirmed.",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
     "team change: UTA->LAL",
     "2025-26 only 5 games: tiny sample",
+    "minor finger injury (FantasyPros Oct 5; ClutchPoints/TSN); FantasyPros shows an OUT tag with no matching news",
     "2025-26 box: 5 GP, 14.4 PTS, 10.8 REB, 3.0 AST, 1.4 STL, 1.8 BLK, 3.2 TOV"
    ]
   },
@@ -743,9 +775,10 @@
    "recent": 38.0,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Missed part of training camp amid contract negotiations; expected to play in the preseason (FantasyPros, Oct 7).",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
+    "contract status after camp not found",
     "2025-26 box: 70 GP, 19.5 PTS, 10.5 REB, 2.0 AST, 0.8 STL, 0.8 BLK, 1.9 TOV"
    ]
   },
@@ -801,7 +834,7 @@
    "recent": 37.3,
    "health": "long",
    "role": "steady",
-   "news": "Tore right ACL Jan 19, surgery Feb 9; optimistic return target Jan-Feb 2027.",
+   "news": "Tore right ACL Jan 19, surgery Feb 9; Warriors hope to have him back in January or February 2027 (FantasyPros, Oct 17).",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
     "ACL rehab, return targeted Jan-Feb 2027",
@@ -830,10 +863,12 @@
    "recent": 36.2,
    "health": "healthy",
    "role": "steady",
-   "news": "Expected to stay in SAC after trade talks.",
+   "news": "Expected to stay in SAC after trade talks. Had season-ending meniscus surgery Feb 2026; a Kings media-day headline (NBC Sports Bay Area) calls him fully healthy.",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
     "2025-26 line covers only 19 games (snapshot through Feb 4) - may not be final",
+    "FantasyPros shows an OUT tag but its latest news is 16 weeks old; could not verify the reason",
+    "health 'healthy' is from the media-day headline, not an injury report",
     "2025-26 box: 19 GP, 15.8 PTS, 11.4 REB, 4.1 AST, 0.9 STL, 0.2 BLK, 2.7 TOV"
    ]
   },
@@ -855,15 +890,17 @@
   },
   {
    "name": "Brandon Ingram",
-   "team": "TOR",
+   "team": "LAC",
    "pos": "SF",
    "season": 35.9,
    "recent": 35.9,
-   "health": "healthy",
+   "health": "short",
    "role": "steady",
-   "news": "",
+   "news": "Traded TOR->LAC in the Kawhi Leonard deal. Heel surgery in May also repaired a partial Achilles tear; will miss the start of the season, no timetable (progressed to court work Oct 15).",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
+    "team change: TOR->LAC",
+    "partial Achilles tear, out for opener, no return timetable: 'short' is a guess, could run longer",
     "2025-26 box: 77 GP, 21.5 PTS, 5.6 REB, 3.7 AST, 0.8 STL, 0.7 BLK, 2.4 TOV"
    ]
   },
@@ -873,11 +910,12 @@
    "pos": "C",
    "season": 35.9,
    "recent": 35.9,
-   "health": "healthy",
+   "health": "short",
    "role": "steady",
-   "news": "",
+   "news": "Had foot surgery this offseason; expected to begin contact work soon as of Oct 5 (ESPN via FantasyPros). Opener availability not confirmed.",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
+    "post-surgery foot, not confirmed cleared; 'short' is a cautious estimate",
     "2025-26 box: 48 GP, 16.3 PTS, 7.4 REB, 2.7 AST, 0.8 STL, 2.0 BLK, 1.7 TOV"
    ]
   },
@@ -944,12 +982,13 @@
    "pos": "PG",
    "season": 34.8,
    "recent": 34.8,
-   "health": "healthy",
+   "health": "minor",
    "role": "steady",
-   "news": "",
+   "news": "Toe injury kept him out of practice Oct 12; reported precautionary, should be good for the opener (FantasyPros, Oct 13).",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
     "2025-26 only 14 games: small sample",
+    "toe, reported precautionary",
     "2025-26 box: 14 GP, 16.7 PTS, 5.4 REB, 6.4 AST, 1.6 STL, 0.2 BLK, 3.4 TOV"
    ]
   },
@@ -1047,12 +1086,13 @@
    "pos": "SF",
    "season": 33.7,
    "recent": 33.7,
-   "health": "healthy",
+   "health": "minor",
    "role": "steady",
-   "news": "",
+   "news": "Right shoulder soreness; left the Oct 16 preseason finale early, day-to-day (Magic via FantasyPros, Oct 17).",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
     "only 34 games (calf)",
+    "day-to-day shoulder soreness, severity unknown",
     "2025-26 box: 34 GP, 20.6 PTS, 5.2 REB, 3.3 AST, 0.9 STL, 0.3 BLK, 1.7 TOV"
    ]
   },
@@ -1092,13 +1132,13 @@
    "pos": "C",
    "season": 33.7,
    "recent": 33.7,
-   "health": "minor",
+   "health": "healthy",
    "role": "steady",
-   "news": "Shut down in mid-December 2025 (ankle); ankle/elbow procedures mentioned with no clear timeline.",
+   "news": "Cleared for full-speed activity and on track for the Oct 21 season opener after the December 2025 ankle shutdown (FantasyPros, Oct 5).",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
     "2025-26 only 11 games: small sample",
-    "health timeline unclear",
+    "cleared per FantasyPros Oct 5; not on any later injury report seen",
     "2025-26 box: 11 GP, 13.6 PTS, 11.1 REB, 1.1 AST, 0.6 STL, 1.9 BLK, 2.4 TOV"
    ]
   },
@@ -1298,11 +1338,12 @@
    "pos": "SG",
    "season": 31.5,
    "recent": 31.5,
-   "health": "healthy",
+   "health": "long",
    "role": "steady",
-   "news": "",
+   "news": "Tore right meniscus in an offseason workout (Aug 2026); surgery Aug 26, about 6 months out, roughly through the All-Star break; out for the Oct 21 opener.",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
+    "torn meniscus, ~6 month timeline (ESPN/Shams, Aug 24; team surgery update Aug 26)",
     "2025-26 box: 50 GP, 20.8 PTS, 4.3 REB, 2.6 AST, 1.4 STL, 0.1 BLK, 2.9 TOV"
    ]
   },
@@ -1312,11 +1353,12 @@
    "pos": "PG",
    "season": 31.5,
    "recent": 31.5,
-   "health": "healthy",
+   "health": "minor",
    "role": "steady",
-   "news": "",
+   "news": "Missed the Oct 16 preseason finale with a hand injury; to be monitored before the opener (FantasyPros, Oct 17).",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
+    "hand injury, severity unknown",
     "2025-26 box: 53 GP, 16.3 PTS, 4.6 REB, 6.1 AST, 1.0 STL, 0.1 BLK, 2.8 TOV"
    ]
   },
@@ -1354,12 +1396,32 @@
    "pos": "PF",
    "season": 30.9,
    "recent": 30.9,
-   "health": "healthy",
+   "health": "minor",
    "role": "steady",
-   "news": "",
+   "news": "Left the Oct 9 preseason game with a right ankle injury; was to be evaluated that weekend or early the next week. No later update found.",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
+    "ankle injury, outcome of evaluation not found",
     "2025-26 box: 77 GP, 16.3 PTS, 5.8 REB, 2.1 AST, 0.7 STL, 1.5 BLK, 2.1 TOV"
+   ]
+  },
+  {
+   "name": "DeMar DeRozan",
+   "team": "DEN",
+   "pos": "SF",
+   "season": 30.9,
+   "recent": 30.9,
+   "health": "healthy",
+   "role": "steady",
+   "news": "Waived by SAC in early July; FantasyPros (about 8 weeks before Oct 17) says he intends to sign with DEN, after Peyton Watson was traded to CLE. Shams reported 1 yr/$3.9M, ClutchPoints says minimum deal.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "previously excluded; now added",
+    "team change: SAC->DEN",
+    "signing terms conflict between sources and no official team announcement seen",
+    "pos SF from FantasyPros eligibility (SF,PF)",
+    "season computed from FantasyPros season totals (77 GP, 1419 PTS, 226 REB, 316 AST, 96 TOV, 80 STL, 23 BLK), unrounded per-game values",
+    "2025-26 box: 77 GP, 18.4 PTS, 2.9 REB, 4.1 AST, 1.0 STL, 0.3 BLK, 1.2 TOV"
    ]
   },
   {
@@ -1370,11 +1432,30 @@
    "recent": 30.7,
    "health": "minor",
    "role": "steady",
-   "news": "Uncertain for the opener per preseason injury reporting.",
+   "news": "Left hamstring injury in offseason activity; GM said Oct 5 he 'doesn't know' if Knueppel plays the Oct 21 opener vs BKN; Covers lists him questionable/out. Expected to have a big role once healthy after the Ball and Bridges departures.",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
-    "uncertain for opener",
+    "uncertain for opener (ESPN/FantasyPros Oct 5; Covers); still unresolved as of Oct 17",
     "2025-26 box: 81 GP, 18.5 PTS, 5.3 REB, 3.4 AST, 0.7 STL, 0.2 BLK, 2.0 TOV"
+   ]
+  },
+  {
+   "name": "Kristaps Porzingis",
+   "team": "GSW",
+   "pos": "C",
+   "season": 30.7,
+   "recent": 30.7,
+   "health": "short",
+   "role": "steady",
+   "news": "Re-signed with GSW (2 yr/$40M, June 30) after a deadline trade from ATL. Missed camp and the first five preseason games; Warriors said Oct 14 he is out indefinitely for a health-related matter, no timeline.",
+   "flags": [
+    "recent = 2025-26 season average (last-10 split not retrieved)",
+    "previously excluded; now added",
+    "team change: ATL->GSW (Feb 2026 deadline)",
+    "out indefinitely, undisclosed health matter: 'short' is a placeholder, could be long",
+    "2025-26 only 32 games (17 ATL, 15 GSW): small sample",
+    "season computed from FantasyPros season totals (32 GP, 533 PTS, 167 REB, 81 AST, 41 TOV, 18 STL, 38 BLK), unrounded per-game values",
+    "2025-26 box: 32 GP, 16.7 PTS, 5.2 REB, 2.5 AST, 0.6 STL, 1.2 BLK, 1.3 TOV"
    ]
   },
   {
@@ -1398,10 +1479,11 @@
    "season": 30.5,
    "recent": 30.5,
    "health": "healthy",
-   "role": "steady",
-   "news": "",
+   "role": "rising",
+   "news": "Agreed to a 2-year, $44.2M extension (Oct 13). FantasyPros expects an even bigger role after Jaylen Brown's departure.",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
+    "role 'rising' from FantasyPros's reported bigger-role outlook",
     "2025-26 box: 79 GP, 17.0 PTS, 3.9 REB, 5.2 AST, 0.7 STL, 0.1 BLK, 1.4 TOV"
    ]
   },
@@ -1422,15 +1504,17 @@
   },
   {
    "name": "Miles Bridges",
-   "team": "CHA",
+   "team": "PHX",
    "pos": "PF",
    "season": 30.5,
    "recent": 30.5,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Traded CHA->PHX (June 28, 2026; announced July 13) for Grayson Allen, Royce O'Neale and a pick. Right ankle sprain in preseason, recovering well (Oct 13).",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
+    "team change: CHA->PHX",
+    "minor preseason ankle sprain, no opener ruling found",
     "2025-26 box: 77 GP, 17.1 PTS, 5.8 REB, 3.2 AST, 0.6 STL, 0.4 BLK, 1.4 TOV"
    ]
   },
@@ -1440,11 +1524,12 @@
    "pos": "SG",
    "season": 30.4,
    "recent": 30.4,
-   "health": "healthy",
+   "health": "minor",
    "role": "steady",
-   "news": "",
+   "news": "Sore right ankle; sat out the preseason finale, should be good for the opener (FantasyPros, Oct 16).",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
+    "sore ankle, expected to play opener",
     "2025-26 box: 66 GP, 12.0 PTS, 7.4 REB, 4.8 AST, 1.1 STL, 0.3 BLK, 1.9 TOV"
    ]
   },
@@ -1525,13 +1610,13 @@
    "pos": "C",
    "season": 29.5,
    "recent": 29.5,
-   "health": "minor",
+   "health": "short",
    "role": "steady",
-   "news": "Traded BKN->CHI; due for re-evaluation before Oct 21 opener, questionable at best.",
+   "news": "Traded BKN->CHI. Hamstring injury: Bulls coach said he could be 'out a while' (Yahoo Sports/Stadium Rant); FantasyPros Oct 14 says still working back, up in the air for the opener.",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
     "team change: BKN->CHI",
-    "pre-opener re-evaluation",
+    "hamstring, not officially ruled out; 'short' from coach's 'out a while' comment, return date unknown",
     "2025-26 box: 69 GP, 11.7 PTS, 6.9 REB, 3.7 AST, 0.7 STL, 1.1 BLK, 1.4 TOV"
    ]
   },
@@ -1668,15 +1753,17 @@
   },
   {
    "name": "Peyton Watson",
-   "team": "DEN",
+   "team": "CLE",
    "pos": "SF",
    "season": 27.9,
    "recent": 27.9,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Traded DEN->CLE for Max Strus and picks; signed a 4-year, $88M deal (FantasyPros, about 8 weeks before Oct 17).",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
+    "team change: DEN->CLE",
+    "role on new team not reported; kept 'steady'",
     "2025-26 box: 54 GP, 14.6 PTS, 4.9 REB, 2.1 AST, 0.9 STL, 1.1 BLK, 1.7 TOV"
    ]
   },
@@ -1731,12 +1818,13 @@
    "recent": 26.7,
    "health": "short",
    "role": "rising",
-   "news": "Re-signed with CHA (3 yr/$74M); expected larger role after Ball trade; sat out entire preseason with a calf strain.",
+   "news": "Re-signed with CHA (3 yr/$74M); expected larger role after Ball trade. Left calf strain: missed the whole preseason; targeting the Oct 21 opener, ESPN lists him day-to-day.",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
     "calf strain, missed preseason",
     "role 'rising' from reported bigger role",
     "sources disagree slightly on line (50 vs 52 games)",
+    "calf strain, aiming for Oct 21 opener (FantasyPros Oct 5; ESPN injury page)",
     "2025-26 box: 50 GP, 17.4 PTS, 3.4 REB, 4.0 AST, 0.5 STL, 0.1 BLK, 2.6 TOV"
    ]
   },
@@ -1802,12 +1890,13 @@
    "pos": "PF",
    "season": 26.1,
    "recent": 26.1,
-   "health": "healthy",
+   "health": "short",
    "role": "steady",
-   "news": "Signed with SAS (2 yr/$31M).",
+   "news": "Signed with SAS (2 yr/$31M). Calf injury: Spurs said they will not rush him back; status for the start of the season uncertain (ESPN via FantasyPros, Oct 5).",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
     "team change: DET->SAS",
+    "calf injury, opener uncertain",
     "2025-26 box: 63 GP, 13.3 PTS, 5.1 REB, 2.5 AST, 0.9 STL, 0.4 BLK, 1.0 TOV"
    ]
   },
@@ -1859,13 +1948,14 @@
    "pos": "SG",
    "season": 24.6,
    "recent": 24.6,
-   "health": "healthy",
+   "health": "minor",
    "role": "rotation",
-   "news": "Signed with LAL (2 yr/$19M); expected bench role behind Doncic and Reaves.",
+   "news": "Signed with LAL (2 yr/$19M); expected bench role behind Doncic and Reaves. Missed the Oct 16 preseason finale; Lakers say he continues to progress and hopes to play the opener.",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
     "team change: CHA->LAL",
     "role 'rotation' from reported bench role",
+    "minor injury, type not stated; hopeful for opener (FantasyPros Oct 17)",
     "2025-26 box: 68 GP, 15.4 PTS, 2.3 REB, 3.3 AST, 1.1 STL, 0.1 BLK, 2.1 TOV"
    ]
   },
@@ -2028,15 +2118,16 @@
   },
   {
    "name": "Zaccharie Risacher",
-   "team": "ATL",
+   "team": "DAL",
    "pos": "SF",
    "season": 19.1,
    "recent": 19.1,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Traded ATL->DAL in the three-team deal that sent Luguentz Dort to ATL (FantasyPros, about 13 weeks before Oct 17).",
    "flags": [
     "recent = 2025-26 season average (last-10 split not retrieved)",
+    "team change: ATL->DAL",
     "2025-26 box: 67 GP, 9.6 PTS, 3.8 REB, 1.1 AST, 0.9 STL, 0.5 BLK, 0.9 TOV"
    ]
   },
@@ -2111,7 +2202,8 @@
    "news": "Opted into $49M option; expected to stay in SAC. Season ended after right-hand surgery (39 games).",
    "flags": [
     "season/recent omitted: 2025-26 turnovers per game not found",
-    "2025-26 only 39 games"
+    "2025-26 only 39 games",
+    "FantasyPros shows an OUT tag with no matching current news; a Sept 19 Roundtable piece says he is recovered; unverified"
    ]
   },
   {

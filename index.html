@@ -318,9 +318,10 @@ async function loadData(k) {
 }
 function fillFromData(p, i) {
   const d = dataSets[state.sport], m = d && d.by[String(p.name).trim().toLowerCase()]; if (!m) return;
-  p.pos = m.pos; p.season = m.season; p.recent = m.recent;
+  const ok = Number.isFinite(m.season) && Number.isFinite(m.recent);
+  p.pos = m.pos; p.season = ok ? m.season : ''; p.recent = ok ? m.recent : '';
   p.health = HEALTH[m.health] ? m.health : 'healthy'; p.role = ROLES[m.role] ? m.role : 'steady';
-  p.flags = m.news ? ['Data file news: ' + m.news] : [];
+  p.flags = (ok ? [] : ['No season numbers in the data file. Enter them.']).concat(m.news ? ['Data file news: ' + m.news] : []);
   ['pos', 'season', 'recent', 'health'].forEach((f) => { const el = $('r-' + state.sport + '-' + i + '-' + f); if (el) el.value = p[f]; });
   const row = $('row-' + i); if (row) {
     const old = row.querySelector('ul.why'); if (old) old.remove();
