@@ -328,13 +328,13 @@ function normGroup(g) {
 }
 function toPlayer(sport, p) {
   const flags = []; let season = Number(p.season_avg);
-  if (p.season_avg == null || p.season_avg === '' || !(season >= 0)) {
+  if (p.season_avg == null || String(p.season_avg).trim() === '' || !(season >= 0)) {
     const tot = Number(p.season_total), gp = Number(p.games_played);
     if (p.season_total != null && p.games_played != null && tot >= 0 && gp > 0) { season = tot / gp; flags.push('Season average worked out from ' + tot + ' points over ' + gp + ' games.'); }
     else { season = ''; flags.push('Season average not shown. Enter it.'); }
   }
   let recent = Number(p.recent_avg);
-  if (p.recent_avg == null || p.recent_avg === '' || !(recent >= 0)) { recent = season; if (season !== '') flags.push('Recent average not shown. Using the season average.'); }
+  if (p.recent_avg == null || String(p.recent_avg).trim() === '' || !(recent >= 0)) { recent = season; if (season !== '') flags.push('Recent average not shown. Using the season average.'); }
   const pos = normPos(sport, p.position); if (!pos) flags.push('Position not shown. Pick one.');
   const hf = healthFrom(p.injury); if (hf.flag) flags.push(hf.flag);
   let group = normGroup(p.group); if (!group) { group = 'mine'; flags.push('Could not tell which list this player was on. Pick one.'); }
