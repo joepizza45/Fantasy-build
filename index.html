@@ -301,6 +301,32 @@ Object.keys(SPORTS).forEach((k) => { state.players[k] = exampleData(k); state.ex
 try { const s = JSON.parse(localStorage.getItem('movecheck3') || '{}'); if (SPORTS[s.sport]) state.sport = s.sport; } catch (e) {}
 const save = () => { try { localStorage.setItem('movecheck3', JSON.stringify({ sport: state.sport })); } catch (e) {} };
 const cur = () => state.players[state.sport];
+const dataSets = {};
+const dataLabel = (p, dup) => (dup[p.name.toLowerCase()] > 1 && p.team ? p.name + ' (' + p.team + ')' : p.name);
+async function loadData(k) {
+  try {
+    const r = await fetch('data/' + k + '.json', { cache: 'no-cache' }); if (!r.ok) throw new Error(r.status);
+    const j = await r.json(), dup = {}, by = {}, labels = [];
+    (j.players || []).forEach((p) => { if (p && p.name) { const n = String(p.name).toLowerCase(); dup[n] = (dup[n] || 0) + 1; } });
+    (j.players || []).forEach((p) => {
+      if (!p || !p.name || SPORTS[k].positions.indexOf(p.pos) < 0) return;
+      const l = dataLabel(p, dup); by[l.toLowerCase()] = p; labels.push(l);
+    });
+    dataSets[k] = { fetched: String(j.fetched_at || '').slice(0, 10), count: labels.length, by, labels };
+  } catch (e) { dataSets[k] = null; }
+  if (k === state.sport) renderList();
+}
+function fillFromData(p, i) {
+  const d = dataSets[state.sport], m = d && d.by[String(p.name).trim().toLowerCase()]; if (!m) return;
+  p.pos = m.pos; p.season = m.season; p.recent = m.recent;
+  p.health = HEALTH[m.health] ? m.health : 'healthy'; p.role = ROLES[m.role] ? m.role : 'steady';
+  p.flags = m.news ? ['Data file news: ' + m.news] : [];
+  ['pos', 'season', 'recent', 'health'].forEach((f) => { const el = $('r-' + state.sport + '-' + i + '-' + f); if (el) el.value = p[f]; });
+  const row = $('row-' + i); if (row) {
+    const old = row.querySelector('ul.why'); if (old) old.remove();
+    if (p.flags.length) row.insertAdjacentHTML('beforeend', '<ul class="why note full" style="color:var(--warn);grid-column:1/-1">' + p.flags.map((f) => '<li>' + esc(f) + '</li>').join('') + '</ul>');
+  }
+}
 const ctx = () => ({ G: SPORTS[state.sport].games.ros, formW: 0.4, repl: SPORTS[state.sport].repl });
 const grp = (g) => cur().filter((p) => p.group === g);
 const opts = (map, sel, lab) => Object.keys(map).map((k) => '<option value="' + k + '"' + (k === sel ? ' selected' : '') + '>' + esc(lab(map[k])) + '</option>').join('');
@@ -418,7 +444,7 @@ function rowHtml(p, i) {
   const S = SPORTS[state.sport], id = (f) => 'r-' + state.sport + '-' + i + '-' + f, at = (f) => ' data-i="' + i + '" data-f="' + f + '"';
   const pos = S.positions.map((x) => '<option' + (x === p.pos ? ' selected' : '') + '>' + x + '</option>').join('');
   const n = (f, l, v) => '<label class="fld"><span>' + l + '</span><input id="' + id(f) + '" type="number" inputmode="decimal" min="0" step="' + S.step + '"' + at(f) + ' value="' + v + '"></label>';
-  return '<div class="prow' + (p.check ? ' chk' : '') + '" id="row-' + i + '"><label class="fld full"><span>Name</span><input id="' + id('name') + '"' + at('name') + ' value="' + esc(p.name) + '" autocomplete="off"></label>' +
+  return '<div class="prow' + (p.check ? ' chk' : '') + '" id="row-' + i + '"><label class="fld full"><span>Name</span><input id="' + id('name') + '"' + at('name') + ' list="names-' + state.sport + '" value="' + esc(p.name) + '" autocomplete="off"></label>' +
     '<label class="fld"><span>Pos</span><select id="' + id('pos') + '"' + at('pos') + '>' + pos + '</select></label>' + n('season', 'Season avg', p.season) + n('recent', 'Recent avg', p.recent) +
     '<label class="fld"><span>List</span><select id="' + id('group') + '"' + at('group') + '>' + opts(GROUPS, p.group, (v) => v) + '</select></label>' +
     '<label class="fld"><span>Status</span><select id="' + id('health') + '"' + at('health') + '>' + opts(HEALTH, p.health, (v) => v[0]) + '</select></label>' +
@@ -427,7 +453,7 @@ function rowHtml(p, i) {
 }
 function renderList() {
   const all = cur();
-  $('list').innerHTML = '<details id="plist"' + (state.listOpen ? ' open' : '') + '><summary>Players used (' + all.length + ')</summary><div class="in"><p class="note">Fix any number that looks wrong. The moves update as you type.</p><div class="moves">' +
+  $('list').innerHTML = '<details id="plist"' + (state.listOpen ? ' open' : '') + '><summary>Players used (' + all.length + ')</summary><div class="in"><p class="note">' + (dataSets[state.sport] ? 'Type a name and pick it from the suggestions to fill the numbers from data/' + state.sport + '.json (' + dataSets[state.sport].count + ' players, fetched ' + esc(dataSets[state.sport].fetched) + '). ' : 'No player data loaded for this sport. Open the page from a web server, not as a file, to use data/' + state.sport + '.json. ') + 'Fix any number that looks wrong. The moves update as you type.</p><datalist id="names-' + state.sport + '">' + (dataSets[state.sport] ? dataSets[state.sport].labels.map((l) => '<option value="' + esc(l) + '"></option>').join('') : '') + '</datalist><div class="moves">' +
     all.map(rowHtml).join('') + '</div><div><button class="ghost" data-act="addp">Add a player by hand</button></div></div></details>';
 }
 function fullRender() { renderChrome(); renderUpload(); renderMoves(); renderList(); }
@@ -452,6 +478,7 @@ function onEdit(e) {
   if (!t.dataset.f) return;
   const p = cur()[+t.dataset.i]; if (!p) return;
   p[t.dataset.f] = t.value;
+  if (t.dataset.f === 'name') fillFromData(p, +t.dataset.i);
   if (p.check) { p.check = false; const r = $('row-' + t.dataset.i); if (r) r.classList.remove('chk'); }
   renderMoves();
 }
@@ -461,6 +488,7 @@ document.addEventListener('dragover', (e) => { if (imp.lim && e.target.closest &
 document.addEventListener('drop', (e) => { if (imp.lim && e.target.closest && e.target.closest('[data-drop]')) { e.preventDefault(); addFiles(e.dataTransfer && e.dataTransfer.files); } });
 document.addEventListener('paste', (e) => { const f = Array.from((e.clipboardData && e.clipboardData.files) || []); if (f.length && imp.lim && imp.lim.images) addFiles(f); });
 fullRender();
+Object.keys(SPORTS).forEach(loadData);
 (async function () {
   try { if (window.claude && window.claude.use) imp.sample = await window.claude.use('sample'); if (imp.sample) imp.lim = await imp.sample.limits().catch(() => null); } catch (e) { imp.sample = null; }
   if (imp.sample && imp.lim && imp.lim.images && !imp.busy) renderUpload();
