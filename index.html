@@ -89,7 +89,7 @@ summary{cursor:pointer;font-weight:600}details .in{margin-top:10px;display:flex;
 .drop.over{border-color:var(--accent)}
 .pc.chk{border-color:var(--warn)}
 .empty{border:1px dashed var(--line);border-radius:12px;padding:16px;color:var(--mute)}
-.prow{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,.8fr) minmax(0,.7fr) minmax(0,.7fr) minmax(0,1fr) minmax(0,1.1fr) auto;gap:8px;align-items:end;padding:8px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+.prow{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,.8fr) minmax(0,.7fr) minmax(0,.7fr) minmax(0,1fr) minmax(0,1.1fr) minmax(0,1.4fr) auto;gap:8px;align-items:end;padding:8px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
 .prow.chk{border-color:var(--warn)}
 @media (max-width:700px){.prow{grid-template-columns:repeat(2,minmax(0,1fr))}.prow .full{grid-column:1/-1}}
 .up{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:12px}
@@ -270,10 +270,9 @@ function tradeMoves(mine, theirs, sportKey, ctx) {
   cands.sort((x, y) => y.r.net - x.r.net);
   const seen = new Set(), out = [];
   for (const c of cands) {
-    const key = c.get.map((p) => nm(p, '?')).join('|') + '#' + c.get.map((p) => p.pos + p.season).join('|');
     if (c.get.some((p) => seen.has(p)) || c.give.some((p) => seen.has(p))) continue;
     c.get.concat(c.give).forEach((p) => seen.add(p));
-    const gn = c.give.map((p, i) => nm(p, 'your ' + p.pos)), tn = c.get.map((p, i) => nm(p, 'their ' + p.pos));
+    const gn = c.give.map((p) => nm(p, 'your ' + p.pos)), tn = c.get.map((p) => nm(p, 'their ' + p.pos));
     const s = ['By these numbers you come out ' + fmt(c.r.net, 0) + ' points ahead over the next ' + G + ' ' + S.per + 's, close enough to even that they could say yes.'];
     c.r.reasons.slice(1).filter((t) => !/^To even/.test(t)).slice(0, 2).forEach((t) => s.push(t));
     out.push({ kind: 'trade', label: 'Worth offering', tone: 'good', title: 'Offer ' + ladder(gn) + ' for ' + ladder(tn), pos: c.get[0].pos, gain: c.r.net, text: s.join(' ') });
@@ -284,7 +283,7 @@ function tradeMoves(mine, theirs, sportKey, ctx) {
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const GROUPS = { mine: 'My roster', pool: 'Free agent', theirs: 'Other team' };
-const mkp = (group, pos, season, recent, role, name) => ({ name: name || '', pos, season, recent, role: role || 'steady', sched: 'neutral', health: 'healthy', group, flags: [], check: false });
+const mkp = (group, pos, season, recent, role, name) => ({ name: name || '', pos, season, recent, role: role || 'steady', sched: 'neutral', health: 'healthy', group, flags: [], check: false, ex: false, fromData: false });
 function exampleData(sport) {
   const E = {
     fpl: [['mine', 'FWD', 6.1, 5], ['mine', 'MID', 5.2, 5.6], ['mine', 'MID', 4.4, 3.1, 'rotation'], ['mine', 'DEF', 4.9, 5.2], ['mine', 'DEF', 3.9, 3.2, 'rotation'], ['mine', 'GKP', 4, 4.1],
@@ -294,10 +293,10 @@ function exampleData(sport) {
     nba: [['mine', 'PG', 38, 36], ['mine', 'SG', 31, 33], ['mine', 'SF', 28, 26, 'rotation'], ['mine', 'PF', 30, 26, 'rotation'], ['mine', 'C', 34, 36], ['mine', 'C', 26, 24, 'rotation'],
       ['pool', 'PG', 28, 34, 'rising'], ['pool', 'SF', 27, 31, 'rising'], ['pool', 'PF', 24, 24], ['theirs', 'SG', 40, 41], ['theirs', 'C', 37, 36], ['theirs', 'SF', 33, 35]]
   }[sport];
-  return E.map((r, i) => mkp(r[0], r[1], r[2], r[3], r[4], 'Example ' + r[1] + ' ' + String.fromCharCode(65 + i)));
+  return E.map((r, i) => Object.assign(mkp(r[0], r[1], r[2], r[3], r[4], 'Example ' + r[1] + ' ' + String.fromCharCode(65 + i)), { ex: true }));
 }
-const state = { sport: 'fpl', players: {}, ex: {}, listOpen: false };
-Object.keys(SPORTS).forEach((k) => { state.players[k] = exampleData(k); state.ex[k] = true; });
+const state = { sport: 'fpl', players: {}, listOpen: false };
+Object.keys(SPORTS).forEach((k) => { state.players[k] = exampleData(k); });
 try { const s = JSON.parse(localStorage.getItem('movecheck3') || '{}'); if (SPORTS[s.sport]) state.sport = s.sport; } catch (e) {}
 const save = () => { try { localStorage.setItem('movecheck3', JSON.stringify({ sport: state.sport })); } catch (e) {} };
 const cur = () => state.players[state.sport];
@@ -317,16 +316,21 @@ async function loadData(k) {
   if (k === state.sport) renderList();
 }
 function fillFromData(p, i) {
-  const d = dataSets[state.sport], m = d && d.by[String(p.name).trim().toLowerCase()]; if (!m) return;
+  const d = dataSets[state.sport], m = d && d.by[String(p.name).trim().toLowerCase()];
+  if (!m) { if (p.fromData) { p.fromData = false; p.flags = []; showFlags(p, i); } return; }
   const ok = Number.isFinite(m.season) && Number.isFinite(m.recent);
   p.pos = m.pos; p.season = ok ? m.season : ''; p.recent = ok ? m.recent : '';
   p.health = HEALTH[m.health] ? m.health : 'healthy'; p.role = ROLES[m.role] ? m.role : 'steady';
+  p.fromData = true; p.ex = false;
   p.flags = (ok ? [] : ['No season numbers in the data file. Enter them.']).concat(m.news ? ['Data file news: ' + m.news] : []);
-  ['pos', 'season', 'recent', 'health'].forEach((f) => { const el = $('r-' + state.sport + '-' + i + '-' + f); if (el) el.value = p[f]; });
-  const row = $('row-' + i); if (row) {
-    const old = row.querySelector('ul.why'); if (old) old.remove();
-    if (p.flags.length) row.insertAdjacentHTML('beforeend', '<ul class="why note full" style="color:var(--warn);grid-column:1/-1">' + p.flags.map((f) => '<li>' + esc(f) + '</li>').join('') + '</ul>');
-  }
+  ['pos', 'season', 'recent', 'health', 'role'].forEach((f) => { const el = $('r-' + state.sport + '-' + i + '-' + f); if (el) el.value = p[f]; });
+  showFlags(p, i);
+}
+const flagsHtml = (p) => (p.flags && p.flags.length ? '<ul class="why note full" style="color:var(--warn);grid-column:1/-1">' + p.flags.map((f) => '<li>' + esc(f) + '</li>').join('') + '</ul>' : '');
+function showFlags(p, i) {
+  const row = $('row-' + i); if (!row) return;
+  const old = row.querySelector('ul.why'); if (old) old.remove();
+  row.insertAdjacentHTML('beforeend', flagsHtml(p));
 }
 const ctx = () => ({ G: SPORTS[state.sport].games.ros, formW: 0.4, repl: SPORTS[state.sport].repl });
 const grp = (g) => cur().filter((p) => p.group === g);
@@ -402,7 +406,7 @@ async function readShots() {
     const list = out && Array.isArray(out.players) ? out.players.slice(0, 40) : [];
     if (!list.length) done = ['No players found. Try closer crops of the player list.', true];
     else {
-      state.players[state.sport] = list.map((p) => toPlayer(state.sport, p)); state.ex[state.sport] = false; state.listOpen = true;
+      state.players[state.sport] = list.map((p) => toPlayer(state.sport, p)); state.listOpen = true;
       const c = { mine: 0, pool: 0, theirs: 0 }; state.players[state.sport].forEach((p) => c[p.group]++);
       done = ['Found ' + c.mine + ' on your roster, ' + c.pool + ' free agents and ' + c.theirs + ' on another team. Check the list below against your screenshots.', false];
     }
@@ -434,7 +438,8 @@ function renderMoves() {
   const unchecked = all.filter((p) => p.check).length, missing = all.filter((p) => !(num(p.season) > 0)).length;
   const pk = pickupMoves(mine, pool, state.sport, c), tr = theirs.length ? tradeMoves(mine, theirs, state.sport, c) : [];
   let h = '<h2 class="sec-h">Your moves</h2>';
-  if (state.ex[state.sport]) h += '<div class="empty" style="border-style:solid"><b>These use example players.</b> Add your screenshots above, or <button class="link" data-act="clear">clear the examples</button>.</div>';
+  const exN = all.filter((p) => p.ex).length;
+  if (exN) h += '<div class="empty" style="border-style:solid"><b>' + (exN === all.length ? 'These use example players.' : exN + ' of these ' + all.length + ' players ' + (exN > 1 ? 'are examples' : 'is an example') + '.') + '</b> Add your screenshots above, fill them from the list below, or <button class="link" data-act="clear">clear everything</button>.</div>';
   if (unchecked) h += '<div class="empty" style="border-color:var(--warn);color:var(--warn)">' + unchecked + ' player' + (unchecked > 1 ? 's were' : ' was') + ' read from screenshots and not checked yet. A misread number changes the advice. <button class="link" data-act="checked">Mark all checked</button></div>';
   if (missing) h += '<p class="note">' + missing + ' player' + (missing > 1 ? 's are' : ' is') + ' skipped because the season average is blank or zero.</p>';
   h += '<h3 class="lbl">Pickups</h3>' + (pk.length ? '<div class="mgrid">' + pk.map(moveCard).join('') + '</div>' : '<div class="empty">' + (!mine.length || !pool.length ? 'Add your roster and the free agents to get pickup moves.' : 'No free agent clearly beats a player you already have. Hold your roster.') + '</div>');
@@ -449,8 +454,9 @@ function rowHtml(p, i) {
     '<label class="fld"><span>Pos</span><select id="' + id('pos') + '"' + at('pos') + '>' + pos + '</select></label>' + n('season', 'Season avg', p.season) + n('recent', 'Recent avg', p.recent) +
     '<label class="fld"><span>List</span><select id="' + id('group') + '"' + at('group') + '>' + opts(GROUPS, p.group, (v) => v) + '</select></label>' +
     '<label class="fld"><span>Status</span><select id="' + id('health') + '"' + at('health') + '>' + opts(HEALTH, p.health, (v) => v[0]) + '</select></label>' +
+    '<label class="fld"><span>Role</span><select id="' + id('role') + '"' + at('role') + '>' + opts(ROLES, p.role, (v) => v[0]) + '</select></label>' +
     '<button class="link" data-act="rm" data-i="' + i + '" aria-label="Remove player">Remove</button>' +
-    (p.flags && p.flags.length ? '<ul class="why note full" style="color:var(--warn);grid-column:1/-1">' + p.flags.map((f) => '<li>' + esc(f) + '</li>').join('') + '</ul>' : '') + '</div>';
+    flagsHtml(p) + '</div>';
 }
 function renderList() {
   const all = cur();
@@ -469,7 +475,7 @@ document.addEventListener('click', (e) => {
     case 'clearfiles': imp.files = []; imp.urls.forEach((u) => URL.revokeObjectURL(u)); imp.urls = []; imp.msg = ['', false]; renderUpload(); break;
     case 'addp': { const p = mkp('mine', SPORTS[state.sport].positions[0], '', ''); cur().push(p); state.listOpen = true; renderList(); renderMoves(); break; }
     case 'rm': cur().splice(+t.dataset.i, 1); state.listOpen = true; renderList(); renderMoves(); break;
-    case 'clear': state.players[state.sport] = []; state.ex[state.sport] = false; renderMoves(); renderList(); break;
+    case 'clear': state.players[state.sport] = []; renderMoves(); renderList(); break;
     case 'checked': cur().forEach((p) => { p.check = false; }); renderMoves(); renderList(); break;
   }
 });
@@ -479,7 +485,7 @@ function onEdit(e) {
   if (!t.dataset.f) return;
   const p = cur()[+t.dataset.i]; if (!p) return;
   p[t.dataset.f] = t.value;
-  if (t.dataset.f === 'name') fillFromData(p, +t.dataset.i);
+  if (t.dataset.f === 'name') { if (p.ex) p.ex = false; fillFromData(p, +t.dataset.i); }
   if (p.check) { p.check = false; const r = $('row-' + t.dataset.i); if (r) r.classList.remove('chk'); }
   renderMoves();
 }
