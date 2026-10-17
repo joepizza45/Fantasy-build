@@ -319,7 +319,7 @@ function fillFromData(p, i) {
   const d = dataSets[state.sport], m = d && d.by[String(p.name).trim().toLowerCase()];
   if (!m) { if (p.fromData) { p.fromData = false; p.flags = []; showFlags(p, i); } return; }
   const ok = Number.isFinite(m.season) && Number.isFinite(m.recent);
-  p.pos = m.pos; p.season = ok ? m.season : ''; p.recent = ok ? m.recent : '';
+  p.pos = m.pos; p.season = ok ? Math.max(0, m.season) : ''; p.recent = ok ? Math.max(0, m.recent) : '';
   p.health = HEALTH[m.health] ? m.health : 'healthy'; p.role = ROLES[m.role] ? m.role : 'steady';
   p.fromData = true; p.ex = false;
   p.flags = (ok ? [] : ['No season numbers in the data file. Enter them.']).concat(m.news ? ['Data file news: ' + m.news] : []);
@@ -454,7 +454,7 @@ function rowHtml(p, i) {
     '<label class="fld"><span>Pos</span><select id="' + id('pos') + '"' + at('pos') + '>' + pos + '</select></label>' + n('season', 'Season avg', p.season) + n('recent', 'Recent avg', p.recent) +
     '<label class="fld"><span>List</span><select id="' + id('group') + '"' + at('group') + '>' + opts(GROUPS, p.group, (v) => v) + '</select></label>' +
     '<label class="fld"><span>Status</span><select id="' + id('health') + '"' + at('health') + '>' + opts(HEALTH, p.health, (v) => v[0]) + '</select></label>' +
-    '<label class="fld"><span>Role</span><select id="' + id('role') + '"' + at('role') + '>' + opts(ROLES, p.role, (v) => v[0]) + '</select></label>' +
+    '<label class="fld full"><span>Role</span><select id="' + id('role') + '"' + at('role') + '>' + opts(ROLES, p.role, (v) => v[0]) + '</select></label>' +
     '<button class="link" data-act="rm" data-i="' + i + '" aria-label="Remove player">Remove</button>' +
     flagsHtml(p) + '</div>';
 }
