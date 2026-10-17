@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>League Coach</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: connect bar on top, then the report: coach, alerts, moves, lineup, strengths, rankings, roster */
+:root{
+  --bg:#EDF0F5; --surface:#FFFFFF; --surface2:#F4F6FA; --ink:#101729; --mute:#5B657A; --line:#D8DEE9;
+  --good:#0E7A55; --goodbg:#DDF3EA; --warn:#8A5A06; --warnbg:#FBEFD2; --bad:#B42626; --badbg:#FBE1E1;
+  --fpl:#6A35E8; --nfl:#1E5BD8; --nba:#C93F0B; --on-accent:#FFFFFF;
+  --display:'Barlow Condensed','Arial Narrow',Arial,sans-serif;
+  --body:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0D1220; --surface:#151C2E; --surface2:#1B2439; --ink:#EAEEF7; --mute:#9AA5BC; --line:#2A3552;
+  --good:#4FD1A1; --goodbg:#123A2E; --warn:#F0B955; --warnbg:#3F3010; --bad:#FF8585; --badbg:#431C1C;
+  --fpl:#A98BFF; --nfl:#7FA9FF; --nba:#FF8F5C; --on-accent:#0D1220; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0D1220; --surface:#151C2E; --surface2:#1B2439; --ink:#EAEEF7; --mute:#9AA5BC; --line:#2A3552;
+  --good:#4FD1A1; --goodbg:#123A2E; --warn:#F0B955; --warnbg:#3F3010; --bad:#FF8585; --badbg:#431C1C;
+  --fpl:#A98BFF; --nfl:#7FA9FF; --nba:#FF8F5C; --on-accent:#0D1220; color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;
+  padding-block:20px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body{--accent:var(--nfl)} body[data-sport="fpl"]{--accent:var(--fpl)} body[data-sport="nba"]{--accent:var(--nba)}
+*{box-sizing:border-box} .wrap{max-width:1080px;width:100%;min-width:0;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+h1,h2,h3,p{margin:0} button,select,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px}
+h1{font-family:var(--display);font-weight:700;font-size:40px;line-height:1;letter-spacing:.01em;text-transform:uppercase}
+.sub{color:var(--mute);font-size:14px;margin-top:4px}
+a{color:var(--accent)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;max-width:100%}
+.seg button{border:0;background:var(--surface2);padding:8px 14px;cursor:pointer;font-weight:500;color:var(--mute);white-space:nowrap}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+.form{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end}
+.fld{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1 1 180px}
+.fld>span,.lbl{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+input,select{background:var(--surface2);border:1px solid var(--line);border-radius:8px;padding:8px 10px;min-width:0;width:100%}
+.go{border:0;border-radius:10px;background:var(--accent);color:var(--on-accent);font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:.04em;text-transform:uppercase;padding:8px 18px;cursor:pointer;white-space:nowrap}
+.go:disabled{opacity:.45;cursor:not-allowed}
+.ghost{border:1px solid var(--line);background:var(--surface2);border-radius:10px;padding:8px 14px;cursor:pointer;font-weight:500;white-space:nowrap}
+.note{font-size:13px;color:var(--mute)}
+.msg{font-size:14px;min-height:1.5em}.msg.bad{color:var(--bad)}
+details.priv{border:1px dashed var(--line);border-radius:10px;padding:8px 12px}
+details.priv summary{cursor:pointer;font-size:14px;font-weight:500}
+details.priv .form{margin-top:8px}
+.sec-h{font-family:var(--display);font-weight:700;font-size:24px;letter-spacing:.03em;text-transform:uppercase}
+.sum{display:flex;flex-wrap:wrap;gap:10px 28px;align-items:baseline}
+.stat{display:flex;flex-direction:column}.stat b{font-family:var(--display);font-size:30px;line-height:1.05}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:16px;align-items:start}
+.moves{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px}
+.move{border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;background:var(--surface2)}
+.mv-t{font-family:var(--display);font-weight:700;font-size:22px;line-height:1.1;text-wrap:balance}
+.mv-m{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px;color:var(--mute)}
+.vb{display:inline-block;font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.05em;text-transform:uppercase;padding:1px 8px;border-radius:5px}
+.v-good{background:var(--goodbg);color:var(--good)}.v-warn{background:var(--warnbg);color:var(--warn)}.v-bad{background:var(--badbg);color:var(--bad)}
+.empty{border:1px dashed var(--line);border-radius:12px;padding:12px 14px;color:var(--mute);font-size:14px}
+ul.al{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px}
+th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);text-align:left;font-weight:600}
+th,td{padding:6px 10px 6px 0;border-bottom:1px solid var(--line);white-space:nowrap}
+td.n,th.n{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+tr.me td{font-weight:600;color:var(--accent)}
+.pill{font-size:11px;padding:1px 7px;border-radius:99px;font-weight:600}
+.h-healthy{display:none}.h-minor{background:var(--warnbg);color:var(--warn)}.h-short,.h-long{background:var(--badbg);color:var(--bad)}
+.bars{display:flex;flex-direction:column;gap:10px}
+.bl{display:grid;grid-template-columns:44px minmax(0,1fr) 92px;gap:10px;align-items:center;font-size:13px}
+.tr{position:relative;height:14px;border-radius:7px;background:var(--surface2);overflow:hidden}
+.tr b{display:block;height:100%;border-radius:7px;background:var(--accent)}
+.tr i{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--ink);opacity:.7}
+.bl .r{font-family:var(--mono);font-size:12px;text-align:right;color:var(--mute)}
+.coach{border-color:var(--accent)}
+.ai{font-size:15px;display:flex;flex-direction:column;gap:8px}
+.ai h3,.ai h4{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:.03em;text-transform:uppercase;margin:6px 0 0}
+.ai ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+.ai p{margin:0}
+.q{background:var(--surface2);border-radius:10px;padding:8px 12px;font-size:14px;align-self:flex-end;max-width:85%}
+.askrow{display:flex;gap:8px}.askrow input{flex:1}
+.loading{color:var(--mute);font-size:14px}
+@media (prefers-reduced-motion:no-preference){.tr b{transition:width .25s ease}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div><h1>League Coach</h1><p class="sub">Connects to your league, sizes up every team, and tells you what to do next.</p></div>
+    <a class="note" href="index.html">Manual Move Check</a>
+  </header>
+
+  <section class="card" id="connect" aria-label="Connect your league"></section>
+  <div id="report" class="wrap" style="max-width:none"></div>
+</div>
+<script>
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const f1 = (n) => (Number(n) || 0).toFixed(1);
+const PLATFORMS = { sleeper: 'Sleeper', espn: 'ESPN', fpl: 'FPL' };
+const HEALTH_TXT = { minor: 'Questionable', short: 'Out', long: 'Out long-term' };
+const ROLE_TXT = { rising: 'Role growing', rotation: 'Rotation', fringe: 'Fringe' };
+
+const st = { platform: 'sleeper', sport: 'nfl', username: '', entryId: '', leagueId: '', season: '', teamId: '', espnS2: '', swid: '',
+  leagues: null, teams: null, report: null, chat: [], busy: false, aiBusy: false, msg: ['', false], coach: null };
+try { Object.assign(st, JSON.parse(localStorage.getItem('leaguecoach1') || '{}')); } catch (e) {}
+const save = () => { try { const { platform, sport, username, entryId, leagueId, season, teamId } = st; localStorage.setItem('leaguecoach1', JSON.stringify({ platform, sport, username, entryId, leagueId, season, teamId })); } catch (e) {} };
+
+async function api(path, body) {
+  const r = await fetch(path, body ? { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) } : {});
+  let j = null; try { j = await r.json(); } catch (e) {}
+  if (!r.ok) throw Object.assign(new Error((j && j.error) || 'Request failed (' + r.status + ')'), { teams: j && j.teams });
+  return j;
+}
+const params = () => ({ platform: st.platform, sport: st.platform === 'fpl' ? 'fpl' : st.sport, username: st.username, entryId: st.entryId, leagueId: st.leagueId, season: st.season, teamId: st.teamId, espnS2: st.espnS2, swid: st.swid });
+const setMsg = (t, bad) => { st.msg = [t, !!bad]; const m = $('msg'); if (m) { m.textContent = t; m.className = 'msg' + (bad ? ' bad' : ''); } };
+
+/* ---------- connect form ---------- */
+function renderConnect() {
+  document.body.dataset.sport = st.platform === 'fpl' ? 'fpl' : st.sport;
+  const P = st.platform, h = [];
+  h.push('<div class="form"><div class="seg" role="group" aria-label="App">' + Object.keys(PLATFORMS).map((k) => '<button data-plat="' + k + '" aria-pressed="' + (k === P) + '">' + PLATFORMS[k] + '</button>').join('') + '</div>');
+  if (P !== 'fpl') h.push('<div class="seg" role="group" aria-label="Sport">' + ['nfl', 'nba'].map((k) => '<button data-sport="' + k + '" aria-pressed="' + (k === st.sport) + '">' + k.toUpperCase() + '</button>').join('') + '</div>');
+  h.push('</div><div class="form">');
+  if (P === 'sleeper') h.push(fld('username', 'Sleeper username', st.username, 'e.g. fantasyking'));
+  if (P === 'fpl') h.push(fld('entryId', 'FPL team ID', st.entryId, 'Number in your Points page URL'));
+  if (P === 'espn') {
+    h.push(fld('leagueId', 'ESPN league ID', st.leagueId, 'leagueId= in the league URL'));
+    h.push(fld('season', 'Season', st.season, String(new Date().getFullYear())));
+    h.push(fld('teamId', 'Your team ID (optional)', st.teamId, 'teamId= in your team URL'));
+  }
+  if (P !== 'espn') h.push('<button class="ghost" id="find">Find my leagues</button>');
+  if (P === 'sleeper' && !st.leagues) h.push(fld('leagueId', 'Or paste a league ID', st.leagueId, 'From sleeper.com/leagues/…'));
+  if (P !== 'espn' && st.leagues) {
+    h.push('<label class="fld"><span>League</span><select id="league">' + (P === 'fpl' ? '<option value="">No league, just my team</option>' : '') +
+      st.leagues.map((l) => '<option value="' + esc(l.id) + '"' + (l.id === st.leagueId ? ' selected' : '') + '>' + esc(l.name) + (l.season ? ' (' + esc(l.season) + ')' : '') + (l.rank ? ' · rank ' + l.rank : '') + '</option>').join('') + '</select></label>');
+  }
+  if (st.teams) h.push('<label class="fld"><span>Which team is yours?</span><select id="team"><option value="">Pick your team</option>' + st.teams.map((t) => '<option value="' + esc(t.id) + '"' + (t.id === st.teamId ? ' selected' : '') + '>' + esc(t.name) + (t.owner ? ' · ' + esc(t.owner) : '') + '</option>').join('') + '</select></label>');
+  const canGo = P === 'fpl' ? !!st.entryId : !!st.leagueId;
+  h.push('<button class="go" id="go"' + (canGo && !st.busy ? '' : ' disabled') + '>' + (st.busy ? 'Working…' : 'Analyze') + '</button></div>');
+  if (P === 'espn') h.push('<details class="priv"' + (st.espnS2 ? ' open' : '') + '><summary>Private league? Add your ESPN cookies</summary><p class="note">In a browser where you are logged in to ESPN, open DevTools → Application → Cookies → espn.com and copy <code>espn_s2</code> and <code>SWID</code>. They go to your local server only and are not saved.</p><div class="form">' +
+    fld('espnS2', 'espn_s2', st.espnS2, '') + fld('swid', 'SWID', st.swid, '{XXXXXXXX-...}') + '</div></details>');
+  h.push('<p class="msg' + (st.msg[1] ? ' bad' : '') + '" id="msg" role="status">' + esc(st.msg[0]) + '</p>');
+  $('connect').innerHTML = h.join('');
+}
+const fld = (k, label, v, ph) => '<label class="fld"><span>' + label + '</span><input data-k="' + k + '" value="' + esc(v) + '" placeholder="' + esc(ph) + '" autocomplete="off"' + (k === 'espnS2' || k === 'swid' ? ' spellcheck="false"' : '') + '></label>';
+
+$('connect').addEventListener('click', (e) => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.plat) { st.platform = b.dataset.plat; st.leagues = null; st.teams = null; st.leagueId = ''; st.teamId = ''; st.msg = ['', false]; save(); renderConnect(); }
+  else if (b.dataset.sport) { st.sport = b.dataset.sport; st.leagues = null; st.teams = null; st.leagueId = ''; st.teamId = ''; save(); renderConnect(); }
+  else if (b.id === 'find') findLeagues();
+  else if (b.id === 'go') run();
+});
+$('connect').addEventListener('input', (e) => {
+  const k = e.target.dataset.k; if (!k) return;
+  st[k] = e.target.value.trim();
+  if (k === 'username' || k === 'entryId') { st.leagues = null; st.teams = null; }
+  if (k === 'leagueId') { st.teams = null; st.teamId = ''; }
+  save(); const g = $('go');
+  if (g) g.disabled = st.busy || !(st.platform === 'fpl' ? st.entryId : st.leagueId);
+});
+$('connect').addEventListener('change', (e) => {
+  if (e.target.id === 'league') { st.leagueId = e.target.value; st.teams = null; st.teamId = ''; save(); renderConnect(); }
+  if (e.target.id === 'team') { st.teamId = e.target.value; save(); }
+});
+$('connect').addEventListener('keydown', (e) => {
+  if (e.key !== 'Enter' || e.target.tagName !== 'INPUT') return;
+  if (e.target.dataset.k === 'username' || e.target.dataset.k === 'entryId') findLeagues(); else run();
+});
+
+async function findLeagues() {
+  if (st.busy) return;
+  st.busy = true; setMsg('Looking up your leagues…'); renderConnect();
+  try {
+    const r = await api('/api/leagues', params());
+    st.leagues = r.leagues;
+    if (!r.leagues.length) setMsg('No ' + st.sport.toUpperCase() + ' leagues found for ' + r.user.name + ' this season.', true);
+    else {
+      if (!r.leagues.some((l) => l.id === st.leagueId)) st.leagueId = st.platform === 'fpl' ? (r.leagues.find((l) => l.private) || {}).id || '' : r.leagues[0].id;
+      setMsg('Found ' + r.leagues.length + ' league' + (r.leagues.length > 1 ? 's' : '') + ' for ' + r.user.name + '. Pick one and press Analyze.');
+    }
+  } catch (e) { setMsg(e.message, true); }
+  st.busy = false; save(); renderConnect();
+}
+
+async function run() {
+  if (st.busy) return;
+  st.busy = true; setMsg('Pulling every roster and crunching the numbers. The first run can take 20 seconds.'); renderConnect();
+  try {
+    st.report = await api('/api/analyze', params());
+    st.teams = st.report.teams; st.teamId = st.report.me.id; st.chat = [];
+    setMsg('Updated ' + new Date(st.report.generatedAt).toLocaleTimeString() + '. Stats through ' + st.report.league.statsThrough + '.');
+    renderReport();
+    askCoach();
+  } catch (e) {
+    if (e.teams) { st.teams = e.teams; setMsg(e.message, true); } else setMsg(e.message, true);
+  }
+  st.busy = false; save(); renderConnect();
+}
+
+/* ---------- AI coach ---------- */
+function md(text) {
+  const lines = esc(text).split('\n'), out = []; let list = false;
+  const inline = (s) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/(^|\W)\*(?!\s)(.+?)\*(?=\W|$)/g, '$1<em>$2</em>').replace(/`([^`]+)`/g, '<code>$1</code>');
+  lines.forEach((l) => {
+    const h = l.match(/^\s*#{1,6}\s+(.*)/), li = l.match(/^\s*(?:[-*•]|\d+\.)\s+(.*)/);
+    if (li) { if (!list) { out.push('<ul>'); list = true; } out.push('<li>' + inline(li[1]) + '</li>'); return; }
+    if (list) { out.push('</ul>'); list = false; }
+    if (h) out.push('<h3>' + inline(h[1]) + '</h3>');
+    else if (l.trim()) out.push('<p>' + inline(l) + '</p>');
+  });
+  if (list) out.push('</ul>');
+  return out.join('');
+}
+function renderCoach() {
+  const el = $('coach'); if (!el) return;
+  const h = ['<div class="sec-h">AI coach</div>'];
+  if (!st.chat.length && !st.aiBusy) h.push('<p class="note">Ask the coach for tips. It reads the analysis below and answers through your OmniRoute gateway.</p>');
+  st.chat.forEach((m) => {
+    if (m.role === 'user' && m.shown !== false) h.push('<div class="q">' + esc(m.content) + '</div>');
+    if (m.role === 'assistant') h.push('<div class="ai">' + md(m.content) + '</div>');
+    if (m.role === 'error') h.push('<p class="msg bad">' + esc(m.content) + '</p>');
+  });
+  if (st.aiBusy) h.push('<p class="loading">The coach is thinking…</p>');
+  h.push('<div class="askrow"><input id="ask" placeholder="Ask a follow-up, e.g. who should I trade for at WR?" aria-label="Ask the coach"' + (st.aiBusy ? ' disabled' : '') + '><button class="ghost" id="askbtn"' + (st.aiBusy ? ' disabled' : '') + '>Ask</button>' +
+    (st.chat.some((m) => m.role !== 'user') ? '' : '<button class="go" id="tips"' + (st.aiBusy ? ' disabled' : '') + '>Get tips</button>') + '</div>');
+  el.innerHTML = h.join('');
+}
+async function askCoach(question) {
+  if (!st.report || st.aiBusy) return;
+  if (question) st.chat.push({ role: 'user', content: question });
+  st.aiBusy = true; renderCoach();
+  try {
+    const messages = st.chat.filter((m) => m.role === 'user' || m.role === 'assistant').map((m) => ({ role: m.role, content: m.content }));
+    const r = await api('/api/coach', { report: st.report, messages });
+    st.chat.push({ role: 'assistant', content: r.text });
+  } catch (e) { st.chat.push({ role: 'error', content: e.message + ' The numbers below still work without it.' }); }
+  st.aiBusy = false; renderCoach();
+}
+document.addEventListener('click', (e) => {
+  if (e.target.id === 'tips') askCoach();
+  if (e.target.id === 'askbtn') { const q = $('ask').value.trim(); if (q) askCoach(q); }
+});
+document.addEventListener('keydown', (e) => { if (e.target.id === 'ask' && e.key === 'Enter') { const q = e.target.value.trim(); if (q) askCoach(q); } });
+
+/* ---------- report ---------- */
+const moveCard = (m, meta) => '<article class="move"><div class="mv-m"><span class="vb v-' + esc(m.tone) + '">' + esc(m.label) + '</span>' + (meta || '') + '</div><h3 class="mv-t">' + esc(m.title) + '</h3><p>' + esc(m.text) + '</p></article>';
+const tag = (p) => (p.health && p.health !== 'healthy' ? ' <span class="pill h-' + p.health + '">' + esc(p.injury || HEALTH_TXT[p.health]) + '</span>' : '');
+
+function renderReport() {
+  const r = st.report; if (!r) return;
+  const S = r.league, mine = r.powerRankings.find((x) => x.isMine) || {}, fpl = S.sport === 'fpl';
+  const h = [];
+  h.push('<section class="card"><div class="sum">' +
+    '<div class="stat"><span class="lbl">' + esc(PLATFORMS[S.platform]) + ' · ' + esc(S.sportName) + '</span><b>' + esc(r.me.name) + '</b><span class="note">' + esc(S.name) + '</span></div>' +
+    '<div class="stat"><span class="lbl">Power rank</span><b>' + mine.rank + ' / ' + r.powerRankings.length + '</b><span class="note">by projected lineup</span></div>' +
+    (mine.record ? '<div class="stat"><span class="lbl">' + (fpl ? 'Standing' : 'Record') + '</span><b>' + esc(mine.record.replace('League rank ', '#')) + '</b><span class="note">' + f1(mine.pointsFor) + ' points</span></div>' : '') +
+    '<div class="stat"><span class="lbl">Window</span><b>' + r.window.games + ' ' + esc(r.window.per) + (r.window.games === 1 ? '' : 's') + '</b><span class="note">stats through ' + esc(S.statsThrough) + ', ' + esc(S.scoring) + '</span></div>' +
+    '</div>' + (S.notes.length ? '<p class="note">' + S.notes.map(esc).join(' ') + '</p>' : '') + '</section>');
+
+  h.push('<section class="card coach" id="coach" aria-live="polite"></section>');
+
+  if (r.alerts.length) h.push('<section class="card"><div class="sec-h">Heads up</div><ul class="al">' + r.alerts.map((a) => '<li>' + esc(a) + '</li>').join('') + '</ul></section>');
+
+  const lc = r.lineup.changes;
+  h.push('<section class="card"><div class="sec-h">' + (fpl ? 'Best XI this gameweek' : 'Lineup this week') + '</div>' +
+    (lc.length ? '<div class="moves">' + lc.map((c) => moveCard({ tone: 'good', label: '+' + f1(c.gain) + ' pts', title: 'Start ' + c.start + (c.bench ? ' over ' + c.bench : ''), text: c.text })).join('') + '</div>'
+      : '<p class="empty">Your current lineup is already the best one by these numbers.</p>') +
+    '<details><summary class="note">Show the full best lineup</summary><div class="tw"><table><thead><tr><th>Slot</th><th>Player</th><th class="n">Proj</th></tr></thead><tbody>' +
+    r.lineup.best.map((x) => '<tr><td>' + esc(x.slot.replace(/_/g, ' ')) + '</td><td>' + (x.name ? esc(x.name) : '<span class="note">empty</span>') + '</td><td class="n">' + f1(x.weekly) + '</td></tr>').join('') + '</tbody></table></div></details></section>');
+
+  h.push('<div class="grid2">');
+  h.push('<section class="card"><div class="sec-h">' + (fpl ? 'Transfers' : 'Waiver pickups') + '</div>' +
+    (r.pickups.length ? '<div class="moves" style="grid-template-columns:minmax(0,1fr)">' + r.pickups.map((m) => moveCard(m, '<span>' + esc(m.pos) + ' · +' + Math.round(m.gain) + ' pts' + (m.cost ? ' · £' + m.cost.toFixed(1) + 'm' : '') + '</span>')).join('') + '</div>'
+      : '<p class="empty">No ' + (fpl ? 'transfer you can afford' : 'free agent') + ' clearly beats a player you have.</p>') + '</section>');
+  if (fpl) {
+    const F = r.fpl;
+    h.push('<section class="card"><div class="sec-h">Your mini-league</div>' +
+      '<p><span class="lbl">Captain</span><br>' + F.captain.map((c, i) => (i ? 'Vice: ' : '') + '<strong>' + esc(c.name) + '</strong> (' + esc(c.team) + ', ' + f1(c.weekly) + ' proj, fixtures ' + f1(c.fixtures) + ')').join('<br>') + '</p>' +
+      '<p class="lbl">Rivals own, you don\'t</p>' + (F.threats.length ? '<div class="tw"><table><thead><tr><th>Player</th><th class="n">Rivals</th><th class="n">Proj</th><th class="n">£</th></tr></thead><tbody>' +
+        F.threats.map((p) => '<tr><td>' + esc(p.name) + ' <span class="note">' + esc(p.team + ' ' + p.pos) + '</span></td><td class="n">' + p.ownedByRivals + '%</td><td class="n">' + f1(p.weekly) + '</td><td class="n">' + f1(p.cost) + '</td></tr>').join('') + '</tbody></table></div>' : '<p class="note">No widely owned player you are missing.</p>') +
+      '<p class="lbl">Your differentials</p><p>' + (F.differentials.length ? F.differentials.map((p) => esc(p.name) + ' <span class="note">(' + p.ownedByRivals + '%)</span>').join(', ') : '<span class="note">None. Your starters match the template.</span>') + '</p></section>');
+  } else {
+    h.push('<section class="card"><div class="sec-h">Trade ideas</div>' +
+      (r.trades.length ? '<div class="moves" style="grid-template-columns:minmax(0,1fr)">' + r.trades.map((m) => moveCard(m, '<span>with ' + esc(m.partner) + ' · +' + Math.round(m.gain) + ' pts</span>')).join('') + '</div>'
+        : '<p class="empty">No fair trade gives you a clear edge right now.</p>') + '</section>');
+  }
+  h.push('</div>');
+
+  const maxPos = Math.max(...r.positions.map((p) => Math.max(p.mine, p.leagueAvg)), 0.1);
+  h.push('<div class="grid2"><section class="card"><div class="sec-h">Where you stand</div><p class="note">Projected points from your top players at each spot. The line is the league average.</p><div class="bars">' +
+    r.positions.map((p) => '<div class="bl"><strong>' + esc(p.pos) + '</strong><div class="tr" role="img" aria-label="' + esc(p.pos) + ': ' + f1(p.mine) + ' against league average ' + f1(p.leagueAvg) + '"><b style="width:' + (100 * p.mine / maxPos).toFixed(1) + '%;' + (p.diff < 0 ? 'background:var(--bad)' : '') + '"></b><i style="left:' + (100 * p.leagueAvg / maxPos).toFixed(1) + '%"></i></div><span class="r">' + ordinal(p.rank) + ' of ' + p.of + '</span></div>').join('') +
+    '</div>' + (r.weak.length ? '<p class="note">Thin at <strong>' + r.weak.join(', ') + '</strong>' + (r.strong.length ? '; deep at <strong>' + r.strong.join(', ') + '</strong>, which is your trade currency.' : '.') + '</p>' : '') + '</section>');
+
+  h.push('<section class="card"><div class="sec-h">Power rankings</div><div class="tw"><table><thead><tr><th class="n">#</th><th>Team</th><th>' + (fpl ? 'Rank' : 'Record') + '</th><th class="n">Proj/' + (fpl ? 'GW' : 'wk') + '</th><th class="n">Pts</th></tr></thead><tbody>' +
+    r.powerRankings.map((t) => '<tr' + (t.isMine ? ' class="me"' : '') + '><td class="n">' + t.rank + '</td><td>' + esc(t.name) + '</td><td>' + esc(t.record.replace('League rank ', '#')) + '</td><td class="n">' + f1(t.strength) + '</td><td class="n">' + f1(t.pointsFor) + '</td></tr>').join('') + '</tbody></table></div></section></div>');
+
+  h.push('<section class="card"><div class="sec-h">Your roster</div><div class="tw"><table><thead><tr><th>Player</th><th>Pos</th><th>Slot</th><th class="n">Season</th><th class="n">Recent</th><th class="n">Proj</th><th class="n">Value</th><th>Notes</th></tr></thead><tbody>' +
+    r.roster.map((p) => '<tr><td>' + esc(p.name) + ' <span class="note">' + esc(p.team) + '</span>' + tag(p) + '</td><td>' + esc(p.pos) + '</td><td>' + esc(p.slot === 'START' ? 'Starter' : p.slot === 'BN' ? 'Bench' : p.slot) + '</td><td class="n">' + f1(p.season) + '</td><td class="n">' + f1(p.recent) + '</td><td class="n">' + f1(p.ppg) + '</td><td class="n">' + Math.round(p.vor) + '</td><td class="note">' + esc([ROLE_TXT[p.role], p.news].filter(Boolean).join(' · ')) + '</td></tr>').join('') +
+    '</tbody></table></div><p class="note">Value is projected points above a typical free agent over the next ' + r.window.games + ' ' + esc(r.window.per) + 's.</p></section>');
+
+  $('report').innerHTML = h.join('');
+  renderCoach();
+}
+const ordinal = (n) => n + (n % 100 >= 11 && n % 100 <= 13 ? 'th' : ['th', 'st', 'nd', 'rd'][n % 10] || 'th');
+
+renderConnect();
+if (location.protocol === 'file:') setMsg('Start the server (node server/server.js) and open http://localhost:8787. This page needs it to reach your league.', true);
+</script>
+</body>
+</html>

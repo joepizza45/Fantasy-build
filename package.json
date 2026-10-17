@@ -1,0 +1,10 @@
+{
+  "name": "move-check",
+  "private": true,
+  "description": "Fantasy pickups, trades and an AI league coach for Sleeper, ESPN and FPL",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "node --test"
+  },
+  "engines": { "node": ">=18" }
+}

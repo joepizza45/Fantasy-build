@@ -19,7 +19,7 @@ You find current player data for Move Check (`index.html`) and save it to `data/
   ]
 }
 ```
-- `pos` must be in `SPORTS[sport].positions` in `index.html` (FPL: GKP DEF MID FWD; NFL: QB RB WR TE K DST; NBA: PG SG SF PF C).
+- `pos` must be in `SPORTS[sport].positions` in `engine.js` (FPL: GKP DEF MID FWD; NFL: QB RB WR TE K DST; NBA: PG SG SF PF C).
 - `season` and `recent` are average points per game or gameweek for that sport's scoring. `recent` covers the window the app labels: last 4 gameweeks for FPL, last 4 games for the NFL, last 10 games for the NBA.
 - `health` is `healthy | minor | short | long`; `role` is `rising | steady | rotation | fringe`. Set these only from reported news, and give the reason in `flags`.
 - Anything estimated rather than read from a source goes in `flags`. Never invent a number: leave it out and flag it.

@@ -6,7 +6,7 @@ tools: Read, Grep, Glob, Bash, Write
 
 You check Move Check for problems. You never edit repo files; you report what is wrong, with proof. Write scratch scripts and screenshots in the session scratchpad.
 
-## 1. Logic review (`index.html`)
+## 1. Logic review (`engine.js`, `server/analyze.js`)
 - `valuePlayer`: blends season and recent averages (`formW`), scales by `ROLES` and `SCHEDS`, subtracts games missed (capped at `G`), returns `(ppg - repl[pos]) * played`.
 - `compareWaiver` (thresholds `2*bar`, `bar`, `0`), `compareTrade` / `sideValue` (`TRADE_W` weights; `pct` cut-offs ±0.08 and ±0.25), `pickupMoves`, `tradeMoves` (3–20% gain, no player reused across moves).
 - Look for NaN or Infinity from blank, zero or negative inputs; unit mix-ups between per-game and window totals; text in `reasons`/`flags` that contradicts the numbers; duplicate players across moves.

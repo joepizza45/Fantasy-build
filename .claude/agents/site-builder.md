@@ -12,7 +12,7 @@ You build Move Check: one self-contained `index.html` with no build step. You ne
 
 ## What the site must keep doing
 - Three sports (Premier League, NFL, NBA), each with its own positions, replacement levels, games remaining and injury-miss table (`SPORTS`).
-- The three plain functions `valuePlayer`, `compareWaiver`, `compareTrade` and the pickup and trade move builders. Keep their results the same unless the task says to change them.
+- The three plain functions `valuePlayer`, `compareWaiver`, `compareTrade` and the pickup and trade move builders, which live in `engine.js` (shared with `server/`). Keep their results the same unless the task says to change them.
 - Players grouped as My roster, Free agent or Other team. Moves are computed from those lists.
 - The loader: fetch `data/<sport>.json`, suggest names in the player list, fill position, averages, status and role on an exact name match, label duplicate names `Name (TEAM)`, leave season and recent blank when the file has no numbers, and fall back to example players with a clear note when the files cannot be fetched (for example opened as `file://`).
 - Screenshot reading through `window.claude.use('sample')`. Hide it when it is not available.
