@@ -1,4 +1,5 @@
 [
-  { "key": "nfl", "label": "NFL · Dynasty King Kosoi", "platform": "sleeper", "sport": "nfl", "username": "JoePizza45", "league": "1311990405612441600" },
-  { "key": "epl", "label": "Premier League · Red Devils", "platform": "sleeper", "sport": "epl", "username": "JoePizza45", "league": "1388790392274575360" }
+  {"key": "nfl", "label": "NFL · Dynasty King Kosoi", "platform": "sleeper", "sport": "nfl", "username": "JoePizza45", "league": "1311990405612441600"},
+  {"key": "epl", "label": "Premier League · Red Devils", "platform": "sleeper", "sport": "epl", "username": "JoePizza45", "league": "1388790392274575360"},
+  {"key": "espn-nfl", "label": "NFL · ESPN", "platform": "espn", "sport": "nfl", "league": "913676333", "team": "4", "season": "2026"}
 ]
