@@ -42,6 +42,7 @@ async function chat(report, messages, { signal } = {}) {
   const body = {
     model: c.model,
     temperature: 0.4,
+    max_tokens: Number(process.env.OMNIROUTE_MAX_TOKENS) || 4000,
     messages: [
       { role: 'system', content: system(report) },
       { role: 'user', content: 'League analysis JSON:\n' + JSON.stringify(brief(report)) },
@@ -67,7 +68,10 @@ async function chat(report, messages, { signal } = {}) {
     throw Object.assign(new Error('AI gateway answered ' + res.status + ': ' + msg + hint), { status: 502 });
   }
   const content = j && j.choices && j.choices[0] && j.choices[0].message && j.choices[0].message.content;
-  if (!content) throw Object.assign(new Error('The AI gateway returned no text.'), { status: 502 });
+  if (!content) {
+    const cut = j && j.choices && j.choices[0] && j.choices[0].finish_reason === 'length';
+    throw Object.assign(new Error(cut ? 'The model used its whole reply budget before answering. Raise OMNIROUTE_MAX_TOKENS or pick a non-reasoning model.' : 'The AI gateway returned no text.'), { status: 502 });
+  }
   return { text: content, model: j.model || c.model };
 }
 
