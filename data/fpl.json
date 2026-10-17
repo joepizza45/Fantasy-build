@@ -1,0 +1,3522 @@
+{
+ "sport": "fpl",
+ "fetched_at": "2026-10-17T21:23:33Z",
+ "through": "Gameweek 6 (last finished gameweek; GW7 had started on 2026-10-17 with 0 of 10 fixtures finished, so excluded)",
+ "scoring": "Official FPL points. season = FPL points_per_game from bootstrap-static; recent = average FPL points over appearances in GW3-6 (element-summary history).",
+ "notes": [
+  "Coverage: the 267 players with at least 180 minutes this season (of 667 in the FPL pool), sorted by season average.",
+  "role is 'steady' for every player: it was not derived from minutes data, so rotation/fringe/rising risk is not reflected. Use minutes or starts if the app should rate it later.",
+  "health is mapped only from FPL status, chance_of_playing_next_round and news; short vs long for out players is a default unless news keywords (month, season, ACL, surgery) say otherwise.",
+  "Teams use FPL 3-letter short names. name is FPL web_name (not unique across clubs).",
+  "recent averages over appearances (minutes>0), not over all gameweeks, so a player who missed a GW is not penalised with a zero; double gameweeks would count each match."
+ ],
+ "sources": [
+  "https://fantasy.premierleague.com/api/bootstrap-static/",
+  "https://fantasy.premierleague.com/api/element-summary/{id}/",
+  "https://fantasy.premierleague.com/api/fixtures/?event=7"
+ ],
+ "players": [
+  {
+   "name": "Groß",
+   "team": "BHA",
+   "pos": "MID",
+   "season": 8.8,
+   "recent": 9.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "De Cuyper",
+   "team": "BHA",
+   "pos": "DEF",
+   "season": 8.8,
+   "recent": 9,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Haaland",
+   "team": "MCI",
+   "pos": "FWD",
+   "season": 8.3,
+   "recent": 7.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "João Pedro",
+   "team": "CHE",
+   "pos": "FWD",
+   "season": 7.8,
+   "recent": 8.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Henderson",
+   "team": "CHE",
+   "pos": "MID",
+   "season": 7.7,
+   "recent": 10,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Manzambi",
+   "team": "AVL",
+   "pos": "MID",
+   "season": 7.5,
+   "recent": 6.3,
+   "health": "minor",
+   "role": "steady",
+   "news": "Calf injury - 75% chance of playing",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status d, chance_of_playing_next_round=75"
+   ]
+  },
+  {
+   "name": "Cherki",
+   "team": "MCI",
+   "pos": "MID",
+   "season": 7.3,
+   "recent": 5.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Bogle",
+   "team": "LEE",
+   "pos": "DEF",
+   "season": 7.2,
+   "recent": 8.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Isak",
+   "team": "LIV",
+   "pos": "FWD",
+   "season": 7,
+   "recent": 7.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Vuskovic",
+   "team": "BHA",
+   "pos": "DEF",
+   "season": 6.7,
+   "recent": 8.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Tarkowski",
+   "team": "EVE",
+   "pos": "DEF",
+   "season": 6.6,
+   "recent": 7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Gakpo",
+   "team": "LIV",
+   "pos": "MID",
+   "season": 6.4,
+   "recent": 5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Calafiori",
+   "team": "ARS",
+   "pos": "DEF",
+   "season": 6.3,
+   "recent": 4.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Cunha",
+   "team": "MUN",
+   "pos": "MID",
+   "season": 6,
+   "recent": 6.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Scott",
+   "team": "BOU",
+   "pos": "MID",
+   "season": 6,
+   "recent": 5.3,
+   "health": "short",
+   "role": "steady",
+   "news": "Thigh injury - Unknown return date",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status i; short vs long is a default, duration not stated by API"
+   ]
+  },
+  {
+   "name": "Elanga",
+   "team": "NEW",
+   "pos": "MID",
+   "season": 6,
+   "recent": 1,
+   "health": "short",
+   "role": "steady",
+   "news": "Unspecified injury - Expected back 25 Oct",
+   "flags": [
+    "recent = mean points over 1 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status i; short vs long is a default, duration not stated by API"
+   ]
+  },
+  {
+   "name": "Gvardiol",
+   "team": "MCI",
+   "pos": "DEF",
+   "season": 5.9,
+   "recent": 6.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Rogers",
+   "team": "CHE",
+   "pos": "MID",
+   "season": 5.7,
+   "recent": 6.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Schade",
+   "team": "BRE",
+   "pos": "MID",
+   "season": 5.7,
+   "recent": 6.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Saka",
+   "team": "ARS",
+   "pos": "MID",
+   "season": 5.7,
+   "recent": 3.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Tzolakis",
+   "team": "HUL",
+   "pos": "GKP",
+   "season": 5.6,
+   "recent": 4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Belloumi",
+   "team": "HUL",
+   "pos": "MID",
+   "season": 5.6,
+   "recent": 7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Mendy",
+   "team": "HUL",
+   "pos": "DEF",
+   "season": 5.6,
+   "recent": 4,
+   "health": "short",
+   "role": "steady",
+   "news": "Groin injury - Expected back 31 Oct",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status i; short vs long is a default, duration not stated by API"
+   ]
+  },
+  {
+   "name": "Raya",
+   "team": "ARS",
+   "pos": "GKP",
+   "season": 5.5,
+   "recent": 5.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Mbeumo",
+   "team": "MUN",
+   "pos": "MID",
+   "season": 5.5,
+   "recent": 5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Schuster",
+   "team": "BRE",
+   "pos": "DEF",
+   "season": 5.5,
+   "recent": 5.5,
+   "health": "minor",
+   "role": "steady",
+   "news": "Ankle injury - 75% chance of playing",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status d, chance_of_playing_next_round=75"
+   ]
+  },
+  {
+   "name": "Palmer",
+   "team": "CHE",
+   "pos": "MID",
+   "season": 5.4,
+   "recent": 4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Guéhi",
+   "team": "MCI",
+   "pos": "DEF",
+   "season": 5.3,
+   "recent": 6,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Semenyo",
+   "team": "MCI",
+   "pos": "MID",
+   "season": 5.3,
+   "recent": 7.3,
+   "health": "minor",
+   "role": "steady",
+   "news": "Knee injury - 75% chance of playing",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status d, chance_of_playing_next_round=75"
+   ]
+  },
+  {
+   "name": "Verbruggen",
+   "team": "BHA",
+   "pos": "GKP",
+   "season": 5.3,
+   "recent": 6.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "B.Fernandes",
+   "team": "MUN",
+   "pos": "MID",
+   "season": 5.3,
+   "recent": 1.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Justin",
+   "team": "LEE",
+   "pos": "DEF",
+   "season": 5.3,
+   "recent": 5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Tavernier",
+   "team": "BOU",
+   "pos": "MID",
+   "season": 5.3,
+   "recent": 5.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "White",
+   "team": "ARS",
+   "pos": "DEF",
+   "season": 5.2,
+   "recent": 2.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Affengruber",
+   "team": "FUL",
+   "pos": "DEF",
+   "season": 5.2,
+   "recent": 5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Maitland-Niles",
+   "team": "EVE",
+   "pos": "DEF",
+   "season": 5.2,
+   "recent": 6.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Dewsbury-Hall",
+   "team": "EVE",
+   "pos": "MID",
+   "season": 5,
+   "recent": 5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Hall",
+   "team": "NEW",
+   "pos": "DEF",
+   "season": 5,
+   "recent": 4.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Trafford",
+   "team": "LEE",
+   "pos": "GKP",
+   "season": 5,
+   "recent": 4.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Gibbs-White",
+   "team": "NFO",
+   "pos": "MID",
+   "season": 5,
+   "recent": 3.8,
+   "health": "minor",
+   "role": "steady",
+   "news": "Muscular injury - 75% chance of playing",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status d, chance_of_playing_next_round=75"
+   ]
+  },
+  {
+   "name": "Ødegaard",
+   "team": "ARS",
+   "pos": "MID",
+   "season": 5,
+   "recent": 4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Andrés",
+   "team": "BHA",
+   "pos": "MID",
+   "season": 5,
+   "recent": 5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Neto",
+   "team": "CHE",
+   "pos": "MID",
+   "season": 4.9,
+   "recent": 2.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Muharemović",
+   "team": "LEE",
+   "pos": "DEF",
+   "season": 4.8,
+   "recent": 4.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Stach",
+   "team": "LEE",
+   "pos": "MID",
+   "season": 4.8,
+   "recent": 3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Kamada",
+   "team": "CRY",
+   "pos": "MID",
+   "season": 4.8,
+   "recent": 6,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Gomez",
+   "team": "BHA",
+   "pos": "MID",
+   "season": 4.8,
+   "recent": 4.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Kostoulas",
+   "team": "BHA",
+   "pos": "FWD",
+   "season": 4.8,
+   "recent": 5.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Brobbey",
+   "team": "SUN",
+   "pos": "FWD",
+   "season": 4.8,
+   "recent": 6.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Lewis-Potter",
+   "team": "BRE",
+   "pos": "MID",
+   "season": 4.7,
+   "recent": 2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Mykolenko",
+   "team": "EVE",
+   "pos": "DEF",
+   "season": 4.7,
+   "recent": 5.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Thomas",
+   "team": "COV",
+   "pos": "DEF",
+   "season": 4.7,
+   "recent": 4.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Mitchell",
+   "team": "CRY",
+   "pos": "DEF",
+   "season": 4.7,
+   "recent": 6.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Castagne",
+   "team": "FUL",
+   "pos": "DEF",
+   "season": 4.7,
+   "recent": 2.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Barnes",
+   "team": "NEW",
+   "pos": "MID",
+   "season": 4.6,
+   "recent": 6.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Dunk",
+   "team": "BHA",
+   "pos": "DEF",
+   "season": 4.6,
+   "recent": 6,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Gabriel",
+   "team": "ARS",
+   "pos": "DEF",
+   "season": 4.5,
+   "recent": 3.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Van Hecke",
+   "team": "TOT",
+   "pos": "DEF",
+   "season": 4.5,
+   "recent": 6.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Rice",
+   "team": "ARS",
+   "pos": "MID",
+   "season": 4.5,
+   "recent": 4.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Gudmundsson",
+   "team": "LEE",
+   "pos": "DEF",
+   "season": 4.5,
+   "recent": 4.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Branthwaite",
+   "team": "EVE",
+   "pos": "DEF",
+   "season": 4.4,
+   "recent": 5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Egan",
+   "team": "HUL",
+   "pos": "DEF",
+   "season": 4.4,
+   "recent": 2.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "F.Kadıoğlu",
+   "team": "BHA",
+   "pos": "DEF",
+   "season": 4.4,
+   "recent": 5.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Ajer",
+   "team": "BRE",
+   "pos": "DEF",
+   "season": 4.3,
+   "recent": 4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Janelt",
+   "team": "BRE",
+   "pos": "MID",
+   "season": 4.3,
+   "recent": 5.3,
+   "health": "short",
+   "role": "steady",
+   "news": "Suspended until 31 Oct",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status s; short vs long is a default, duration not stated by API"
+   ]
+  },
+  {
+   "name": "A.Becker",
+   "team": "LIV",
+   "pos": "GKP",
+   "season": 4.3,
+   "recent": 6.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Ajayi",
+   "team": "HUL",
+   "pos": "DEF",
+   "season": 4.3,
+   "recent": 2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Jacquet",
+   "team": "LIV",
+   "pos": "DEF",
+   "season": 4.3,
+   "recent": 5.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Suzuki",
+   "team": "AVL",
+   "pos": "GKP",
+   "season": 4.3,
+   "recent": 4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Emersonn",
+   "team": "IPS",
+   "pos": "FWD",
+   "season": 4.3,
+   "recent": 4.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Mainoo",
+   "team": "MUN",
+   "pos": "MID",
+   "season": 4.3,
+   "recent": 5.3,
+   "health": "minor",
+   "role": "steady",
+   "news": "Unspecified injury - 75% chance of playing",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status d, chance_of_playing_next_round=75"
+   ]
+  },
+  {
+   "name": "Murillo",
+   "team": "NFO",
+   "pos": "DEF",
+   "season": 4.2,
+   "recent": 5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Dasilva",
+   "team": "COV",
+   "pos": "DEF",
+   "season": 4.2,
+   "recent": 5.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Evanilson",
+   "team": "BOU",
+   "pos": "FWD",
+   "season": 4.2,
+   "recent": 4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Virgil",
+   "team": "LIV",
+   "pos": "DEF",
+   "season": 4.1,
+   "recent": 5.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Donnarumma",
+   "team": "MCI",
+   "pos": "GKP",
+   "season": 4.1,
+   "recent": 6.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Iwobi",
+   "team": "FUL",
+   "pos": "MID",
+   "season": 4.1,
+   "recent": 3.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Pickford",
+   "team": "EVE",
+   "pos": "GKP",
+   "season": 4,
+   "recent": 4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Barry",
+   "team": "EVE",
+   "pos": "FWD",
+   "season": 4,
+   "recent": 4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "King",
+   "team": "FUL",
+   "pos": "MID",
+   "season": 4,
+   "recent": 4.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "McGinn",
+   "team": "AVL",
+   "pos": "MID",
+   "season": 4,
+   "recent": 6.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Buendía",
+   "team": "AVL",
+   "pos": "MID",
+   "season": 4,
+   "recent": 5.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Ndiaye",
+   "team": "MCI",
+   "pos": "MID",
+   "season": 4,
+   "recent": 2.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Calvert-Lewin",
+   "team": "LEE",
+   "pos": "FWD",
+   "season": 4,
+   "recent": 3.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Boscagli",
+   "team": "BHA",
+   "pos": "DEF",
+   "season": 4,
+   "recent": 4.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Timber",
+   "team": "CRY",
+   "pos": "MID",
+   "season": 4,
+   "recent": 4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Milenković",
+   "team": "NFO",
+   "pos": "DEF",
+   "season": 4,
+   "recent": 7,
+   "health": "minor",
+   "role": "steady",
+   "news": "Knee injury - 75% chance of playing",
+   "flags": [
+    "recent = mean points over 1 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status d, chance_of_playing_next_round=75"
+   ]
+  },
+  {
+   "name": "Giles",
+   "team": "HUL",
+   "pos": "DEF",
+   "season": 3.9,
+   "recent": 3.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Xhaka",
+   "team": "SUN",
+   "pos": "MID",
+   "season": 3.8,
+   "recent": 2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Yeremy",
+   "team": "CRY",
+   "pos": "MID",
+   "season": 3.8,
+   "recent": 4.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Matheus N.",
+   "team": "MCI",
+   "pos": "DEF",
+   "season": 3.8,
+   "recent": 5.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Hato",
+   "team": "CHE",
+   "pos": "DEF",
+   "season": 3.8,
+   "recent": 1.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Kluivert",
+   "team": "BOU",
+   "pos": "MID",
+   "season": 3.8,
+   "recent": 4.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Leno",
+   "team": "FUL",
+   "pos": "GKP",
+   "season": 3.7,
+   "recent": 3.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Davis",
+   "team": "IPS",
+   "pos": "DEF",
+   "season": 3.7,
+   "recent": 4.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Botman",
+   "team": "NEW",
+   "pos": "DEF",
+   "season": 3.7,
+   "recent": 3.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Ampadu",
+   "team": "LEE",
+   "pos": "MID",
+   "season": 3.7,
+   "recent": 3.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Munoz",
+   "team": "LIV",
+   "pos": "MID",
+   "season": 3.7,
+   "recent": 1.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Ndoye",
+   "team": "NFO",
+   "pos": "MID",
+   "season": 3.7,
+   "recent": 2.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Benitez",
+   "team": "CRY",
+   "pos": "GKP",
+   "season": 3.7,
+   "recent": 3.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Bassey",
+   "team": "FUL",
+   "pos": "DEF",
+   "season": 3.6,
+   "recent": 3.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Wirtz",
+   "team": "LIV",
+   "pos": "MID",
+   "season": 3.6,
+   "recent": 3.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Ayari",
+   "team": "BHA",
+   "pos": "MID",
+   "season": 3.6,
+   "recent": 4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Foden",
+   "team": "MCI",
+   "pos": "MID",
+   "season": 3.6,
+   "recent": -0.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Kinsky",
+   "team": "TOT",
+   "pos": "GKP",
+   "season": 3.5,
+   "recent": 4.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Tonali",
+   "team": "TOT",
+   "pos": "MID",
+   "season": 3.5,
+   "recent": 4.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Havertz",
+   "team": "ARS",
+   "pos": "FWD",
+   "season": 3.5,
+   "recent": 3.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Szoboszlai",
+   "team": "LIV",
+   "pos": "MID",
+   "season": 3.5,
+   "recent": 2.7,
+   "health": "short",
+   "role": "steady",
+   "news": "Hamstring injury - Unknown return date",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status i; short vs long is a default, duration not stated by API"
+   ]
+  },
+  {
+   "name": "Khalaili",
+   "team": "CRY",
+   "pos": "DEF",
+   "season": 3.5,
+   "recent": 4.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "N.Jackson",
+   "team": "AVL",
+   "pos": "FWD",
+   "season": 3.5,
+   "recent": 4.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Yalcouyé",
+   "team": "BHA",
+   "pos": "MID",
+   "season": 3.5,
+   "recent": 3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Kelleher",
+   "team": "BRE",
+   "pos": "GKP",
+   "season": 3.4,
+   "recent": 3.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "O'Shea",
+   "team": "IPS",
+   "pos": "DEF",
+   "season": 3.4,
+   "recent": 4.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Rúben",
+   "team": "MCI",
+   "pos": "DEF",
+   "season": 3.4,
+   "recent": 4.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Kamara",
+   "team": "AVL",
+   "pos": "MID",
+   "season": 3.4,
+   "recent": 3.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Kayode",
+   "team": "BRE",
+   "pos": "DEF",
+   "season": 3.4,
+   "recent": 2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "M.Sangaré",
+   "team": "BRE",
+   "pos": "MID",
+   "season": 3.4,
+   "recent": 1.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Willock",
+   "team": "NEW",
+   "pos": "MID",
+   "season": 3.4,
+   "recent": 3.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Van de Ven",
+   "team": "TOT",
+   "pos": "DEF",
+   "season": 3.4,
+   "recent": 4.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Robertson",
+   "team": "TOT",
+   "pos": "DEF",
+   "season": 3.4,
+   "recent": 4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "N.Williams",
+   "team": "NFO",
+   "pos": "DEF",
+   "season": 3.3,
+   "recent": 3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Martinez",
+   "team": "CHE",
+   "pos": "GKP",
+   "season": 3.3,
+   "recent": 2.5,
+   "health": "short",
+   "role": "steady",
+   "news": "Head injury - 25% chance of playing",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status d, chance_of_playing_next_round=25"
+   ]
+  },
+  {
+   "name": "E.Le Fée",
+   "team": "SUN",
+   "pos": "MID",
+   "season": 3.3,
+   "recent": 3.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Araujo",
+   "team": "LIV",
+   "pos": "DEF",
+   "season": 3.3,
+   "recent": 5.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Rudoni",
+   "team": "COV",
+   "pos": "MID",
+   "season": 3.3,
+   "recent": 4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Okafor",
+   "team": "LEE",
+   "pos": "MID",
+   "season": 3.3,
+   "recent": 4.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Collins",
+   "team": "BRE",
+   "pos": "DEF",
+   "season": 3.3,
+   "recent": 1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 1 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Rushworth",
+   "team": "COV",
+   "pos": "GKP",
+   "season": 3.2,
+   "recent": 4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Wharton",
+   "team": "CRY",
+   "pos": "MID",
+   "season": 3.2,
+   "recent": 3.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Robinson",
+   "team": "FUL",
+   "pos": "DEF",
+   "season": 3.2,
+   "recent": 3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Mukiele",
+   "team": "SUN",
+   "pos": "DEF",
+   "season": 3.2,
+   "recent": 1.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Strand Larsen",
+   "team": "CRY",
+   "pos": "FWD",
+   "season": 3.2,
+   "recent": 4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Pinnock",
+   "team": "COV",
+   "pos": "DEF",
+   "season": 3.2,
+   "recent": 3.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Konsa",
+   "team": "ARS",
+   "pos": "DEF",
+   "season": 3.2,
+   "recent": 3.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Tzolis",
+   "team": "ARS",
+   "pos": "MID",
+   "season": 3.2,
+   "recent": 3.3,
+   "health": "short",
+   "role": "steady",
+   "news": "Hamstring injury - Expected back 1 Nov",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status i; short vs long is a default, duration not stated by API"
+   ]
+  },
+  {
+   "name": "Anderson",
+   "team": "MCI",
+   "pos": "MID",
+   "season": 3.1,
+   "recent": 4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Anthony",
+   "team": "BRE",
+   "pos": "MID",
+   "season": 3.1,
+   "recent": 4.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Lindelöf",
+   "team": "AVL",
+   "pos": "DEF",
+   "season": 3,
+   "recent": 2.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Lacroix",
+   "team": "CHE",
+   "pos": "DEF",
+   "season": 3,
+   "recent": 2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Richards",
+   "team": "CRY",
+   "pos": "DEF",
+   "season": 3,
+   "recent": 3.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "N.Angulo",
+   "team": "SUN",
+   "pos": "MID",
+   "season": 3,
+   "recent": 2.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "George",
+   "team": "EVE",
+   "pos": "MID",
+   "season": 3,
+   "recent": 3.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "N.Gonzalez",
+   "team": "NEW",
+   "pos": "MID",
+   "season": 3,
+   "recent": 3.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Tanaka",
+   "team": "LEE",
+   "pos": "MID",
+   "season": 3,
+   "recent": 3.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Gallagher",
+   "team": "TOT",
+   "pos": "MID",
+   "season": 3,
+   "recent": 4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Pedro Porro",
+   "team": "TOT",
+   "pos": "DEF",
+   "season": 3,
+   "recent": 4,
+   "health": "short",
+   "role": "steady",
+   "news": "Hamstring injury - Unknown return date",
+   "flags": [
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status i; short vs long is a default, duration not stated by API"
+   ]
+  },
+  {
+   "name": "Tielemans",
+   "team": "MUN",
+   "pos": "MID",
+   "season": 2.8,
+   "recent": 2.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Canvot",
+   "team": "CRY",
+   "pos": "DEF",
+   "season": 2.8,
+   "recent": 4.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Ballard",
+   "team": "SUN",
+   "pos": "DEF",
+   "season": 2.8,
+   "recent": 2,
+   "health": "short",
+   "role": "steady",
+   "news": "Hamstring injury - Unknown return date",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status i; short vs long is a default, duration not stated by API"
+   ]
+  },
+  {
+   "name": "Mings",
+   "team": "AVL",
+   "pos": "DEF",
+   "season": 2.8,
+   "recent": 2.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Elvedi",
+   "team": "LEE",
+   "pos": "DEF",
+   "season": 2.8,
+   "recent": 3.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Enzo",
+   "team": "MCI",
+   "pos": "MID",
+   "season": 2.8,
+   "recent": 3.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Jair Cunha",
+   "team": "NFO",
+   "pos": "DEF",
+   "season": 2.8,
+   "recent": 4.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Damsgaard",
+   "team": "BRE",
+   "pos": "MID",
+   "season": 2.8,
+   "recent": 4,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Isidor",
+   "team": "SUN",
+   "pos": "FWD",
+   "season": 2.8,
+   "recent": 2,
+   "health": "minor",
+   "role": "steady",
+   "news": "Knock - 50% chance of playing",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status d, chance_of_playing_next_round=50"
+   ]
+  },
+  {
+   "name": "Armstrong",
+   "team": "EVE",
+   "pos": "MID",
+   "season": 2.7,
+   "recent": 2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Enciso",
+   "team": "IPS",
+   "pos": "MID",
+   "season": 2.7,
+   "recent": 1.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Sels",
+   "team": "NFO",
+   "pos": "GKP",
+   "season": 2.7,
+   "recent": 3.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "McAtee",
+   "team": "NFO",
+   "pos": "MID",
+   "season": 2.7,
+   "recent": 2.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Bobb",
+   "team": "FUL",
+   "pos": "MID",
+   "season": 2.7,
+   "recent": 2.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Charles",
+   "team": "FUL",
+   "pos": "MID",
+   "season": 2.7,
+   "recent": 3.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Palacios",
+   "team": "IPS",
+   "pos": "MID",
+   "season": 2.7,
+   "recent": 2.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Ouattara",
+   "team": "IPS",
+   "pos": "DEF",
+   "season": 2.7,
+   "recent": 3.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Clarke",
+   "team": "IPS",
+   "pos": "MID",
+   "season": 2.7,
+   "recent": 2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Thiago",
+   "team": "BRE",
+   "pos": "FWD",
+   "season": 2.6,
+   "recent": 3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Wissa",
+   "team": "NEW",
+   "pos": "FWD",
+   "season": 2.6,
+   "recent": 1.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Gonzalo",
+   "team": "FUL",
+   "pos": "FWD",
+   "season": 2.6,
+   "recent": 2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Slater",
+   "team": "HUL",
+   "pos": "MID",
+   "season": 2.6,
+   "recent": 2.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Berge",
+   "team": "FUL",
+   "pos": "MID",
+   "season": 2.6,
+   "recent": 2.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Dedić",
+   "team": "NEW",
+   "pos": "DEF",
+   "season": 2.6,
+   "recent": 0.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Barcola",
+   "team": "LIV",
+   "pos": "MID",
+   "season": 2.6,
+   "recent": 2.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Thomas",
+   "team": "HUL",
+   "pos": "MID",
+   "season": 2.6,
+   "recent": 2.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Palacios",
+   "team": "FUL",
+   "pos": "MID",
+   "season": 2.6,
+   "recent": 4.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Lukić",
+   "team": "IPS",
+   "pos": "MID",
+   "season": 2.5,
+   "recent": 2.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Schlager",
+   "team": "NFO",
+   "pos": "MID",
+   "season": 2.5,
+   "recent": 2.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Meunier",
+   "team": "SUN",
+   "pos": "DEF",
+   "season": 2.5,
+   "recent": 2,
+   "health": "minor",
+   "role": "steady",
+   "news": "Groin injury - 75% chance of playing",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status d, chance_of_playing_next_round=75"
+   ]
+  },
+  {
+   "name": "Sávio",
+   "team": "TOT",
+   "pos": "MID",
+   "season": 2.5,
+   "recent": 2.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Khusanov",
+   "team": "MCI",
+   "pos": "DEF",
+   "season": 2.5,
+   "recent": 5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 1 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Diop",
+   "team": "IPS",
+   "pos": "DEF",
+   "season": 2.4,
+   "recent": 2.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Coyle",
+   "team": "HUL",
+   "pos": "DEF",
+   "season": 2.4,
+   "recent": 2.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Garner",
+   "team": "EVE",
+   "pos": "MID",
+   "season": 2.4,
+   "recent": 3.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "van Ewijk",
+   "team": "COV",
+   "pos": "DEF",
+   "season": 2.4,
+   "recent": 3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Shaw",
+   "team": "MUN",
+   "pos": "DEF",
+   "season": 2.4,
+   "recent": 3,
+   "health": "minor",
+   "role": "steady",
+   "news": "Unspecified injury - 75% chance of playing",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status d, chance_of_playing_next_round=75"
+   ]
+  },
+  {
+   "name": "Maeda",
+   "team": "IPS",
+   "pos": "MID",
+   "season": 2.4,
+   "recent": 1.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Gray",
+   "team": "TOT",
+   "pos": "MID",
+   "season": 2.4,
+   "recent": 2.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Igor Jesus",
+   "team": "NFO",
+   "pos": "FWD",
+   "season": 2.4,
+   "recent": 3,
+   "health": "short",
+   "role": "steady",
+   "news": "Calf injury - Unknown return date",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status i; short vs long is a default, duration not stated by API"
+   ]
+  },
+  {
+   "name": "Horníček",
+   "team": "NEW",
+   "pos": "GKP",
+   "season": 2.3,
+   "recent": 1.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "McBurnie",
+   "team": "HUL",
+   "pos": "FWD",
+   "season": 2.3,
+   "recent": 2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Kerkez",
+   "team": "LIV",
+   "pos": "DEF",
+   "season": 2.3,
+   "recent": 3.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Hill",
+   "team": "BOU",
+   "pos": "DEF",
+   "season": 2.3,
+   "recent": 2.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Cash",
+   "team": "AVL",
+   "pos": "DEF",
+   "season": 2.3,
+   "recent": 1.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Acheampong",
+   "team": "CHE",
+   "pos": "DEF",
+   "season": 2.3,
+   "recent": 1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Thomas-Asante",
+   "team": "COV",
+   "pos": "FWD",
+   "season": 2.3,
+   "recent": 2.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Solanke",
+   "team": "TOT",
+   "pos": "FWD",
+   "season": 2.3,
+   "recent": 3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Silva",
+   "team": "BOU",
+   "pos": "DEF",
+   "season": 2.2,
+   "recent": 1.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Lammens",
+   "team": "MUN",
+   "pos": "GKP",
+   "season": 2.2,
+   "recent": 2.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Grimes",
+   "team": "COV",
+   "pos": "MID",
+   "season": 2.2,
+   "recent": 2.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Sadiki",
+   "team": "SUN",
+   "pos": "MID",
+   "season": 2.2,
+   "recent": 2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Bentancur",
+   "team": "TOT",
+   "pos": "MID",
+   "season": 2.2,
+   "recent": 2.5,
+   "health": "short",
+   "role": "steady",
+   "news": "Suspended until 7 Nov",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status s; short vs long is a default, duration not stated by API"
+   ]
+  },
+  {
+   "name": "Adams",
+   "team": "BOU",
+   "pos": "MID",
+   "season": 2.2,
+   "recent": 2.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Delap",
+   "team": "NFO",
+   "pos": "FWD",
+   "season": 2.2,
+   "recent": 2.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Yirenkyi",
+   "team": "COV",
+   "pos": "MID",
+   "season": 2.2,
+   "recent": 2.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Maatsen",
+   "team": "AVL",
+   "pos": "DEF",
+   "season": 2.2,
+   "recent": 4,
+   "health": "short",
+   "role": "steady",
+   "news": "Ankle injury - Unknown return date",
+   "flags": [
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status i; short vs long is a default, duration not stated by API"
+   ]
+  },
+  {
+   "name": "Lewis-Skelly",
+   "team": "ARS",
+   "pos": "MID",
+   "season": 2.2,
+   "recent": 1.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Hume",
+   "team": "SUN",
+   "pos": "DEF",
+   "season": 2.2,
+   "recent": 1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "O'Reilly",
+   "team": "MCI",
+   "pos": "DEF",
+   "season": 2.2,
+   "recent": 2.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Gomes",
+   "team": "AVL",
+   "pos": "MID",
+   "season": 2.2,
+   "recent": 3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Lavia",
+   "team": "CHE",
+   "pos": "MID",
+   "season": 2.2,
+   "recent": 1.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Stroud",
+   "team": "HUL",
+   "pos": "MID",
+   "season": 2.2,
+   "recent": 2.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Wan-Bissaka",
+   "team": "AVL",
+   "pos": "DEF",
+   "season": 2.2,
+   "recent": 1.5,
+   "health": "minor",
+   "role": "steady",
+   "news": "Hamstring injury - 75% chance of playing",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status d, chance_of_playing_next_round=75"
+   ]
+  },
+  {
+   "name": "Thiaw",
+   "team": "NEW",
+   "pos": "DEF",
+   "season": 2.1,
+   "recent": 1.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "L.Miley",
+   "team": "NEW",
+   "pos": "MID",
+   "season": 2.1,
+   "recent": 1.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Yarmoliuk",
+   "team": "BRE",
+   "pos": "MID",
+   "season": 2.1,
+   "recent": 3.8,
+   "health": "short",
+   "role": "steady",
+   "news": "Suspended until 8 Nov",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status s; short vs long is a default, duration not stated by API"
+   ]
+  },
+  {
+   "name": "Maguire",
+   "team": "MUN",
+   "pos": "DEF",
+   "season": 2,
+   "recent": 1.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Roefs",
+   "team": "SUN",
+   "pos": "GKP",
+   "season": 2,
+   "recent": 1.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Rayan",
+   "team": "BOU",
+   "pos": "MID",
+   "season": 2,
+   "recent": 2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Mac Allister",
+   "team": "LIV",
+   "pos": "MID",
+   "season": 2,
+   "recent": 2.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Fatawu",
+   "team": "IPS",
+   "pos": "MID",
+   "season": 2,
+   "recent": 0.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Röhl",
+   "team": "EVE",
+   "pos": "MID",
+   "season": 2,
+   "recent": 1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 1 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Onyeka",
+   "team": "COV",
+   "pos": "MID",
+   "season": 2,
+   "recent": 2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Fofana",
+   "team": "CHE",
+   "pos": "DEF",
+   "season": 2,
+   "recent": 2.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Walton",
+   "team": "IPS",
+   "pos": "GKP",
+   "season": 2,
+   "recent": 2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Tel",
+   "team": "TOT",
+   "pos": "MID",
+   "season": 2,
+   "recent": 2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Diomande",
+   "team": "NFO",
+   "pos": "DEF",
+   "season": 2,
+   "recent": 2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Kudus",
+   "team": "TOT",
+   "pos": "MID",
+   "season": 2,
+   "recent": 2.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Colwill",
+   "team": "CHE",
+   "pos": "DEF",
+   "season": 1.8,
+   "recent": 1.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Martinez",
+   "team": "MUN",
+   "pos": "DEF",
+   "season": 1.8,
+   "recent": 2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Reinildo",
+   "team": "SUN",
+   "pos": "DEF",
+   "season": 1.8,
+   "recent": 0.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Marmoush",
+   "team": "TOT",
+   "pos": "FWD",
+   "season": 1.8,
+   "recent": 1.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Scherpen",
+   "team": "IPS",
+   "pos": "GKP",
+   "season": 1.8,
+   "recent": 1.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Rashford",
+   "team": "MUN",
+   "pos": "MID",
+   "season": 1.8,
+   "recent": 2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "George Hemmings",
+   "team": "AVL",
+   "pos": "MID",
+   "season": 1.8,
+   "recent": 1.7,
+   "health": "minor",
+   "role": "steady",
+   "news": "Knee injury - 75% chance of playing",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status d, chance_of_playing_next_round=75"
+   ]
+  },
+  {
+   "name": "Nketiah",
+   "team": "CRY",
+   "pos": "FWD",
+   "season": 1.8,
+   "recent": 2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Barkley",
+   "team": "AVL",
+   "pos": "MID",
+   "season": 1.7,
+   "recent": 1.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Johnson",
+   "team": "EVE",
+   "pos": "MID",
+   "season": 1.7,
+   "recent": 2.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Grealish",
+   "team": "EVE",
+   "pos": "MID",
+   "season": 1.7,
+   "recent": 1.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Chavarria",
+   "team": "CHE",
+   "pos": "DEF",
+   "season": 1.7,
+   "recent": 2,
+   "health": "minor",
+   "role": "steady",
+   "news": "Unspecified injury - 75% chance of playing",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status d, chance_of_playing_next_round=75"
+   ]
+  },
+  {
+   "name": "Henderson",
+   "team": "CRY",
+   "pos": "GKP",
+   "season": 1.7,
+   "recent": 2,
+   "health": "minor",
+   "role": "steady",
+   "news": "Foot injury - 50% chance of playing",
+   "flags": [
+    "recent = mean points over 1 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status d, chance_of_playing_next_round=50"
+   ]
+  },
+  {
+   "name": "Aina",
+   "team": "NFO",
+   "pos": "DEF",
+   "season": 1.6,
+   "recent": 1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Mason-Clark",
+   "team": "COV",
+   "pos": "MID",
+   "season": 1.6,
+   "recent": 1.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Steur",
+   "team": "NEW",
+   "pos": "MID",
+   "season": 1.6,
+   "recent": 2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Petrović",
+   "team": "BOU",
+   "pos": "GKP",
+   "season": 1.5,
+   "recent": 1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Truffert",
+   "team": "BOU",
+   "pos": "DEF",
+   "season": 1.5,
+   "recent": 1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Cook",
+   "team": "BOU",
+   "pos": "MID",
+   "season": 1.5,
+   "recent": 0.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Fernandez-Pardo",
+   "team": "NEW",
+   "pos": "FWD",
+   "season": 1.4,
+   "recent": 1.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Dalot",
+   "team": "MUN",
+   "pos": "DEF",
+   "season": 1.3,
+   "recent": 1.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Gravenberch",
+   "team": "LIV",
+   "pos": "MID",
+   "season": 1.3,
+   "recent": 0.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Fernandes",
+   "team": "TOT",
+   "pos": "MID",
+   "season": 1.3,
+   "recent": 1.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "O.Dango",
+   "team": "BRE",
+   "pos": "MID",
+   "season": 1.3,
+   "recent": 1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Aaronson",
+   "team": "LEE",
+   "pos": "MID",
+   "season": 1.3,
+   "recent": 1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Muñoz",
+   "team": "NFO",
+   "pos": "DEF",
+   "season": 1.2,
+   "recent": 1.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Crooks",
+   "team": "HUL",
+   "pos": "MID",
+   "season": 1.2,
+   "recent": 0.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Tchaouna",
+   "team": "COV",
+   "pos": "MID",
+   "season": 1.2,
+   "recent": 1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Amenda",
+   "team": "COV",
+   "pos": "DEF",
+   "season": 1,
+   "recent": 1,
+   "health": "short",
+   "role": "steady",
+   "news": "Calf injury - Unknown return date",
+   "flags": [
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status i; short vs long is a default, duration not stated by API"
+   ]
+  },
+  {
+   "name": "Danso",
+   "team": "SUN",
+   "pos": "DEF",
+   "season": 1,
+   "recent": 1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Gusto",
+   "team": "CHE",
+   "pos": "DEF",
+   "season": 1,
+   "recent": 1,
+   "health": "minor",
+   "role": "steady",
+   "news": "Illness - 75% chance of playing",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status d, chance_of_playing_next_round=75"
+   ]
+  },
+  {
+   "name": "Hickey",
+   "team": "BRE",
+   "pos": "DEF",
+   "season": 1,
+   "recent": 1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Pau",
+   "team": "AVL",
+   "pos": "DEF",
+   "season": 1,
+   "recent": 1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 1 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Andersen",
+   "team": "FUL",
+   "pos": "DEF",
+   "season": 1,
+   "recent": 1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Greaves",
+   "team": "IPS",
+   "pos": "DEF",
+   "season": 0.8,
+   "recent": 1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "James",
+   "team": "CHE",
+   "pos": "DEF",
+   "season": 0.8,
+   "recent": 1,
+   "health": "short",
+   "role": "steady",
+   "news": "Knee injury - Unknown return date",
+   "flags": [
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status i; short vs long is a default, duration not stated by API"
+   ]
+  },
+  {
+   "name": "Herrington",
+   "team": "HUL",
+   "pos": "DEF",
+   "season": 0.8,
+   "recent": 1,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Awoniyi",
+   "team": "COV",
+   "pos": "FWD",
+   "season": 0.8,
+   "recent": 0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "Frimpong",
+   "team": "LIV",
+   "pos": "DEF",
+   "season": 0.8,
+   "recent": 1,
+   "health": "short",
+   "role": "steady",
+   "news": "Hamstring injury - Unknown return date",
+   "flags": [
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status i; short vs long is a default, duration not stated by API"
+   ]
+  },
+  {
+   "name": "Tomiyasu",
+   "team": "CRY",
+   "pos": "DEF",
+   "season": 0.8,
+   "recent": 0.5,
+   "health": "short",
+   "role": "steady",
+   "news": "Calf injury - Expected back 18 Oct",
+   "flags": [
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "health from FPL status i; short vs long is a default, duration not stated by API"
+   ]
+  },
+  {
+   "name": "Smith",
+   "team": "BOU",
+   "pos": "DEF",
+   "season": 0.7,
+   "recent": 0.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  },
+  {
+   "name": "J.Murphy",
+   "team": "NEW",
+   "pos": "MID",
+   "season": 0.7,
+   "recent": 0.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+   ]
+  }
+ ]
+}
