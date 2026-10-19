@@ -251,7 +251,7 @@ document.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => { if (e.target.id === 'ask' && e.key === 'Enter') { const q = e.target.value.trim(); if (q) askCoach(q); } });
 
 /* ---------- report ---------- */
-const moveCard = (m, meta) => '<article class="move"><div class="mv-m"><span class="vb v-' + esc(m.tone) + '">' + esc(m.label) + '</span>' + (meta || '') + '</div><h3 class="mv-t">' + esc(m.title) + '</h3><p>' + esc(m.text) + '</p></article>';
+const moveCard = (m, meta) => '<article class="move"><div class="mv-m"><span class="vb v-' + esc(m.tone) + '">' + esc(m.score ? m.score + '/30 · ' + m.label : m.label) + '</span>' + (meta || '') + '</div><h3 class="mv-t">' + esc(m.title) + '</h3><p>' + esc(m.text) + '</p></article>';
 const tag = (p) => (p.health && p.health !== 'healthy' ? ' <span class="pill h-' + p.health + '">' + esc(p.injury || HEALTH_TXT[p.health]) + '</span>' : '');
 
 function renderReport() {
@@ -271,7 +271,7 @@ function renderReport() {
 
   const lc = r.lineup.changes;
   h.push('<section class="card"><div class="sec-h">' + (fpl ? 'Best XI this gameweek' : 'Lineup this week') + '</div>' +
-    (lc.length ? '<div class="moves">' + lc.map((c) => moveCard({ tone: 'good', label: '+' + f1(c.gain) + ' pts', title: 'Start ' + c.start + (c.bench ? ' over ' + c.bench : ''), text: c.text })).join('') + '</div>'
+    (lc.length ? '<div class="moves">' + lc.map((c) => moveCard({ tone: c.tone || 'good', label: c.label || '', score: c.score, title: 'Start ' + c.start + (c.bench ? ' over ' + c.bench : ''), text: c.text }, '<span>+' + f1(c.gain) + ' pts</span>')).join('') + '</div>'
       : '<p class="empty">Your current lineup is already the best one by these numbers.</p>') +
     '<details><summary class="note">Show the full best lineup</summary><div class="tw"><table><thead><tr><th>Slot</th><th>Player</th><th class="n">Proj</th></tr></thead><tbody>' +
     r.lineup.best.map((x) => '<tr><td>' + esc(x.slot.replace(/_/g, ' ')) + '</td><td>' + (x.name ? esc(x.name) : '<span class="note">empty</span>') + '</td><td class="n">' + f1(x.weekly) + '</td></tr>').join('') + '</tbody></table></div></details></section>');
@@ -307,6 +307,10 @@ function renderReport() {
     r.roster.map((p) => '<tr><td>' + esc(p.name) + ' <span class="note">' + esc(p.team) + '</span>' + tag(p) + '</td><td>' + esc(p.pos) + '</td><td>' + esc(p.slot === 'START' ? 'Starter' : p.slot === 'BN' ? 'Bench' : p.slot) + '</td>' + (dyn ? '<td class="n">' + (p.age || '') + '</td>' : '') + (nfl ? '<td class="n">' + (p.bye || '') + '</td>' : '') + '<td class="n">' + f1(p.season) + '</td><td class="n">' + f1(p.recent) + '</td><td class="n">' + f1(p.ppg) + '</td><td class="n">' + Math.round(p.vor) + '</td><td class="note">' + esc([ROLE_TXT[p.role], p.news].filter(Boolean).join(' · ')) + '</td></tr>').join('') +
     '</tbody></table></div><p class="note">Value is projected points above a typical free agent over the next ' + r.window.games + ' ' + esc(r.window.per) + 's.</p></section>');
 
+  if (r.moveScale && r.moveScale.labels) {
+    h.push('<details class="card"><summary class="sec-h" style="cursor:pointer">Move Score key</summary><p class="note">Every move gets a score from 1 to 30. It starts from how many points a week the move adds to your best lineup, compared with an average starter in this league (' + f1(r.moveScale.base) + ' a week), then goes down for small samples, injury doubts, trades the other manager is unlikely to accept and, in dynasty, giving up young players. Free lineup changes get a small bonus.</p><div class="tw"><table><thead><tr><th class="n">Score</th><th>Meaning</th></tr></thead><tbody>' +
+      r.moveScale.labels.map((l, i) => i).reverse().map((i) => '<tr><td class="n">' + (i + 1) + '</td><td>' + esc(r.moveScale.labels[i]) + '</td></tr>').join('') + '</tbody></table></div></details>');
+  }
   $('report').innerHTML = h.join('');
   stampHeads($('report'));
   renderCoach();

@@ -107,3 +107,13 @@ test('shrink pulls small samples harder than large ones', () => {
   assert.equal(shrink(P({ season: 10, gp: 0, source: 'data' }), 8, 4).season > 9.5, true);
   assert.equal(shrink(P({ season: 0, recent: 0, gp: 0 }), 8, 4).season, 0);
 });
+
+test('moveScore maps gains to labeled 1-30 scores', () => {
+  const { moveScore, LABELS } = require('../server/score');
+  assert.equal(LABELS.length, 31);
+  const big = moveScore({ perWeek: 20, base: 15 }), none = moveScore({ perWeek: -20, base: 15 });
+  assert.equal(big.score, 30); assert.equal(big.scoreLabel, 'Must do now');
+  assert.equal(none.score, 1); assert.equal(none.scoreLabel, 'Never do this');
+  const mid = moveScore({ perWeek: 3, base: 15 }), risky = moveScore({ perWeek: 3, base: 15, sampleGames: 1, givesStar: true });
+  assert.equal(mid.score, 14); assert.equal(risky.score, 8); assert.deepEqual(risky.scoreWhy, ['only 1 game played', 'gives up one of your three best players']);
+});

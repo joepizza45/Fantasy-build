@@ -3,6 +3,7 @@
    Player values come from engine.js, the same math the Move Check page uses. */
 const E = require('../engine');
 const { round2, RECENT_GAMES } = require('./lib/players');
+const { moveScore, toneFor, LABELS } = require('./score');
 
 const FORM_W = 0.4;
 const ELIG = {
@@ -118,6 +119,9 @@ function analyze(L, opts = {}) {
     return { t, strength: strengthOf(active(t)), byPos };
   });
   const ranked = teamInfo.slice().sort((a, b) => b.strength - a.strength);
+  /* What an average starting slot scores per week in this league; Move Scores are relative to it. */
+  const slotBase = teamInfo.reduce((a, x) => a + x.strength, 0) / teamInfo.length / (sport === 'fpl' ? 11 : Math.max(1, L.slots.length));
+  const scored = (m, opts) => { const sc = moveScore(Object.assign({ base: slotBase }, opts)); return Object.assign(m, sc, { label: sc.scoreLabel, tone: toneFor(sc.score) }); };
   const powerRankings = ranked.map((x, i) => ({
     rank: i + 1, id: x.t.id, name: x.t.name, owner: x.t.owner, isMine: x.t.isMine,
     record: sport === 'fpl' ? (x.t.rank ? 'League rank ' + x.t.rank : '') : x.t.wins + '-' + x.t.losses + (x.t.ties ? '-' + x.t.ties : ''),
@@ -149,8 +153,8 @@ function analyze(L, opts = {}) {
     const why = [];
     if (o && why0(o)) why.push(why0(o));
     why.push(p.name + ' projects ' + E.fmt(weekly(p)) + ' against ' + (o ? E.fmt(weekly(o)) + ' for ' + o.name : 'an empty slot') + '.');
-    return { start: p.name, startPos: p.pos, bench: o ? o.name : null, gain: round2(gain), text: why.join(' ') };
-  }).filter((c) => c.gain > 0.2).sort((a, b) => b.gain - a.gain);
+    return scored({ start: p.name, startPos: p.pos, bench: o ? o.name : null, gain: round2(gain), text: why.join(' ') }, { perWeek: gain, certain: true, health: p.health });
+  }).filter((c) => c.gain > 0.2).sort((a, b) => b.score - a.score || b.gain - a.gain);
 
   /* Free-agent pool: positions your lineup can use, enough games to trust */
   const minGp = sport === 'fpl' ? 0 : Math.min(2, Math.max(1, L.week - 1));
@@ -163,7 +167,7 @@ function analyze(L, opts = {}) {
   let pickups;
   const myActive = active(me);
   const myBase = strengthOf(myActive);
-  if (sport === 'fpl') pickups = fplTransfers(me, pool, L.bank || 0, ctx, v);
+  if (sport === 'fpl') pickups = fplTransfers(me, pool, L.bank || 0, ctx, v).map((m) => scored(m, { perWeek: m.gain / ctx.G, sampleGames: m.gp, health: m.health }));
   else {
     const starters = new Set(lineupOf(myActive, ros).filter((x) => x.player).map((x) => x.player));
     const drops = myActive.filter((p) => !starters.has(p) && !protect(p)).sort((a, b) => ros(a) - ros(b)).slice(0, 4);
@@ -184,7 +188,7 @@ function analyze(L, opts = {}) {
       s.push(c.f.name + ' averages ' + E.fmt(c.f.season) + ' over ' + c.f.gp + ' games, ' + E.fmt(c.f.recent) + ' lately.');
       s.push(c.d.name + ' is your least useful bench player (' + E.fmt(v(c.d).ppg) + ' a game).');
       if (c.f.gp <= 2) s.push('Small sample, so check the role news first.');
-      pickups.push({ kind: 'pickup', label: c.gain >= 2 ? 'Strong add' : 'Add', tone: 'good', title: 'Pick up ' + c.f.name + ', drop ' + c.d.name, pos: c.f.pos, gain: c.gain * ctx.G, perWeek: round2(c.gain), text: s.join(' ') });
+      pickups.push(scored({ kind: 'pickup', title: 'Pick up ' + c.f.name + ', drop ' + c.d.name, pos: c.f.pos, gain: c.gain * ctx.G, perWeek: round2(c.gain), text: s.join(' ') }, { perWeek: c.gain, sampleGames: c.f.gp, health: c.f.health }));
       if (pickups.length >= 4) break;
     }
   }
@@ -194,6 +198,7 @@ function analyze(L, opts = {}) {
   if (sport !== 'fpl') {
     const tradable = (p) => STREAM.indexOf(p.pos) < 0;
     const mineTop = myActive.filter(tradable).sort((a, b) => ros(b) - ros(a)).slice(0, 16);
+    const stars = myActive.slice().sort((a, b) => v(b).vor - v(a).vor).slice(0, 3);
     teamInfo.filter((x) => x.t !== me).forEach((x) => {
       const theirActive = active(x.t);
       const theirBase = x.strength;
@@ -235,12 +240,13 @@ function analyze(L, opts = {}) {
           if (ga && ta && ta - ga >= 3) s.push('Dynasty check: you are getting older (' + E.fmt(ta, 0) + ' vs ' + E.fmt(ga, 0) + ' on average). Good for this year, weaker later.');
           if (c.give.some(isYoung)) s.push('Dynasty check: you are giving up a young player, so weigh their future value.');
         }
-        trades.push({ kind: 'trade', label: c.theirGain >= 0.3 ? 'Win-win' : 'Worth offering', tone: 'good',
+        trades.push(scored({ kind: 'trade',
           title: 'Offer ' + names(c.give) + ' for ' + names(c.get), pos: c.get[0].pos, gain: c.myGain * ctx.G, perWeek: round2(c.myGain), theirPerWeek: round2(c.theirGain),
-          give: c.give.map((p) => p.name), get: c.get.map((p) => p.name), partner: x.t.name, partnerId: x.t.id, score: c.score, text: s.join(' ') });
+          give: c.give.map((p) => p.name), get: c.get.map((p) => p.name), partner: x.t.name, partnerId: x.t.id, rank: c.score, text: s.join(' ') },
+          { perWeek: c.myGain, theirPerWeek: c.theirGain, givesYoung: dynasty && c.give.some(isYoung), givesStar: c.give.some((p) => stars.indexOf(p) >= 0) }));
       });
     });
-    trades.sort((a, b) => b.score - a.score);
+    trades.sort((a, b) => b.rank - a.rank);
     const uses = new Map();
     trades = trades.filter((m) => {
       if (m.give.some((p) => (uses.get(p) || 0) >= 2)) return false;
@@ -302,8 +308,9 @@ function analyze(L, opts = {}) {
     window: { games: ctx.G, per: S.per, replacement: ctx.repl },
     powerRankings, positions, weak, strong,
     lineup: { best: thisWeek.map((x) => ({ slot: x.slot, name: x.player ? x.player.name : null, pos: x.player ? x.player.pos : null, weekly: x.player ? round2(weekly(x.player)) : 0, bye: x.player ? onBye(x.player) : false })), changes: lineupChanges },
-    pickups: pickups.map((m) => Object.assign({}, m, { gain: round2(m.gain) })),
-    trades: trades.map((m) => Object.assign({}, m, { gain: round2(m.gain) })),
+    pickups: pickups.map((m) => Object.assign({}, m, { gain: round2(m.gain) })).sort((a, b) => b.score - a.score),
+    trades: trades.map((m) => Object.assign({}, m, { gain: round2(m.gain) })).sort((a, b) => b.score - a.score),
+    moveScale: { base: round2(slotBase), labels: LABELS.slice(1) },
     fpl, alerts, roster, topFree
   };
 }
@@ -333,7 +340,7 @@ function fplTransfers(me, pool, bank, ctx, v) {
     if (c.d.sched === 'tough') s.push(c.d.team + ' have a tough run (average difficulty ' + c.d.fixtures + ').');
     if (c.r.edge >= 4 + c.r.bar) s.push('Worth it even as a −4 hit.');
     E.flags(c.d, c.r.d, c.d.name).filter((t) => /below|miss|rotation|fringe|tough/.test(t)).slice(0, 1).forEach((t) => s.push(t));
-    out.push({ kind: 'transfer', label: c.r.label, tone: c.r.tone, title: 'Sell ' + c.d.name + ', buy ' + c.f.name, pos: c.f.pos, gain: c.r.edge, cost: c.f.cost, text: s.join(' ') });
+    out.push({ kind: 'transfer', title: 'Sell ' + c.d.name + ', buy ' + c.f.name, pos: c.f.pos, gain: c.r.edge, cost: c.f.cost, gp: c.f.gp, health: c.f.health, text: s.join(' ') });
     if (out.length >= 3) break;
   }
   return out;
