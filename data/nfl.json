@@ -1,19 +1,25 @@
 {
  "sport": "nfl",
- "fetched_at": "2026-10-17T21:30:00Z",
- "through": "Week 5 (last fully completed week; Week 6 games begin Sunday Oct 18, only the Thursday game has been played and is excluded). Injury news through Sat Oct 17 2026 4:45pm EDT.",
+ "fetched_at": "2026-10-19T21:20:00Z",
+ "through": "Week 5 (last fully completed week). Week 6 is not complete: the Monday night game (WAS at SF, 8:15pm ET Oct 19) had not been played at fetch time, so Week 6 Thursday and Sunday results are NOT included in season/recent averages. Injury, role and news through Mon Oct 19 2026 ~5:15pm EDT.",
  "scoring": "PPR (FantasyPros stats pages, scoring=PPR). K and DST use FantasyPros scoring for those positions.",
  "notes": [
-  "season = total PPR points / games played in weeks 1-5 (summed from FantasyPros per-week stats pages, week=1..5); recent = mean of the last up to 4 games the player appeared in (weeks 1-5), so bye weeks and missed games are skipped.",
+  "season = total PPR points / games played in weeks 1-5 (summed from FantasyPros per-week stats pages, week=1..5, re-fetched Oct 19); recent = mean of the last up to 4 games the player appeared in (weeks 1-5), so bye weeks and missed games are skipped.",
   "Players chosen by total PPR points in weeks 1-5, capped per position: QB 36, RB 75, WR 100, TE 36, K 32, DST 32.",
-  "health comes only from the latest headline in FantasyPros injury-news (pages 1-8 of /nfl/injury-news.php, ~Oct 16 12am to Oct 17 4:45pm EDT; deeper pages repeat). Players with no headline in that window default to healthy, which means unknown, not confirmed healthy.",
-  "role is \"steady\" for all players: no usage/snap data was pulled, so rising/rotation/fringe was not assigned.",
-  "Team is the team shown on FantasyPros for the latest week the player appeared."
+  "Week 6 stats pages were fetched only to see who played on Thursday/Sunday (26 teams; CIN, DET, MIA, MIN on bye; WAS and SF play Monday). Week 6 points are not in any average.",
+  "health and news come from each player's FantasyPros news page (/nfl/news/<player>.php, latest items) plus the FantasyPros injury-news and player-news feeds (Fri Oct 16 to Mon Oct 19). Players with no injury report default to healthy, which means no report was found, not confirmed healthy. A player tagged questionable before Week 6 who then played in Week 6 is set to healthy and flagged.",
+  "role is steady unless a FantasyPros news item reports a change (starter benched, committee, injury replacement, release); the reason is in flags. No snap-count data was pulled.",
+  "DST entries were not checked for news; they are healthy/steady by default.",
+  "Team is the team shown on FantasyPros for the latest week the player appeared, except released/waived players, set to FA."
  ],
  "sources": [
-  "https://www.fantasypros.com/nfl/stats/{qb,rb,wr,te,k,dst}.php?scoring=PPR&range=week&week=1..5",
-  "https://www.fantasypros.com/nfl/injury-news.php?page=1..8",
-  "Note: Week 6 stats pages were not used; stats cover Weeks 1-5 only (Thursday Week 6 game excluded)."
+  "https://www.fantasypros.com/nfl/stats/{qb,rb,wr,te,k,dst}.php?scoring=PPR&range=week&week=1..5 (averages)",
+  "https://www.fantasypros.com/nfl/stats/{qb,rb,wr,te,k,dst}.php?scoring=PPR&range=week&week=6 (only to check which Week 6 games were played; not averaged)",
+  "https://www.fantasypros.com/nfl/news/<player-slug>.php (279 non-DST players)",
+  "https://www.fantasypros.com/nfl/injury-news.php?page=1..9",
+  "https://www.fantasypros.com/nfl/player-news.php?page=1..10",
+  "https://www.nbcsports.com/fantasy/football/news/nfl-bye-weeks-2026-complete-list-of-bye-weeks-for-all-32-teams (Week 6 byes)",
+  "https://gridirongames.com/football-schedules/nfl-monday-night-football-schedule/ (Week 6 MNF WAS at SF)"
  ],
  "players": [
   {
@@ -24,7 +30,7 @@
    "recent": 27.82,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Josh Allen scores twice in win Sunday (Mon, Oct 19th 8:59am EDT)",
    "flags": []
   },
   {
@@ -68,7 +74,7 @@
    "recent": 20.35,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Dak Prescott throws one TD in Week 6 loss (Mon, Oct 19th 5:13am EDT)",
    "flags": []
   },
   {
@@ -79,7 +85,7 @@
    "recent": 20.18,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Kirk Cousins throws two touchdowns in loss Sunday (Mon, Oct 19th 12:18pm EDT)",
    "flags": []
   },
   {
@@ -90,7 +96,7 @@
    "recent": 22.48,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Matthew Stafford throws two touchdowns in loss Sunday (Mon, Oct 19th 8:25am EDT)",
    "flags": []
   },
   {
@@ -101,7 +107,7 @@
    "recent": 20.38,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Drake Maye tosses three touchdowns in Week 6 win (Oct 19, 2026)",
    "flags": []
   },
   {
@@ -112,7 +118,7 @@
    "recent": 18.18,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Jordan Love throws one TD, rushes for another in Week 6 win (Mon, Oct 19th 5:47am EDT)",
    "flags": []
   },
   {
@@ -123,8 +129,10 @@
    "recent": 23.15,
    "health": "healthy",
    "role": "steady",
-   "news": "",
-   "flags": []
+   "news": "Bryce Young tosses pair of scores in Week 6 win (Sun, Oct 18th 11:08pm EDT)",
+   "flags": [
+    "health=healthy: pre-game report \"Bryce Young (knee) logs full practice Wednesday\" (~Wed Oct 14 (FantasyPros \"5 days ago\")), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
+   ]
   },
   {
    "name": "Tyler Shough",
@@ -134,8 +142,10 @@
    "recent": 16.23,
    "health": "healthy",
    "role": "steady",
-   "news": "",
-   "flags": []
+   "news": "Tyler Shough throws three touchdowns Sunday (Mon, Oct 19th 1:15am EDT)",
+   "flags": [
+    "health=healthy: pre-game report \"Tyler Shough (hand) logs another full practice Thursday\" (~Thu Oct 15 (FantasyPros \"4 days ago\")), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
+   ]
   },
   {
    "name": "Trevor Lawrence",
@@ -145,7 +155,7 @@
    "recent": 15.95,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Trevor Lawrence tosses four touchdowns in Week 6 loss (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -156,7 +166,7 @@
    "recent": 18.2,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Jacoby Brissett scoreless in win Sunday (Mon, Oct 19th 8:03am EDT)",
    "flags": []
   },
   {
@@ -167,7 +177,7 @@
    "recent": 18.18,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "C.J. Stroud tosses three touchdowns in Week 6 win (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -178,7 +188,7 @@
    "recent": 18.68,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Aaron Rodgers throws for 253 yards Sunday (Mon, Oct 19th 1:57am EDT)",
    "flags": []
   },
   {
@@ -189,7 +199,7 @@
    "recent": 21.4,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Patrick Mahomes Throws for 272 Yards in Week 6 (Oct 19, 2026)",
    "flags": []
   },
   {
@@ -200,9 +210,9 @@
    "recent": 14.57,
    "health": "long",
    "role": "steady",
-   "news": "Jalen Hurts (blood clot) placed on IR (Sat, Oct 17th 4:31pm EDT)",
+   "news": "Jalen Hurts (blood clot) out for the season as additional clots are found (Mon, Oct 19th 10:27am EDT)",
    "flags": [
-    "health=long inferred from IR status (IR requires a minimum 4-game absence), per FantasyPros headline: \"Jalen Hurts (blood clot) placed on IR\""
+    "health=long from FantasyPros news \"Jalen Hurts (blood clot) out for the season as additional clots are found\" (Mon, Oct 19th 10:27am EDT): out for the season (additional blood clots)"
    ]
   },
   {
@@ -213,7 +223,7 @@
    "recent": 16.52,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Deshaun Watson quiet in Week 6 win (Sun, Oct 18th 9:26pm EDT)",
    "flags": []
   },
   {
@@ -224,9 +234,9 @@
    "recent": 20.02,
    "health": "short",
    "role": "steady",
-   "news": "Lamar Jackson (ankle) ruled out for Week 6 (Fri, Oct 16th 1:25pm EDT)",
+   "news": "Lamar Jackson (ankle) could practice this week (Mon, Oct 19th 4:56pm EDT)",
    "flags": [
-    "health=short inferred from latest FantasyPros injury headline: \"Lamar Jackson (ankle) ruled out for Week 6\""
+    "health=short from FantasyPros news \"Lamar Jackson (ankle) could practice this week\" (Mon, Oct 19th 4:56pm EDT): missed Weeks 5-6 (ankle); coach says he could potentially practice this week"
    ]
   },
   {
@@ -237,7 +247,7 @@
    "recent": 15.1,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Geno Smith tosses one touchdown in Week 6 loss (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -248,7 +258,7 @@
    "recent": 15.43,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Bo Nix struggles in win over Seattle (Sun, Oct 18th 10:22pm EDT)",
    "flags": []
   },
   {
@@ -259,7 +269,7 @@
    "recent": 13.25,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Cam Ward completes 11 passes in win over Colts (Sun, Oct 18th 11:28pm EDT)",
    "flags": []
   },
   {
@@ -268,11 +278,12 @@
    "pos": "QB",
    "season": 21.57,
    "recent": 21.57,
-   "health": "healthy",
+   "health": "minor",
    "role": "steady",
-   "news": "",
+   "news": "Jayden Daniels (elbow) still not '100 percent' healthy (1 week ago)",
    "flags": [
-    "recent = average of only 3 game(s) played in weeks 1-5"
+    "recent = average of only 3 game(s) played in weeks 1-5",
+    "health=minor from FantasyPros news \"Jayden Daniels (elbow) still not '100 percent' healthy\" (1 week ago): elbow, reported still not 100 percent (~1 week ago) but starting"
    ]
   },
   {
@@ -294,7 +305,7 @@
    "recent": 11.6,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Justin Herbert Held Without Touchdown in Week 6 (Oct 19, 2026)",
    "flags": []
   },
   {
@@ -304,9 +315,11 @@
    "season": 13.82,
    "recent": 13.82,
    "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": []
+   "role": "rotation",
+   "news": "Jameis Winston gets benched Sunday (Mon, Oct 19th 1:33am EDT)",
+   "flags": [
+    "role=rotation: benched in the 4th quarter of Week 6 for J.J. McCarthy; Week 7 starter unclear (FantasyPros news \"Jameis Winston gets benched Sunday\", Mon, Oct 19th 1:33am EDT)"
+   ]
   },
   {
    "name": "Sam Darnold",
@@ -316,7 +329,7 @@
    "recent": 13.7,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Sam Darnold struggles in loss to Denver (Sun, Oct 18th 9:44pm EDT)",
    "flags": []
   },
   {
@@ -327,7 +340,7 @@
    "recent": 10.32,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Daniel Jones will start in Week 7 (Mon, Oct 19th 2:32pm EDT)",
    "flags": []
   },
   {
@@ -336,12 +349,12 @@
    "pos": "QB",
    "season": 23.0,
    "recent": 23.0,
-   "health": "minor",
+   "health": "healthy",
    "role": "steady",
-   "news": "Caleb Williams (hamstring) questionable to play Sunday (Fri, Oct 16th 3:08pm EDT)",
+   "news": "Caleb Williams efficient in Week 6 win over Falcons (Oct 18, 2026)",
    "flags": [
     "recent = average of only 2 game(s) played in weeks 1-5",
-    "health=minor inferred from latest FantasyPros injury headline: \"Caleb Williams (hamstring) questionable to play Sunday\""
+    "health=healthy: pre-game report \"Caleb Williams (hamstring) starting for the Bears Sunday\" (Oct 17, 2026), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
    ]
   },
   {
@@ -352,10 +365,10 @@
    "recent": 14.03,
    "health": "healthy",
    "role": "steady",
-   "news": "Michael Penix Jr. (ribs) off injury report, will play Sunday (Fri, Oct 16th 1:18pm EDT)",
+   "news": "Michael Penix Jr. tosses three touchdowns in Week 6 loss to Bears (Oct 18, 2026)",
    "flags": [
     "recent = average of only 3 game(s) played in weeks 1-5",
-    "health=healthy inferred from latest FantasyPros injury headline: \"Michael Penix Jr. (ribs) off injury report, will play Sunday\""
+    "health=healthy: pre-game report \"Michael Penix Jr. (ribs) off injury report, will play Sunday\" (Oct 17, 2026), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
    ]
   },
   {
@@ -375,12 +388,12 @@
    "pos": "QB",
    "season": 12.37,
    "recent": 12.37,
-   "health": "minor",
+   "health": "short",
    "role": "steady",
-   "news": "Baker Mayfield (thumb) uncertain for Week 7 (Fri, Oct 16th 1:07pm EDT)",
+   "news": "Baker Mayfield (thumb) set to practice on Wednesday (Mon, Oct 19th 12:52pm EDT)",
    "flags": [
     "recent = average of only 3 game(s) played in weeks 1-5",
-    "health=minor inferred from latest FantasyPros injury headline: \"Baker Mayfield (thumb) uncertain for Week 7\""
+    "health=short from FantasyPros news \"Baker Mayfield (thumb) set to practice on Wednesday\" (Mon, Oct 19th 12:52pm EDT): thumb; missed recent games, set to practice Wednesday, Week 7 status uncertain"
    ]
   },
   {
@@ -389,11 +402,12 @@
    "pos": "QB",
    "season": 11.47,
    "recent": 11.47,
-   "health": "healthy",
+   "health": "short",
    "role": "steady",
-   "news": "",
+   "news": "Marcus Mariota (knee) ruled out Monday (Sun, Oct 18th 3:03am EDT)",
    "flags": [
-    "recent = average of only 3 game(s) played in weeks 1-5"
+    "recent = average of only 3 game(s) played in weeks 1-5",
+    "health=short from FantasyPros news \"Marcus Mariota (knee) ruled out Monday\" (Sun, Oct 18th 3:03am EDT): MCL sprain, ruled out for Week 6 Monday game, no timetable"
    ]
   },
   {
@@ -403,10 +417,11 @@
    "season": 17.1,
    "recent": 17.1,
    "health": "healthy",
-   "role": "steady",
-   "news": "",
+   "role": "fringe",
+   "news": "Drew Lock set to start in Week 2 (5 weeks ago)",
    "flags": [
-    "recent = average of only 2 game(s) played in weeks 1-5"
+    "recent = average of only 2 game(s) played in weeks 1-5",
+    "role=fringe: backup again since Sam Darnold returned as Seattle starter (per FantasyPros news on Darnold); not an explicit report (FantasyPros news; Sam Darnold not considering being benched per HC Mike Macdonald (~Oct 16).)"
    ]
   },
   {
@@ -416,10 +431,11 @@
    "season": 9.37,
    "recent": 9.37,
    "health": "healthy",
-   "role": "steady",
-   "news": "",
+   "role": "rising",
+   "news": "Tyler Huntley tosses Ravens' lone TD in Week 6 loss (Oct 19, 2026)",
    "flags": [
-    "recent = average of only 3 game(s) played in weeks 1-5"
+    "recent = average of only 3 game(s) played in weeks 1-5",
+    "role=rising: starting while Lamar Jackson (ankle) is out; Jackson could return soon (FantasyPros news \"Tyler Huntley to start again for Ravens Sunday\", ~Fri Oct 16 (FantasyPros \"3 days ago\"))"
    ]
   },
   {
@@ -428,11 +444,12 @@
    "pos": "QB",
    "season": 13.7,
    "recent": 13.7,
-   "health": "healthy",
+   "health": "long",
    "role": "steady",
-   "news": "",
+   "news": "Jaxson Dart (knee) to miss the rest of the season (4 weeks ago)",
    "flags": [
-    "recent = average of only 2 game(s) played in weeks 1-5"
+    "recent = average of only 2 game(s) played in weeks 1-5",
+    "health=long from FantasyPros news \"Jaxson Dart (knee) to miss the rest of the season\" (4 weeks ago): season-ending knee surgery (reported ~4 weeks ago)"
    ]
   },
   {
@@ -454,7 +471,7 @@
    "recent": 22.47,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Bijan Robinson bottled up in Week 6 loss to Bears (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -465,7 +482,7 @@
    "recent": 19.12,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Derrick Henry gains 60 scoreless yards in Week 6 loss (Oct 19, 2026)",
    "flags": []
   },
   {
@@ -476,7 +493,7 @@
    "recent": 27.52,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Kenneth Walker III Runs for 128 Yards, Two TDs in Week 6 (Oct 19, 2026)",
    "flags": []
   },
   {
@@ -487,7 +504,7 @@
    "recent": 23.45,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Kyren Williams leads team in rushing Sunday (Mon, Oct 19th 8:27am EDT)",
    "flags": []
   },
   {
@@ -498,7 +515,7 @@
    "recent": 18.07,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Jonathan Taylor runs for 94 yards in loss (Sun, Oct 18th 10:51pm EDT)",
    "flags": []
   },
   {
@@ -509,7 +526,7 @@
    "recent": 17.95,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Javonte Williams finds the end zone in Week 6 loss (Mon, Oct 19th 5:18am EDT)",
    "flags": []
   },
   {
@@ -520,7 +537,7 @@
    "recent": 20.68,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Jaylen Warren sees 16 touches Sunday (Mon, Oct 19th 1:59am EDT)",
    "flags": []
   },
   {
@@ -542,7 +559,7 @@
    "recent": 19.85,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "James Cook III plays well in win Sunday (Mon, Oct 19th 9:05am EDT)",
    "flags": []
   },
   {
@@ -553,8 +570,10 @@
    "recent": 12.98,
    "health": "healthy",
    "role": "steady",
-   "news": "",
-   "flags": []
+   "news": "Ashton Jeanty inefficient in loss Sunday (Mon, Oct 19th 12:21pm EDT)",
+   "flags": [
+    "health=healthy: pre-game report \"Ashton Jeanty (foot) logs full practice Wednesday\" (~Wed Oct 14 (FantasyPros \"5 days ago\")), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
+   ]
   },
   {
    "name": "D'Andre Swift",
@@ -564,7 +583,7 @@
    "recent": 12.1,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "D'Andre Swift reaches end zone twice in Week 6 win over Falcons (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -575,7 +594,7 @@
    "recent": 19.75,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Chuba Hubbard totals 120 yards, score vs. Eagles (Sun, Oct 18th 11:15pm EDT)",
    "flags": []
   },
   {
@@ -586,7 +605,7 @@
    "recent": 14.6,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Bucky Irving sees 19 carries Sunday (Mon, Oct 19th 2:18am EDT)",
    "flags": []
   },
   {
@@ -619,7 +638,7 @@
    "recent": 13.47,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Bhayshul Tuten hits pay dirt twice in Week 6 loss (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -630,7 +649,7 @@
    "recent": 11.57,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Rhamondre Stevenson quiet in Week 6 win (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -643,7 +662,7 @@
    "role": "steady",
    "news": "Kyle Monangai (thumb/toe) officially out for Week 6 (Fri, Oct 16th 3:10pm EDT)",
    "flags": [
-    "health=short inferred from latest FantasyPros injury headline: \"Kyle Monangai (thumb/toe) officially out for Week 6\""
+    "health=short from FantasyPros news \"Kyle Monangai (thumb/toe) officially out for Week 6\" (Fri, Oct 16th 3:10pm EDT): ruled out Week 6, week-to-week"
    ]
   },
   {
@@ -652,11 +671,11 @@
    "pos": "RB",
    "season": 11.26,
    "recent": 12.33,
-   "health": "minor",
+   "health": "short",
    "role": "steady",
-   "news": "Quinshon Judkins (ankle) listed questionable Sunday (Fri, Oct 16th 1:36pm EDT)",
+   "news": "Quinshon Judkins (ankle) uncertain for Week 7 (Mon, Oct 19th 2:15pm EDT)",
    "flags": [
-    "health=minor inferred from latest FantasyPros injury headline: \"Quinshon Judkins (ankle) listed questionable Sunday\""
+    "health=short from FantasyPros news \"Quinshon Judkins (ankle) uncertain for Week 7\" (Mon, Oct 19th 2:15pm EDT): missed Week 6, uncertain for Week 7"
    ]
   },
   {
@@ -666,9 +685,11 @@
    "season": 10.26,
    "recent": 9.3,
    "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": []
+   "role": "rotation",
+   "news": "Cam Skattebo does not see a carry Sunday (Mon, Oct 19th 1:43am EDT)",
+   "flags": [
+    "role=rotation: no carries in Week 6 after ball-security issues; role uncertain (FantasyPros news \"Cam Skattebo does not see a carry Sunday\", Mon, Oct 19th 1:43am EDT)"
+   ]
   },
   {
    "name": "Jeremiyah Love",
@@ -680,7 +701,7 @@
    "role": "steady",
    "news": "Jeremiyah Love (ankle) ruled out for Week 6 (Fri, Oct 16th 1:36pm EDT)",
    "flags": [
-    "health=short inferred from latest FantasyPros injury headline: \"Jeremiyah Love (ankle) ruled out for Week 6\""
+    "health=short from FantasyPros news \"Jeremiyah Love (ankle) ruled out for Week 6\" (Fri, Oct 16th 1:36pm EDT): ruled out Week 6 (ankle); no newer update found"
    ]
   },
   {
@@ -691,7 +712,7 @@
    "recent": 12.7,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Emanuel Wilson goes for 52 yards in loss (Sun, Oct 18th 9:49pm EDT)",
    "flags": []
   },
   {
@@ -702,7 +723,7 @@
    "recent": 11.75,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Brian Robinson Jr. sees four touches in Week 6 loss (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -713,7 +734,7 @@
    "recent": 10.32,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Omarion Hampton Totals 39 Yards in Week 6 (Oct 19, 2026)",
    "flags": []
   },
   {
@@ -733,10 +754,12 @@
    "pos": "RB",
    "season": 9.1,
    "recent": 4.15,
-   "health": "healthy",
+   "health": "short",
    "role": "steady",
-   "news": "",
-   "flags": []
+   "news": "David Montgomery (groin) out for Week 6 (~Thu Oct 15 (FantasyPros \"4 days ago\"))",
+   "flags": [
+    "health=short from FantasyPros news \"David Montgomery (groin) out for Week 6\" (~Thu Oct 15 (FantasyPros \"4 days ago\")): groin, out Week 6, week-to-week"
+   ]
   },
   {
    "name": "Jacory Croskey-Merritt",
@@ -744,11 +767,11 @@
    "pos": "RB",
    "season": 8.98,
    "recent": 8.07,
-   "health": "minor",
+   "health": "long",
    "role": "steady",
-   "news": "Jacory Croskey-Merritt (groin) not at practice Friday (Fri, Oct 16th 2:31pm EDT)",
+   "news": "Jacory Croskey-Merritt (groin) placed on IR (Mon, Oct 19th 4:49pm EDT)",
    "flags": [
-    "health=minor inferred from latest FantasyPros injury headline: \"Jacory Croskey-Merritt (groin) not at practice Friday\""
+    "health=long from FantasyPros news \"Jacory Croskey-Merritt (groin) placed on IR\" (Mon, Oct 19th 4:49pm EDT): placed on IR Oct 19 (min. 4 games)"
    ]
   },
   {
@@ -758,9 +781,11 @@
    "season": 8.9,
    "recent": 10.12,
    "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": []
+   "role": "rising",
+   "news": "Braelon Allen sees 19 touches in Week 6 loss (Oct 18, 2026)",
+   "flags": [
+    "role=rising: lead RB with Breece Hall (quad) out (FantasyPros news; Breece Hall (quad) ruled out for Week 6: \"Braelon Allen will shoulder the load.\")"
+   ]
   },
   {
    "name": "Tony Pollard",
@@ -770,7 +795,7 @@
    "recent": 9.82,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Tony Pollard runs for 76 yards in win (Sun, Oct 18th 11:34pm EDT)",
    "flags": []
   },
   {
@@ -780,9 +805,11 @@
    "season": 8.66,
    "recent": 9.57,
    "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": []
+   "role": "rising",
+   "news": "Woody Marks sees 17 touches in Week 6 win (Oct 18, 2026)",
+   "flags": [
+    "role=rising: lead RB with David Montgomery (groin) out (FantasyPros news; David Montgomery (groin) out for Week 6: \"will cede the lead RB role to Woody Marks.\")"
+   ]
   },
   {
    "name": "MarShawn Lloyd",
@@ -792,7 +819,7 @@
    "recent": 9.75,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "MarShawn Lloyd held to 10 yards in Week 6 win (Mon, Oct 19th 5:49am EDT)",
    "flags": []
   },
   {
@@ -803,10 +830,10 @@
    "recent": 14.17,
    "health": "short",
    "role": "steady",
-   "news": "Breece Hall (quad) officially ruled out for Week 6 (Fri, Oct 16th 10:57am EDT)",
+   "news": "Breece Hall (quad) officially ruled out for Week 6 (~Fri Oct 16 (FantasyPros \"3 days ago\"))",
    "flags": [
     "recent = average of only 3 game(s) played in weeks 1-5",
-    "health=short inferred from latest FantasyPros injury headline: \"Breece Hall (quad) officially ruled out for Week 6\""
+    "health=short from FantasyPros news \"Breece Hall (quad) officially ruled out for Week 6\" (~Fri Oct 16 (FantasyPros \"3 days ago\")): quad, missed third straight game in Week 6; no newer update found"
    ]
   },
   {
@@ -817,7 +844,7 @@
    "recent": 9.7,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "RJ Harvey bounces back in Thursday win (Sun, Oct 18th 10:32pm EDT)",
    "flags": []
   },
   {
@@ -828,7 +855,7 @@
    "recent": 8.25,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Blake Corum scores once in loss Sunday (Mon, Oct 19th 8:34am EDT)",
    "flags": []
   },
   {
@@ -837,11 +864,11 @@
    "pos": "RB",
    "season": 9.43,
    "recent": 9.43,
-   "health": "minor",
+   "health": "healthy",
    "role": "steady",
-   "news": "Alvin Kamara (back) listed questionable Sunday (Fri, Oct 16th 2:29pm EDT)",
+   "news": "Alvin Kamara hauls in receiving touchdown Sunday (Mon, Oct 19th 1:19am EDT)",
    "flags": [
-    "health=minor inferred from latest FantasyPros injury headline: \"Alvin Kamara (back) listed questionable Sunday\""
+    "health=healthy: pre-game report \"Alvin Kamara (back) officially active for Week 6\" (Sun, Oct 18th 11:44am EDT), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
    ]
   },
   {
@@ -852,7 +879,7 @@
    "recent": 8.95,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Keaton Mitchell Quiet in Week 6 Loss (Oct 19, 2026)",
    "flags": []
   },
   {
@@ -863,7 +890,7 @@
    "recent": 8.12,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "J.K. Dobbins punches in touchdown in win (Sun, Oct 18th 10:26pm EDT)",
    "flags": []
   },
   {
@@ -873,9 +900,11 @@
    "season": 6.86,
    "recent": 6.33,
    "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": []
+   "role": "rising",
+   "news": "Tyler Allgeier inefficient in win Sunday (Mon, Oct 19th 8:10am EDT)",
+   "flags": [
+    "role=rising: lead RB with Jeremiyah Love (ankle) out (FantasyPros news; Jeremiyah Love (ankle) ruled out for Week 6: \"putting Tyler Allgeier in line for a sizeable workload as the No. 1 option.\")"
+   ]
   },
   {
    "name": "Rachaad White",
@@ -884,10 +913,11 @@
    "season": 8.28,
    "recent": 8.28,
    "health": "minor",
-   "role": "steady",
+   "role": "rising",
    "news": "Rachaad White (shoulder) in non-contact jersey in practice (Fri, Oct 16th 2:34pm EDT)",
    "flags": [
-    "health=minor inferred from latest FantasyPros injury headline: \"Rachaad White (shoulder) in non-contact jersey in practice\""
+    "health=minor from FantasyPros news \"Rachaad White (shoulder) in non-contact jersey in practice\" (Fri, Oct 16th 2:34pm EDT): shoulder, in non-contact jersey at Friday practice before Monday game",
+    "role=rising: leads Commanders backfield with Austin Ekeler after Jacory Croskey-Merritt went on IR (FantasyPros news; Jacory Croskey-Merritt (groin) placed on IR (Oct 19): \"Rachaad White and Austin Ekeler will lead the Commanders backfield.\")"
    ]
   },
   {
@@ -896,11 +926,12 @@
    "pos": "RB",
    "season": 10.3,
    "recent": 10.3,
-   "health": "healthy",
+   "health": "long",
    "role": "steady",
-   "news": "",
+   "news": "Travis Etienne Jr. (hamstring) placed on injured reserve (3 weeks ago)",
    "flags": [
-    "recent = average of only 3 game(s) played in weeks 1-5"
+    "recent = average of only 3 game(s) played in weeks 1-5",
+    "health=long from FantasyPros news \"Travis Etienne Jr. (hamstring) placed on injured reserve\" (3 weeks ago): on IR since ~3 weeks ago; no activation news found"
    ]
   },
   {
@@ -922,7 +953,7 @@
    "recent": 6.8,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Kimani Vidal Records 40 Total Yards in Week 6 (Oct 19, 2026)",
    "flags": []
   },
   {
@@ -933,7 +964,7 @@
    "recent": 6.0,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Kenny Gainwell quiet Sunday (Mon, Oct 19th 2:19am EDT)",
    "flags": []
   },
   {
@@ -942,11 +973,11 @@
    "pos": "RB",
    "season": 6.62,
    "recent": 6.62,
-   "health": "minor",
+   "health": "healthy",
    "role": "steady",
-   "news": "TreVeyon Henderson (ankle) questionable for Sunday (Fri, Oct 16th 3:39pm EDT)",
+   "news": "TreVeyon Henderson logs eight touches in Week 6 win (Oct 18, 2026)",
    "flags": [
-    "health=minor inferred from latest FantasyPros injury headline: \"TreVeyon Henderson (ankle) questionable for Sunday\""
+    "health=healthy: pre-game report \"TreVeyon Henderson (ankle) officially active for Week 6\" (Sun, Oct 18th 11:58am EDT), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
    ]
   },
   {
@@ -955,11 +986,11 @@
    "pos": "RB",
    "season": 5.06,
    "recent": 5.23,
-   "health": "minor",
+   "health": "healthy",
    "role": "steady",
-   "news": "Tyjae Spears (knee) questionable for Sunday (Fri, Oct 16th 4:40pm EDT)",
+   "news": "Tyjae Spears quiet in win over Colts (Sun, Oct 18th 11:50pm EDT)",
    "flags": [
-    "health=minor inferred from latest FantasyPros injury headline: \"Tyjae Spears (knee) questionable for Sunday\""
+    "health=healthy: pre-game report \"Tyjae Spears (knee) officially active for Week 6\" (Sun, Oct 18th 11:33am EDT), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
    ]
   },
   {
@@ -970,7 +1001,7 @@
    "recent": 5.35,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Justice Hill has limited impact in Week 6 (Oct 19, 2026)",
    "flags": []
   },
   {
@@ -981,7 +1012,7 @@
    "recent": 5.65,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Chris Rodriguez Jr. sees 11 carries in Week 6 loss (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -990,11 +1021,12 @@
    "pos": "RB",
    "season": 8.2,
    "recent": 8.2,
-   "health": "healthy",
+   "health": "long",
    "role": "steady",
-   "news": "",
+   "news": "De’Von Achane (knee) suffers season-ending torn ACL (3 weeks ago)",
    "flags": [
-    "recent = average of only 3 game(s) played in weeks 1-5"
+    "recent = average of only 3 game(s) played in weeks 1-5",
+    "health=long from FantasyPros news \"De’Von Achane (knee) suffers season-ending torn ACL\" (3 weeks ago): season-ending torn ACL"
    ]
   },
   {
@@ -1005,7 +1037,7 @@
    "recent": 5.35,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "George Holani scores touchdown in loss (Sun, Oct 18th 9:54pm EDT)",
    "flags": []
   },
   {
@@ -1016,7 +1048,7 @@
    "recent": 5.95,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Kendre Miller sees 20 carries Sunday (Mon, Oct 19th 1:16am EDT)",
    "flags": []
   },
   {
@@ -1025,12 +1057,12 @@
    "pos": "RB",
    "season": 7.8,
    "recent": 7.8,
-   "health": "minor",
+   "health": "healthy",
    "role": "steady",
-   "news": "Ty Johnson (hamstring) limited participant Thursday (Fri, Oct 16th 12:33am EDT)",
+   "news": "",
    "flags": [
     "recent = average of only 3 game(s) played in weeks 1-5",
-    "health=minor inferred from latest FantasyPros injury headline: \"Ty Johnson (hamstring) limited participant Thursday\""
+    "health=healthy: pre-game report \"Ty Johnson (hamstring) limited participant Thursday\" (~Thu Oct 15 (FantasyPros \"4 days ago\")), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
    ]
   },
   {
@@ -1043,7 +1075,7 @@
    "role": "steady",
    "news": "Saquon Barkley (hamstring) ruled out Sunday (Fri, Oct 16th 4:10pm EDT)",
    "flags": [
-    "health=short inferred from latest FantasyPros injury headline: \"Saquon Barkley (hamstring) ruled out Sunday\""
+    "health=short from FantasyPros news \"Saquon Barkley (hamstring) ruled out Sunday\" (Fri, Oct 16th 4:10pm EDT): hamstring, ruled out Week 6; no newer update found"
    ]
   },
   {
@@ -1052,10 +1084,12 @@
    "pos": "RB",
    "season": 4.54,
    "recent": 4.28,
-   "health": "healthy",
+   "health": "long",
    "role": "steady",
-   "news": "",
-   "flags": []
+   "news": "Raheim Sanders (hip) placed on IR (~Tue Oct 13 (FantasyPros \"6 days ago\"))",
+   "flags": [
+    "health=long from FantasyPros news \"Raheim Sanders (hip) placed on IR\" (~Tue Oct 13 (FantasyPros \"6 days ago\")): placed on IR (min. 4 games)"
+   ]
   },
   {
    "name": "Mike Washington Jr.",
@@ -1065,7 +1099,7 @@
    "recent": 4.2,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Mike Washington Jr. leads team in rushing Sunday (Mon, Oct 19th 12:28pm EDT)",
    "flags": []
   },
   {
@@ -1078,7 +1112,7 @@
    "role": "steady",
    "news": "Will Shipley (foot) placed on IR (Fri, Oct 16th 4:06pm EDT)",
    "flags": [
-    "health=long inferred from IR status (IR requires a minimum 4-game absence), per FantasyPros headline: \"Will Shipley (foot) placed on IR\""
+    "health=long from FantasyPros news \"Will Shipley (foot) placed on IR\" (Fri, Oct 16th 4:06pm EDT): placed on IR (min. 4 games)"
    ]
   },
   {
@@ -1098,10 +1132,12 @@
    "pos": "RB",
    "season": 4.28,
    "recent": 4.28,
-   "health": "healthy",
+   "health": "long",
    "role": "steady",
-   "news": "",
-   "flags": []
+   "news": "Tank Bigsby (core) lands on IR (2 weeks ago)",
+   "flags": [
+    "health=long from FantasyPros news \"Tank Bigsby (core) lands on IR\" (2 weeks ago): on IR (core surgery, expected 5-6 weeks, reported 2 weeks ago)"
+   ]
   },
   {
    "name": "Tyler Badie",
@@ -1120,10 +1156,12 @@
    "pos": "RB",
    "season": 3.88,
    "recent": 3.88,
-   "health": "healthy",
+   "health": "minor",
    "role": "steady",
-   "news": "",
-   "flags": []
+   "news": "Kyle Juszczyk (knee) limited Thursday (~Thu Oct 15 (FantasyPros \"4 days ago\"))",
+   "flags": [
+    "health=minor from FantasyPros news \"Kyle Juszczyk (knee) limited Thursday\" (~Thu Oct 15 (FantasyPros \"4 days ago\")): knee, limited Thursday; hopeful to return Week 6 (Monday game)"
+   ]
   },
   {
    "name": "Kaelon Black",
@@ -1142,11 +1180,12 @@
    "pos": "RB",
    "season": 7.4,
    "recent": 7.4,
-   "health": "healthy",
+   "health": "long",
    "role": "steady",
-   "news": "",
+   "news": "Jonah Coleman (ankle) placed on IR (3 weeks ago)",
    "flags": [
-    "recent = average of only 2 game(s) played in weeks 1-5"
+    "recent = average of only 2 game(s) played in weeks 1-5",
+    "health=long from FantasyPros news \"Jonah Coleman (ankle) placed on IR\" (3 weeks ago): on IR since ~3 weeks ago; no activation news found"
    ]
   },
   {
@@ -1156,10 +1195,11 @@
    "season": 7.35,
    "recent": 7.35,
    "health": "healthy",
-   "role": "steady",
-   "news": "",
+   "role": "rotation",
+   "news": "Devin Singletary expected to be active Sunday (Oct 18, 2026)",
    "flags": [
-    "recent = average of only 2 game(s) played in weeks 1-5"
+    "recent = average of only 2 game(s) played in weeks 1-5",
+    "role=rotation: part of a four-headed Giants backfield in Week 6 (FantasyPros news \"Devin Singletary expected to be active Sunday\", Oct 18, 2026)"
    ]
   },
   {
@@ -1179,11 +1219,12 @@
    "pos": "RB",
    "season": 4.67,
    "recent": 4.67,
-   "health": "healthy",
+   "health": "long",
    "role": "steady",
-   "news": "",
+   "news": "Jadarian Price (chest) placed on IR (2 weeks ago)",
    "flags": [
-    "recent = average of only 3 game(s) played in weeks 1-5"
+    "recent = average of only 3 game(s) played in weeks 1-5",
+    "health=long from FantasyPros news \"Jadarian Price (chest) placed on IR\" (2 weeks ago): on IR since ~2 weeks ago"
    ]
   },
   {
@@ -1192,10 +1233,12 @@
    "pos": "RB",
    "season": 3.1,
    "recent": 3.1,
-   "health": "healthy",
+   "health": "long",
    "role": "steady",
-   "news": "",
-   "flags": []
+   "news": "Chris Brooks (ankle) placed on IR (1 week ago)",
+   "flags": [
+    "health=long from FantasyPros news \"Chris Brooks (ankle) placed on IR\" (1 week ago): on IR since ~1 week ago"
+   ]
   },
   {
    "name": "Roschon Johnson",
@@ -1204,9 +1247,11 @@
    "season": 2.46,
    "recent": 3.08,
    "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": []
+   "role": "rising",
+   "news": "Roschon Johnson leads backfield in Week 6 win (Oct 18, 2026)",
+   "flags": [
+    "role=rising: led Bears backfield in Week 6 with Kyle Monangai out (FantasyPros news \"Roschon Johnson leads backfield in Week 6 win\", Oct 18, 2026)"
+   ]
   },
   {
    "name": "Jordan Mason",
@@ -1214,11 +1259,12 @@
    "pos": "RB",
    "season": 11.9,
    "recent": 11.9,
-   "health": "healthy",
+   "health": "short",
    "role": "steady",
-   "news": "",
+   "news": "Jordan Mason (thumb) designated to return to practice (Mon, Oct 19th 4:43pm EDT)",
    "flags": [
-    "recent = average of only 1 game(s) played in weeks 1-5"
+    "recent = average of only 1 game(s) played in weeks 1-5",
+    "health=short from FantasyPros news \"Jordan Mason (thumb) designated to return to practice\" (Mon, Oct 19th 4:43pm EDT): on IR but designated to return to practice; hopeful for Week 7"
    ]
   },
   {
@@ -1228,9 +1274,11 @@
    "season": 2.8,
    "recent": 2.8,
    "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": []
+   "role": "rotation",
+   "news": "Najee Harris quiet Sunday (Mon, Oct 19th 1:41am EDT)",
+   "flags": [
+    "role=rotation: started Week 6 in a four-way Giants committee, 4 carries (FantasyPros news \"Najee Harris quiet Sunday\", Mon, Oct 19th 1:41am EDT)"
+   ]
   },
   {
    "name": "Kaleb Johnson",
@@ -1239,9 +1287,11 @@
    "season": 2.12,
    "recent": 2.65,
    "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": []
+   "role": "fringe",
+   "news": "Kaleb Johnson sees just one carry in Week 6 (Mon, Oct 19th 5:53am EDT)",
+   "flags": [
+    "role=fringe: one carry in Week 6; FantasyPros: can be dropped (FantasyPros news \"Kaleb Johnson sees just one carry in Week 6\", Mon, Oct 19th 5:53am EDT)"
+   ]
   },
   {
    "name": "Rico Dowdle",
@@ -1249,12 +1299,12 @@
    "pos": "RB",
    "season": 5.25,
    "recent": 5.25,
-   "health": "minor",
+   "health": "healthy",
    "role": "steady",
-   "news": "Rico Dowdle (toe) officially questionable for Sunday (Fri, Oct 16th 3:53pm EDT)",
+   "news": "Rico Dowdle sees seven carries in return Sunday (Mon, Oct 19th 2:01am EDT)",
    "flags": [
     "recent = average of only 2 game(s) played in weeks 1-5",
-    "health=minor inferred from latest FantasyPros injury headline: \"Rico Dowdle (toe) officially questionable for Sunday\""
+    "health=healthy: pre-game report \"Rico Dowdle (toe) officially active for Week 6\" (Sun, Oct 18th 12:02pm EDT), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
    ]
   },
   {
@@ -1265,7 +1315,7 @@
    "recent": 2.27,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Seth McGowan runs for 27 yards in loss (Sun, Oct 18th 11:15pm EDT)",
    "flags": []
   },
   {
@@ -1287,7 +1337,7 @@
    "recent": 2.38,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Dylan Laube uninvolved in loss Sunday (Mon, Oct 19th 12:34pm EDT)",
    "flags": []
   },
   {
@@ -1296,11 +1346,12 @@
    "pos": "RB",
    "season": 4.65,
    "recent": 4.65,
-   "health": "healthy",
+   "health": "long",
    "role": "steady",
-   "news": "",
+   "news": "Jonathon Brooks (core) expected to miss 6-8 weeks (4 weeks ago)",
    "flags": [
-    "recent = average of only 2 game(s) played in weeks 1-5"
+    "recent = average of only 2 game(s) played in weeks 1-5",
+    "health=long from FantasyPros news \"Jonathon Brooks (core) expected to miss 6-8 weeks\" (4 weeks ago): on IR, expected out 6-8 weeks (reported ~4 weeks ago)"
    ]
   },
   {
@@ -1311,8 +1362,10 @@
    "recent": 28.32,
    "health": "healthy",
    "role": "steady",
-   "news": "",
-   "flags": []
+   "news": "Jaxon Smith-Njigba continues crazy start to season in loss to Denver (Sun, Oct 18th 9:39pm EDT)",
+   "flags": [
+    "health=healthy: pre-game report \"Jaxon Smith-Njigba practices in full Wednesday, no injury designation\" (~Wed Oct 14 (FantasyPros \"5 days ago\")), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
+   ]
   },
   {
    "name": "CeeDee Lamb",
@@ -1322,8 +1375,10 @@
    "recent": 24.92,
    "health": "healthy",
    "role": "steady",
-   "news": "",
-   "flags": []
+   "news": "CeeDee Lamb goes for 70 yards in Week 6 (Mon, Oct 19th 5:22am EDT)",
+   "flags": [
+    "health=healthy: pre-game report \"CeeDee Lamb (quad) practicing in full for Week 6\" (~Wed Oct 14 (FantasyPros \"5 days ago\")), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
+   ]
   },
   {
    "name": "Christian Watson",
@@ -1333,7 +1388,7 @@
    "recent": 19.18,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Christian Watson goes for 64 yards in Week 6 (Mon, Oct 19th 5:55am EDT)",
    "flags": []
   },
   {
@@ -1353,11 +1408,11 @@
    "pos": "WR",
    "season": 19.74,
    "recent": 17.62,
-   "health": "minor",
+   "health": "healthy",
    "role": "steady",
-   "news": "Chris Olave (illness) listed questionable Sunday (Fri, Oct 16th 2:29pm EDT)",
+   "news": "Chris Olave hauls in touchdown Sunday (Mon, Oct 19th 1:22am EDT)",
    "flags": [
-    "health=minor inferred from latest FantasyPros injury headline: \"Chris Olave (illness) listed questionable Sunday\""
+    "health=healthy: pre-game report \"Chris Olave (illness) officially active for Week 6\" (Sun, Oct 18th 11:45am EDT), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
    ]
   },
   {
@@ -1366,10 +1421,12 @@
    "pos": "WR",
    "season": 19.02,
    "recent": 22.38,
-   "health": "healthy",
+   "health": "long",
    "role": "steady",
-   "news": "",
-   "flags": []
+   "news": "Davante Adams to miss 6-10 weeks with ruptured hamstring (Mon, Oct 19th 4:58pm EDT)",
+   "flags": [
+    "health=long from FantasyPros news \"Davante Adams to miss 6-10 weeks with ruptured hamstring\" (Mon, Oct 19th 4:58pm EDT): ruptured hamstring, out 6-10 weeks"
+   ]
   },
   {
    "name": "Garrett Wilson",
@@ -1379,7 +1436,7 @@
    "recent": 18.12,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Garrett Wilson hauls in four passes in Week 6 loss (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -1390,9 +1447,9 @@
    "recent": 20.45,
    "health": "healthy",
    "role": "steady",
-   "news": "Zay Flowers (toe) good to go for Sunday (Fri, Oct 16th 4:46pm EDT)",
+   "news": "Zay Flowers logs season-high 11 targets in Week 6 (Oct 19, 2026)",
    "flags": [
-    "health=healthy inferred from latest FantasyPros injury headline: \"Zay Flowers (toe) good to go for Sunday\""
+    "health=healthy: pre-game report \"Zay Flowers (toe) good to go for Sunday\" (Fri, Oct 16th 4:46pm EDT), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
    ]
   },
   {
@@ -1403,7 +1460,7 @@
    "recent": 15.55,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Parker Washington held to four receptions in Week 6 loss (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -1425,7 +1482,7 @@
    "recent": 15.7,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Matthew Golden leads Packers in Week 6 (Mon, Oct 19th 5:57am EDT)",
    "flags": []
   },
   {
@@ -1436,7 +1493,7 @@
    "recent": 25.93,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Puka Nacua leads team in receiving Sunday (Mon, Oct 19th 8:29am EDT)",
    "flags": [
     "recent = average of only 3 game(s) played in weeks 1-5"
    ]
@@ -1449,9 +1506,9 @@
    "recent": 14.93,
    "health": "minor",
    "role": "steady",
-   "news": "Mike Evans (ribs/Achilles) misses practice Friday (Sat, Oct 17th 1:10am EDT)",
+   "news": "Mike Evans (ribs/Achilles) listed questionable Monday (Sun, Oct 18th 3:00am EDT)",
    "flags": [
-    "health=minor inferred from FantasyPros headline: \"Mike Evans (ribs/Achilles) misses practice Friday\" (missed Thu and Fri practice; no out/IR designation found, so not classed long)"
+    "health=minor from FantasyPros news \"Mike Evans (ribs/Achilles) listed questionable Monday\" (Sun, Oct 18th 3:00am EDT): ribs/Achilles, questionable for Monday Week 6 game after missing practice"
    ]
   },
   {
@@ -1462,7 +1519,7 @@
    "recent": 17.68,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Drake London sees 10 targets in Week 6 loss to Bears (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -1484,7 +1541,7 @@
    "recent": 18.62,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Tetairoa McMillan gains 86 yards in Week 6 win (Sun, Oct 18th 11:29pm EDT)",
    "flags": []
   },
   {
@@ -1495,7 +1552,7 @@
    "recent": 15.25,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Malik Nabers totals 165 yards Sunday (Mon, Oct 19th 1:45am EDT)",
    "flags": []
   },
   {
@@ -1506,9 +1563,9 @@
    "recent": 13.78,
    "health": "healthy",
    "role": "steady",
-   "news": "Denzel Boston (foot) good to go for Sunday (Fri, Oct 16th 5:07pm EDT)",
+   "news": "Denzel Boston logs one catch in Week 6 (Sun, Oct 18th 9:31pm EDT)",
    "flags": [
-    "health=healthy inferred from latest FantasyPros injury headline: \"Denzel Boston (foot) good to go for Sunday\""
+    "health=healthy: pre-game report \"Denzel Boston (foot) good to go for Sunday\" (Fri, Oct 16th 5:07pm EDT), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
    ]
   },
   {
@@ -1519,7 +1576,7 @@
    "recent": 15.68,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "George Pickens goes for 73 yards in Week 6 (Mon, Oct 19th 5:26am EDT)",
    "flags": []
   },
   {
@@ -1530,7 +1587,7 @@
    "recent": 13.38,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Michael Wilson held to 32 yards Sunday (Mon, Oct 19th 8:07am EDT)",
    "flags": []
   },
   {
@@ -1552,7 +1609,7 @@
    "recent": 20.87,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Nico Collins hauls in three passes in Week 6 win (Oct 18, 2026)",
    "flags": [
     "recent = average of only 3 game(s) played in weeks 1-5"
    ]
@@ -1565,7 +1622,7 @@
    "recent": 10.57,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Devaughn Vele totals 42 yards Sunday (Mon, Oct 19th 1:24am EDT)",
    "flags": []
   },
   {
@@ -1574,11 +1631,11 @@
    "pos": "WR",
    "season": 12.08,
    "recent": 10.6,
-   "health": "minor",
+   "health": "short",
    "role": "steady",
-   "news": "Deebo Samuel Sr. (hamstring) misses practice Friday (Sat, Oct 17th 1:12am EDT)",
+   "news": "Deebo Samuel Sr. (hamstring) ruled out Monday (Sun, Oct 18th 3:01am EDT)",
    "flags": [
-    "health=minor inferred from latest FantasyPros injury headline: \"Deebo Samuel Sr. (hamstring) misses practice Friday\""
+    "health=short from FantasyPros news \"Deebo Samuel Sr. (hamstring) ruled out Monday\" (Sun, Oct 18th 3:01am EDT): hamstring, ruled out Week 6, week-to-week, likely out through Week 8 bye"
    ]
   },
   {
@@ -1600,7 +1657,7 @@
    "recent": 11.58,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Luther Burden III leads pass-catchers in Week 6 win over Falcons (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -1611,7 +1668,7 @@
    "recent": 10.5,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Emeka Egbuka sees whopping 16 targets Sunday (Mon, Oct 19th 2:21am EDT)",
    "flags": []
   },
   {
@@ -1622,9 +1679,9 @@
    "recent": 13.25,
    "health": "minor",
    "role": "steady",
-   "news": "Stefon Diggs (hamstring) seen at practice Friday (Fri, Oct 16th 1:08pm EDT)",
+   "news": "Stefon Diggs (hamstring) listed questionable Monday (Sun, Oct 18th 3:05am EDT)",
    "flags": [
-    "health=minor inferred from latest FantasyPros injury headline: \"Stefon Diggs (hamstring) seen at practice Friday\""
+    "health=minor from FantasyPros news \"Stefon Diggs (hamstring) listed questionable Monday\" (Sun, Oct 18th 3:05am EDT): hamstring, questionable for Monday Week 6 game, returned to practice Friday"
    ]
   },
   {
@@ -1635,7 +1692,7 @@
    "recent": 9.0,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Kalif Raymond quiet in Week 6 win (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -1646,9 +1703,10 @@
    "recent": 17.4,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Jalen Coker has game-high 97 yards vs. Eagles (Sun, Oct 18th 11:38pm EDT)",
    "flags": [
-    "recent = average of only 3 game(s) played in weeks 1-5"
+    "recent = average of only 3 game(s) played in weeks 1-5",
+    "health=healthy: pre-game report \"Jalen Coker (quad) practices in full again Thursday\" (~Thu Oct 15 (FantasyPros \"4 days ago\")), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
    ]
   },
   {
@@ -1659,7 +1717,7 @@
    "recent": 11.78,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Tre Tucker stellar in loss Sunday (Mon, Oct 19th 12:26pm EDT)",
    "flags": []
   },
   {
@@ -1670,7 +1728,7 @@
    "recent": 10.72,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Wan'Dale Robinson snags three passes in win (Sun, Oct 18th 11:44pm EDT)",
    "flags": []
   },
   {
@@ -1691,9 +1749,11 @@
    "season": 9.88,
    "recent": 12.08,
    "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": []
+   "role": "rising",
+   "news": "Keon Coleman leads team in receiving Sunday (Mon, Oct 19th 12:01pm EDT)",
+   "flags": [
+    "role=rising: expected to see more targets while DJ Moore (shoulder) is out (FantasyPros news; DJ Moore (shoulder) inactive for Week 6: \"Keon Coleman and Khalil Shakir will see increased targets.\")"
+   ]
   },
   {
    "name": "Dontayvion Wicks",
@@ -1703,9 +1763,9 @@
    "recent": 8.43,
    "health": "healthy",
    "role": "steady",
-   "news": "Dontayvion Wicks (hamstring) off injury report Sunday (Fri, Oct 16th 4:30pm EDT)",
+   "news": "Dontayvion Wicks catches two passes in Week 6 (Mon, Oct 19th 3:11am EDT)",
    "flags": [
-    "health=healthy inferred from latest FantasyPros injury headline: \"Dontayvion Wicks (hamstring) off injury report Sunday\""
+    "health=healthy: pre-game report \"Dontayvion Wicks (hamstring) doesn't practice Thursday\" (~Thu Oct 15 (FantasyPros \"4 days ago\")), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
    ]
   },
   {
@@ -1716,7 +1776,7 @@
    "recent": 11.88,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Jaylen Waddle disappoints in win over Seattle (Sun, Oct 18th 10:29pm EDT)",
    "flags": []
   },
   {
@@ -1727,9 +1787,9 @@
    "recent": 10.15,
    "health": "healthy",
    "role": "steady",
-   "news": "DK Metcalf (illness) off injury report Sunday (Sat, Oct 17th 12:40pm EDT)",
+   "news": "DK Metcalf hauls in 11 passes Sunday (Mon, Oct 19th 2:03am EDT)",
    "flags": [
-    "health=healthy inferred from latest FantasyPros injury headline: \"DK Metcalf (illness) off injury report Sunday\""
+    "health=healthy: pre-game report \"DK Metcalf (illness) off injury report Sunday\" (Sat, Oct 17th 12:40pm EDT), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
    ]
   },
   {
@@ -1740,10 +1800,10 @@
    "recent": 16.17,
    "health": "healthy",
    "role": "steady",
-   "news": "DeVonta Smith (hamstring/toe) off injury report Sunday (Fri, Oct 16th 4:11pm EDT)",
+   "news": "DeVonta Smith finds end zone in Week 6 (Mon, Oct 19th 2:58am EDT)",
    "flags": [
     "recent = average of only 3 game(s) played in weeks 1-5",
-    "health=healthy inferred from latest FantasyPros injury headline: \"DeVonta Smith (hamstring/toe) off injury report Sunday\""
+    "health=healthy: pre-game report \"DeVonta Smith (hamstring/toe) off injury report Sunday\" (Fri, Oct 16th 4:11pm EDT), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
    ]
   },
   {
@@ -1754,7 +1814,7 @@
    "recent": 10.15,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Carnell Tate snags touchdown in win over Colts (Sun, Oct 18th 11:40pm EDT)",
    "flags": []
   },
   {
@@ -1765,7 +1825,7 @@
    "recent": 8.8,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Jakobi Meyers hauls in five passes in Week 6 loss (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -1774,10 +1834,12 @@
    "pos": "WR",
    "season": 9.38,
    "recent": 11.72,
-   "health": "healthy",
+   "health": "long",
    "role": "steady",
-   "news": "",
-   "flags": []
+   "news": "Romeo Doubs (shoulder) placed on IR (Mon, Oct 19th 4:50pm EDT)",
+   "flags": [
+    "health=long from FantasyPros news \"Romeo Doubs (shoulder) placed on IR\" (Mon, Oct 19th 4:50pm EDT): placed on IR Oct 19 (min. 4 games)"
+   ]
   },
   {
    "name": "Rashod Bateman",
@@ -1785,11 +1847,11 @@
    "pos": "WR",
    "season": 9.06,
    "recent": 11.32,
-   "health": "healthy",
+   "health": "minor",
    "role": "steady",
-   "news": "Rashod Bateman (shoulder) off injury report for Sunday (Fri, Oct 16th 4:45pm EDT)",
+   "news": "Rashod Bateman (shoulder) hopeful to be fine (Mon, Oct 19th 4:53pm EDT)",
    "flags": [
-    "health=healthy inferred from latest FantasyPros injury headline: \"Rashod Bateman (shoulder) off injury report for Sunday\""
+    "health=minor from FantasyPros news \"Rashod Bateman (shoulder) hopeful to be fine\" (Mon, Oct 19th 4:53pm EDT): left Week 6 with shoulder injury; coach optimistic he will be fine"
    ]
   },
   {
@@ -1800,9 +1862,9 @@
    "recent": 9.8,
    "health": "healthy",
    "role": "steady",
-   "news": "Josh Downs (hamstring) good to go for Sunday (Fri, Oct 16th 4:32pm EDT)",
+   "news": "Josh Downs snags four passes in loss (Sun, Oct 18th 10:55pm EDT)",
    "flags": [
-    "health=healthy inferred from latest FantasyPros injury headline: \"Josh Downs (hamstring) good to go for Sunday\""
+    "health=healthy: pre-game report \"Josh Downs (hamstring) good to go for Sunday\" (Fri, Oct 16th 4:32pm EDT), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
    ]
   },
   {
@@ -1811,10 +1873,12 @@
    "pos": "WR",
    "season": 11.22,
    "recent": 11.22,
-   "health": "healthy",
+   "health": "long",
    "role": "steady",
-   "news": "",
-   "flags": []
+   "news": "Tyquan Thornton (ankle) placed on IR (~Mon Oct 12 (FantasyPros \"7 days ago\"))",
+   "flags": [
+    "health=long from FantasyPros news \"Tyquan Thornton (ankle) placed on IR\" (~Mon Oct 12 (FantasyPros \"7 days ago\")): on IR, expected to miss 12-16 weeks"
+   ]
   },
   {
    "name": "Roman Wilson",
@@ -1822,10 +1886,12 @@
    "pos": "WR",
    "season": 8.96,
    "recent": 9.8,
-   "health": "healthy",
+   "health": "long",
    "role": "steady",
-   "news": "",
-   "flags": []
+   "news": "Roman Wilson (finger) placed on IR (Sun, Oct 18th 3:04am EDT)",
+   "flags": [
+    "health=long from FantasyPros news \"Roman Wilson (finger) placed on IR\" (Sun, Oct 18th 3:04am EDT): placed on IR Oct 18 (min. 4 games)"
+   ]
   },
   {
    "name": "Jaylin Noel",
@@ -1835,7 +1901,7 @@
    "recent": 9.25,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Jaylin Noel finds the end zone in Week 6 win (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -1857,7 +1923,7 @@
    "recent": 8.78,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Rome Odunze quiet in Week 6 win over Falcons (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -1866,10 +1932,12 @@
    "pos": "WR",
    "season": 10.57,
    "recent": 10.57,
-   "health": "healthy",
+   "health": "minor",
    "role": "steady",
-   "news": "",
-   "flags": []
+   "news": "Terry McLaurin (hamstring) officially limited Thursday (~Thu Oct 15 (FantasyPros \"4 days ago\"))",
+   "flags": [
+    "health=minor from FantasyPros news \"Terry McLaurin (hamstring) officially limited Thursday\" (~Thu Oct 15 (FantasyPros \"4 days ago\")): hamstring, limited Thursday before Monday Week 6 game"
+   ]
   },
   {
    "name": "Khalil Shakir",
@@ -1878,9 +1946,11 @@
    "season": 8.32,
    "recent": 8.15,
    "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": []
+   "role": "rising",
+   "news": "Khalil Shakir finds end zone Sunday (Mon, Oct 19th 12:07pm EDT)",
+   "flags": [
+    "role=rising: expected to see more targets while DJ Moore (shoulder) is out (FantasyPros news; DJ Moore (shoulder) inactive for Week 6: \"Keon Coleman and Khalil Shakir will see increased targets.\")"
+   ]
   },
   {
    "name": "DeMario Douglas",
@@ -1890,7 +1960,7 @@
    "recent": 8.18,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "DeMario Douglas finds the end zone in Week 6 win (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -1901,7 +1971,7 @@
    "recent": 8.32,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Xavier Hutchinson held to two receptions in Week 6 (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -1912,7 +1982,7 @@
    "recent": 7.6,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Chris Godwin Jr. catches four passes Sunday (Mon, Oct 19th 2:22am EDT)",
    "flags": []
   },
   {
@@ -1923,8 +1993,10 @@
    "recent": 9.62,
    "health": "healthy",
    "role": "steady",
-   "news": "",
-   "flags": []
+   "news": "Keenan Allen grabs eight passes in loss to Titans (Sun, Oct 18th 11:03pm EDT)",
+   "flags": [
+    "health=healthy: pre-game report \"Keenan Allen (rest) misses practice Wednesday\" (~Wed Oct 14 (FantasyPros \"5 days ago\")), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
+   ]
   },
   {
    "name": "Rashee Rice",
@@ -1936,7 +2008,7 @@
    "role": "steady",
    "news": "Rashee Rice (hamstring) ruled out Sunday (Fri, Oct 16th 2:17pm EDT)",
    "flags": [
-    "health=short inferred from latest FantasyPros injury headline: \"Rashee Rice (hamstring) ruled out Sunday\""
+    "health=short from FantasyPros news \"Rashee Rice (hamstring) ruled out Sunday\" (Fri, Oct 16th 2:17pm EDT): hamstring, ruled out Week 6; no newer update found"
    ]
   },
   {
@@ -1960,7 +2032,7 @@
    "role": "steady",
    "news": "Tre' Harris (hamstring) ruled out for Sunday (Fri, Oct 16th 3:28pm EDT)",
    "flags": [
-    "health=short inferred from latest FantasyPros injury headline: \"Tre' Harris (hamstring) ruled out for Sunday\""
+    "health=short from FantasyPros news \"Tre' Harris (hamstring) ruled out for Sunday\" (Fri, Oct 16th 3:28pm EDT): hamstring, ruled out Week 6, week-to-week"
    ]
   },
   {
@@ -1980,11 +2052,11 @@
    "pos": "WR",
    "season": 9.07,
    "recent": 9.07,
-   "health": "minor",
+   "health": "short",
    "role": "steady",
-   "news": "DJ Moore (shoulder) in non-contact jersey Friday in practice (Fri, Oct 16th 4:32pm EDT)",
+   "news": "DJ Moore (shoulder) inactive for Week 6 (Sun, Oct 18th 3:03pm EDT)",
    "flags": [
-    "health=minor inferred from latest FantasyPros injury headline: \"DJ Moore (shoulder) in non-contact jersey Friday in practice\""
+    "health=short from FantasyPros news \"DJ Moore (shoulder) inactive for Week 6\" (Sun, Oct 18th 3:03pm EDT): shoulder, inactive Weeks 5 and 6"
    ]
   },
   {
@@ -1993,11 +2065,11 @@
    "pos": "WR",
    "season": 9.07,
    "recent": 9.07,
-   "health": "healthy",
+   "health": "short",
    "role": "steady",
-   "news": "Ladd McConkey (foot) good to go for Sunday (Fri, Oct 16th 3:22pm EDT)",
+   "news": "Ladd McConkey (concussion) knocked out of Sunday's game (Sun, Oct 18th 5:27pm EDT)",
    "flags": [
-    "health=healthy inferred from latest FantasyPros injury headline: \"Ladd McConkey (foot) good to go for Sunday\""
+    "health=short from FantasyPros news \"Ladd McConkey (concussion) knocked out of Sunday's game\" (Sun, Oct 18th 5:27pm EDT): left Week 6 with a concussion, enters protocol"
    ]
   },
   {
@@ -2006,10 +2078,12 @@
    "pos": "WR",
    "season": 8.97,
    "recent": 8.97,
-   "health": "healthy",
+   "health": "short",
    "role": "steady",
-   "news": "",
-   "flags": []
+   "news": "Mack Hollins (calf) ruled out Sunday (1 week ago)",
+   "flags": [
+    "health=short from FantasyPros news \"Mack Hollins (calf) ruled out Sunday\" (1 week ago): calf, ruled out Week 5 and recorded no Week 6 stats; no newer update found"
+   ]
   },
   {
    "name": "Ryan Flournoy",
@@ -2019,7 +2093,7 @@
    "recent": 7.8,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Ryan Flournoy finds the end zone in Week 6 (Mon, Oct 19th 5:29am EDT)",
    "flags": []
   },
   {
@@ -2030,7 +2104,7 @@
    "recent": 4.83,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Kendrick Bourne racks up 47 yards Sunday (Mon, Oct 19th 8:12am EDT)",
    "flags": []
   },
   {
@@ -2051,9 +2125,11 @@
    "season": 8.32,
    "recent": 8.32,
    "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": []
+   "role": "rising",
+   "news": "Xavier Worthy Leads Chiefs With 73 Receiving Yards in Week 6 (Oct 19, 2026)",
+   "flags": [
+    "role=rising: more opportunity with Tyquan Thornton (IR) and Rashee Rice (hamstring) out (FantasyPros news; Tyquan Thornton (ankle) to miss 12-16 weeks: \"Xavier Worthy should be among the players to see more opportunity.\")"
+   ]
   },
   {
    "name": "Jordan Addison",
@@ -2061,10 +2137,12 @@
    "pos": "WR",
    "season": 8.3,
    "recent": 8.3,
-   "health": "healthy",
+   "health": "short",
    "role": "steady",
-   "news": "",
-   "flags": []
+   "news": "Jordan Addison (hamstring) inactive for Week 5 (1 week ago)",
+   "flags": [
+    "health=short from FantasyPros news \"Jordan Addison (hamstring) inactive for Week 5\" (1 week ago): hamstring, inactive Week 5 then MIN bye Week 6; no newer update found"
+   ]
   },
   {
    "name": "Pat Bryant",
@@ -2072,10 +2150,12 @@
    "pos": "WR",
    "season": 7.97,
    "recent": 7.97,
-   "health": "healthy",
+   "health": "long",
    "role": "steady",
-   "news": "",
-   "flags": []
+   "news": "Pat Bryant (ankle) placed on injured reserve (1 week ago)",
+   "flags": [
+    "health=long from FantasyPros news \"Pat Bryant (ankle) placed on injured reserve\" (1 week ago): on IR since ~1 week ago (min. 4 games)"
+   ]
   },
   {
    "name": "KC Concepcion Jr.",
@@ -2085,9 +2165,9 @@
    "recent": 6.0,
    "health": "healthy",
    "role": "steady",
-   "news": "KC Concepcion Jr. (concussion) off injury report Sunday (Fri, Oct 16th 1:38pm EDT)",
+   "news": "KC Concepcion Jr. catches four passes in Week 6 (Sun, Oct 18th 10:10pm EDT)",
    "flags": [
-    "health=healthy inferred from latest FantasyPros injury headline: \"KC Concepcion Jr. (concussion) off injury report Sunday\""
+    "health=healthy: pre-game report \"KC Concepcion Jr. (concussion) off injury report Sunday\" (Fri, Oct 16th 1:38pm EDT), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
    ]
   },
   {
@@ -2106,10 +2186,10 @@
    "team": "NYG",
    "pos": "WR",
    "season": 6.12,
-   "recent": 6.52,
+   "recent": 6.53,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Malachi Fields sees eight targets Sunday (Mon, Oct 19th 1:46am EDT)",
    "flags": []
   },
   {
@@ -2120,7 +2200,7 @@
    "recent": 6.1,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Cooper Kupp goes for 50 yards in loss (Sun, Oct 18th 10:11pm EDT)",
    "flags": []
   },
   {
@@ -2131,7 +2211,7 @@
    "recent": 6.5,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Jahan Dotson finds end zone in Week 6 loss (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -2142,7 +2222,7 @@
    "recent": 6.73,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Rashid Shaheed snags five passes in loss (Sun, Oct 18th 10:00pm EDT)",
    "flags": []
   },
   {
@@ -2175,7 +2255,7 @@
    "recent": 6.08,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Courtland Sutton catches two passes in win (Sun, Oct 18th 10:36pm EDT)",
    "flags": []
   },
   {
@@ -2185,9 +2265,11 @@
    "season": 5.48,
    "recent": 6.85,
    "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": []
+   "role": "rising",
+   "news": "Germie Bernard finds the end zone Sunday (Mon, Oct 19th 2:05am EDT)",
+   "flags": [
+    "role=rising: bigger role with Roman Wilson (IR) and Michael Pittman Jr. (IR) out (FantasyPros news; Roman Wilson (finger) expected to miss multiple weeks: \"rookie Germie Bernard will step into a bigger role.\")"
+   ]
   },
   {
    "name": "Kayshon Boutte",
@@ -2197,7 +2279,7 @@
    "recent": 6.05,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Kayshon Boutte held to two receptions in Week 6 (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -2208,7 +2290,7 @@
    "recent": 5.05,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Ted Hurst III totals 40 yards Sunday (Mon, Oct 19th 2:24am EDT)",
    "flags": []
   },
   {
@@ -2219,21 +2301,8 @@
    "recent": 6.67,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Laquon Treadwell brings in two passes in loss (Sun, Oct 18th 11:08pm EDT)",
    "flags": []
-  },
-  {
-   "name": "Treylon Burks",
-   "team": "WAS",
-   "pos": "WR",
-   "season": 6.4,
-   "recent": 6.4,
-   "health": "minor",
-   "role": "steady",
-   "news": "Treylon Burks (shoulder) listed as limited Thursday (Fri, Oct 16th 12:16am EDT)",
-   "flags": [
-    "health=minor inferred from latest FantasyPros injury headline: \"Treylon Burks (shoulder) listed as limited Thursday\""
-   ]
   },
   {
    "name": "Efton Chism III",
@@ -2247,15 +2316,30 @@
    "flags": []
   },
   {
+   "name": "Treylon Burks",
+   "team": "WAS",
+   "pos": "WR",
+   "season": 6.4,
+   "recent": 6.4,
+   "health": "minor",
+   "role": "steady",
+   "news": "Treylon Burks (shoulder) listed as limited Thursday (~Thu Oct 15 (FantasyPros \"4 days ago\"))",
+   "flags": [
+    "health=minor from FantasyPros news \"Treylon Burks (shoulder) listed as limited Thursday\" (~Thu Oct 15 (FantasyPros \"4 days ago\")): shoulder, limited Thursday before Monday Week 6 game"
+   ]
+  },
+  {
    "name": "Brian Thomas Jr.",
    "team": "JAC",
    "pos": "WR",
    "season": 5.1,
    "recent": 4.62,
    "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": []
+   "role": "rotation",
+   "news": "Brian Thomas Jr. vanishes in Week 6 loss (Oct 18, 2026)",
+   "flags": [
+    "role=rotation: no catches two straight games, no offensive snaps after halftime in Week 6 (FantasyPros news \"Brian Thomas Jr. vanishes in Week 6 loss\", Oct 18, 2026)"
+   ]
   },
   {
    "name": "Makai Lemon",
@@ -2265,7 +2349,7 @@
    "recent": 5.7,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Makai Lemon inefficient on six targets in Week 6 (Mon, Oct 19th 3:15am EDT)",
    "flags": []
   },
   {
@@ -2307,11 +2391,11 @@
    "pos": "WR",
    "season": 5.75,
    "recent": 5.75,
-   "health": "minor",
+   "health": "healthy",
    "role": "steady",
-   "news": "Joshua Palmer (shoulder) still limited Thursday (Fri, Oct 16th 12:37am EDT)",
+   "news": "Joshua Palmer catches one pass in win Sunday (Mon, Oct 19th 12:12pm EDT)",
    "flags": [
-    "health=minor inferred from latest FantasyPros injury headline: \"Joshua Palmer (shoulder) still limited Thursday\""
+    "health=healthy: pre-game report \"Joshua Palmer (shoulder) still limited Thursday\" (~Thu Oct 15 (FantasyPros \"4 days ago\")), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
    ]
   },
   {
@@ -2322,10 +2406,10 @@
    "recent": 10.65,
    "health": "short",
    "role": "steady",
-   "news": "Adonai Mitchell (finger) out for Week 6 (Fri, Oct 16th 10:54am EDT)",
+   "news": "Adonai Mitchell (finger) out for Week 6 (~Fri Oct 16 (FantasyPros \"3 days ago\"))",
    "flags": [
     "recent = average of only 2 game(s) played in weeks 1-5",
-    "health=short inferred from latest FantasyPros injury headline: \"Adonai Mitchell (finger) out for Week 6\""
+    "health=short from FantasyPros news \"Adonai Mitchell (finger) out for Week 6\" (~Fri Oct 16 (FantasyPros \"3 days ago\")): finger, missed fourth straight game in Week 6, week-to-week"
    ]
   },
   {
@@ -2336,8 +2420,10 @@
    "recent": 3.77,
    "health": "healthy",
    "role": "steady",
-   "news": "",
-   "flags": []
+   "news": "Darnell Mooney does not catch pass Sunday (Mon, Oct 19th 1:48am EDT)",
+   "flags": [
+    "health=healthy: pre-game report \"Darnell Mooney (neck) upgraded to full participant Thursday\" (~Thu Oct 15 (FantasyPros \"4 days ago\")), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
+   ]
   },
   {
    "name": "Marvin Harrison Jr.",
@@ -2347,7 +2433,7 @@
    "recent": 4.88,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Marvin Harrison Jr. hauls in three passes in Week 6 (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -2369,10 +2455,10 @@
    "recent": 9.7,
    "health": "short",
    "role": "steady",
-   "news": "Demarcus Robinson (ankle) will not return before bye week (Fri, Oct 16th 2:08am EDT)",
+   "news": "Demarcus Robinson (ankle) will not return before bye week (~Thu Oct 15 (FantasyPros \"4 days ago\"))",
    "flags": [
     "recent = average of only 2 game(s) played in weeks 1-5",
-    "health=short inferred from latest FantasyPros injury headline: \"Demarcus Robinson (ankle) will not return before bye week\""
+    "health=short from FantasyPros news \"Demarcus Robinson (ankle) will not return before bye week\" (~Thu Oct 15 (FantasyPros \"4 days ago\")): ankle, will not return before SF Week 8 bye"
    ]
   },
   {
@@ -2381,23 +2467,27 @@
    "pos": "WR",
    "season": 9.15,
    "recent": 9.15,
-   "health": "healthy",
+   "health": "short",
    "role": "steady",
-   "news": "",
+   "news": "Caleb Douglas (ankle) officially inactive for Week 5 (1 week ago)",
    "flags": [
-    "recent = average of only 2 game(s) played in weeks 1-5"
+    "recent = average of only 2 game(s) played in weeks 1-5",
+    "health=short from FantasyPros news \"Caleb Douglas (ankle) officially inactive for Week 5\" (1 week ago): ankle, inactive Week 5 then MIA bye Week 6; no newer update found"
    ]
   },
   {
    "name": "Ryan Miller",
-   "team": "MIA",
+   "team": "FA",
    "pos": "WR",
    "season": 3.64,
    "recent": 4.55,
    "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": []
+   "role": "fringe",
+   "news": "Ryan Miller waived by Dolphins (~Tue Oct 13 (FantasyPros \"6 days ago\"))",
+   "flags": [
+    "health=healthy from FantasyPros news \"Ryan Miller waived by Dolphins\" (~Tue Oct 13 (FantasyPros \"6 days ago\")): not injured; waived by the Dolphins",
+    "role=fringe: waived by the Dolphins (FantasyPros news \"Ryan Miller waived by Dolphins\", ~Tue Oct 13 (FantasyPros \"6 days ago\"))"
+   ]
   },
   {
    "name": "Quentin Johnston",
@@ -2406,10 +2496,11 @@
    "season": 4.53,
    "recent": 4.53,
    "health": "healthy",
-   "role": "steady",
-   "news": "Quentin Johnston (chest) off injury report for Sunday (Fri, Oct 16th 3:25pm EDT)",
+   "role": "rising",
+   "news": "Quentin Johnston Makes 57-Yard Catch in Week 6 (Oct 19, 2026)",
    "flags": [
-    "health=healthy inferred from latest FantasyPros injury headline: \"Quentin Johnston (chest) off injury report for Sunday\""
+    "health=healthy: pre-game report \"Quentin Johnston (chest) off injury report for Sunday\" (Fri, Oct 16th 3:25pm EDT), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found",
+    "role=rising: named a primary beneficiary of Tre' Harris (hamstring) absence; Ladd McConkey also in concussion protocol (FantasyPros news; Tre' Harris (hamstring) ruled out: \"Look for Quentin Johnston to be one of the primary beneficiaries.\")"
    ]
   },
   {
@@ -2466,7 +2557,7 @@
    "recent": 16.57,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Trey McBride leads team in receiving Sunday (Mon, Oct 19th 8:05am EDT)",
    "flags": []
   },
   {
@@ -2477,8 +2568,10 @@
    "recent": 14.4,
    "health": "healthy",
    "role": "steady",
-   "news": "",
-   "flags": []
+   "news": "Isaiah Likely hauls in touchdown Sunday (Mon, Oct 19th 1:51am EDT)",
+   "flags": [
+    "health=healthy: pre-game report \"Isaiah Likely (foot) practicing in full for Week 6\" (~Wed Oct 14 (FantasyPros \"5 days ago\")), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
+   ]
   },
   {
    "name": "Sam LaPorta",
@@ -2510,10 +2603,10 @@
    "recent": 23.73,
    "health": "healthy",
    "role": "steady",
-   "news": "Brock Bowers (knee) practices in full Thursday (Fri, Oct 16th 12:20am EDT)",
+   "news": "Brock Bowers solid in loss Sunday (Mon, Oct 19th 12:24pm EDT)",
    "flags": [
     "recent = average of only 3 game(s) played in weeks 1-5",
-    "health=healthy inferred from latest FantasyPros injury headline: \"Brock Bowers (knee) practices in full Thursday\""
+    "health=healthy: pre-game report \"Brock Bowers (knee) practices in full Thursday\" (~Thu Oct 15 (FantasyPros \"4 days ago\")), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
    ]
   },
   {
@@ -2522,11 +2615,11 @@
    "pos": "TE",
    "season": 13.98,
    "recent": 14.9,
-   "health": "minor",
+   "health": "short",
    "role": "steady",
-   "news": "Tyler Warren (groin) now questionable for Sunday (Fri, Oct 16th 4:27pm EDT)",
+   "news": "Tyler Warren (groin) officially inactive for Week 6 (Sun, Oct 18th 11:37am EDT)",
    "flags": [
-    "health=minor inferred from latest FantasyPros injury headline: \"Tyler Warren (groin) now questionable for Sunday\""
+    "health=short from FantasyPros news \"Tyler Warren (groin) officially inactive for Week 6\" (Sun, Oct 18th 11:37am EDT): groin, inactive Week 6"
    ]
   },
   {
@@ -2537,7 +2630,7 @@
    "recent": 12.85,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Juwan Johnson does not haul in pass Sunday (Mon, Oct 19th 1:26am EDT)",
    "flags": []
   },
   {
@@ -2546,11 +2639,11 @@
    "pos": "TE",
    "season": 12.06,
    "recent": 11.18,
-   "health": "minor",
+   "health": "healthy",
    "role": "steady",
-   "news": "Pat Freiermuth (calf) now questionable Sunday (Sat, Oct 17th 12:41pm EDT)",
+   "news": "Pat Freiermuth quiet Sunday (Mon, Oct 19th 2:07am EDT)",
    "flags": [
-    "health=minor inferred from latest FantasyPros injury headline: \"Pat Freiermuth (calf) now questionable Sunday\""
+    "health=healthy: pre-game report \"Pat Freiermuth (calf) officially active for Week 6\" (Sun, Oct 18th 12:00pm EDT), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
    ]
   },
   {
@@ -2561,7 +2654,7 @@
    "recent": 13.15,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Travis Kelce Records 53 Receiving Yards in Week 6 (Oct 19, 2026)",
    "flags": []
   },
   {
@@ -2583,7 +2676,7 @@
    "recent": 11.9,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Harold Fannin Jr. catches one pass in Week 6 (Sun, Oct 18th 9:41pm EDT)",
    "flags": []
   },
   {
@@ -2594,7 +2687,7 @@
    "recent": 10.05,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Brenton Strange catches five passes in Week 6 loss (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -2605,7 +2698,7 @@
    "recent": 7.92,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Dalton Kincaid hauls in seven passes Sunday (Mon, Oct 19th 11:58am EDT)",
    "flags": []
   },
   {
@@ -2614,10 +2707,12 @@
    "pos": "TE",
    "season": 9.84,
    "recent": 8.9,
-   "health": "healthy",
+   "health": "short",
    "role": "steady",
-   "news": "",
-   "flags": []
+   "news": "T.J. Hockenson placed in concussion protocol (1 week ago)",
+   "flags": [
+    "health=short from FantasyPros news \"T.J. Hockenson placed in concussion protocol\" (1 week ago): concussion, ruled out of Week 5 game and placed in protocol, then MIN bye; no newer update found"
+   ]
   },
   {
    "name": "Dalton Schultz",
@@ -2627,7 +2722,7 @@
    "recent": 10.22,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Dalton Schultz hauls in four passes in Week 6 (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -2638,7 +2733,7 @@
    "recent": 9.55,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Tucker Kraft catches five passes in Week 6 (Mon, Oct 19th 5:59am EDT)",
    "flags": []
   },
   {
@@ -2649,9 +2744,9 @@
    "recent": 11.3,
    "health": "healthy",
    "role": "steady",
-   "news": "Tyler Higbee off injury report Sunday (Fri, Oct 16th 5:07pm EDT)",
+   "news": "Tyler Higbee catches four passes Sunday (Mon, Oct 19th 8:36am EDT)",
    "flags": [
-    "health=healthy inferred from latest FantasyPros injury headline: \"Tyler Higbee off injury report Sunday\""
+    "health=healthy: pre-game report \"Tyler Higbee off injury report Sunday\" (Fri, Oct 16th 5:07pm EDT), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
    ]
   },
   {
@@ -2662,7 +2757,7 @@
    "recent": 8.72,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Michael Mayer hauls in seven passes Sunday (Mon, Oct 19th 12:30pm EDT)",
    "flags": []
   },
   {
@@ -2673,7 +2768,7 @@
    "recent": 8.7,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Mark Andrews quiet in Week 6 loss (Oct 19, 2026)",
    "flags": []
   },
   {
@@ -2684,7 +2779,7 @@
    "recent": 9.65,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Jake Ferguson held to two catches in Week 6 (Mon, Oct 19th 5:37am EDT)",
    "flags": []
   },
   {
@@ -2695,8 +2790,10 @@
    "recent": 9.95,
    "health": "healthy",
    "role": "steady",
-   "news": "",
-   "flags": []
+   "news": "Darren Waller blanked in Week 6 (Sun, Oct 18th 11:44pm EDT)",
+   "flags": [
+    "health=healthy: pre-game report \"Darren Waller (toe) limited again Thursday\" (~Thu Oct 15 (FantasyPros \"4 days ago\")), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
+   ]
   },
   {
    "name": "Kenyon Sadiq",
@@ -2706,9 +2803,9 @@
    "recent": 6.88,
    "health": "healthy",
    "role": "steady",
-   "news": "Kenyon Sadiq (concussion) looks good to go for Week 6 (Fri, Oct 16th 10:49am EDT)",
+   "news": "Kenyon Sadiq records one reception in Week 6 (Oct 18, 2026)",
    "flags": [
-    "health=healthy inferred from latest FantasyPros injury headline: \"Kenyon Sadiq (concussion) looks good to go for Week 6\""
+    "health=healthy: pre-game report \"Kenyon Sadiq (concussion) officially active for Week 6\" (Sun, Oct 18th 11:40am EDT), but he played in Week 6 per FantasyPros Week 6 stats and no later injury news was found"
    ]
   },
   {
@@ -2719,7 +2816,7 @@
    "recent": 8.28,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Hunter Henry hits pay dirt in Week 6 win (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -2730,7 +2827,7 @@
    "recent": 7.65,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Cade Otton quiet Sunday (Mon, Oct 19th 2:28am EDT)",
    "flags": []
   },
   {
@@ -2741,7 +2838,7 @@
    "recent": 11.63,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Dallas Goedert logs 61 yards in Week 6 (Mon, Oct 19th 3:03am EDT)",
    "flags": [
     "recent = average of only 3 game(s) played in weeks 1-5"
    ]
@@ -2765,7 +2862,7 @@
    "recent": 6.75,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "AJ Barner catches three passes in loss (Sun, Oct 18th 10:04pm EDT)",
    "flags": []
   },
   {
@@ -2776,7 +2873,7 @@
    "recent": 6.57,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Darnell Washington finds the end zone Sunday (Mon, Oct 19th 2:09am EDT)",
    "flags": []
   },
   {
@@ -2787,7 +2884,7 @@
    "recent": 3.45,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Evan Engram catches two passes in win (Sun, Oct 18th 10:34pm EDT)",
    "flags": []
   },
   {
@@ -2809,15 +2906,15 @@
    "recent": 6.72,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Kyle Pitts Sr. hauls in two touchdowns in Week 6 loss to Bears (Oct 18, 2026)",
    "flags": []
   },
   {
    "name": "Eli Raridon",
    "team": "NE",
    "pos": "TE",
-   "season": 6.03,
-   "recent": 6.03,
+   "season": 6.02,
+   "recent": 6.02,
    "health": "healthy",
    "role": "steady",
    "news": "",
@@ -2831,7 +2928,7 @@
    "recent": 6.0,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Colston Loveland finds end zone in Week 6 win (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -2853,7 +2950,7 @@
    "recent": 5.9,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Elijah Higgins catches three passes Sunday (Mon, Oct 19th 8:18am EDT)",
    "flags": []
   },
   {
@@ -2864,7 +2961,7 @@
    "recent": 4.5,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Foster Moreau hauls in two touchdown passes in Week 6 (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -2875,7 +2972,7 @@
    "recent": 17.0,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Spencer Shrader has 8 kicking points in loss (Sun, Oct 18th 11:20pm EDT)",
    "flags": []
   },
   {
@@ -2908,7 +3005,7 @@
    "recent": 10.0,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Tyler Loop scores four points in Week 6 loss (Mon, Oct 19th 3:45am EDT)",
    "flags": []
   },
   {
@@ -2930,7 +3027,7 @@
    "recent": 10.5,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Matt Gay scores 12 points in loss Sunday (Mon, Oct 19th 12:36pm EDT)",
    "flags": []
   },
   {
@@ -2941,7 +3038,7 @@
    "recent": 11.25,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Jason Myers has big miss in loss to Denver (Sun, Oct 18th 10:16pm EDT)",
    "flags": []
   },
   {
@@ -2952,7 +3049,7 @@
    "recent": 11.75,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Dominic Zvada makes all three kicks Sunday (Mon, Oct 19th 1:52am EDT)",
    "flags": []
   },
   {
@@ -2974,7 +3071,7 @@
    "recent": 9.0,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Cam Little perfect in Week 6 loss (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -2985,7 +3082,7 @@
    "recent": 9.25,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Chase McLaughlin makes all four field goals Sunday (Mon, Oct 19th 2:30am EDT)",
    "flags": []
   },
   {
@@ -2996,7 +3093,7 @@
    "recent": 11.0,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Brandon Aubrey held to one XP in Week 6 loss (Mon, Oct 19th 5:39am EDT)",
    "flags": []
   },
   {
@@ -3007,7 +3104,7 @@
    "recent": 8.0,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Tyler Bass scores 15 points in win Sunday (Mon, Oct 19th 12:14pm EDT)",
    "flags": []
   },
   {
@@ -3018,7 +3115,7 @@
    "recent": 8.75,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Nick Folk makes lone kick in Week 6 (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -3029,7 +3126,7 @@
    "recent": 10.25,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Andre Szmyt hits game-winner in Week 6 (Mon, Oct 19th 3:39am EDT)",
    "flags": []
   },
   {
@@ -3040,7 +3137,7 @@
    "recent": 8.75,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Chris Boswell connects on 4-of-5 field goals Sunday (Mon, Oct 19th 2:10am EDT)",
    "flags": []
   },
   {
@@ -3051,7 +3148,7 @@
    "recent": 6.5,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Chad Ryland scores 18 points in win Sunday (Mon, Oct 19th 8:20am EDT)",
    "flags": []
   },
   {
@@ -3062,7 +3159,7 @@
    "recent": 10.5,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Ryan Fitzgerald misses another PAT in Week 6 win (Mon, Oct 19th 3:32am EDT)",
    "flags": []
   },
   {
@@ -3084,7 +3181,7 @@
    "recent": 6.75,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Cairo Santos misses field goal in Week 6 (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -3095,7 +3192,7 @@
    "recent": 5.75,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Jason Sanders perfect in Week 6 loss (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -3117,7 +3214,7 @@
    "recent": 9.0,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Harrison Butker Connects on Three Field Goals in Week 6 (Oct 19, 2026)",
    "flags": []
   },
   {
@@ -3128,7 +3225,7 @@
    "recent": 5.5,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Trey Smack hits three FGs in Week 6 (Mon, Oct 19th 6:01am EDT)",
    "flags": []
   },
   {
@@ -3139,7 +3236,7 @@
    "recent": 7.75,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Wil Lutz has five kicking points in win (Sun, Oct 18th 10:38pm EDT)",
    "flags": []
   },
   {
@@ -3150,7 +3247,7 @@
    "recent": 7.0,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Andy Borregales makes two field goals in Week 6 (Oct 18, 2026)",
    "flags": []
   },
   {
@@ -3161,19 +3258,22 @@
    "recent": 7.5,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Cameron Dicker Scores Chargers' Only Points in Week 6 (Sun, Oct 18th 9:23pm EDT)",
    "flags": []
   },
   {
    "name": "Harrison Mevis",
-   "team": "LAR",
+   "team": "FA",
    "pos": "K",
    "season": 6.4,
    "recent": 7.75,
    "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": []
+   "role": "fringe",
+   "news": "Harrison Mevis released by Rams (~Tue Oct 13 (FantasyPros \"6 days ago\"))",
+   "flags": [
+    "health=healthy from FantasyPros news \"Harrison Mevis released by Rams\" (~Tue Oct 13 (FantasyPros \"6 days ago\")): not injured; released by the Rams",
+    "role=fringe: released by the Rams (FantasyPros news \"Harrison Mevis released by Rams\", ~Tue Oct 13 (FantasyPros \"6 days ago\"))"
+   ]
   },
   {
    "name": "Jake Elliott",
@@ -3183,7 +3283,7 @@
    "recent": 6.25,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Jake Elliott converts both PATs in Week 6 loss (Mon, Oct 19th 3:24am EDT)",
    "flags": []
   },
   {
@@ -3194,7 +3294,7 @@
    "recent": 5.75,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Daniel Carlson makes 2-of-3 field goal attempts Sunday (Mon, Oct 19th 1:28am EDT)",
    "flags": []
   },
   {
@@ -3216,7 +3316,7 @@
    "recent": 4.0,
    "health": "healthy",
    "role": "steady",
-   "news": "",
+   "news": "Joey Slye has big game in win over Colts (Sun, Oct 18th 11:55pm EDT)",
    "flags": []
   },
   {
