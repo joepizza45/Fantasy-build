@@ -318,6 +318,11 @@ function onEdit(e) {
   const p = cur()[+t.dataset.i]; if (!p) return;
   p[t.dataset.f] = t.value;
   if (t.dataset.f === 'name') { if (p.ex) p.ex = false; fillFromData(p, +t.dataset.i); }
+  if ((t.dataset.f === 'recent' || t.dataset.f === 'season') && p.fromData && p.flags) {
+    const gone = t.dataset.f === 'recent' ? 'No recent average in the data file' : 'No season numbers in the data file';
+    const kept = p.flags.filter((f) => f.indexOf(gone) !== 0);
+    if (kept.length !== p.flags.length) { p.flags = kept; showFlags(p, +t.dataset.i); }
+  }
   if (p.check) { p.check = false; const r = $('row-' + t.dataset.i); if (r) r.classList.remove('chk'); }
   renderMoves();
 }
