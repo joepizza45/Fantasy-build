@@ -1,45 +1,46 @@
 {
  "sport": "fpl",
- "fetched_at": "2026-10-17T21:23:33Z",
- "through": "Gameweek 6 (last finished gameweek; GW7 had started on 2026-10-17 with 0 of 10 fixtures finished, so excluded)",
- "scoring": "Official FPL points. season = FPL points_per_game from bootstrap-static; recent = average FPL points over appearances in GW3-6 (element-summary history).",
+ "fetched_at": "2026-10-19T21:15:38Z",
+ "through": "Gameweek 7 (all 10 GW7 fixtures played and bonus points applied as of 2026-10-19; FPL has not yet set GW7 finished/data_checked, so GW7 points are provisional)",
+ "scoring": "Official FPL points. season = FPL points_per_game from bootstrap-static (includes GW7); recent = average FPL points over appearances in GW4-7 (element-summary history).",
  "notes": [
-  "Coverage: the 267 players with at least 180 minutes this season (of 667 in the FPL pool), sorted by season average.",
-  "role is 'steady' for every player: it was not derived from minutes data, so rotation/fringe/rising risk is not reflected. Use minutes or starts if the app should rate it later.",
+  "Coverage: the 269 players with at least 180 minutes this season (of 668 in the FPL pool), sorted by season average.",
+  "role is 'steady' for every player: FPL news carries no role information and role was not derived from minutes data, so rotation/fringe/rising risk is not reflected.",
   "health is mapped only from FPL status, chance_of_playing_next_round and news; short vs long for out players is a default unless news keywords (month, season, ACL, surgery) say otherwise.",
   "Teams use FPL 3-letter short names. name is FPL web_name (not unique across clubs).",
-  "recent averages over appearances (minutes>0), not over all gameweeks, so a player who missed a GW is not penalised with a zero; double gameweeks would count each match."
+  "recent averages over appearances (minutes>0), not over all gameweeks, so a player who missed a GW is not penalised with a zero; double gameweeks would count each match.",
+  "GW7 is provisional: FPL can still adjust GW7 points (e.g. bonus or stat corrections) before marking the gameweek data_checked."
  ],
  "sources": [
   "https://fantasy.premierleague.com/api/bootstrap-static/",
   "https://fantasy.premierleague.com/api/element-summary/{id}/",
-  "https://fantasy.premierleague.com/api/fixtures/?event=7"
+  "https://fantasy.premierleague.com/api/fixtures/"
  ],
  "players": [
   {
-   "name": "Groß",
+   "name": "De Cuyper",
    "team": "BHA",
-   "pos": "MID",
-   "season": 8.8,
+   "pos": "DEF",
+   "season": 8.4,
    "recent": 9.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "De Cuyper",
+   "name": "Groß",
    "team": "BHA",
-   "pos": "DEF",
-   "season": 8.8,
-   "recent": 9,
+   "pos": "MID",
+   "season": 8.3,
+   "recent": 10.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -47,12 +48,13 @@
    "team": "MCI",
    "pos": "FWD",
    "season": 8.3,
-   "recent": 7.5,
-   "health": "healthy",
+   "recent": 8.5,
+   "health": "minor",
    "role": "steady",
-   "news": "",
+   "news": "Unspecified injury - 75% chance of playing",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
+    "health from FPL status d, chance_of_playing_next_round=75"
    ]
   },
   {
@@ -60,12 +62,12 @@
    "team": "CHE",
    "pos": "FWD",
    "season": 7.8,
-   "recent": 8.3,
+   "recent": 8.7,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -73,12 +75,12 @@
    "team": "CHE",
    "pos": "MID",
    "season": 7.7,
-   "recent": 10,
+   "recent": 7.7,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -86,13 +88,26 @@
    "team": "AVL",
    "pos": "MID",
    "season": 7.5,
-   "recent": 6.3,
+   "recent": 7.5,
    "health": "minor",
    "role": "steady",
    "news": "Calf injury - 75% chance of playing",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
     "health from FPL status d, chance_of_playing_next_round=75"
+   ]
+  },
+  {
+   "name": "Vuskovic",
+   "team": "BHA",
+   "pos": "DEF",
+   "season": 7.3,
+   "recent": 8.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -100,51 +115,25 @@
    "team": "MCI",
    "pos": "MID",
    "season": 7.3,
-   "recent": 5.5,
+   "recent": 6.3,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Bogle",
-   "team": "LEE",
-   "pos": "DEF",
-   "season": 7.2,
-   "recent": 8.8,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
    "name": "Isak",
    "team": "LIV",
    "pos": "FWD",
-   "season": 7,
-   "recent": 7.7,
+   "season": 7.0,
+   "recent": 6.3,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Vuskovic",
-   "team": "BHA",
-   "pos": "DEF",
-   "season": 6.7,
-   "recent": 8.5,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -152,12 +141,25 @@
    "team": "EVE",
    "pos": "DEF",
    "season": 6.6,
-   "recent": 7,
+   "recent": 6.2,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Bogle",
+   "team": "LEE",
+   "pos": "DEF",
+   "season": 6.4,
+   "recent": 5.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -165,12 +167,12 @@
    "team": "LIV",
    "pos": "MID",
    "season": 6.4,
-   "recent": 5,
+   "recent": 2.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -178,38 +180,51 @@
    "team": "ARS",
    "pos": "DEF",
    "season": 6.3,
-   "recent": 4.5,
+   "recent": 5.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Cunha",
-   "team": "MUN",
-   "pos": "MID",
-   "season": 6,
-   "recent": 6.3,
+   "name": "Raya",
+   "team": "ARS",
+   "pos": "GKP",
+   "season": 6.0,
+   "recent": 6.8,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Tavernier",
+   "team": "BOU",
+   "pos": "MID",
+   "season": 6.0,
+   "recent": 5.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
    "name": "Scott",
    "team": "BOU",
    "pos": "MID",
-   "season": 6,
-   "recent": 5.3,
+   "season": 6.0,
+   "recent": 3.0,
    "health": "short",
    "role": "steady",
    "news": "Thigh injury - Unknown return date",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
     "health from FPL status i; short vs long is a default, duration not stated by API"
    ]
   },
@@ -217,14 +232,26 @@
    "name": "Elanga",
    "team": "NEW",
    "pos": "MID",
-   "season": 6,
-   "recent": 1,
+   "season": 6.0,
    "health": "short",
    "role": "steady",
    "news": "Unspecified injury - Expected back 25 Oct",
    "flags": [
-    "recent = mean points over 1 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "recent omitted: no appearances in GW4-7",
     "health from FPL status i; short vs long is a default, duration not stated by API"
+   ]
+  },
+  {
+   "name": "Kostoulas",
+   "team": "BHA",
+   "pos": "FWD",
+   "season": 5.9,
+   "recent": 8.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -232,25 +259,25 @@
    "team": "MCI",
    "pos": "DEF",
    "season": 5.9,
-   "recent": 6.8,
+   "recent": 4.8,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Rogers",
-   "team": "CHE",
+   "name": "Mbeumo",
+   "team": "MUN",
    "pos": "MID",
-   "season": 5.7,
-   "recent": 6.3,
+   "season": 5.9,
+   "recent": 5.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -258,38 +285,25 @@
    "team": "BRE",
    "pos": "MID",
    "season": 5.7,
-   "recent": 6.8,
+   "recent": 6.2,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Saka",
-   "team": "ARS",
+   "name": "Rogers",
+   "team": "CHE",
    "pos": "MID",
    "season": 5.7,
-   "recent": 3.5,
+   "recent": 5.2,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Tzolakis",
-   "team": "HUL",
-   "pos": "GKP",
-   "season": 5.6,
-   "recent": 4,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -297,12 +311,25 @@
    "team": "HUL",
    "pos": "MID",
    "season": 5.6,
-   "recent": 7,
+   "recent": 6.2,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Tzolakis",
+   "team": "HUL",
+   "pos": "GKP",
+   "season": 5.6,
+   "recent": 3.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -310,39 +337,13 @@
    "team": "HUL",
    "pos": "DEF",
    "season": 5.6,
-   "recent": 4,
+   "recent": 2.0,
    "health": "short",
    "role": "steady",
    "news": "Groin injury - Expected back 31 Oct",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
     "health from FPL status i; short vs long is a default, duration not stated by API"
-   ]
-  },
-  {
-   "name": "Raya",
-   "team": "ARS",
-   "pos": "GKP",
-   "season": 5.5,
-   "recent": 5.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Mbeumo",
-   "team": "MUN",
-   "pos": "MID",
-   "season": 5.5,
-   "recent": 5,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
    ]
   },
   {
@@ -350,52 +351,12 @@
    "team": "BRE",
    "pos": "DEF",
    "season": 5.5,
-   "recent": 5.5,
+   "recent": 6.0,
    "health": "minor",
    "role": "steady",
    "news": "Ankle injury - 75% chance of playing",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary",
-    "health from FPL status d, chance_of_playing_next_round=75"
-   ]
-  },
-  {
-   "name": "Palmer",
-   "team": "CHE",
-   "pos": "MID",
-   "season": 5.4,
-   "recent": 4,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Guéhi",
-   "team": "MCI",
-   "pos": "DEF",
-   "season": 5.3,
-   "recent": 6,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Semenyo",
-   "team": "MCI",
-   "pos": "MID",
-   "season": 5.3,
-   "recent": 7.3,
-   "health": "minor",
-   "role": "steady",
-   "news": "Knee injury - 75% chance of playing",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
     "health from FPL status d, chance_of_playing_next_round=75"
    ]
   },
@@ -403,78 +364,131 @@
    "name": "Verbruggen",
    "team": "BHA",
    "pos": "GKP",
-   "season": 5.3,
-   "recent": 6.5,
+   "season": 5.4,
+   "recent": 7.2,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "B.Fernandes",
-   "team": "MUN",
+   "name": "Palmer",
+   "team": "CHE",
    "pos": "MID",
-   "season": 5.3,
-   "recent": 1.8,
+   "season": 5.4,
+   "recent": 4.2,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Justin",
-   "team": "LEE",
-   "pos": "DEF",
-   "season": 5.3,
-   "recent": 5,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Tavernier",
-   "team": "BOU",
-   "pos": "MID",
-   "season": 5.3,
-   "recent": 5.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
    "name": "White",
    "team": "ARS",
    "pos": "DEF",
-   "season": 5.2,
-   "recent": 2.7,
+   "season": 5.3,
+   "recent": 4.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Affengruber",
-   "team": "FUL",
-   "pos": "DEF",
-   "season": 5.2,
-   "recent": 5,
+   "name": "Saka",
+   "team": "ARS",
+   "pos": "MID",
+   "season": 5.3,
+   "recent": 3.8,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Evanilson",
+   "team": "BOU",
+   "pos": "FWD",
+   "season": 5.3,
+   "recent": 6.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Gomez",
+   "team": "BHA",
+   "pos": "MID",
+   "season": 5.3,
+   "recent": 6.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Guéhi",
+   "team": "MCI",
+   "pos": "DEF",
+   "season": 5.3,
+   "recent": 4.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Semenyo",
+   "team": "MCI",
+   "pos": "MID",
+   "season": 5.3,
+   "recent": 6.0,
+   "health": "short",
+   "role": "steady",
+   "news": "Knee injury - Unknown return date",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
+    "health from FPL status i; short vs long is a default, duration not stated by API"
+   ]
+  },
+  {
+   "name": "Cunha",
+   "team": "MUN",
+   "pos": "MID",
+   "season": 5.3,
+   "recent": 5.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Ayari",
+   "team": "BHA",
+   "pos": "MID",
+   "season": 5.2,
+   "recent": 6.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -482,91 +496,104 @@
    "team": "EVE",
    "pos": "DEF",
    "season": 5.2,
-   "recent": 6.3,
+   "recent": 4.8,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Affengruber",
+   "team": "FUL",
+   "pos": "DEF",
+   "season": 5.2,
+   "recent": 5.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Rice",
+   "team": "ARS",
+   "pos": "MID",
+   "season": 5.1,
+   "recent": 5.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Gabriel",
+   "team": "ARS",
+   "pos": "DEF",
+   "season": 5.0,
+   "recent": 5.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
    "name": "Dewsbury-Hall",
    "team": "EVE",
    "pos": "MID",
-   "season": 5,
-   "recent": 5,
+   "season": 5.0,
+   "recent": 5.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
    "name": "Hall",
    "team": "NEW",
    "pos": "DEF",
-   "season": 5,
-   "recent": 4.3,
+   "season": 5.0,
+   "recent": 4.2,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Trafford",
-   "team": "LEE",
-   "pos": "GKP",
-   "season": 5,
-   "recent": 4.5,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
    "name": "Gibbs-White",
    "team": "NFO",
    "pos": "MID",
-   "season": 5,
-   "recent": 3.8,
+   "season": 5.0,
+   "recent": 4.0,
    "health": "minor",
    "role": "steady",
    "news": "Muscular injury - 75% chance of playing",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
     "health from FPL status d, chance_of_playing_next_round=75"
    ]
   },
   {
-   "name": "Ødegaard",
-   "team": "ARS",
-   "pos": "MID",
-   "season": 5,
-   "recent": 4,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Andrés",
+   "name": "Boscagli",
    "team": "BHA",
-   "pos": "MID",
-   "season": 5,
-   "recent": 5,
+   "pos": "DEF",
+   "season": 4.9,
+   "recent": 6.8,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -574,77 +601,51 @@
    "team": "CHE",
    "pos": "MID",
    "season": 4.9,
-   "recent": 2.8,
+   "recent": 6.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Justin",
+   "team": "LEE",
+   "pos": "DEF",
+   "season": 4.9,
+   "recent": 4.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
    "name": "Muharemović",
    "team": "LEE",
    "pos": "DEF",
-   "season": 4.8,
-   "recent": 4.8,
+   "season": 4.9,
+   "recent": 5.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Stach",
-   "team": "LEE",
-   "pos": "MID",
-   "season": 4.8,
-   "recent": 3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Kamada",
-   "team": "CRY",
-   "pos": "MID",
-   "season": 4.8,
-   "recent": 6,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Gomez",
+   "name": "Dunk",
    "team": "BHA",
-   "pos": "MID",
+   "pos": "DEF",
    "season": 4.8,
-   "recent": 4.5,
+   "recent": 6.3,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Kostoulas",
-   "team": "BHA",
-   "pos": "FWD",
-   "season": 4.8,
-   "recent": 5.8,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -652,12 +653,26 @@
    "team": "SUN",
    "pos": "FWD",
    "season": 4.8,
-   "recent": 6.7,
+   "recent": 9.0,
+   "health": "minor",
+   "role": "steady",
+   "news": "Hamstring injury - 75% chance of playing",
+   "flags": [
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
+    "health from FPL status d, chance_of_playing_next_round=75"
+   ]
+  },
+  {
+   "name": "Ødegaard",
+   "team": "ARS",
+   "pos": "MID",
+   "season": 4.7,
+   "recent": 2.2,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -665,12 +680,25 @@
    "team": "BRE",
    "pos": "MID",
    "season": 4.7,
-   "recent": 2,
+   "recent": 3.8,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "F.Kadıoğlu",
+   "team": "BHA",
+   "pos": "DEF",
+   "season": 4.7,
+   "recent": 6.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -683,33 +711,7 @@
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Thomas",
-   "team": "COV",
-   "pos": "DEF",
-   "season": 4.7,
-   "recent": 4.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Mitchell",
-   "team": "CRY",
-   "pos": "DEF",
-   "season": 4.7,
-   "recent": 6.8,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -717,12 +719,51 @@
    "team": "FUL",
    "pos": "DEF",
    "season": 4.7,
-   "recent": 2.7,
+   "recent": 5.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Calvert-Lewin",
+   "team": "LEE",
+   "pos": "FWD",
+   "season": 4.7,
+   "recent": 5.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "B.Fernandes",
+   "team": "MUN",
+   "pos": "MID",
+   "season": 4.7,
+   "recent": 1.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Trafford",
+   "team": "LEE",
+   "pos": "GKP",
+   "season": 4.6,
+   "recent": 4.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -730,77 +771,25 @@
    "team": "NEW",
    "pos": "MID",
    "season": 4.6,
-   "recent": 6.3,
+   "recent": 3.8,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Dunk",
-   "team": "BHA",
+   "name": "Thomas",
+   "team": "COV",
    "pos": "DEF",
-   "season": 4.6,
-   "recent": 6,
+   "season": 4.4,
+   "recent": 4.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Gabriel",
-   "team": "ARS",
-   "pos": "DEF",
-   "season": 4.5,
-   "recent": 3.5,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Van Hecke",
-   "team": "TOT",
-   "pos": "DEF",
-   "season": 4.5,
-   "recent": 6.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Rice",
-   "team": "ARS",
-   "pos": "MID",
-   "season": 4.5,
-   "recent": 4.8,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Gudmundsson",
-   "team": "LEE",
-   "pos": "DEF",
-   "season": 4.5,
-   "recent": 4.5,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -808,12 +797,12 @@
    "team": "EVE",
    "pos": "DEF",
    "season": 4.4,
-   "recent": 5,
+   "recent": 4.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -821,91 +810,38 @@
    "team": "HUL",
    "pos": "DEF",
    "season": 4.4,
-   "recent": 2.5,
+   "recent": 2.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "F.Kadıoğlu",
-   "team": "BHA",
+   "name": "Stach",
+   "team": "LEE",
+   "pos": "MID",
+   "season": 4.4,
+   "recent": 3.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Van Hecke",
+   "team": "TOT",
    "pos": "DEF",
    "season": 4.4,
-   "recent": 5.5,
+   "recent": 5.2,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Ajer",
-   "team": "BRE",
-   "pos": "DEF",
-   "season": 4.3,
-   "recent": 4,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Janelt",
-   "team": "BRE",
-   "pos": "MID",
-   "season": 4.3,
-   "recent": 5.3,
-   "health": "short",
-   "role": "steady",
-   "news": "Suspended until 31 Oct",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary",
-    "health from FPL status s; short vs long is a default, duration not stated by API"
-   ]
-  },
-  {
-   "name": "A.Becker",
-   "team": "LIV",
-   "pos": "GKP",
-   "season": 4.3,
-   "recent": 6.5,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Ajayi",
-   "team": "HUL",
-   "pos": "DEF",
-   "season": 4.3,
-   "recent": 2,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Jacquet",
-   "team": "LIV",
-   "pos": "DEF",
-   "season": 4.3,
-   "recent": 5.8,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -913,12 +849,65 @@
    "team": "AVL",
    "pos": "GKP",
    "season": 4.3,
-   "recent": 4,
+   "recent": 3.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Ajer",
+   "team": "BRE",
+   "pos": "DEF",
+   "season": 4.3,
+   "recent": 4.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Janelt",
+   "team": "BRE",
+   "pos": "MID",
+   "season": 4.3,
+   "recent": 2.2,
+   "health": "short",
+   "role": "steady",
+   "news": "Suspended until 31 Oct",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
+    "health from FPL status s; short vs long is a default, duration not stated by API"
+   ]
+  },
+  {
+   "name": "Kamada",
+   "team": "CRY",
+   "pos": "MID",
+   "season": 4.3,
+   "recent": 5.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Ajayi",
+   "team": "HUL",
+   "pos": "DEF",
+   "season": 4.3,
+   "recent": 1.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -931,7 +920,33 @@
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "A.Becker",
+   "team": "LIV",
+   "pos": "GKP",
+   "season": 4.3,
+   "recent": 5.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Jacquet",
+   "team": "LIV",
+   "pos": "DEF",
+   "season": 4.3,
+   "recent": 5.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -939,78 +954,52 @@
    "team": "MUN",
    "pos": "MID",
    "season": 4.3,
-   "recent": 5.3,
+   "recent": 4.0,
    "health": "minor",
    "role": "steady",
    "news": "Unspecified injury - 75% chance of playing",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
     "health from FPL status d, chance_of_playing_next_round=75"
    ]
   },
   {
-   "name": "Murillo",
-   "team": "NFO",
+   "name": "Konsa",
+   "team": "ARS",
    "pos": "DEF",
    "season": 4.2,
-   "recent": 5,
+   "recent": 5.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Dasilva",
-   "team": "COV",
-   "pos": "DEF",
+   "name": "Bruno G.",
+   "team": "ARS",
+   "pos": "MID",
    "season": 4.2,
-   "recent": 5.5,
+   "recent": 5.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Evanilson",
-   "team": "BOU",
-   "pos": "FWD",
+   "name": "Andrés",
+   "team": "BHA",
+   "pos": "MID",
    "season": 4.2,
-   "recent": 4,
+   "recent": 4.2,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Virgil",
-   "team": "LIV",
-   "pos": "DEF",
-   "season": 4.1,
-   "recent": 5.5,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Donnarumma",
-   "team": "MCI",
-   "pos": "GKP",
-   "season": 4.1,
-   "recent": 6.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -1018,143 +1007,141 @@
    "team": "FUL",
    "pos": "MID",
    "season": 4.1,
-   "recent": 3.5,
+   "recent": 5.8,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Pickford",
-   "team": "EVE",
+   "name": "Virgil",
+   "team": "LIV",
+   "pos": "DEF",
+   "season": 4.1,
+   "recent": 5.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Donnarumma",
+   "team": "MCI",
    "pos": "GKP",
-   "season": 4,
-   "recent": 4,
+   "season": 4.1,
+   "recent": 4.8,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Barry",
-   "team": "EVE",
-   "pos": "FWD",
-   "season": 4,
-   "recent": 4,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "King",
-   "team": "FUL",
-   "pos": "MID",
-   "season": 4,
-   "recent": 4.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "McGinn",
-   "team": "AVL",
-   "pos": "MID",
-   "season": 4,
-   "recent": 6.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
    "name": "Buendía",
    "team": "AVL",
    "pos": "MID",
-   "season": 4,
-   "recent": 5.3,
+   "season": 4.0,
+   "recent": 5.2,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "McGinn",
+   "team": "AVL",
+   "pos": "MID",
+   "season": 4.0,
+   "recent": 5.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Mitchell",
+   "team": "CRY",
+   "pos": "DEF",
+   "season": 4.0,
+   "recent": 3.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Pickford",
+   "team": "EVE",
+   "pos": "GKP",
+   "season": 4.0,
+   "recent": 4.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Barry",
+   "team": "EVE",
+   "pos": "FWD",
+   "season": 4.0,
+   "recent": 4.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "King",
+   "team": "FUL",
+   "pos": "MID",
+   "season": 4.0,
+   "recent": 2.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
    "name": "Ndiaye",
    "team": "MCI",
    "pos": "MID",
-   "season": 4,
-   "recent": 2.5,
+   "season": 4.0,
+   "recent": 3.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Calvert-Lewin",
-   "team": "LEE",
-   "pos": "FWD",
-   "season": 4,
-   "recent": 3.8,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Boscagli",
-   "team": "BHA",
-   "pos": "DEF",
-   "season": 4,
-   "recent": 4.8,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Timber",
-   "team": "CRY",
-   "pos": "MID",
-   "season": 4,
-   "recent": 4,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
    "name": "Milenković",
    "team": "NFO",
    "pos": "DEF",
-   "season": 4,
-   "recent": 7,
-   "health": "minor",
+   "season": 4.0,
+   "health": "healthy",
    "role": "steady",
-   "news": "Knee injury - 75% chance of playing",
+   "news": "",
    "flags": [
-    "recent = mean points over 1 appearance(s) (minutes>0) in GW3-6 from element-summary",
-    "health from FPL status d, chance_of_playing_next_round=75"
+    "recent omitted: no appearances in GW4-7"
    ]
   },
   {
@@ -1162,51 +1149,25 @@
    "team": "HUL",
    "pos": "DEF",
    "season": 3.9,
+   "recent": 1.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Murillo",
+   "team": "NFO",
+   "pos": "DEF",
+   "season": 3.9,
    "recent": 3.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Xhaka",
-   "team": "SUN",
-   "pos": "MID",
-   "season": 3.8,
-   "recent": 2,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Yeremy",
-   "team": "CRY",
-   "pos": "MID",
-   "season": 3.8,
-   "recent": 4.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Matheus N.",
-   "team": "MCI",
-   "pos": "DEF",
-   "season": 3.8,
-   "recent": 5.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -1214,25 +1175,52 @@
    "team": "CHE",
    "pos": "DEF",
    "season": 3.8,
-   "recent": 1.5,
+   "recent": 5.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Kluivert",
-   "team": "BOU",
-   "pos": "MID",
+   "name": "Gudmundsson",
+   "team": "LEE",
+   "pos": "DEF",
    "season": 3.8,
-   "recent": 4.5,
+   "recent": 4.2,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Matheus N.",
+   "team": "MCI",
+   "pos": "DEF",
+   "season": 3.8,
+   "recent": 4.5,
+   "health": "minor",
+   "role": "steady",
+   "news": "Unspecified injury - 75% chance of playing",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
+    "health from FPL status d, chance_of_playing_next_round=75"
+   ]
+  },
+  {
+   "name": "Rudoni",
+   "team": "COV",
+   "pos": "MID",
+   "season": 3.7,
+   "recent": 5.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -1240,12 +1228,12 @@
    "team": "FUL",
    "pos": "GKP",
    "season": 3.7,
-   "recent": 3.8,
+   "recent": 5.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -1253,38 +1241,12 @@
    "team": "IPS",
    "pos": "DEF",
    "season": 3.7,
-   "recent": 4.5,
+   "recent": 4.2,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Botman",
-   "team": "NEW",
-   "pos": "DEF",
-   "season": 3.7,
-   "recent": 3.8,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Ampadu",
-   "team": "LEE",
-   "pos": "MID",
-   "season": 3.7,
-   "recent": 3.8,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -1292,38 +1254,64 @@
    "team": "LIV",
    "pos": "MID",
    "season": 3.7,
-   "recent": 1.8,
+   "recent": 3.2,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Ndoye",
-   "team": "NFO",
-   "pos": "MID",
+   "name": "Botman",
+   "team": "NEW",
+   "pos": "DEF",
    "season": 3.7,
-   "recent": 2.5,
+   "recent": 4.2,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Benitez",
+   "name": "Robertson",
+   "team": "TOT",
+   "pos": "DEF",
+   "season": 3.7,
+   "recent": 5.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Dasilva",
+   "team": "COV",
+   "pos": "DEF",
+   "season": 3.6,
+   "recent": 5.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Yeremy",
    "team": "CRY",
-   "pos": "GKP",
-   "season": 3.7,
-   "recent": 3.7,
+   "pos": "MID",
+   "season": 3.6,
+   "recent": 3.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -1331,12 +1319,12 @@
    "team": "FUL",
    "pos": "DEF",
    "season": 3.6,
-   "recent": 3.8,
+   "recent": 5.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -1344,25 +1332,12 @@
    "team": "LIV",
    "pos": "MID",
    "season": 3.6,
-   "recent": 3.5,
+   "recent": 4.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Ayari",
-   "team": "BHA",
-   "pos": "MID",
-   "season": 3.6,
-   "recent": 4,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -1370,78 +1345,51 @@
    "team": "MCI",
    "pos": "MID",
    "season": 3.6,
-   "recent": -0.5,
+   "recent": 3.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Kinsky",
-   "team": "TOT",
-   "pos": "GKP",
-   "season": 3.5,
-   "recent": 4.5,
+   "name": "Ndoye",
+   "team": "NFO",
+   "pos": "MID",
+   "season": 3.6,
+   "recent": 3.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
    "name": "Tonali",
    "team": "TOT",
    "pos": "MID",
-   "season": 3.5,
-   "recent": 4.3,
+   "season": 3.6,
+   "recent": 4.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Havertz",
-   "team": "ARS",
-   "pos": "FWD",
-   "season": 3.5,
-   "recent": 3.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Szoboszlai",
-   "team": "LIV",
+   "name": "Xhaka",
+   "team": "SUN",
    "pos": "MID",
-   "season": 3.5,
-   "recent": 2.7,
-   "health": "short",
-   "role": "steady",
-   "news": "Hamstring injury - Unknown return date",
-   "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary",
-    "health from FPL status i; short vs long is a default, duration not stated by API"
-   ]
-  },
-  {
-   "name": "Khalaili",
-   "team": "CRY",
-   "pos": "DEF",
-   "season": 3.5,
-   "recent": 4.5,
+   "season": 3.6,
+   "recent": 1.8,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -1449,64 +1397,26 @@
    "team": "AVL",
    "pos": "FWD",
    "season": 3.5,
-   "recent": 4.3,
+   "recent": 4.2,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Yalcouyé",
-   "team": "BHA",
+   "name": "Szoboszlai",
+   "team": "LIV",
    "pos": "MID",
    "season": 3.5,
-   "recent": 3,
-   "health": "healthy",
+   "recent": 2.0,
+   "health": "short",
    "role": "steady",
-   "news": "",
+   "news": "Hamstring injury - Unknown return date",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Kelleher",
-   "team": "BRE",
-   "pos": "GKP",
-   "season": 3.4,
-   "recent": 3.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "O'Shea",
-   "team": "IPS",
-   "pos": "DEF",
-   "season": 3.4,
-   "recent": 4.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Rúben",
-   "team": "MCI",
-   "pos": "DEF",
-   "season": 3.4,
-   "recent": 4.8,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
+    "health from FPL status i; short vs long is a default, duration not stated by API"
    ]
   },
   {
@@ -1514,12 +1424,25 @@
    "team": "AVL",
    "pos": "MID",
    "season": 3.4,
-   "recent": 3.8,
+   "recent": 4.2,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Kelleher",
+   "team": "BRE",
+   "pos": "GKP",
+   "season": 3.4,
+   "recent": 3.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -1527,12 +1450,12 @@
    "team": "BRE",
    "pos": "DEF",
    "season": 3.4,
-   "recent": 2,
+   "recent": 2.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -1540,12 +1463,64 @@
    "team": "BRE",
    "pos": "MID",
    "season": 3.4,
-   "recent": 1.3,
+   "recent": 1.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Timber",
+   "team": "CRY",
+   "pos": "MID",
+   "season": 3.4,
+   "recent": 3.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "O'Shea",
+   "team": "IPS",
+   "pos": "DEF",
+   "season": 3.4,
+   "recent": 4.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Rúben",
+   "team": "MCI",
+   "pos": "DEF",
+   "season": 3.4,
+   "recent": 3.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Tielemans",
+   "team": "MUN",
+   "pos": "MID",
+   "season": 3.4,
+   "recent": 4.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -1553,117 +1528,38 @@
    "team": "NEW",
    "pos": "MID",
    "season": 3.4,
-   "recent": 3.5,
+   "recent": 3.2,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Van de Ven",
-   "team": "TOT",
-   "pos": "DEF",
-   "season": 3.4,
-   "recent": 4.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Robertson",
-   "team": "TOT",
-   "pos": "DEF",
-   "season": 3.4,
-   "recent": 4,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "N.Williams",
-   "team": "NFO",
-   "pos": "DEF",
-   "season": 3.3,
-   "recent": 3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Martinez",
-   "team": "CHE",
-   "pos": "GKP",
-   "season": 3.3,
-   "recent": 2.5,
-   "health": "short",
-   "role": "steady",
-   "news": "Head injury - 25% chance of playing",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary",
-    "health from FPL status d, chance_of_playing_next_round=25"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
    "name": "E.Le Fée",
    "team": "SUN",
    "pos": "MID",
-   "season": 3.3,
-   "recent": 3.8,
+   "season": 3.4,
+   "recent": 2.8,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Araujo",
-   "team": "LIV",
-   "pos": "DEF",
+   "name": "Havertz",
+   "team": "ARS",
+   "pos": "FWD",
    "season": 3.3,
-   "recent": 5.3,
+   "recent": 1.8,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Rudoni",
-   "team": "COV",
-   "pos": "MID",
-   "season": 3.3,
-   "recent": 4,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Okafor",
-   "team": "LEE",
-   "pos": "MID",
-   "season": 3.3,
-   "recent": 4.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -1671,103 +1567,77 @@
    "team": "BRE",
    "pos": "DEF",
    "season": 3.3,
-   "recent": 1,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 1 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent omitted: no appearances in GW4-7"
    ]
   },
   {
-   "name": "Rushworth",
-   "team": "COV",
+   "name": "Martinez",
+   "team": "CHE",
    "pos": "GKP",
-   "season": 3.2,
-   "recent": 4,
-   "health": "healthy",
+   "season": 3.3,
+   "recent": 3.8,
+   "health": "short",
    "role": "steady",
-   "news": "",
+   "news": "Head injury - Unknown return date",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
+    "health from FPL status i; short vs long is a default, duration not stated by API"
    ]
   },
   {
-   "name": "Wharton",
-   "team": "CRY",
+   "name": "Ampadu",
+   "team": "LEE",
    "pos": "MID",
-   "season": 3.2,
-   "recent": 3.3,
+   "season": 3.3,
+   "recent": 3.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Robinson",
-   "team": "FUL",
+   "name": "Araujo",
+   "team": "LIV",
    "pos": "DEF",
-   "season": 3.2,
-   "recent": 3,
+   "season": 3.3,
+   "recent": 3.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Mukiele",
-   "team": "SUN",
+   "name": "N.Williams",
+   "team": "NFO",
    "pos": "DEF",
-   "season": 3.2,
-   "recent": 1.8,
+   "season": 3.3,
+   "recent": 2.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Strand Larsen",
-   "team": "CRY",
-   "pos": "FWD",
-   "season": 3.2,
-   "recent": 4,
+   "name": "Kinsky",
+   "team": "TOT",
+   "pos": "GKP",
+   "season": 3.3,
+   "recent": 3.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Pinnock",
-   "team": "COV",
-   "pos": "DEF",
-   "season": 3.2,
-   "recent": 3.8,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Konsa",
-   "team": "ARS",
-   "pos": "DEF",
-   "season": 3.2,
-   "recent": 3.8,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -1775,26 +1645,65 @@
    "team": "ARS",
    "pos": "MID",
    "season": 3.2,
-   "recent": 3.3,
+   "recent": 2.5,
    "health": "short",
    "role": "steady",
    "news": "Hamstring injury - Expected back 1 Nov",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
     "health from FPL status i; short vs long is a default, duration not stated by API"
    ]
   },
   {
-   "name": "Anderson",
-   "team": "MCI",
+   "name": "Kluivert",
+   "team": "BOU",
    "pos": "MID",
-   "season": 3.1,
-   "recent": 4,
+   "season": 3.2,
+   "recent": 4.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Robinson",
+   "team": "FUL",
+   "pos": "DEF",
+   "season": 3.2,
+   "recent": 5.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Van de Ven",
+   "team": "TOT",
+   "pos": "DEF",
+   "season": 3.2,
+   "recent": 2.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Mukiele",
+   "team": "SUN",
+   "pos": "DEF",
+   "season": 3.2,
+   "recent": 1.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -1802,222 +1711,260 @@
    "team": "BRE",
    "pos": "MID",
    "season": 3.1,
-   "recent": 4.3,
+   "recent": 4.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Lindelöf",
-   "team": "AVL",
-   "pos": "DEF",
-   "season": 3,
+   "name": "Yalcouyé",
+   "team": "BHA",
+   "pos": "MID",
+   "season": 3.1,
    "recent": 2.8,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Lacroix",
-   "team": "CHE",
-   "pos": "DEF",
-   "season": 3,
-   "recent": 2,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Richards",
-   "team": "CRY",
-   "pos": "DEF",
-   "season": 3,
-   "recent": 3.8,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "N.Angulo",
-   "team": "SUN",
-   "pos": "MID",
-   "season": 3,
-   "recent": 2.5,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "George",
-   "team": "EVE",
-   "pos": "MID",
-   "season": 3,
-   "recent": 3.8,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "N.Gonzalez",
-   "team": "NEW",
-   "pos": "MID",
-   "season": 3,
-   "recent": 3.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Tanaka",
+   "name": "Okafor",
    "team": "LEE",
    "pos": "MID",
-   "season": 3,
+   "season": 3.1,
+   "recent": 4.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Anderson",
+   "team": "MCI",
+   "pos": "MID",
+   "season": 3.1,
    "recent": 3.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Gallagher",
-   "team": "TOT",
-   "pos": "MID",
-   "season": 3,
-   "recent": 4,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Pedro Porro",
-   "team": "TOT",
-   "pos": "DEF",
-   "season": 3,
-   "recent": 4,
-   "health": "short",
-   "role": "steady",
-   "news": "Hamstring injury - Unknown return date",
-   "flags": [
-    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary",
-    "health from FPL status i; short vs long is a default, duration not stated by API"
-   ]
-  },
-  {
-   "name": "Tielemans",
-   "team": "MUN",
-   "pos": "MID",
-   "season": 2.8,
-   "recent": 2.8,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Canvot",
-   "team": "CRY",
-   "pos": "DEF",
-   "season": 2.8,
-   "recent": 4.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Ballard",
-   "team": "SUN",
-   "pos": "DEF",
-   "season": 2.8,
-   "recent": 2,
-   "health": "short",
-   "role": "steady",
-   "news": "Hamstring injury - Unknown return date",
-   "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary",
-    "health from FPL status i; short vs long is a default, duration not stated by API"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
    "name": "Mings",
    "team": "AVL",
    "pos": "DEF",
-   "season": 2.8,
-   "recent": 2.5,
+   "season": 3.0,
+   "recent": 2.8,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Elvedi",
-   "team": "LEE",
+   "name": "Hill",
+   "team": "BOU",
    "pos": "DEF",
-   "season": 2.8,
-   "recent": 3.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Enzo",
-   "team": "MCI",
-   "pos": "MID",
-   "season": 2.8,
+   "season": 3.0,
    "recent": 3.8,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Jair Cunha",
-   "team": "NFO",
+   "name": "Silva",
+   "team": "BOU",
    "pos": "DEF",
-   "season": 2.8,
-   "recent": 4.5,
+   "season": 3.0,
+   "recent": 3.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Lacroix",
+   "team": "CHE",
+   "pos": "DEF",
+   "season": 3.0,
+   "recent": 3.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Benitez",
+   "team": "CRY",
+   "pos": "GKP",
+   "season": 3.0,
+   "recent": 3.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Wharton",
+   "team": "CRY",
+   "pos": "MID",
+   "season": 3.0,
+   "recent": 3.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Strand Larsen",
+   "team": "CRY",
+   "pos": "FWD",
+   "season": 3.0,
+   "recent": 4.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Khalaili",
+   "team": "CRY",
+   "pos": "DEF",
+   "season": 3.0,
+   "recent": 3.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "George",
+   "team": "EVE",
+   "pos": "MID",
+   "season": 3.0,
+   "recent": 1.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "N.Gonzalez",
+   "team": "NEW",
+   "pos": "MID",
+   "season": 3.0,
+   "recent": 3.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Marmoush",
+   "team": "TOT",
+   "pos": "FWD",
+   "season": 3.0,
+   "recent": 3.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Pedro Porro",
+   "team": "TOT",
+   "pos": "DEF",
+   "season": 3.0,
+   "recent": 1.0,
+   "health": "short",
+   "role": "steady",
+   "news": "Hamstring injury - Expected back 24 Oct",
+   "flags": [
+    "recent = mean points over 1 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
+    "health from FPL status i; short vs long is a default, duration not stated by API"
+   ]
+  },
+  {
+   "name": "N.Angulo",
+   "team": "SUN",
+   "pos": "MID",
+   "season": 3.0,
+   "recent": 2.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Lindelöf",
+   "team": "AVL",
+   "pos": "DEF",
+   "season": 2.9,
+   "recent": 3.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Rushworth",
+   "team": "COV",
+   "pos": "GKP",
+   "season": 2.9,
+   "recent": 3.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Richards",
+   "team": "CRY",
+   "pos": "DEF",
+   "season": 2.9,
+   "recent": 4.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -2025,12 +1972,65 @@
    "team": "BRE",
    "pos": "MID",
    "season": 2.8,
-   "recent": 4,
+   "recent": 1.7,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Pinnock",
+   "team": "COV",
+   "pos": "DEF",
+   "season": 2.8,
+   "recent": 3.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Tanaka",
+   "team": "LEE",
+   "pos": "MID",
+   "season": 2.8,
+   "recent": 2.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Enzo",
+   "team": "MCI",
+   "pos": "MID",
+   "season": 2.8,
+   "recent": 3.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Ballard",
+   "team": "SUN",
+   "pos": "DEF",
+   "season": 2.8,
+   "recent": 1.0,
+   "health": "short",
+   "role": "steady",
+   "news": "Hamstring injury - Unknown return date",
+   "flags": [
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
+    "health from FPL status i; short vs long is a default, duration not stated by API"
    ]
   },
   {
@@ -2038,13 +2038,26 @@
    "team": "SUN",
    "pos": "FWD",
    "season": 2.8,
-   "recent": 2,
+   "recent": 1.3,
    "health": "minor",
    "role": "steady",
    "news": "Knock - 50% chance of playing",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
     "health from FPL status d, chance_of_playing_next_round=50"
+   ]
+  },
+  {
+   "name": "Thomas-Asante",
+   "team": "COV",
+   "pos": "FWD",
+   "season": 2.7,
+   "recent": 3.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -2052,51 +2065,12 @@
    "team": "EVE",
    "pos": "MID",
    "season": 2.7,
-   "recent": 2,
+   "recent": 2.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Enciso",
-   "team": "IPS",
-   "pos": "MID",
-   "season": 2.7,
-   "recent": 1.8,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Sels",
-   "team": "NFO",
-   "pos": "GKP",
-   "season": 2.7,
-   "recent": 3.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "McAtee",
-   "team": "NFO",
-   "pos": "MID",
-   "season": 2.7,
-   "recent": 2.8,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -2104,12 +2078,12 @@
    "team": "FUL",
    "pos": "MID",
    "season": 2.7,
-   "recent": 2.8,
+   "recent": 3.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -2117,38 +2091,12 @@
    "team": "FUL",
    "pos": "MID",
    "season": 2.7,
-   "recent": 3.5,
+   "recent": 3.8,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Palacios",
-   "team": "IPS",
-   "pos": "MID",
-   "season": 2.7,
-   "recent": 2.8,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Ouattara",
-   "team": "IPS",
-   "pos": "DEF",
-   "season": 2.7,
-   "recent": 3.5,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -2156,12 +2104,90 @@
    "team": "IPS",
    "pos": "MID",
    "season": 2.7,
-   "recent": 2,
+   "recent": 2.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Enciso",
+   "team": "IPS",
+   "pos": "MID",
+   "season": 2.7,
+   "recent": 2.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Ouattara",
+   "team": "IPS",
+   "pos": "DEF",
+   "season": 2.7,
+   "recent": 4.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Palacios",
+   "team": "IPS",
+   "pos": "MID",
+   "season": 2.7,
+   "recent": 2.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Elvedi",
+   "team": "LEE",
+   "pos": "DEF",
+   "season": 2.7,
+   "recent": 2.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Schlager",
+   "team": "NFO",
+   "pos": "MID",
+   "season": 2.7,
+   "recent": 2.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Kudus",
+   "team": "TOT",
+   "pos": "MID",
+   "season": 2.7,
+   "recent": 3.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -2169,51 +2195,12 @@
    "team": "BRE",
    "pos": "FWD",
    "season": 2.6,
-   "recent": 3,
+   "recent": 3.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Wissa",
-   "team": "NEW",
-   "pos": "FWD",
-   "season": 2.6,
-   "recent": 1.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Gonzalo",
-   "team": "FUL",
-   "pos": "FWD",
-   "season": 2.6,
-   "recent": 2,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Slater",
-   "team": "HUL",
-   "pos": "MID",
-   "season": 2.6,
-   "recent": 2.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -2221,51 +2208,25 @@
    "team": "FUL",
    "pos": "MID",
    "season": 2.6,
-   "recent": 2.3,
+   "recent": 3.2,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Dedić",
-   "team": "NEW",
-   "pos": "DEF",
+   "name": "Gonzalo",
+   "team": "FUL",
+   "pos": "FWD",
    "season": 2.6,
-   "recent": 0.3,
+   "recent": 2.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Barcola",
-   "team": "LIV",
-   "pos": "MID",
-   "season": 2.6,
-   "recent": 2.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Thomas",
-   "team": "HUL",
-   "pos": "MID",
-   "season": 2.6,
-   "recent": 2.8,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -2273,12 +2234,142 @@
    "team": "FUL",
    "pos": "MID",
    "season": 2.6,
-   "recent": 4.5,
+   "recent": 1.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Slater",
+   "team": "HUL",
+   "pos": "MID",
+   "season": 2.6,
+   "recent": 1.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Thomas",
+   "team": "HUL",
+   "pos": "MID",
+   "season": 2.6,
+   "recent": 3.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Barcola",
+   "team": "LIV",
+   "pos": "MID",
+   "season": 2.6,
+   "recent": 3.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Wissa",
+   "team": "NEW",
+   "pos": "FWD",
+   "season": 2.6,
+   "recent": 1.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Dedić",
+   "team": "NEW",
+   "pos": "DEF",
+   "season": 2.6,
+   "recent": 0.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Sels",
+   "team": "NFO",
+   "pos": "GKP",
+   "season": 2.6,
+   "recent": 2.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Jair Cunha",
+   "team": "NFO",
+   "pos": "DEF",
+   "season": 2.6,
+   "recent": 1.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "McAtee",
+   "team": "NFO",
+   "pos": "MID",
+   "season": 2.6,
+   "recent": 2.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Gallagher",
+   "team": "TOT",
+   "pos": "MID",
+   "season": 2.6,
+   "recent": 3.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Solanke",
+   "team": "TOT",
+   "pos": "FWD",
+   "season": 2.6,
+   "recent": 3.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -2287,51 +2378,12 @@
    "pos": "MID",
    "season": 2.5,
    "recent": 2.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Schlager",
-   "team": "NFO",
-   "pos": "MID",
-   "season": 2.5,
-   "recent": 2.5,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Meunier",
-   "team": "SUN",
-   "pos": "DEF",
-   "season": 2.5,
-   "recent": 2,
    "health": "minor",
    "role": "steady",
    "news": "Groin injury - 75% chance of playing",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
     "health from FPL status d, chance_of_playing_next_round=75"
-   ]
-  },
-  {
-   "name": "Sávio",
-   "team": "TOT",
-   "pos": "MID",
-   "season": 2.5,
-   "recent": 2.5,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
    ]
   },
   {
@@ -2339,12 +2391,66 @@
    "team": "MCI",
    "pos": "DEF",
    "season": 2.5,
-   "recent": 5,
+   "recent": 1.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 1 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 1 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Sávio",
+   "team": "TOT",
+   "pos": "MID",
+   "season": 2.5,
+   "recent": 2.3,
+   "health": "short",
+   "role": "steady",
+   "news": "Muscular injury - Expected back 7 Nov",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
+    "health from FPL status i; short vs long is a default, duration not stated by API"
+   ]
+  },
+  {
+   "name": "Meunier",
+   "team": "SUN",
+   "pos": "DEF",
+   "season": 2.5,
+   "recent": 2.0,
+   "health": "minor",
+   "role": "steady",
+   "news": "Groin injury - 75% chance of playing",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
+    "health from FPL status d, chance_of_playing_next_round=75"
+   ]
+  },
+  {
+   "name": "Garner",
+   "team": "EVE",
+   "pos": "MID",
+   "season": 2.4,
+   "recent": 3.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Coyle",
+   "team": "HUL",
+   "pos": "DEF",
+   "season": 2.4,
+   "recent": 1.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -2357,60 +2463,7 @@
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Coyle",
-   "team": "HUL",
-   "pos": "DEF",
-   "season": 2.4,
-   "recent": 2.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Garner",
-   "team": "EVE",
-   "pos": "MID",
-   "season": 2.4,
-   "recent": 3.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "van Ewijk",
-   "team": "COV",
-   "pos": "DEF",
-   "season": 2.4,
-   "recent": 3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Shaw",
-   "team": "MUN",
-   "pos": "DEF",
-   "season": 2.4,
-   "recent": 3,
-   "health": "minor",
-   "role": "steady",
-   "news": "Unspecified injury - 75% chance of playing",
-   "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary",
-    "health from FPL status d, chance_of_playing_next_round=75"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -2418,25 +2471,26 @@
    "team": "IPS",
    "pos": "MID",
    "season": 2.4,
-   "recent": 1.5,
+   "recent": 2.8,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Gray",
-   "team": "TOT",
-   "pos": "MID",
+   "name": "Shaw",
+   "team": "MUN",
+   "pos": "DEF",
    "season": 2.4,
-   "recent": 2.7,
-   "health": "healthy",
+   "recent": 2.5,
+   "health": "minor",
    "role": "steady",
-   "news": "",
+   "news": "Unspecified injury - 75% chance of playing",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
+    "health from FPL status d, chance_of_playing_next_round=75"
    ]
   },
   {
@@ -2444,13 +2498,104 @@
    "team": "NFO",
    "pos": "FWD",
    "season": 2.4,
-   "recent": 3,
+   "recent": 4.0,
    "health": "short",
    "role": "steady",
    "news": "Calf injury - Unknown return date",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
     "health from FPL status i; short vs long is a default, duration not stated by API"
+   ]
+  },
+  {
+   "name": "Cash",
+   "team": "AVL",
+   "pos": "DEF",
+   "season": 2.3,
+   "recent": 2.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Adams",
+   "team": "BOU",
+   "pos": "MID",
+   "season": 2.3,
+   "recent": 2.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Acheampong",
+   "team": "CHE",
+   "pos": "DEF",
+   "season": 2.3,
+   "recent": 3.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "McBurnie",
+   "team": "HUL",
+   "pos": "FWD",
+   "season": 2.3,
+   "recent": 2.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Kerkez",
+   "team": "LIV",
+   "pos": "DEF",
+   "season": 2.3,
+   "recent": 2.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Lammens",
+   "team": "MUN",
+   "pos": "GKP",
+   "season": 2.3,
+   "recent": 2.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Maguire",
+   "team": "MUN",
+   "pos": "DEF",
+   "season": 2.3,
+   "recent": 2.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -2463,51 +2608,25 @@
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "McBurnie",
-   "team": "HUL",
-   "pos": "FWD",
+   "name": "Gray",
+   "team": "TOT",
+   "pos": "MID",
    "season": 2.3,
-   "recent": 2,
+   "recent": 2.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Kerkez",
-   "team": "LIV",
-   "pos": "DEF",
-   "season": 2.3,
-   "recent": 3.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Hill",
-   "team": "BOU",
-   "pos": "DEF",
-   "season": 2.3,
-   "recent": 2.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Cash",
-   "team": "AVL",
+   "name": "Hume",
+   "team": "SUN",
    "pos": "DEF",
    "season": 2.3,
    "recent": 1.7,
@@ -2515,165 +2634,7 @@
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Acheampong",
-   "team": "CHE",
-   "pos": "DEF",
-   "season": 2.3,
-   "recent": 1,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Thomas-Asante",
-   "team": "COV",
-   "pos": "FWD",
-   "season": 2.3,
-   "recent": 2.8,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Solanke",
-   "team": "TOT",
-   "pos": "FWD",
-   "season": 2.3,
-   "recent": 3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Silva",
-   "team": "BOU",
-   "pos": "DEF",
-   "season": 2.2,
-   "recent": 1.8,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Lammens",
-   "team": "MUN",
-   "pos": "GKP",
-   "season": 2.2,
-   "recent": 2.5,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Grimes",
-   "team": "COV",
-   "pos": "MID",
-   "season": 2.2,
-   "recent": 2.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Sadiki",
-   "team": "SUN",
-   "pos": "MID",
-   "season": 2.2,
-   "recent": 2,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Bentancur",
-   "team": "TOT",
-   "pos": "MID",
-   "season": 2.2,
-   "recent": 2.5,
-   "health": "short",
-   "role": "steady",
-   "news": "Suspended until 7 Nov",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary",
-    "health from FPL status s; short vs long is a default, duration not stated by API"
-   ]
-  },
-  {
-   "name": "Adams",
-   "team": "BOU",
-   "pos": "MID",
-   "season": 2.2,
-   "recent": 2.8,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Delap",
-   "team": "NFO",
-   "pos": "FWD",
-   "season": 2.2,
-   "recent": 2.5,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Yirenkyi",
-   "team": "COV",
-   "pos": "MID",
-   "season": 2.2,
-   "recent": 2.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Maatsen",
-   "team": "AVL",
-   "pos": "DEF",
-   "season": 2.2,
-   "recent": 4,
-   "health": "short",
-   "role": "steady",
-   "news": "Ankle injury - Unknown return date",
-   "flags": [
-    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary",
-    "health from FPL status i; short vs long is a default, duration not stated by API"
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -2681,38 +2642,26 @@
    "team": "ARS",
    "pos": "MID",
    "season": 2.2,
-   "recent": 1.7,
+   "recent": 1.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Hume",
-   "team": "SUN",
+   "name": "Maatsen",
+   "team": "AVL",
    "pos": "DEF",
    "season": 2.2,
-   "recent": 1,
-   "health": "healthy",
+   "recent": 1.0,
+   "health": "short",
    "role": "steady",
-   "news": "",
+   "news": "Ankle injury - Unknown return date",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "O'Reilly",
-   "team": "MCI",
-   "pos": "DEF",
-   "season": 2.2,
-   "recent": 2.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 1 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
+    "health from FPL status i; short vs long is a default, duration not stated by API"
    ]
   },
   {
@@ -2720,12 +2669,26 @@
    "team": "AVL",
    "pos": "MID",
    "season": 2.2,
-   "recent": 3,
+   "recent": 3.7,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Wan-Bissaka",
+   "team": "AVL",
+   "pos": "DEF",
+   "season": 2.2,
+   "recent": 2.8,
+   "health": "minor",
+   "role": "steady",
+   "news": "Hamstring injury - 75% chance of playing",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
+    "health from FPL status d, chance_of_playing_next_round=75"
    ]
   },
   {
@@ -2738,7 +2701,20 @@
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "van Ewijk",
+   "team": "COV",
+   "pos": "DEF",
+   "season": 2.2,
+   "recent": 2.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -2746,26 +2722,119 @@
    "team": "HUL",
    "pos": "MID",
    "season": 2.2,
-   "recent": 2.7,
+   "recent": 2.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Wan-Bissaka",
-   "team": "AVL",
+   "name": "O'Reilly",
+   "team": "MCI",
    "pos": "DEF",
    "season": 2.2,
-   "recent": 1.5,
+   "recent": 2.2,
    "health": "minor",
    "role": "steady",
-   "news": "Hamstring injury - 75% chance of playing",
+   "news": "Back injury - 75% chance of playing",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
     "health from FPL status d, chance_of_playing_next_round=75"
+   ]
+  },
+  {
+   "name": "Delap",
+   "team": "NFO",
+   "pos": "FWD",
+   "season": 2.2,
+   "recent": 2.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Bentancur",
+   "team": "TOT",
+   "pos": "MID",
+   "season": 2.2,
+   "recent": 1.7,
+   "health": "short",
+   "role": "steady",
+   "news": "Suspended until 7 Nov",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
+    "health from FPL status s; short vs long is a default, duration not stated by API"
+   ]
+  },
+  {
+   "name": "Petrović",
+   "team": "BOU",
+   "pos": "GKP",
+   "season": 2.1,
+   "recent": 2.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Truffert",
+   "team": "BOU",
+   "pos": "DEF",
+   "season": 2.1,
+   "recent": 2.5,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Rayan",
+   "team": "BOU",
+   "pos": "MID",
+   "season": 2.1,
+   "recent": 2.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Yarmoliuk",
+   "team": "BRE",
+   "pos": "MID",
+   "season": 2.1,
+   "recent": 3.2,
+   "health": "short",
+   "role": "steady",
+   "news": "Suspended until 8 Nov",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
+    "health from FPL status s; short vs long is a default, duration not stated by API"
+   ]
+  },
+  {
+   "name": "Grimes",
+   "team": "COV",
+   "pos": "MID",
+   "season": 2.1,
+   "recent": 2.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -2773,12 +2842,12 @@
    "team": "NEW",
    "pos": "DEF",
    "season": 2.1,
-   "recent": 1.3,
+   "recent": 1.8,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -2791,255 +2860,137 @@
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Yarmoliuk",
-   "team": "BRE",
+   "name": "Sadiki",
+   "team": "SUN",
    "pos": "MID",
    "season": 2.1,
-   "recent": 3.8,
-   "health": "short",
-   "role": "steady",
-   "news": "Suspended until 8 Nov",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary",
-    "health from FPL status s; short vs long is a default, duration not stated by API"
-   ]
-  },
-  {
-   "name": "Maguire",
-   "team": "MUN",
-   "pos": "DEF",
-   "season": 2,
-   "recent": 1.8,
+   "recent": 2.2,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Roefs",
-   "team": "SUN",
-   "pos": "GKP",
-   "season": 2,
-   "recent": 1.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Rayan",
-   "team": "BOU",
-   "pos": "MID",
-   "season": 2,
-   "recent": 2,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Mac Allister",
-   "team": "LIV",
-   "pos": "MID",
-   "season": 2,
-   "recent": 2.5,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Fatawu",
-   "team": "IPS",
-   "pos": "MID",
-   "season": 2,
-   "recent": 0.7,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Röhl",
-   "team": "EVE",
-   "pos": "MID",
-   "season": 2,
-   "recent": 1,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 1 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Onyeka",
-   "team": "COV",
-   "pos": "MID",
-   "season": 2,
-   "recent": 2,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
    "name": "Fofana",
    "team": "CHE",
    "pos": "DEF",
-   "season": 2,
-   "recent": 2.7,
+   "season": 2.0,
+   "recent": 2.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Canvot",
+   "team": "CRY",
+   "pos": "DEF",
+   "season": 2.0,
+   "recent": 3.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Röhl",
+   "team": "EVE",
+   "pos": "MID",
+   "season": 2.0,
+   "recent": 2.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 1 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
    "name": "Walton",
    "team": "IPS",
    "pos": "GKP",
-   "season": 2,
-   "recent": 2,
+   "season": 2.0,
+   "recent": 2.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Tel",
-   "team": "TOT",
+   "name": "Fatawu",
+   "team": "IPS",
    "pos": "MID",
-   "season": 2,
-   "recent": 2,
+   "season": 2.0,
+   "recent": 1.3,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Mac Allister",
+   "team": "LIV",
+   "pos": "MID",
+   "season": 2.0,
+   "recent": 2.2,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
    "name": "Diomande",
    "team": "NFO",
    "pos": "DEF",
-   "season": 2,
-   "recent": 2,
+   "season": 2.0,
+   "recent": 2.2,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Kudus",
-   "team": "TOT",
-   "pos": "MID",
-   "season": 2,
-   "recent": 2.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Colwill",
-   "team": "CHE",
-   "pos": "DEF",
-   "season": 1.8,
-   "recent": 1.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Martinez",
-   "team": "MUN",
-   "pos": "DEF",
-   "season": 1.8,
-   "recent": 2,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Reinildo",
+   "name": "Roefs",
    "team": "SUN",
-   "pos": "DEF",
-   "season": 1.8,
-   "recent": 0.7,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Marmoush",
-   "team": "TOT",
-   "pos": "FWD",
-   "season": 1.8,
-   "recent": 1.8,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Scherpen",
-   "team": "IPS",
    "pos": "GKP",
-   "season": 1.8,
-   "recent": 1.5,
+   "season": 2.0,
+   "recent": 1.2,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Rashford",
-   "team": "MUN",
+   "name": "Yirenkyi",
+   "team": "COV",
    "pos": "MID",
-   "season": 1.8,
-   "recent": 2,
+   "season": 1.9,
+   "recent": 2.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -3047,26 +2998,78 @@
    "team": "AVL",
    "pos": "MID",
    "season": 1.8,
-   "recent": 1.7,
+   "recent": 1.0,
    "health": "minor",
    "role": "steady",
    "news": "Knee injury - 75% chance of playing",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
     "health from FPL status d, chance_of_playing_next_round=75"
    ]
   },
   {
-   "name": "Nketiah",
-   "team": "CRY",
-   "pos": "FWD",
+   "name": "Colwill",
+   "team": "CHE",
+   "pos": "DEF",
    "season": 1.8,
-   "recent": 2,
+   "recent": 2.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Onyeka",
+   "team": "COV",
+   "pos": "MID",
+   "season": 1.8,
+   "recent": 1.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Scherpen",
+   "team": "IPS",
+   "pos": "GKP",
+   "season": 1.8,
+   "recent": 1.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 1 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Rashford",
+   "team": "MUN",
+   "pos": "MID",
+   "season": 1.8,
+   "recent": 1.7,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Tel",
+   "team": "TOT",
+   "pos": "MID",
+   "season": 1.8,
+   "recent": 1.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -3074,38 +3077,25 @@
    "team": "AVL",
    "pos": "MID",
    "season": 1.7,
-   "recent": 1.8,
+   "recent": 1.2,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Johnson",
-   "team": "EVE",
+   "name": "Christie",
+   "team": "BOU",
    "pos": "MID",
    "season": 1.7,
-   "recent": 2.3,
+   "recent": 2.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Grealish",
-   "team": "EVE",
-   "pos": "MID",
-   "season": 1.7,
-   "recent": 1.8,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -3113,12 +3103,12 @@
    "team": "CHE",
    "pos": "DEF",
    "season": 1.7,
-   "recent": 2,
+   "recent": 2.3,
    "health": "minor",
    "role": "steady",
    "news": "Unspecified injury - 75% chance of playing",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
     "health from FPL status d, chance_of_playing_next_round=75"
    ]
   },
@@ -3127,39 +3117,104 @@
    "team": "CRY",
    "pos": "GKP",
    "season": 1.7,
-   "recent": 2,
    "health": "minor",
    "role": "steady",
    "news": "Foot injury - 50% chance of playing",
    "flags": [
-    "recent = mean points over 1 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "recent omitted: no appearances in GW4-7",
     "health from FPL status d, chance_of_playing_next_round=50"
    ]
   },
   {
-   "name": "Aina",
-   "team": "NFO",
-   "pos": "DEF",
-   "season": 1.6,
-   "recent": 1,
+   "name": "Nketiah",
+   "team": "CRY",
+   "pos": "FWD",
+   "season": 1.7,
+   "recent": 1.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Mason-Clark",
-   "team": "COV",
+   "name": "Johnson",
+   "team": "EVE",
    "pos": "MID",
-   "season": 1.6,
-   "recent": 1.8,
+   "season": 1.7,
+   "recent": 2.2,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Grealish",
+   "team": "EVE",
+   "pos": "MID",
+   "season": 1.7,
+   "recent": 2.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Dalot",
+   "team": "MUN",
+   "pos": "DEF",
+   "season": 1.7,
+   "recent": 2.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Martinez",
+   "team": "MUN",
+   "pos": "DEF",
+   "season": 1.7,
+   "recent": 1.5,
+   "health": "minor",
+   "role": "steady",
+   "news": "Thigh injury - 75% chance of playing",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
+    "health from FPL status d, chance_of_playing_next_round=75"
+   ]
+  },
+  {
+   "name": "Reinildo",
+   "team": "SUN",
+   "pos": "DEF",
+   "season": 1.7,
+   "recent": 0.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Cook",
+   "team": "BOU",
+   "pos": "MID",
+   "season": 1.6,
+   "recent": 1.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -3167,51 +3222,51 @@
    "team": "NEW",
    "pos": "MID",
    "season": 1.6,
-   "recent": 2,
+   "recent": 2.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Petrović",
-   "team": "BOU",
-   "pos": "GKP",
-   "season": 1.5,
-   "recent": 1,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Truffert",
-   "team": "BOU",
+   "name": "Aina",
+   "team": "NFO",
    "pos": "DEF",
-   "season": 1.5,
-   "recent": 1,
+   "season": 1.6,
+   "recent": 1.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Cook",
-   "team": "BOU",
+   "name": "Mason-Clark",
+   "team": "COV",
    "pos": "MID",
    "season": 1.5,
-   "recent": 0.8,
+   "recent": 1.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Smith",
+   "team": "BOU",
+   "pos": "DEF",
+   "season": 1.4,
+   "recent": 2.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -3224,46 +3279,7 @@
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Dalot",
-   "team": "MUN",
-   "pos": "DEF",
-   "season": 1.3,
-   "recent": 1.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Gravenberch",
-   "team": "LIV",
-   "pos": "MID",
-   "season": 1.3,
-   "recent": 0.5,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Fernandes",
-   "team": "TOT",
-   "pos": "MID",
-   "season": 1.3,
-   "recent": 1.3,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -3271,12 +3287,12 @@
    "team": "BRE",
    "pos": "MID",
    "season": 1.3,
-   "recent": 1,
+   "recent": 1.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -3284,38 +3300,51 @@
    "team": "LEE",
    "pos": "MID",
    "season": 1.3,
-   "recent": 1,
+   "recent": 1.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Gravenberch",
+   "team": "LIV",
+   "pos": "MID",
+   "season": 1.3,
+   "recent": 0.3,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
    "name": "Muñoz",
    "team": "NFO",
    "pos": "DEF",
-   "season": 1.2,
+   "season": 1.3,
+   "recent": 1.8,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Fernandes",
+   "team": "TOT",
+   "pos": "MID",
+   "season": 1.3,
    "recent": 1.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Crooks",
-   "team": "HUL",
-   "pos": "MID",
-   "season": 1.2,
-   "recent": 0.7,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -3323,105 +3352,92 @@
    "team": "COV",
    "pos": "MID",
    "season": 1.2,
-   "recent": 1,
+   "recent": 1.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 1 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
-   "name": "Amenda",
-   "team": "COV",
-   "pos": "DEF",
-   "season": 1,
-   "recent": 1,
-   "health": "short",
-   "role": "steady",
-   "news": "Calf injury - Unknown return date",
-   "flags": [
-    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary",
-    "health from FPL status i; short vs long is a default, duration not stated by API"
-   ]
-  },
-  {
-   "name": "Danso",
-   "team": "SUN",
-   "pos": "DEF",
-   "season": 1,
-   "recent": 1,
+   "name": "Crooks",
+   "team": "HUL",
+   "pos": "MID",
+   "season": 1.2,
+   "recent": 1.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Gusto",
-   "team": "CHE",
-   "pos": "DEF",
-   "season": 1,
-   "recent": 1,
-   "health": "minor",
-   "role": "steady",
-   "news": "Illness - 75% chance of playing",
-   "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary",
-    "health from FPL status d, chance_of_playing_next_round=75"
-   ]
-  },
-  {
-   "name": "Hickey",
-   "team": "BRE",
-   "pos": "DEF",
-   "season": 1,
-   "recent": 1,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
    "name": "Pau",
    "team": "AVL",
    "pos": "DEF",
-   "season": 1,
-   "recent": 1,
+   "season": 1.0,
+   "recent": 1.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 1 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Hickey",
+   "team": "BRE",
+   "pos": "DEF",
+   "season": 1.0,
+   "recent": 1.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Gusto",
+   "team": "CHE",
+   "pos": "DEF",
+   "season": 1.0,
+   "recent": 1.0,
+   "health": "minor",
+   "role": "steady",
+   "news": "Illness - 75% chance of playing",
+   "flags": [
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
+    "health from FPL status d, chance_of_playing_next_round=75"
+   ]
+  },
+  {
+   "name": "Amenda",
+   "team": "COV",
+   "pos": "DEF",
+   "season": 1.0,
+   "recent": 0.0,
+   "health": "short",
+   "role": "steady",
+   "news": "Calf injury - Unknown return date",
+   "flags": [
+    "recent = mean points over 1 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
+    "health from FPL status i; short vs long is a default, duration not stated by API"
    ]
   },
   {
    "name": "Andersen",
    "team": "FUL",
    "pos": "DEF",
-   "season": 1,
-   "recent": 1,
+   "season": 1.0,
+   "recent": 1.0,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Greaves",
-   "team": "IPS",
-   "pos": "DEF",
-   "season": 0.8,
-   "recent": 1,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 1 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -3429,26 +3445,13 @@
    "team": "CHE",
    "pos": "DEF",
    "season": 0.8,
-   "recent": 1,
+   "recent": 1.0,
    "health": "short",
    "role": "steady",
    "news": "Knee injury - Unknown return date",
    "flags": [
-    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "recent = mean points over 1 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
     "health from FPL status i; short vs long is a default, duration not stated by API"
-   ]
-  },
-  {
-   "name": "Herrington",
-   "team": "HUL",
-   "pos": "DEF",
-   "season": 0.8,
-   "recent": 1,
-   "health": "healthy",
-   "role": "steady",
-   "news": "",
-   "flags": [
-    "recent = mean points over 3 appearance(s) (minutes>0) in GW3-6 from element-summary"
    ]
   },
   {
@@ -3456,26 +3459,12 @@
    "team": "COV",
    "pos": "FWD",
    "season": 0.8,
-   "recent": 0,
+   "recent": -0.5,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary"
-   ]
-  },
-  {
-   "name": "Frimpong",
-   "team": "LIV",
-   "pos": "DEF",
-   "season": 0.8,
-   "recent": 1,
-   "health": "short",
-   "role": "steady",
-   "news": "Hamstring injury - Unknown return date",
-   "flags": [
-    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary",
-    "health from FPL status i; short vs long is a default, duration not stated by API"
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
    ]
   },
   {
@@ -3486,23 +3475,50 @@
    "recent": 0.5,
    "health": "short",
    "role": "steady",
-   "news": "Calf injury - Expected back 18 Oct",
+   "news": "Calf injury - Expected back 25 Oct",
    "flags": [
-    "recent = mean points over 2 appearance(s) (minutes>0) in GW3-6 from element-summary",
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
     "health from FPL status i; short vs long is a default, duration not stated by API"
    ]
   },
   {
-   "name": "Smith",
-   "team": "BOU",
+   "name": "Herrington",
+   "team": "HUL",
    "pos": "DEF",
-   "season": 0.7,
-   "recent": 0.5,
+   "season": 0.8,
+   "recent": 0.7,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Greaves",
+   "team": "IPS",
+   "pos": "DEF",
+   "season": 0.8,
+   "recent": 1.0,
+   "health": "healthy",
+   "role": "steady",
+   "news": "",
+   "flags": [
+    "recent = mean points over 2 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Frimpong",
+   "team": "LIV",
+   "pos": "DEF",
+   "season": 0.8,
+   "recent": 1.0,
+   "health": "short",
+   "role": "steady",
+   "news": "Hamstring injury - Unknown return date",
+   "flags": [
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
+    "health from FPL status i; short vs long is a default, duration not stated by API"
    ]
   },
   {
@@ -3510,12 +3526,26 @@
    "team": "NEW",
    "pos": "MID",
    "season": 0.7,
-   "recent": 0.8,
+   "recent": 0.7,
    "health": "healthy",
    "role": "steady",
    "news": "",
    "flags": [
-    "recent = mean points over 4 appearance(s) (minutes>0) in GW3-6 from element-summary"
+    "recent = mean points over 3 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)"
+   ]
+  },
+  {
+   "name": "Danso",
+   "team": "SUN",
+   "pos": "DEF",
+   "season": 0.2,
+   "recent": -0.2,
+   "health": "short",
+   "role": "steady",
+   "news": "Suspended until 31 Oct",
+   "flags": [
+    "recent = mean points over 4 appearance(s) (minutes>0) in GW4-7 from element-summary; GW7 points provisional (FPL has not yet marked GW7 finished/data_checked)",
+    "health from FPL status s; short vs long is a default, duration not stated by API"
    ]
   }
  ]

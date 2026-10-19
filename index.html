@@ -150,11 +150,11 @@ async function loadData(k) {
 function fillFromData(p, i) {
   const d = dataSets[state.sport], m = d && d.by[String(p.name).trim().toLowerCase()];
   if (!m) { if (p.fromData) { p.fromData = false; p.flags = []; showFlags(p, i); } return; }
-  const ok = Number.isFinite(m.season) && Number.isFinite(m.recent);
-  p.pos = m.pos; p.season = ok ? Math.max(0, m.season) : ''; p.recent = ok ? Math.max(0, m.recent) : '';
+  const ok = Number.isFinite(m.season), hasRecent = ok && Number.isFinite(m.recent);
+  p.pos = m.pos; p.season = ok ? Math.max(0, m.season) : ''; p.recent = ok ? Math.max(0, hasRecent ? m.recent : m.season) : '';
   p.health = HEALTH[m.health] ? m.health : 'healthy'; p.role = ROLES[m.role] ? m.role : 'steady';
   p.fromData = true; p.ex = false;
-  p.flags = (ok ? [] : ['No season numbers in the data file. Enter them.']).concat(m.news ? ['Data file news: ' + m.news] : []);
+  p.flags = (ok ? (hasRecent ? [] : ['No recent average in the data file. Using the season average.']) : ['No season numbers in the data file. Enter them.']).concat(m.news ? ['Data file news: ' + m.news] : []);
   ['pos', 'season', 'recent', 'health', 'role'].forEach((f) => { const el = $('r-' + state.sport + '-' + i + '-' + f); if (el) el.value = p[f]; });
   showFlags(p, i);
 }
