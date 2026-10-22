@@ -49,12 +49,12 @@ ${fonts}
 <style>${style}
 .askrow{display:none}
 .tabs{display:flex;gap:6px;flex-wrap:wrap}
-.tabs button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 14px;cursor:pointer;font-weight:600;color:var(--mute)}
-.tabs button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.tabs button{border:1px solid var(--line);background:var(--surface2);border-radius:999px;padding:8px 16px;cursor:pointer;font-weight:600;color:var(--mute)}
+.tabs button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent);box-shadow:0 0 18px color-mix(in srgb,var(--accent) 45%,transparent)}
 </style>
 <div class="wrap">
   <header class="top">
-    <div><h1>Fantasy Coach</h1><p class="sub" id="sub"></p></div>
+    <div><p class="eyebrow"><i aria-hidden="true"></i>Daily game plan</p><h1>Fantasy<br><span class="o">Coach</span></h1><p class="sub" id="sub"></p></div>
   </header>
   <nav class="tabs" role="tablist" aria-label="Leagues" id="tabs"${tabs.length > 1 ? '' : ' hidden'}></nav>
   <section id="connect" hidden></section>
