@@ -66,6 +66,9 @@ function main() {
 
   const day = new Date().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', timeZone: 'America/Los_Angeles' });
   const mail = email(reports, failed, arg('page-url'), day);
+  // email.txt / email.html keep older instructions working; the printed line is all a run needs.
+  fs.writeFileSync(path.join(out, 'email.txt'), mail.body);
+  fs.writeFileSync(path.join(out, 'email.html'), '<pre style="font:14px/1.5 system-ui,sans-serif;white-space:pre-wrap">' + esc(mail.body) + '</pre>');
   console.log(JSON.stringify({ subject: mail.subject, body: mail.body, failed: failed.map((f) => f.split(':')[0]) }));
 }
 
