@@ -10,6 +10,7 @@ const espn = require('../server/connectors/espn');
 const fpl = require('../server/connectors/fpl');
 const { analyze } = require('../server/analyze');
 const { writeNotes } = require('../server/notes');
+const { bundle } = require('./build-web');
 
 const ROOT = path.join(__dirname, '..');
 const arg = (k) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : undefined; };
@@ -59,6 +60,7 @@ ${fonts}
   <section id="connect" hidden></section>
   <div id="report" class="wrap" style="max-width:none"></div>
 </div>
+<script>${bundle(path.join(ROOT, 'web', 'trade-entry.js')).replace(/<\/script/gi, '<\\/script')}</script>
 <script>
 const TABS = ${json(tabs.map((t) => ({ key: t.key, label: t.label, report: t.report, notes: t.notes || '' })))};
 ${script}

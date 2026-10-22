@@ -36,6 +36,7 @@ function bundle(entry) {
 function build() {
   fs.mkdirSync(path.join(OUT, 'data'), { recursive: true });
   fs.writeFileSync(path.join(OUT, 'app.js'), bundle(path.join(ROOT, 'web', 'entry.js')));
+  fs.writeFileSync(path.join(OUT, 'trade.js'), bundle(path.join(ROOT, 'web', 'trade-entry.js')));
   const coach = fs.readFileSync(path.join(ROOT, 'coach.html'), 'utf8');
   if (coach.indexOf('<script>') < 0) throw new Error('coach.html has no inline script');
   fs.writeFileSync(path.join(OUT, 'index.html'), coach.replace('<script>', '<script src="app.js"></script>\n<script>'));
@@ -45,7 +46,7 @@ function build() {
   fs.readdirSync(path.join(ROOT, 'data')).filter((f) => f.endsWith('.json'))
     .forEach((f) => fs.copyFileSync(path.join(ROOT, 'data', f), path.join(OUT, 'data', f)));
   fs.writeFileSync(path.join(OUT, '.nojekyll'), '');
-  console.log('Built docs/: index.html, manual.html, app.js, engine.js and data/');
+  console.log('Built docs/: index.html, manual.html, app.js, trade.js, engine.js and data/');
 }
 
 if (require.main === module) build();

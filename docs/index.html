@@ -85,6 +85,11 @@ tr.me td{font-weight:600;color:var(--accent)}
 .q{background:var(--surface2);border-radius:10px;padding:8px 12px;font-size:14px;align-self:flex-end;max-width:85%}
 .askrow{display:flex;gap:8px}.askrow input{flex:1}
 .loading{color:var(--mute);font-size:14px}
+.tpl{display:flex;flex-direction:column;gap:2px;max-height:320px;overflow-y:auto;border:1px solid var(--line);border-radius:10px;padding:8px;min-width:0}
+.tp{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px;align-items:center;padding:5px 4px;border-radius:6px;cursor:pointer;font-size:14px}
+.link{background:none;border:0;color:var(--accent);cursor:pointer;text-decoration:underline;padding:4px 0;align-self:flex-start;font-size:14px}
+.tp:hover{background:var(--surface2)}.tp input{width:auto;accent-color:var(--accent)}
+.tp .n{font-family:var(--mono);font-size:12px;color:var(--mute)}
 @media (prefers-reduced-motion:no-preference){.tr b{transition:width .25s ease}}
 </style>
 </head>
@@ -98,6 +103,7 @@ tr.me td{font-weight:600;color:var(--accent)}
   <section class="card" id="connect" aria-label="Connect your league"></section>
   <div id="report" class="wrap" style="max-width:none"></div>
 </div>
+<script src="trade.js"></script>
 <script src="app.js"></script>
 <script>
 const $ = (id) => document.getElementById(id);
@@ -295,10 +301,11 @@ function renderReport() {
       '<p class="lbl">Your differentials</p><p>' + (F.differentials.length ? F.differentials.map((p) => esc(p.name) + ' <span class="note">(' + p.ownedByRivals + '%)</span>').join(', ') : '<span class="note">None. Your starters match the template.</span>') + '</p></section>');
   } else {
     h.push('<section class="card"><div class="sec-h">Trade ideas</div>' +
-      (r.trades.length ? '<div class="moves" style="grid-template-columns:minmax(0,1fr)">' + r.trades.map((m) => moveCard(m, '<span>with ' + esc(m.partner) + ' · +' + (m.perWeek != null ? f1(m.perWeek) + '/wk' : Math.round(m.gain) + ' pts') + '</span>')).join('') + '</div>'
+      (r.trades.length ? '<div class="moves" style="grid-template-columns:minmax(0,1fr)">' + r.trades.map((m, i) => moveCard(m, '<span>with ' + esc(m.partner) + ' · +' + (m.perWeek != null ? f1(m.perWeek) + '/wk' : Math.round(m.gain) + ' pts') + '</span>' + (window.FantasyTrade && r.tradeModel ? '<button class="link" data-open-trade="' + i + '">Open in trade analyzer</button>' : ''))).join('') + '</div>'
         : '<p class="empty">No fair trade gives you a clear edge right now.</p>') + '</section>');
   }
   h.push('</div>');
+  if (!fpl && window.FantasyTrade && r.tradeModel) h.push('<section class="card" id="ta" aria-live="polite"></section>');
 
   const maxPos = Math.max(...r.positions.map((p) => Math.max(p.mine, p.leagueAvg)), 0.1);
   h.push('<div class="grid2"><section class="card"><div class="sec-h">Where you stand</div><p class="note">Projected points from your top players at each spot. The line is the league average.</p><div class="bars">' +
@@ -319,6 +326,7 @@ function renderReport() {
   }
   $('report').innerHTML = h.join('');
   stampHeads($('report'));
+  renderTrade();
   renderCoach();
 }
 /* Each section heading shows the day its numbers were pulled. */
@@ -328,6 +336,62 @@ function stampHeads(root) {
   const t = 'Updated ' + new Date(at).toLocaleDateString([], { weekday: 'short', month: 'short', day: 'numeric' });
   root.querySelectorAll('.sec-h').forEach((h) => h.insertAdjacentHTML('beforeend', '<span class="stamp">' + esc(t) + '</span>'));
 }
+/* ---------- trade analyzer: any trade with any team, scored from this league's numbers ---------- */
+const tradeState = { report: null, partnerId: '', give: [], get: [] };
+function tradeFor(r) {
+  if (tradeState.report !== r) Object.assign(tradeState, { report: r, partnerId: (r.tradeModel.teams.find((t) => t.id !== r.tradeModel.myId) || {}).id || '', give: [], get: [] });
+  return tradeState;
+}
+function playerPick(side, p, on) {
+  return '<label class="tp"><input type="checkbox" data-side="' + side + '" value="' + esc(p.id) + '"' + (on ? ' checked' : '') + '>' +
+    '<span>' + esc(p.name) + ' <span class="note">' + esc(p.pos + (p.team ? ' · ' + p.team : '')) + (p.slot === 'IR' ? ' · IR' : '') + '</span>' + tag(p) + '</span>' +
+    '<span class="n">' + f1(p.ros) + '</span></label>';
+}
+function renderTrade() {
+  const el = $('ta'); if (!el || !st.report || !st.report.tradeModel) return;
+  const m = st.report.tradeModel, T = tradeFor(st.report);
+  const me = m.teams.find((t) => t.id === m.myId), them = m.teams.find((t) => t.id === T.partnerId);
+  let res = null, err = '';
+  try { res = them ? window.FantasyTrade.evaluateTrade(m, { partnerId: T.partnerId, giveIds: T.give, getIds: T.get }) : null; } catch (e) { err = e.message; }
+  const h = ['<div class="sec-h">Trade analyzer</div>',
+    '<p class="note">Pick a team, then tick players on each side. Scores use this league\'s rosters, scoring, injuries and byes. The number by each player is projected points a ' + esc(m.per) + '.</p>',
+    '<label class="fld" style="max-width:420px;flex:none"><span>Trade with</span><select id="ta-team">' + m.teams.filter((t) => t.id !== m.myId).map((t) => '<option value="' + esc(t.id) + '"' + (t.id === T.partnerId ? ' selected' : '') + '>' + esc(t.name) + (t.owner ? ' · ' + esc(t.owner) : '') + '</option>').join('') + '</select></label>',
+    '<div class="grid2"><div class="tpl"><p class="lbl">You give</p>' + me.players.map((p) => playerPick('give', p, T.give.indexOf(p.id) >= 0)).join('') + '</div>' +
+    '<div class="tpl"><p class="lbl">You get from ' + esc(them ? them.name : '') + '</p>' + (them ? them.players.map((p) => playerPick('get', p, T.get.indexOf(p.id) >= 0)).join('') : '') + '</div></div>'];
+  if (err) h.push('<p class="msg bad">' + esc(err) + '</p>');
+  else if (!res) h.push('<p class="empty">Tick at least one player on each side to see the verdict.</p>');
+  else h.push('<article class="move"><div class="mv-m"><span class="vb v-' + esc(res.tone) + '">' + res.score + '/30 · ' + esc(res.label) + '</span><span>Chance they accept: ' + esc(res.accept) + '</span></div>' +
+    '<h3 class="mv-t">' + esc(res.title) + '</h3>' +
+    '<div class="sum"><div class="stat"><span class="lbl">Your lineup</span><b>' + (res.myGain >= 0 ? '+' : '−') + f1(Math.abs(res.myGain)) + '</b><span class="note">per ' + esc(m.per) + '</span></div>' +
+    '<div class="stat"><span class="lbl">Their lineup</span><b>' + (res.theirGain >= 0 ? '+' : '−') + f1(Math.abs(res.theirGain)) + '</b><span class="note">per ' + esc(m.per) + '</span></div>' +
+    '<div class="stat"><span class="lbl">Value</span><b>' + res.giveValue + ' → ' + res.getValue + '</b><span class="note">you give → you get</span></div></div>' +
+    '<ul class="al">' + res.reasons.map((x) => '<li>' + esc(x) + '</li>').join('') + '</ul>' +
+    (T.give.length || T.get.length ? '<button class="link" id="ta-clear">Clear</button>' : '') + '</article>');
+  el.innerHTML = h.join('');
+  stampHeads(el);
+}
+document.addEventListener('change', (e) => {
+  if (!st.report || !st.report.tradeModel) return;
+  const T = tradeFor(st.report);
+  if (e.target.id === 'ta-team') { T.partnerId = e.target.value; T.get = []; renderTrade(); }
+  else if (e.target.dataset && e.target.dataset.side) {
+    const list = T[e.target.dataset.side], id = e.target.value, i = list.indexOf(id);
+    if (e.target.checked && i < 0) list.push(id); if (!e.target.checked && i >= 0) list.splice(i, 1);
+    renderTrade();
+  }
+});
+document.addEventListener('click', (e) => {
+  if (e.target.id === 'ta-clear') { const T = tradeFor(st.report); T.give = []; T.get = []; renderTrade(); }
+  const open = e.target.dataset && e.target.dataset.openTrade;
+  if (open != null && st.report && st.report.tradeModel) {
+    const idea = st.report.trades[Number(open)], m = st.report.tradeModel, T = tradeFor(st.report);
+    const me = m.teams.find((t) => t.id === m.myId), them = m.teams.find((t) => t.id === idea.partnerId);
+    T.partnerId = idea.partnerId;
+    T.give = me.players.filter((p) => idea.give.indexOf(p.name) >= 0).map((p) => p.id);
+    T.get = them ? them.players.filter((p) => idea.get.indexOf(p.name) >= 0).map((p) => p.id) : [];
+    renderTrade(); $('ta').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+});
 const ordinal = (n) => n + (n % 100 >= 11 && n % 100 <= 13 ? 'th' : ['th', 'st', 'nd', 'rd'][n % 10] || 'th');
 
 renderConnect();

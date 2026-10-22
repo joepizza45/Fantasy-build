@@ -44,6 +44,7 @@ That writes one self-contained page with a tab per league and coach notes. Run i
 - **Lineup this week:** who to start over whom.
 - **Waiver pickups / FPL transfers:** free agents who would start for you. FPL transfers respect your bank, the three-per-club rule and the next six gameweeks of fixtures.
 - **Trade ideas:** offers that improve your lineup without gutting theirs.
+- **Trade analyzer:** pick any team in your league and any players on each side, and get a Move Score, both lineups before and after, the chance they accept, value on each side, injuries and, in dynasty, ages. It uses your league's own rosters, scoring, injuries and byes.
 - **Where you stand, power rankings, your roster:** strength by position against the league, every team ranked by its best projected lineup.
 - **FPL mini-league:** players your rivals own that you don't, and your differentials.
 
@@ -81,6 +82,8 @@ server/api.js           find leagues, analyze a league (shared by server and bro
 server/analyze.js       lineups, rankings, pickups, trades, FPL transfers
 server/score.js         the 1-30 Move Score and its labels
 server/notes.js         coach notes written from the scores
+server/trade.js         trade analyzer: scores any trade from the report's tradeModel
+server/lineup.js        best-lineup helpers shared by analysis and trades
 server/connectors/      sleeper.js, espn.js, fpl.js -> one league shape
 server/server.js        self-hosted HTTP server
 server/coach.js         optional AI chat (OpenAI-compatible)

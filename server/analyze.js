@@ -4,19 +4,12 @@
 const E = require('../engine');
 const { round2, RECENT_GAMES } = require('./lib/players');
 const { moveScore, toneFor, LABELS } = require('./score');
+const { eligFor, canPlay, bestLineup, fplLineup } = require('./lineup');
 
 const FORM_W = 0.4;
-const ELIG = {
-  FLEX: ['RB', 'WR', 'TE'], WRRB_FLEX: ['WR', 'RB'], REC_FLEX: ['WR', 'TE'], SUPER_FLEX: ['QB', 'RB', 'WR', 'TE'],
-  FM_FLEX: ['FWD', 'MID'], MD_FLEX: ['MID', 'DEF'], FMD_FLEX: ['FWD', 'MID', 'DEF'],
-  G: ['PG', 'SG'], F: ['SF', 'PF'], UTIL: ['PG', 'SG', 'SF', 'PF', 'C'], FLEX_OUT: ['DEF', 'MID', 'FWD']
-};
 const AVAIL = { healthy: 1, minor: 0.85, short: 0, long: 0 };
 const FA_PER_POS = 40;
 const STREAM = ['K', 'DST']; // streamed off waivers, never worth a trade
-
-const eligFor = (slot) => ELIG[slot] || (slot.indexOf('/') > 0 ? slot.split('/') : [slot]);
-const canPlay = (p, slot) => eligFor(slot).some((x) => (p.elig || [p.pos]).indexOf(x) >= 0);
 
 function gamesLeft(L) {
   if (L.sport === 'fpl') return Math.max(1, Math.min(6, 38 - L.week));
@@ -37,31 +30,6 @@ function replacement(L, adjust = (p) => p) {
     if (top.length === 3) repl[pos] = round2(top.reduce((a, b) => a + b, 0) / 3);
   });
   return repl;
-}
-
-/* Best lineup for one week. Most restrictive slots fill first; injured players count as zero. */
-function bestLineup(players, slots, weekly) {
-  const order = slots.map((s, i) => ({ s, i })).sort((a, b) => eligFor(a.s).length - eligFor(b.s).length);
-  const used = new Set(), out = new Array(slots.length);
-  const pool = players.filter((p) => p.slot !== 'IR').slice().sort((a, b) => weekly(b) - weekly(a));
-  order.forEach(({ s, i }) => {
-    const p = pool.find((x) => !used.has(x.id) && canPlay(x, s));
-    if (p) used.add(p.id);
-    out[i] = { slot: s === 'FLEX_OUT' ? 'OUT' : s, player: p || null };
-  });
-  return out;
-}
-
-function fplLineup(players, weekly) {
-  const by = (pos) => players.filter((p) => p.pos === pos).sort((a, b) => weekly(b) - weekly(a));
-  const xi = [by('GKP')[0], ...by('DEF').slice(0, 3), ...by('MID').slice(0, 2), by('FWD')[0]].filter(Boolean);
-  const max = { DEF: 5, MID: 5, FWD: 3 };
-  const rest = ['DEF', 'MID', 'FWD'].flatMap((pos) => by(pos).filter((p) => xi.indexOf(p) < 0)).sort((a, b) => weekly(b) - weekly(a));
-  for (const p of rest) {
-    if (xi.length >= 11) break;
-    if (xi.filter((x) => x.pos === p.pos).length < max[p.pos]) xi.push(p);
-  }
-  return xi.map((p) => ({ slot: p.pos, player: p }));
 }
 
 /* Pulls small samples toward a typical player at the position: one game's worth of weight on the prior. */
@@ -311,7 +279,15 @@ function analyze(L, opts = {}) {
     pickups: pickups.map((m) => Object.assign({}, m, { gain: round2(m.gain) })).sort((a, b) => b.score - a.score),
     trades: trades.map((m) => Object.assign({}, m, { gain: round2(m.gain) })).sort((a, b) => b.score - a.score),
     moveScale: { base: round2(slotBase), labels: LABELS.slice(1) },
-    fpl, alerts, roster, topFree
+    fpl, alerts, roster, topFree,
+    /* Everything the trade analyzer needs to score any trade in this league, in the browser or on the server. */
+    tradeModel: {
+      sport, slots: L.slots, G: ctx.G, per: S.per, slotBase: round2(slotBase), dynasty, myId: me.id,
+      teams: L.teams.map((t) => ({ id: t.id, name: t.name, owner: t.owner, players: t.players.map((p) => ({
+        id: p.id, name: p.name, pos: p.pos, elig: p.elig || [p.pos], team: p.team, age: p.age || null, young: isYoung(p),
+        health: p.health, injury: p.injury, slot: p.slot, ros: round2(ros(p)), weekly: round2(weekly(p)), vor: round2(v(p).vor)
+      })).sort((a, b) => b.vor - a.vor) }))
+    }
   };
 }
 

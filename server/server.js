@@ -11,6 +11,8 @@ const coach = require('./coach');
 
 const PORT = Number(process.env.PORT) || 8787;
 const HOST = process.env.HOST || '127.0.0.1';
+let tradeBundle = null;
+const tradeJs = () => tradeBundle || (tradeBundle = require('../scripts/build-web').bundle(path.join(ROOT, 'web', 'trade-entry.js')));
 const STATIC = { '/': 'coach.html', '/coach.html': 'coach.html', '/manual.html': 'index.html', '/index.html': 'index.html', '/engine.js': 'engine.js' };
 const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.json': 'application/json; charset=utf-8' };
 const MAX_BODY = 2 * 1024 * 1024;
@@ -40,6 +42,7 @@ function readBody(req) {
 
 async function route(req, res) {
   const url = new URL(req.url, 'http://localhost');
+  if (req.method === 'GET' && url.pathname === '/trade.js') { res.writeHead(200, { 'Content-Type': TYPES['.js'], 'Cache-Control': 'no-cache' }); return res.end(tradeJs()); }
   if (req.method === 'GET' && STATIC[url.pathname]) return serveFile(res, STATIC[url.pathname]);
   if (req.method === 'GET' && /^\/data\/[a-z]+\.json$/.test(url.pathname)) return serveFile(res, url.pathname.slice(1));
   if (req.method === 'GET' && url.pathname === '/api/status') return send(res, 200, { coach: await coach.status() });

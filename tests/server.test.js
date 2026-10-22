@@ -144,3 +144,23 @@ test('web bundle builds and exposes the browser API', () => {
   assert.deepEqual(Object.keys(window.FantasyCoach), ['leagues', 'analyze']);
   return window.FantasyCoach.leagues({ platform: 'fpl', entryId: '1' }).then(() => assert.fail('FPL should be refused'), (e) => assert.match(e.message, /self-hosted/));
 });
+
+test('evaluateTrade scores a trade from both lineups', () => {
+  const { evaluateTrade } = require('../server/trade');
+  const pl = (id, pos, ros, extra) => Object.assign({ id, name: id, pos, elig: [pos], ros, vor: ros * 5, health: 'healthy', slot: 'START', young: false }, extra);
+  const model = {
+    sport: 'nfl', slots: ['RB', 'WR'], G: 10, per: 'week', slotBase: 12, dynasty: false, myId: 'me',
+    teams: [
+      { id: 'me', name: 'Mine', players: [pl('rb1', 'RB', 8), pl('wr1', 'WR', 16), pl('wr2', 'WR', 14, { slot: 'BN' })] },
+      { id: 'them', name: 'Theirs', players: [pl('rb2', 'RB', 15), pl('wr3', 'WR', 6)] }
+    ]
+  };
+  const r = evaluateTrade(model, { partnerId: 'them', giveIds: ['wr2'], getIds: ['rb2'] });
+  assert.equal(r.myGain, 7);
+  assert.equal(r.theirGain, -7, 'they lose their only RB');
+  assert.equal(r.accept, 'Unlikely');
+  assert.ok(r.score >= 20 && r.score < 26, 'big gain, minus 2 for being hard to get accepted: ' + r.score);
+  assert.ok(r.scoreWhy.indexOf('hard to get accepted') >= 0);
+  assert.match(r.reasons.join(' '), /rb2 would start for you/);
+  assert.equal(evaluateTrade(model, { partnerId: 'them', giveIds: [], getIds: ['rb2'] }), null);
+});
