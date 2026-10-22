@@ -1,7 +1,8 @@
 /* The whole daily refresh in one command: pulls every league in the config, builds the report page
    with automatic coach notes, and writes the email (subject, HTML and plain text).
    node scripts/daily.js --config leagues.json --out-dir <dir> [--page-url https://...]
-   Writes <dir>/page.html, <dir>/email.html, <dir>/email.txt and <dir>/summary.json, and prints the summary. */
+   Writes <dir>/page.html and prints one line of JSON: {subject, body, failed}. The body is the plain-text email,
+   kept short so the scheduled job spends few tokens sending it. */
 const fs = require('fs');
 const path = require('path');
 const { execFileSync } = require('child_process');
@@ -20,21 +21,19 @@ function topMoves(r, n) {
 }
 
 function email(reports, failed, pageUrl, day) {
-  const html = [], text = [];
+  const text = [];
   reports.forEach(({ label, r }) => {
-    const week = r.league.nextWeek ? (/epl|fpl/.test(r.league.sport) ? 'Gameweek ' : 'Week ') + r.league.nextWeek : '';
-    html.push('<p><b>' + esc(label) + (week ? ' (' + week + ')' : '') + '</b></p><ul>');
-    text.push(label + (week ? ' (' + week + ')' : '') + ':');
-    const moves = topMoves(r, 6);
-    moves.forEach((m) => { html.push('<li><b>' + m.score + '/30 · ' + esc(m.label) + ':</b> ' + esc(m.text) + '</li>'); text.push('- ' + m.score + '/30 ' + m.label + ': ' + m.text); });
-    if (!moves.length) { html.push('<li>No moves score well enough to act on.</li>'); text.push('- No moves score well enough to act on.'); }
+    text.push(label + ':');
+    const moves = topMoves(r, 4);
+    moves.forEach((m) => text.push(m.score + '/30 ' + m.label + ': ' + m.text));
+    if (!moves.length) text.push('Nothing scores well enough to act on.');
     const out = r.roster.filter((p) => (p.health === 'short' || p.health === 'long') && p.slot !== 'IR').map((p) => p.name);
-    if (out.length) { html.push('<li>Out: ' + esc(out.join(', ')) + '</li>'); text.push('- Out: ' + out.join(', ')); }
-    html.push('</ul>'); text.push('');
+    if (out.length) text.push('Out: ' + out.join(', '));
+    text.push('');
   });
-  if (failed.length) { html.push('<p>Not included: ' + esc(failed.join('; ')) + '</p>'); text.push('Not included: ' + failed.join('; ')); }
-  if (pageUrl) { html.push('<p>Full plan: <a href="' + esc(pageUrl) + '">Fantasy Coach page</a></p>'); text.push('Full plan: ' + pageUrl); }
-  return { subject: 'Fantasy Coach: your moves for ' + day, html: html.join('\n'), text: text.join('\n') };
+  if (failed.length) text.push('Not loaded: ' + failed.map((f) => f.split(':')[0]).join(', '));
+  if (pageUrl) text.push('Full plan: ' + pageUrl);
+  return { subject: 'Fantasy Coach: your moves for ' + day, body: text.join('\n') };
 }
 
 function main() {
@@ -67,11 +66,7 @@ function main() {
 
   const day = new Date().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', timeZone: 'America/Los_Angeles' });
   const mail = email(reports, failed, arg('page-url'), day);
-  fs.writeFileSync(path.join(out, 'email.html'), mail.html);
-  fs.writeFileSync(path.join(out, 'email.txt'), mail.text);
-  const summary = { subject: mail.subject, leagues: reports.map(({ label, r }) => ({ label, statsThrough: r.league.statsThrough, top: topMoves(r, 1)[0] || null })), failed };
-  fs.writeFileSync(path.join(out, 'summary.json'), JSON.stringify(summary, null, 1));
-  console.log(JSON.stringify(summary));
+  console.log(JSON.stringify({ subject: mail.subject, body: mail.body, failed: failed.map((f) => f.split(':')[0]) }));
 }
 
 if (require.main === module) {
