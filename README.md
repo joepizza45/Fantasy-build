@@ -8,7 +8,7 @@ Works with **Sleeper** (NFL, NBA, Premier League), **ESPN** (NFL, NBA) and **Fan
 
 ### 1. In your browser: nothing to install
 
-Open the Fantasy Coach site, choose your app, enter your Sleeper username or ESPN league ID, and press **Analyze**. Everything runs in your browser, and nothing is sent anywhere except the fantasy app's own servers.
+Open **https://joepizza45.github.io/Fantasy-build/**, choose your app, enter your Sleeper username or ESPN league ID, and press **Analyze**. Everything runs in your browser, and nothing is sent anywhere except the fantasy app's own servers.
 
 - **Sleeper:** any league, public by default.
 - **ESPN:** public leagues. For a private league, the league manager can turn on **Make League Viewable to Public** in the league settings, or you can use the self-hosted version.
