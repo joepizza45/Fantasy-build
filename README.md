@@ -90,6 +90,7 @@ server/coach.js         optional AI chat (OpenAI-compatible)
 web/entry.js            browser entry for the web app
 scripts/build-web.js    builds the web app into docs/
 scripts/snapshot.js     standalone multi-league report page
+scripts/daily.js        daily job: page, automatic notes and email text in one command
 tests/                  node --test
 ```
 
