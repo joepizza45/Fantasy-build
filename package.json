@@ -1,11 +1,12 @@
 {
-  "name": "move-check",
+  "name": "fantasy-coach",
   "private": true,
-  "description": "Fantasy pickups, trades and an AI league coach for Sleeper, ESPN and FPL",
+  "description": "Fantasy Coach: lineup, waiver and trade advice with a 1-30 Move Score for Sleeper, ESPN and FPL leagues",
   "scripts": {
     "start": "node server/server.js",
-    "test": "node --test",
-    "snapshot": "node scripts/snapshot.js"
+    "build": "node scripts/build-web.js",
+    "snapshot": "node scripts/snapshot.js",
+    "test": "node --test"
   },
   "engines": {
     "node": ">=18"

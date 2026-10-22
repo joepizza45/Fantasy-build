@@ -117,3 +117,30 @@ test('moveScore maps gains to labeled 1-30 scores', () => {
   const mid = moveScore({ perWeek: 3, base: 15 }), risky = moveScore({ perWeek: 3, base: 15, sampleGames: 1, givesStar: true });
   assert.equal(mid.score, 14); assert.equal(risky.score, 8); assert.deepEqual(risky.scoreWhy, ['only 1 game played', 'gives up one of your three best players']);
 });
+
+test('writeNotes leads every move with its Move Score', () => {
+  const { writeNotes } = require('../server/notes');
+  const move = (score, label, title) => ({ score, label, title, perWeek: 3, scoreWhy: [] });
+  const r = {
+    league: { sport: 'nfl', nextWeek: 7 }, window: { games: 10, per: 'week' },
+    lineup: { changes: [Object.assign(move(30, 'Must do now'), { start: 'A', bench: 'B', gain: 12 })] },
+    alerts: ['X is on bye.'], pickups: [move(16, 'Good move', 'Pick up C, drop D')],
+    trades: [move(8, 'Coin flip, lean no', 'Offer E for F')], fpl: null,
+    weak: ['RB'], strong: [], powerRankings: [{ isMine: true, rank: 3 }]
+  };
+  const n = writeNotes(r);
+  assert.match(n, /\*\*30\/30 · Must do now:\*\* start A over B \(\+12\.0\)/);
+  assert.match(n, /\*\*16\/30 · Good move:\*\* pick up C, drop D/);
+  assert.match(n, /No trade scores 10 or higher/);
+  assert.match(n, /X is on bye/);
+});
+
+test('web bundle builds and exposes the browser API', () => {
+  const { bundle } = require('../scripts/build-web');
+  const path = require('path');
+  const code = bundle(path.join(__dirname, '..', 'web', 'entry.js'));
+  const window = {};
+  new Function('window', 'fetch', code)(window, () => Promise.reject(new Error('offline')));
+  assert.deepEqual(Object.keys(window.FantasyCoach), ['leagues', 'analyze']);
+  return window.FantasyCoach.leagues({ platform: 'fpl', entryId: '1' }).then(() => assert.fail('FPL should be refused'), (e) => assert.match(e.message, /self-hosted/));
+});

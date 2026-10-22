@@ -1,9 +1,5 @@
 /* Helpers that turn platform data into the engine's player shape:
    { id, name, team, pos, season, recent, gp, health, role, sched, injury, news, flags } */
-const fs = require('fs');
-const path = require('path');
-
-const DATA_DIR = path.join(__dirname, '..', '..', 'data');
 const RECENT_GAMES = { nfl: 4, nba: 10, fpl: 4 };
 
 const normName = (s) => String(s || '').toLowerCase()
@@ -25,11 +21,19 @@ function averages(weeks, sport) {
 }
 
 const dataCache = {};
+let loadData = (sport) => {
+  const fs = require('fs'), path = require('path');
+  return JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'data', sport + '.json'), 'utf8'));
+};
+/* The browser build swaps this for data it fetched up front. */
+function setDataLoader(fn) { loadData = fn; Object.keys(dataCache).forEach((k) => delete dataCache[k]); }
+
 function dataFile(sport) {
   if (sport in dataCache) return dataCache[sport];
   let out = null;
   try {
-    const j = JSON.parse(fs.readFileSync(path.join(DATA_DIR, sport + '.json'), 'utf8'));
+    const j = loadData(sport);
+    if (!j) throw new Error('no data');
     const by = new Map();
     (j.players || []).forEach((p) => { if (p && p.name) by.set(normName(p.name) + '|' + (p.pos || ''), p); if (p && p.name && !by.has(normName(p.name))) by.set(normName(p.name), p); });
     out = { fetched: String(j.fetched_at || '').slice(0, 10), through: j.through || '', by, players: j.players || [] };
@@ -74,4 +78,4 @@ function makePlayer(o) {
   };
 }
 
-module.exports = { averages, dataFile, fillFromData, healthFrom, makePlayer, normName, round2, RECENT_GAMES };
+module.exports = { averages, dataFile, setDataLoader, fillFromData, healthFrom, makePlayer, normName, round2, RECENT_GAMES };

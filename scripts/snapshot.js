@@ -9,6 +9,7 @@ const sleeper = require('../server/connectors/sleeper');
 const espn = require('../server/connectors/espn');
 const fpl = require('../server/connectors/fpl');
 const { analyze } = require('../server/analyze');
+const { writeNotes } = require('../server/notes');
 
 const ROOT = path.join(__dirname, '..');
 const arg = (k) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : undefined; };
@@ -38,10 +39,10 @@ function page(tabs) {
   const fonts = src.match(/<link rel="preconnect"[\s\S]*?display=swap">/)[0];
   const script = src.match(/<script>([\s\S]*?)<\/script>/)[1]
     .replace(/if \(location\.protocol === 'file:'\)[^\n]*\n/, '')
-    .replace("const h = ['<div class=\"sec-h\">AI coach</div>'];", "const h = ['<div class=\"sec-h\">Coach notes</div>'];");
+    ;
   const json = (v) => JSON.stringify(v).replace(/</g, '\\u003c');
   const owner = tabs[0].report.me.name;
-  return `<title>${tabs.length > 1 ? clean(tabs[0].report.me.owner || owner) + ' League Coach' : clean(owner) + ' Game Plan'}</title>
+  return `<title>${tabs.length > 1 ? clean(tabs[0].report.me.owner || owner) + ' Fantasy Coach' : clean(owner) + ' Game Plan'}</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 ${fonts}
 <style>${style}
@@ -52,7 +53,7 @@ ${fonts}
 </style>
 <div class="wrap">
   <header class="top">
-    <div><h1>League Coach</h1><p class="sub" id="sub"></p></div>
+    <div><h1>Fantasy Coach</h1><p class="sub" id="sub"></p></div>
   </header>
   <nav class="tabs" role="tablist" aria-label="Leagues" id="tabs"${tabs.length > 1 ? '' : ' hidden'}></nav>
   <section id="connect" hidden></section>
@@ -92,7 +93,7 @@ async function main() {
       const report = analyze(await load(c), { teamId: c.team });
       report.generatedAt = new Date().toISOString();
       const nf = c.notesFile || (arg('notes-dir') && path.join(arg('notes-dir'), c.key + '.md'));
-      const notes = nf && fs.existsSync(nf) ? fs.readFileSync(nf, 'utf8') : '';
+      const notes = nf && fs.existsSync(nf) ? fs.readFileSync(nf, 'utf8') : writeNotes(report);
       if (arg('json-dir')) { fs.mkdirSync(arg('json-dir'), { recursive: true }); fs.writeFileSync(path.join(arg('json-dir'), c.key + '.json'), JSON.stringify(report, null, 1)); }
       tabs.push({ key: c.key, label: c.label || report.league.sportName, report, notes });
       console.log('OK   ' + c.key + ': ' + report.me.name + ' in ' + report.league.name.trim() + ', stats through ' + report.league.statsThrough + (notes ? ', with notes' : ''));

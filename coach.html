@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>League Coach</title>
+<title>Fantasy Coach</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 <style>
@@ -91,8 +91,8 @@ tr.me td{font-weight:600;color:var(--accent)}
 <body>
 <div class="wrap">
   <header class="top">
-    <div><h1>League Coach</h1><p class="sub">Connects to your league, sizes up every team, and tells you what to do next.</p></div>
-    <a class="note" href="index.html">Manual Move Check</a>
+    <div><h1>Fantasy Coach</h1><p class="sub">Connect your Sleeper or ESPN league. Every lineup change, pickup and trade gets a Move Score from 1 to 30.</p></div>
+    <a class="note" href="manual.html">Compare players by hand</a>
   </header>
 
   <section class="card" id="connect" aria-label="Connect your league"></section>
@@ -111,7 +111,11 @@ const st = { platform: 'sleeper', sport: 'nfl', username: '', entryId: '', leagu
 try { Object.assign(st, JSON.parse(localStorage.getItem('leaguecoach1') || '{}')); } catch (e) {}
 const save = () => { try { const { platform, sport, username, entryId, leagueId, season, teamId } = st; localStorage.setItem('leaguecoach1', JSON.stringify({ platform, sport, username, entryId, leagueId, season, teamId })); } catch (e) {} };
 
+/* The web build (docs/) runs the analysis in the browser; the self-hosted server answers /api calls. */
+const WEB = !!window.FantasyCoach;
 async function api(path, body) {
+  if (WEB && path === '/api/leagues') return window.FantasyCoach.leagues(body);
+  if (WEB && path === '/api/analyze') return window.FantasyCoach.analyze(body);
   const r = await fetch(path, body ? { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) } : {});
   let j = null; try { j = await r.json(); } catch (e) {}
   if (!r.ok) throw Object.assign(new Error((j && j.error) || 'Request failed (' + r.status + ')'), { teams: j && j.teams });
@@ -143,7 +147,9 @@ function renderConnect() {
   if (st.teams) h.push('<label class="fld"><span>Which team is yours?</span><select id="team"><option value="">Pick your team</option>' + st.teams.map((t) => '<option value="' + esc(t.id) + '"' + (t.id === st.teamId ? ' selected' : '') + '>' + esc(t.name) + (t.owner ? ' · ' + esc(t.owner) : '') + '</option>').join('') + '</select></label>');
   const canGo = P === 'fpl' ? !!st.entryId : !!st.leagueId;
   h.push('<button class="go" id="go"' + (canGo && !st.busy ? '' : ' disabled') + '>' + (st.busy ? 'Working…' : 'Analyze') + '</button></div>');
-  if (P === 'espn') h.push('<details class="priv"' + (st.espnS2 ? ' open' : '') + '><summary>Private league? Add your ESPN cookies</summary><p class="note">In a browser where you are logged in to ESPN, open DevTools → Application → Cookies → espn.com and copy <code>espn_s2</code> and <code>SWID</code>. They go to your local server only and are not saved.</p><div class="form">' +
+  if (P === 'espn' && WEB) h.push('<p class="note">Public ESPN leagues work here. If yours is private, ask your league manager to turn on "Make League Viewable to Public" in the league settings.</p>');
+  if (P === 'fpl' && WEB) h.push('<p class="note">Fantasy Premier League blocks web pages from reading its data, so FPL needs the self-hosted version. Sleeper Premier League leagues work here.</p>');
+  if (P === 'espn' && !WEB) h.push('<details class="priv"' + (st.espnS2 ? ' open' : '') + '><summary>Private league? Add your ESPN cookies</summary><p class="note">In a browser where you are logged in to ESPN, open DevTools → Application → Cookies → espn.com and copy <code>espn_s2</code> and <code>SWID</code>. They go to your local server only and are not saved.</p><div class="form">' +
     fld('espnS2', 'espn_s2', st.espnS2, '') + fld('swid', 'SWID', st.swid, '{XXXXXXXX-...}') + '</div></details>');
   h.push('<p class="msg' + (st.msg[1] ? ' bad' : '') + '" id="msg" role="status">' + esc(st.msg[0]) + '</p>');
   $('connect').innerHTML = h.join('');
@@ -194,17 +200,17 @@ async function run() {
   st.busy = true; setMsg('Pulling every roster and crunching the numbers. The first run can take 20 seconds.'); renderConnect();
   try {
     st.report = await api('/api/analyze', params());
-    st.teams = st.report.teams; st.teamId = st.report.me.id; st.chat = [];
+    st.teams = st.report.teams; st.teamId = st.report.me.id;
+    st.chat = st.report.autoNotes ? [{ role: 'assistant', content: st.report.autoNotes }] : [];
     setMsg('Updated ' + new Date(st.report.generatedAt).toLocaleTimeString() + '. Stats through ' + st.report.league.statsThrough + '.');
     renderReport();
-    askCoach();
   } catch (e) {
     if (e.teams) { st.teams = e.teams; setMsg(e.message, true); } else setMsg(e.message, true);
   }
   st.busy = false; save(); renderConnect();
 }
 
-/* ---------- AI coach ---------- */
+/* ---------- coach notes (and optional AI chat on the self-hosted server) ---------- */
 function md(text) {
   const lines = esc(text).split('\n'), out = []; let list = false;
   const inline = (s) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/(^|\W)\*(?!\s)(.+?)\*(?=\W|$)/g, '$1<em>$2</em>').replace(/`([^`]+)`/g, '<code>$1</code>');
@@ -220,16 +226,15 @@ function md(text) {
 }
 function renderCoach() {
   const el = $('coach'); if (!el) return;
-  const h = ['<div class="sec-h">AI coach</div>'];
-  if (!st.chat.length && !st.aiBusy) h.push('<p class="note">Ask the coach for tips. It reads the analysis below and answers through your OmniRoute gateway.</p>');
+  const h = ['<div class="sec-h">Coach notes</div>'];
+  if (!st.chat.length && !st.aiBusy) h.push('<p class="note">Your plan appears here after you analyze a league.</p>');
   st.chat.forEach((m) => {
     if (m.role === 'user' && m.shown !== false) h.push('<div class="q">' + esc(m.content) + '</div>');
     if (m.role === 'assistant') h.push('<div class="ai">' + md(m.content) + '</div>');
     if (m.role === 'error') h.push('<p class="msg bad">' + esc(m.content) + '</p>');
   });
   if (st.aiBusy) h.push('<p class="loading">The coach is thinking…</p>');
-  h.push('<div class="askrow"><input id="ask" placeholder="Ask a follow-up, e.g. who should I trade for at WR?" aria-label="Ask the coach"' + (st.aiBusy ? ' disabled' : '') + '><button class="ghost" id="askbtn"' + (st.aiBusy ? ' disabled' : '') + '>Ask</button>' +
-    (st.chat.some((m) => m.role !== 'user') ? '' : '<button class="go" id="tips"' + (st.aiBusy ? ' disabled' : '') + '>Get tips</button>') + '</div>');
+  if (!WEB) h.push('<div class="askrow"><input id="ask" placeholder="Ask the AI coach, e.g. who should I trade for at WR?" aria-label="Ask the AI coach"' + (st.aiBusy ? ' disabled' : '') + '><button class="ghost" id="askbtn"' + (st.aiBusy ? ' disabled' : '') + '>Ask</button></div>');
   el.innerHTML = h.join('');
   stampHeads(el);
 }

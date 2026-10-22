@@ -1,0 +1,6 @@
+[
+  { "key": "nfl", "label": "NFL · My Sleeper league", "platform": "sleeper", "sport": "nfl", "username": "YOUR_SLEEPER_USERNAME" },
+  { "key": "epl", "label": "Premier League · Sleeper", "platform": "sleeper", "sport": "epl", "username": "YOUR_SLEEPER_USERNAME" },
+  { "key": "espn", "label": "NFL · ESPN", "platform": "espn", "sport": "nfl", "league": "YOUR_ESPN_LEAGUE_ID", "team": "YOUR_TEAM_ID" },
+  { "key": "fpl", "label": "FPL mini-league", "platform": "fpl", "entry": "YOUR_FPL_TEAM_ID", "league": "YOUR_MINI_LEAGUE_ID" }
+]

@@ -1,86 +1,101 @@
-# Move Check
+# Fantasy Coach
 
-Fantasy pickups, trades and lineup advice for Fantasy Premier League, NFL and NBA.
+Lineup, waiver and trade advice for your fantasy league. Every move gets a **Move Score from 1 to 30**, and each number has its own label, from 1 "Never do this" to 30 "Must do now".
 
-Two ways to use it:
+Works with **Sleeper** (NFL, NBA, Premier League), **ESPN** (NFL, NBA) and **Fantasy Premier League**.
 
-- **League Coach** (`coach.html` plus a small server) connects to your league on **Sleeper**, **ESPN** or **FPL**. It pulls every roster, sizes up your team against the rest of the league, and gives you lineup fixes, waiver pickups or FPL transfers, and trade ideas. An AI coach, reached through [OmniRoute](https://github.com/diegosouzapw/OmniRoute), turns those numbers into plain advice and answers follow-up questions.
-- **Manual Move Check** (`index.html`): one page with no build step. Type in or screenshot your players and compare moves by hand.
+## Use it
 
-## Run the League Coach
+### 1. In your browser: nothing to install
+
+Open the Fantasy Coach site, choose your app, enter your Sleeper username or ESPN league ID, and press **Analyze**. Everything runs in your browser, and nothing is sent anywhere except the fantasy app's own servers.
+
+- **Sleeper:** any league, public by default.
+- **ESPN:** public leagues. For a private league, the league manager can turn on **Make League Viewable to Public** in the league settings, or you can use the self-hosted version.
+- **FPL:** blocks web pages from reading its data, so it needs the self-hosted version.
+
+**Host the site yourself, for free:** in your copy of this repo on GitHub, go to **Settings → Pages**, set **Source** to **Deploy from a branch**, and pick your branch and the `/docs` folder. GitHub shows the site's address once it's live. After changing the code, run `npm run build` to refresh `docs/`.
+
+### 2. Self-hosted: every app, plus an AI chat
 
 Needs Node 18 or newer. There are no packages to install.
 
 ```bash
-cp .env.example .env      # optional: add your OmniRoute key
-npm start                 # or: node server/server.js
+cp .env.example .env      # optional: AI chat settings
+npm start                 # http://localhost:8787
 ```
 
-Open http://localhost:8787 and pick your app:
+This adds FPL, private ESPN leagues (with the `espn_s2` and `SWID` cookies from a logged-in browser; they stay on your machine) and an optional AI chat through any OpenAI-compatible gateway, such as [OmniRoute](https://github.com/diegosouzapw/OmniRoute). Set `OMNIROUTE_URL`, `OMNIROUTE_API_KEY` and `OMNIROUTE_MODEL` in `.env`.
 
-| App | What you enter | Notes |
-| --- | --- | --- |
-| Sleeper (NFL, NBA, Premier League) | Your username, then pick the league. Or paste a league ID. | Public API, no login needed. Points use your league's own scoring settings. |
-| ESPN (NFL, NBA) | League ID from the league URL, plus your team ID if it isn't found automatically | Private leagues need the `espn_s2` and `SWID` cookies from a logged-in browser. They go to your local server only and are never saved. |
-| FPL | Your team ID (the number in your Points page URL), then a mini-league | Public API. Transfers use current prices, not your exact selling price. |
+### 3. A daily report page for your own leagues
 
-### What you get
+Copy `leagues.example.json` to `leagues.json`, fill in your usernames and IDs, then:
 
-- **Heads up**: injured or doubtful players in your lineup, and players with no games logged.
-- **Lineup this week**: who to start over whom, with the projected gain. For FPL, the best XI in a legal formation and a captain pick.
-- **Waiver pickups / transfers**: free agents who clearly beat a player you have at the same position. FPL transfers respect your bank and the three-per-club rule, and factor in the next six gameweeks of fixtures.
-- **Trade ideas**: offers across every team in the league where you come out ahead but the gap is small enough that they might say yes. Trades that fill your thinnest position and give the other manager what they lack are ranked first.
-- **Where you stand**: your strength at each position against the league average.
-- **Power rankings**: every team ranked by its best projected lineup.
-- **FPL mini-league**: players your rivals own that you don't, and your differentials.
-- **AI coach**: a short written plan, plus a box for questions like "who should I target for a WR?".
+```bash
+npm run snapshot -- --config leagues.json --out report.html
+```
 
-### Connect the AI coach (OmniRoute)
+That writes one self-contained page with a tab per league and coach notes. Run it on a schedule to keep it current. `--notes-dir notes/` swaps in your own notes from `notes/<key>.md`.
 
-OmniRoute is a local gateway that speaks the OpenAI API and routes requests to the providers you connect, including free tiers.
+## What you get
 
-1. Install and start it: `npm install -g omniroute`, then `omniroute`. The dashboard is at http://localhost:20128.
-2. In the dashboard, connect at least one provider under **Providers**, then copy an API key from **Endpoints**.
-3. Put the key in `.env` as `OMNIROUTE_API_KEY`. Keep `OMNIROUTE_MODEL=auto`, or name a specific `provider/model`.
+- **Coach notes:** a short plan for the week, every move led by its Move Score.
+- **Heads up:** injured or doubtful starters, players on bye this week, and bye crunches coming up.
+- **Lineup this week:** who to start over whom.
+- **Waiver pickups / FPL transfers:** free agents who would start for you. FPL transfers respect your bank, the three-per-club rule and the next six gameweeks of fixtures.
+- **Trade ideas:** offers that improve your lineup without gutting theirs.
+- **Where you stand, power rankings, your roster:** strength by position against the league, every team ranked by its best projected lineup.
+- **FPL mini-league:** players your rivals own that you don't, and your differentials.
 
-Any OpenAI-compatible endpoint also works: point `OMNIROUTE_URL` at it. Without a gateway, everything except the AI coach still works.
+## The Move Score
 
-The coach gets only the computed analysis (rosters, projections and the moves already checked by the scoring model), and it is told not to invent stats or news.
+A move's score starts from how many points a week it adds to your best lineup, compared with an average starter in your league. Then:
 
-## Standalone report page
+| Adjustment | Points |
+| --- | --- |
+| Lineup change with no cost | +2 |
+| Trade that also improves their lineup | +1 |
+| Player has played 2 games or fewer | −3 |
+| Injury doubt | −2 |
+| Trade that hurts their lineup (hard to get accepted) | −2 |
+| Dynasty or keeper: gives up a young player | −2 |
+| Gives up one of your three best players | −3 |
 
-`npm run snapshot -- --config leagues.json --out report.html` writes one self-contained page, with a tab per league in `leagues.json` and no server needed. Add `--notes-dir notes/` to include written coach notes from `notes/<key>.md`. One league also works without a config: `npm run snapshot -- --platform sleeper --username <you> --sport epl --out report.html`. A scheduled task can run this and republish the page so it stays current.
+The result is capped at 1 to 30. The full key of 30 labels is in `server/score.js` and at the bottom of every report.
 
 ## How the numbers work
 
-- Logic lives in `engine.js`, which the page and the server share: `valuePlayer`, `compareWaiver`, `compareTrade`, `pickupMoves`, `tradeMoves`.
-- Each player gets a projection from their season average and recent form (last 4 games for NFL and FPL, last 10 for NBA), adjusted for role and health. Value is points above replacement over the rest of the window.
-- In a connected league, replacement level is what the best free agents at each position actually score. In FPL, and in the manual page, it uses the defaults in `SPORTS`.
-- Roles come from real usage: NFL snap share on Sleeper, and starts per gameweek in FPL. Health comes from each app's injury designations.
-- When a player has no games this season (for example the NBA before opening night), the server falls back to the matching entry in `data/<sport>.json` and says so.
+- Points use your league's own scoring settings (Sleeper) or the app's computed points (ESPN, FPL).
+- Each player's projection blends season average and recent form, pulls small samples toward a typical player at the position, and adjusts for role (NFL snap share, FPL starts) and health.
+- Replacement level is what the best free agents at each position actually score in your league.
+- NFL bye weeks come from ESPN's public schedule.
+- Dynasty and keeper leagues protect young players from drop suggestions and reject trades that make you much older.
 
 ## Code map
 
 ```
-engine.js               shared scoring engine (browser + Node)
-index.html              manual Move Check page
-coach.html              League Coach page
-server/server.js        HTTP server and API: /api/leagues, /api/analyze, /api/coach, /api/status
-server/analyze.js       league-wide analysis: lineups, rankings, pickups, trades, FPL transfers
-server/coach.js         AI coach client (OpenAI-compatible, OmniRoute by default)
-server/connectors/      sleeper.js, espn.js, fpl.js -> one normalized league shape
-server/lib/             fetch with caching, player helpers
+coach.html              Fantasy Coach page (web app and self-hosted)
+index.html              compare players by hand (manual.html on the site)
+engine.js               player valuation shared by every page
+server/api.js           find leagues, analyze a league (shared by server and browser)
+server/analyze.js       lineups, rankings, pickups, trades, FPL transfers
+server/score.js         the 1-30 Move Score and its labels
+server/notes.js         coach notes written from the scores
+server/connectors/      sleeper.js, espn.js, fpl.js -> one league shape
+server/server.js        self-hosted HTTP server
+server/coach.js         optional AI chat (OpenAI-compatible)
+web/entry.js            browser entry for the web app
+scripts/build-web.js    builds the web app into docs/
+scripts/snapshot.js     standalone multi-league report page
 tests/                  node --test
-data/                   player data files used by the manual page and as a fallback
 ```
 
 ## Known limits
 
-- **ESPN** uses an unofficial API that can change without notice. It is written to the documented response shape but has not been tested against a live private league.
-- **Yahoo** is not supported yet. Its API needs a registered OAuth app.
-- FPL selling prices can be lower than current prices. Free transfers and chips aren't read, since that needs a login.
-- Trade suggestions value points, not roster construction or league-specific bye weeks. Treat them as offers to explore, not verdicts.
-- The manual page's screenshot reader uses `window.claude.use('sample')`, which only exists inside a Claude artifact.
+- ESPN uses an unofficial API that can change without notice, and private leagues haven't been tested live.
+- Yahoo isn't supported; its API needs a registered OAuth app.
+- FPL selling prices can be lower than current prices; free transfers and chips aren't read.
+- Trade ideas weigh points and lineup fit, not every manager's needs. Treat them as offers to explore.
 
 ## Tests
 
