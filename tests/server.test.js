@@ -164,3 +164,19 @@ test('evaluateTrade scores a trade from both lineups', () => {
   assert.match(r.reasons.join(' '), /rb2 would start for you/);
   assert.equal(evaluateTrade(model, { partnerId: 'them', giveIds: [], getIds: ['rb2'] }), null);
 });
+
+test('findOffers builds the other side of a trade', () => {
+  const { findOffers } = require('../server/trade');
+  const pl = (id, pos, ros, extra) => Object.assign({ id, name: id, pos, elig: [pos], ros, vor: ros * 5, health: 'healthy', slot: 'START', young: false }, extra);
+  const model = {
+    sport: 'nfl', slots: ['RB', 'WR'], G: 10, per: 'week', slotBase: 12, dynasty: false, myId: 'me',
+    teams: [
+      { id: 'me', name: 'Mine', players: [pl('rb1', 'RB', 8), pl('wr1', 'WR', 16), pl('wr2', 'WR', 14, { slot: 'BN' }), pl('k1', 'K', 9, { slot: 'BN' })] },
+      { id: 'them', name: 'Theirs', players: [pl('rb2', 'RB', 15), pl('rb3', 'RB', 7, { slot: 'BN' }), pl('wr3', 'WR', 6)] }
+    ]
+  };
+  const offers = findOffers(model, { partnerId: 'them', getIds: ['rb2'] });
+  assert.ok(offers.length > 0);
+  offers.forEach((o) => { assert.deepEqual(o.getIds, ['rb2']); assert.ok(o.myGain > 0); assert.notEqual(o.accept, 'Unlikely'); assert.ok(o.giveIds.indexOf('k1') < 0, 'kickers are never offered'); });
+  assert.deepEqual(findOffers(model, { partnerId: 'them' }), []);
+});

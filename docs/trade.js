@@ -71,13 +71,33 @@ function evaluateTrade(model, { partnerId, giveIds = [], getIds = [] }) {
   if (sc.scoreWhy.length) reasons.push('Score adjustments: ' + sc.scoreWhy.join(', ') + '.');
 
   return Object.assign({
-    title: 'Give ' + names(give) + ', get ' + names(get), partner: them.name,
+    title: 'Give ' + names(give) + ', get ' + names(get), partner: them.name, giveIds: give.map((p) => p.id), getIds: get.map((p) => p.id),
     myGain: Math.round(myGain * 100) / 100, theirGain: Math.round(theirGain * 100) / 100, accept,
     giveValue: Math.round(giveValue), getValue: Math.round(getValue), tone: toneFor(sc.score), reasons
   }, sc, { label: sc.scoreLabel });
 }
 
-module.exports = { evaluateTrade };
+/* Trade finder. With players picked on one side only, tries every 1- and 2-player package from the
+   other side and returns the best-scoring deals that gain at least half a point a week and have a fair chance of acceptance. */
+const STREAM = ['K', 'DST'];
+const pairs = (arr) => { const out = arr.map((a) => [a]); arr.forEach((a, i) => arr.slice(i + 1).forEach((b) => out.push([a, b]))); return out; };
+
+function findOffers(model, { partnerId, giveIds = [], getIds = [] }, limit = 5) {
+  const me = model.teams.find((t) => t.id === model.myId), them = model.teams.find((t) => t.id === String(partnerId));
+  if (!me || !them || (!giveIds.length) === (!getIds.length)) return [];
+  const pool = (t, taken) => t.players.filter((p) => p.slot !== 'IR' && STREAM.indexOf(p.pos) < 0 && taken.indexOf(p.id) < 0)
+    .sort((a, b) => b.vor - a.vor).slice(0, 12);
+  const searchMine = !giveIds.length;
+  const options = pairs(searchMine ? pool(me, []) : pool(them, getIds));
+  const rank = { Likely: 2, Possible: 1, Unlikely: 0 };
+  return options.map((pkg) => evaluateTrade(model, {
+    partnerId, giveIds: searchMine ? pkg.map((p) => p.id) : giveIds, getIds: searchMine ? getIds : pkg.map((p) => p.id)
+  })).filter((r) => r && r.myGain >= 0.5 && r.accept !== 'Unlikely')
+    .sort((a, b) => b.score - a.score || rank[b.accept] - rank[a.accept] || b.myGain - a.myGain)
+    .slice(0, limit);
+}
+
+module.exports = { evaluateTrade, findOffers };
 
 },
 "server/lineup.js": function (module, exports, __require, __builtin, __dirname) {

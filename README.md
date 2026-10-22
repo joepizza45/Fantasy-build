@@ -44,7 +44,7 @@ That writes one self-contained page with a tab per league and coach notes. Run i
 - **Lineup this week:** who to start over whom.
 - **Waiver pickups / FPL transfers:** free agents who would start for you. FPL transfers respect your bank, the three-per-club rule and the next six gameweeks of fixtures.
 - **Trade ideas:** offers that improve your lineup without gutting theirs.
-- **Trade analyzer:** pick any team in your league and any players on each side, and get a Move Score, both lineups before and after, the chance they accept, value on each side, injuries and, in dynasty, ages. It uses your league's own rosters, scoring, injuries and byes.
+- **Trade Analyzer page** (`trade.html`): load your league, pick any team and any players on each side, and get a Move Score, both lineups before and after, the chance they accept, value on each side, injuries and, in dynasty, ages. Tick only the players you want, or only the ones you'd sell, and the **trade finder** builds the best other side. Suggested trades open in it with one tap. The same analyzer also sits on every league report.
 - **Where you stand, power rankings, your roster:** strength by position against the league, every team ranked by its best projected lineup.
 - **FPL mini-league:** players your rivals own that you don't, and your differentials.
 
@@ -75,8 +75,7 @@ The result is capped at 1 to 30. The full key of 30 labels is in `server/score.j
 ## Code map
 
 ```
-coach.html              Fantasy Coach page (web app and self-hosted)
-index.html              compare players by hand (manual.html on the site)
+coach.html              Fantasy Coach page (web app and self-hosted); trade.html is built from it in trade mode
 engine.js               player valuation shared by every page
 server/api.js           find leagues, analyze a league (shared by server and browser)
 server/analyze.js       lineups, rankings, pickups, trades, FPL transfers

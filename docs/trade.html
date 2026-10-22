@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#06090D">
+<title>Fantasy Coach Trade Analyzer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:ital,wght@0,800;0,900;1,800;1,900&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Stadium at night: a dark field with yard lines, scoreboard type, one neon accent per sport.
+   Move Scores show as dials that fill to score/30. Dark by design. */
+:root{
+  --bg:#06090D; --surface:rgba(16,22,30,.82); --surface2:#141C26; --raise:#1A2431; --ink:#EEF3F7; --mute:#8D9AAB; --line:#223041;
+  --good:#3BEA8F; --goodbg:rgba(59,234,143,.13); --warn:#FFC24B; --warnbg:rgba(255,194,75,.13); --bad:#FF5D6E; --badbg:rgba(255,93,110,.14);
+  --nfl:#3BEA8F; --nba:#FF8A2A; --fpl:#B67CFF; --on-accent:#05110A;
+  --display:'Big Shoulders Display','Arial Narrow',Impact,sans-serif;
+  --body:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;
+  padding-block:28px 72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  background-image:radial-gradient(1100px 520px at 50% -160px,color-mix(in srgb,var(--accent) 22%,transparent),transparent 70%),
+    repeating-linear-gradient(90deg,transparent 0 calc(10% - 1px),rgba(255,255,255,.035) calc(10% - 1px) 10%);
+  background-attachment:fixed;min-height:100vh}
+body{--accent:var(--nfl)} body[data-sport="fpl"],body[data-sport="epl"]{--accent:var(--fpl)} body[data-sport="nba"]{--accent:var(--nba)}
+*{box-sizing:border-box} .wrap{max-width:1120px;width:100%;min-width:0;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1,h2,h3,p{margin:0} button,select,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+a{color:var(--accent)}
+
+/* hero */
+.top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px 28px;align-items:end;padding-block:8px 6px}
+@media (max-width:760px){.top{grid-template-columns:minmax(0,1fr)}}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.eyebrow i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent);margin-right:10px;vertical-align:1px}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(54px,11vw,112px);line-height:.86;letter-spacing:.005em;text-transform:uppercase;font-style:italic;margin-top:10px}
+h1 .o{color:transparent;-webkit-text-stroke:2px var(--accent);text-shadow:0 0 28px color-mix(in srgb,var(--accent) 45%,transparent)}
+.sub{color:var(--mute);font-size:16px;margin-top:14px;max-width:56ch}
+.top .links{display:flex;gap:14px;margin-top:12px;flex-wrap:wrap}
+.top .links a{font-size:14px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px}
+.top .links a:hover{border-color:var(--accent)}
+.scale{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px;min-width:min(100%,330px);backdrop-filter:blur(8px)}
+.scale .bar{height:10px;border-radius:6px;background:linear-gradient(90deg,var(--bad),var(--warn) 45%,var(--good));margin:10px 0 6px;box-shadow:0 0 18px rgba(59,234,143,.18)}
+.scale .ends{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:11px;color:var(--mute)}
+.scale .ends b{margin-right:4px}
+.scale .ends b{color:var(--ink);font-weight:700}
+
+/* surfaces */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0;backdrop-filter:blur(8px)}
+.seg{display:inline-flex;gap:4px;background:var(--surface2);border:1px solid var(--line);border-radius:999px;padding:4px;max-width:100%;overflow-x:auto}
+.seg button{border:0;background:transparent;padding:7px 16px;border-radius:999px;cursor:pointer;font-weight:600;color:var(--mute);white-space:nowrap;letter-spacing:.02em}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);box-shadow:0 0 18px color-mix(in srgb,var(--accent) 45%,transparent)}
+.form{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end}
+.fld{display:flex;flex-direction:column;gap:5px;min-width:0;flex:1 1 180px}
+.fld>span,.lbl{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+input,select{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:10px 12px;min-width:0;width:100%}
+input:focus,select:focus{border-color:var(--accent);outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent)}
+.go{border:0;border-radius:12px;background:var(--accent);color:var(--on-accent);font-family:var(--display);font-weight:900;font-style:italic;font-size:24px;letter-spacing:.04em;text-transform:uppercase;padding:8px 26px;cursor:pointer;white-space:nowrap;box-shadow:0 8px 28px color-mix(in srgb,var(--accent) 35%,transparent)}
+.go:hover:not(:disabled){transform:translateY(-1px)}
+.go:disabled{opacity:.4;cursor:not-allowed;box-shadow:none}
+.ghost{border:1px solid var(--line);background:var(--surface2);border-radius:12px;padding:10px 16px;cursor:pointer;font-weight:600;white-space:nowrap}
+.ghost:hover{border-color:var(--accent)}
+.note{font-size:13px;color:var(--mute)}
+.msg{font-size:14px;min-height:1.5em;color:var(--mute)}.msg.bad{color:var(--bad)}
+details.priv{border:1px dashed var(--line);border-radius:12px;padding:10px 14px}
+details.priv summary{cursor:pointer;font-size:14px;font-weight:600}
+details.priv .form{margin-top:8px}
+.sec-h{font-family:var(--display);font-weight:800;font-size:28px;line-height:1;letter-spacing:.02em;text-transform:uppercase;display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 12px}
+.stamp{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+
+/* scoreboard summary */
+.sum{display:flex;flex-wrap:wrap;gap:14px 34px;align-items:flex-end}
+.stat{display:flex;flex-direction:column;gap:2px}
+.stat b{font-family:var(--display);font-weight:900;font-size:44px;line-height:.95;font-variant-numeric:tabular-nums}
+.sum .stat:first-child b{font-size:clamp(30px,5vw,46px);font-style:italic;color:var(--ink)}
+.sum .stat:nth-child(2) b{color:var(--accent);text-shadow:0 0 22px color-mix(in srgb,var(--accent) 40%,transparent)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:18px;align-items:start}
+
+/* moves with Move Score dials */
+.moves{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:12px}
+.move{position:relative;border:1px solid var(--line);border-radius:16px;padding:14px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px;background:linear-gradient(160deg,var(--raise),var(--surface2));min-width:0}
+.move:hover{border-color:color-mix(in srgb,var(--tone,var(--accent)) 55%,var(--line))}
+.move>*:not(.dial){grid-column:2}
+.move.t-good{--tone:var(--good)}.move.t-warn{--tone:var(--warn)}.move.t-bad{--tone:var(--bad)}
+.dial{grid-row:1 / span 4;align-self:start;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;position:relative;
+  background:conic-gradient(var(--tone,var(--accent)) calc(var(--p,0) * 1turn),rgba(255,255,255,.08) 0);box-shadow:0 0 22px color-mix(in srgb,var(--tone,var(--accent)) 30%,transparent)}
+.dial::before{content:"";position:absolute;inset:6px;border-radius:50%;background:var(--bg)}
+.dial b{position:relative;font-family:var(--display);font-weight:900;font-size:28px;line-height:1;color:var(--tone,var(--accent))}
+.dial small{position:absolute;bottom:8px;font-family:var(--mono);font-size:8px;color:var(--mute);letter-spacing:.1em}
+.mv-t{font-family:var(--display);font-weight:800;font-size:24px;line-height:1.05;text-wrap:balance;text-transform:uppercase;letter-spacing:.01em}
+.mv-m{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-size:12px;color:var(--mute);font-family:var(--mono)}
+.move p{color:#C7D0DB;font-size:14px}
+.vb{display:inline-block;font-family:var(--mono);font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:6px}
+.v-good{background:var(--goodbg);color:var(--good)}.v-warn{background:var(--warnbg);color:var(--warn)}.v-bad{background:var(--badbg);color:var(--bad)}
+.empty{border:1px dashed var(--line);border-radius:14px;padding:14px 16px;color:var(--mute);font-size:14px}
+ul.al{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+ul.al li::marker{color:var(--accent)}
+
+/* tables */
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);text-align:left;font-weight:500}
+th,td{padding:8px 12px 8px 0;border-bottom:1px solid var(--line);white-space:nowrap}
+td.n,th.n{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+tbody tr:hover td{background:rgba(255,255,255,.025)}
+tr.me td{font-weight:700;color:var(--accent);background:color-mix(in srgb,var(--accent) 9%,transparent)}
+.pill{font-size:10px;padding:2px 7px;border-radius:99px;font-weight:700;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.h-healthy{display:none}.h-minor{background:var(--warnbg);color:var(--warn)}.h-short,.h-long{background:var(--badbg);color:var(--bad)}
+
+/* position bars */
+.bars{display:flex;flex-direction:column;gap:12px}
+.bl{display:grid;grid-template-columns:44px minmax(0,1fr) 92px;gap:10px;align-items:center;font-size:13px}
+.bl strong{font-family:var(--display);font-weight:800;font-size:18px}
+.tr{position:relative;height:12px;border-radius:7px;background:rgba(255,255,255,.06);overflow:hidden}
+.tr b{display:block;height:100%;border-radius:7px;background:linear-gradient(90deg,color-mix(in srgb,var(--accent) 55%,transparent),var(--accent));box-shadow:0 0 14px color-mix(in srgb,var(--accent) 40%,transparent)}
+.tr i{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--ink);opacity:.8}
+.bl .r{font-family:var(--mono);font-size:12px;text-align:right;color:var(--mute)}
+
+/* coach notes */
+.coach{border-color:color-mix(in srgb,var(--accent) 50%,var(--line));background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 8%,var(--surface)),var(--surface));box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 12%,transparent),0 18px 50px rgba(0,0,0,.35)}
+.ai{font-size:15px;display:flex;flex-direction:column;gap:8px}
+.ai h3,.ai h4{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:.02em;text-transform:uppercase;margin:8px 0 0;color:var(--accent)}
+.ai ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.ai li::marker{color:var(--accent)}
+.ai strong{color:var(--ink)}
+.ai p{margin:0}
+.q{background:var(--surface2);border-radius:12px;padding:8px 12px;font-size:14px;align-self:flex-end;max-width:85%}
+.askrow{display:flex;gap:8px}.askrow input{flex:1}
+.loading{color:var(--mute);font-size:14px}
+
+/* trade analyzer */
+.tpl{display:flex;flex-direction:column;gap:2px;max-height:320px;overflow-y:auto;border:1px solid var(--line);border-radius:14px;padding:8px;min-width:0;background:var(--surface2)}
+.tp{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px;align-items:center;padding:6px 6px;border-radius:8px;cursor:pointer;font-size:14px}
+.tp:hover{background:var(--raise)}.tp input{width:auto;accent-color:var(--accent)}
+.tp:has(input:checked){background:color-mix(in srgb,var(--accent) 14%,transparent)}
+.tp .n{font-family:var(--mono);font-size:12px;color:var(--mute)}
+.link{background:none;border:0;color:var(--accent);cursor:pointer;text-decoration:underline;padding:4px 0;align-self:flex-start;font-size:13px;font-family:var(--mono)}
+@media (prefers-reduced-motion:no-preference){.tr b{transition:width .3s ease}.go{transition:transform .15s ease}.card,.move{animation:rise .35s ease both}}
+@keyframes rise{from{transform:translateY(6px)}to{transform:none}}
+</style>
+</head>
+<body data-page="trade">
+<div class="wrap">
+  <header class="top">
+    <div>
+      <p class="eyebrow"><i aria-hidden="true"></i>Fantasy Coach &nbsp;/&nbsp; Sleeper · ESPN</p>
+      <h1>Trade<br><span class="o">Analyzer</span></h1>
+      <p class="sub">Load your league, pick a trade partner and see exactly how any deal changes both lineups. Tick only the players you want, or only the ones you would sell, and the trade finder builds the other side.</p>
+      <p class="links"><a href="index.html">Back to Fantasy Coach</a></p>
+    </div>
+    <aside class="scale" aria-label="Move Score scale">
+      <p class="lbl">Move Score</p>
+      <div class="bar"></div>
+      <div class="ends"><span><b>1</b> Never do this</span><span><b>15</b> Solid idea</span><span><b>30</b> Must do now</span></div>
+    </aside>
+  </header>
+
+  <section class="card" id="connect" aria-label="Connect your league"></section>
+  <div id="report" class="wrap" style="max-width:none"></div>
+</div>
+<script src="trade.js"></script>
+<script src="app.js"></script>
+<script>
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const f1 = (n) => (Number(n) || 0).toFixed(1);
+const PLATFORMS = { sleeper: 'Sleeper', espn: 'ESPN', fpl: 'FPL' };
+const HEALTH_TXT = { minor: 'Questionable', short: 'Out', long: 'Out long-term' };
+const ROLE_TXT = { rising: 'Role growing', rotation: 'Rotation', fringe: 'Fringe' };
+
+const st = { platform: 'sleeper', sport: 'nfl', username: '', entryId: '', leagueId: '', season: '', teamId: '', espnS2: '', swid: '',
+  leagues: null, teams: null, report: null, chat: [], busy: false, aiBusy: false, msg: ['', false], coach: null };
+try { Object.assign(st, JSON.parse(localStorage.getItem('leaguecoach1') || '{}')); } catch (e) {}
+const save = () => { try { const { platform, sport, username, entryId, leagueId, season, teamId } = st; localStorage.setItem('leaguecoach1', JSON.stringify({ platform, sport, username, entryId, leagueId, season, teamId })); } catch (e) {} };
+
+/* The web build (docs/) runs the analysis in the browser; the self-hosted server answers /api calls. */
+const WEB = !!window.FantasyCoach;
+/* trade.html is this page with data-page="trade": it shows only the trade tools. */
+const TRADE_PAGE = document.body.dataset.page === 'trade';
+async function api(path, body) {
+  if (WEB && path === '/api/leagues') return window.FantasyCoach.leagues(body);
+  if (WEB && path === '/api/analyze') return window.FantasyCoach.analyze(body);
+  const r = await fetch(path, body ? { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) } : {});
+  let j = null; try { j = await r.json(); } catch (e) {}
+  if (!r.ok) throw Object.assign(new Error((j && j.error) || 'Request failed (' + r.status + ')'), { teams: j && j.teams });
+  return j;
+}
+const params = () => ({ platform: st.platform, sport: st.platform === 'fpl' ? 'fpl' : st.sport, username: st.username, entryId: st.entryId, leagueId: st.leagueId, season: st.season, teamId: st.teamId, espnS2: st.espnS2, swid: st.swid });
+const setMsg = (t, bad) => { st.msg = [t, !!bad]; const m = $('msg'); if (m) { m.textContent = t; m.className = 'msg' + (bad ? ' bad' : ''); } };
+
+/* ---------- connect form ---------- */
+function renderConnect() {
+  document.body.dataset.sport = st.platform === 'fpl' ? 'fpl' : st.sport;
+  const P = st.platform, h = [];
+  h.push('<div class="form"><div class="seg" role="group" aria-label="App">' + Object.keys(PLATFORMS).map((k) => '<button data-plat="' + k + '" aria-pressed="' + (k === P) + '">' + PLATFORMS[k] + '</button>').join('') + '</div>');
+  if (P !== 'fpl') h.push('<div class="seg" role="group" aria-label="Sport">' + (P === 'sleeper' ? ['nfl', 'nba', 'epl'] : ['nfl', 'nba']).map((k) => '<button data-sport="' + k + '" aria-pressed="' + (k === st.sport) + '">' + k.toUpperCase() + '</button>').join('') + '</div>');
+  h.push('</div><div class="form">');
+  if (P === 'sleeper') h.push(fld('username', 'Sleeper username', st.username, 'e.g. fantasyking'));
+  if (P === 'fpl') h.push(fld('entryId', 'FPL team ID', st.entryId, 'Number in your Points page URL'));
+  if (P === 'espn') {
+    h.push(fld('leagueId', 'ESPN league ID', st.leagueId, 'leagueId= in the league URL'));
+    h.push(fld('season', 'Season', st.season, String(new Date().getFullYear())));
+    h.push(fld('teamId', 'Your team ID (optional)', st.teamId, 'teamId= in your team URL'));
+  }
+  if (P !== 'espn') h.push('<button class="ghost" id="find">Find my leagues</button>');
+  if (P === 'sleeper' && !st.leagues) h.push(fld('leagueId', 'Or paste a league ID', st.leagueId, 'From sleeper.com/leagues/…'));
+  if (P !== 'espn' && st.leagues) {
+    h.push('<label class="fld"><span>League</span><select id="league">' + (P === 'fpl' ? '<option value="">No league, just my team</option>' : '') +
+      st.leagues.map((l) => '<option value="' + esc(l.id) + '"' + (l.id === st.leagueId ? ' selected' : '') + '>' + esc(l.name) + (l.season ? ' (' + esc(l.season) + ')' : '') + (l.rank ? ' · rank ' + l.rank : '') + '</option>').join('') + '</select></label>');
+  }
+  if (st.teams) h.push('<label class="fld"><span>Which team is yours?</span><select id="team"><option value="">Pick your team</option>' + st.teams.map((t) => '<option value="' + esc(t.id) + '"' + (t.id === st.teamId ? ' selected' : '') + '>' + esc(t.name) + (t.owner ? ' · ' + esc(t.owner) : '') + '</option>').join('') + '</select></label>');
+  const canGo = P === 'fpl' ? !!st.entryId : !!st.leagueId;
+  h.push('<button class="go" id="go"' + (canGo && !st.busy ? '' : ' disabled') + '>' + (st.busy ? 'Working…' : 'Analyze') + '</button></div>');
+  if (P === 'espn' && WEB) h.push('<p class="note">Public ESPN leagues work here. If yours is private, ask your league manager to turn on "Make League Viewable to Public" in the league settings.</p>');
+  if (P === 'fpl' && WEB) h.push('<p class="note">Fantasy Premier League blocks web pages from reading its data, so FPL needs the self-hosted version. Sleeper Premier League leagues work here.</p>');
+  if (P === 'espn' && !WEB) h.push('<details class="priv"' + (st.espnS2 ? ' open' : '') + '><summary>Private league? Add your ESPN cookies</summary><p class="note">In a browser where you are logged in to ESPN, open DevTools → Application → Cookies → espn.com and copy <code>espn_s2</code> and <code>SWID</code>. They go to your local server only and are not saved.</p><div class="form">' +
+    fld('espnS2', 'espn_s2', st.espnS2, '') + fld('swid', 'SWID', st.swid, '{XXXXXXXX-...}') + '</div></details>');
+  h.push('<p class="msg' + (st.msg[1] ? ' bad' : '') + '" id="msg" role="status">' + esc(st.msg[0]) + '</p>');
+  $('connect').innerHTML = h.join('');
+}
+const fld = (k, label, v, ph) => '<label class="fld"><span>' + label + '</span><input data-k="' + k + '" value="' + esc(v) + '" placeholder="' + esc(ph) + '" autocomplete="off"' + (k === 'espnS2' || k === 'swid' ? ' spellcheck="false"' : '') + '></label>';
+
+$('connect').addEventListener('click', (e) => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.plat) { st.platform = b.dataset.plat; if (st.platform === 'espn' && st.sport === 'epl') st.sport = 'nfl'; st.leagues = null; st.teams = null; st.leagueId = ''; st.teamId = ''; st.msg = ['', false]; save(); renderConnect(); }
+  else if (b.dataset.sport) { st.sport = b.dataset.sport; st.leagues = null; st.teams = null; st.leagueId = ''; st.teamId = ''; save(); renderConnect(); }
+  else if (b.id === 'find') findLeagues();
+  else if (b.id === 'go') run();
+});
+$('connect').addEventListener('input', (e) => {
+  const k = e.target.dataset.k; if (!k) return;
+  st[k] = e.target.value.trim();
+  if (k === 'username' || k === 'entryId') { st.leagues = null; st.teams = null; }
+  if (k === 'leagueId') { st.teams = null; st.teamId = ''; }
+  save(); const g = $('go');
+  if (g) g.disabled = st.busy || !(st.platform === 'fpl' ? st.entryId : st.leagueId);
+});
+$('connect').addEventListener('change', (e) => {
+  if (e.target.id === 'league') { st.leagueId = e.target.value; st.teams = null; st.teamId = ''; save(); renderConnect(); }
+  if (e.target.id === 'team') { st.teamId = e.target.value; save(); }
+});
+$('connect').addEventListener('keydown', (e) => {
+  if (e.key !== 'Enter' || e.target.tagName !== 'INPUT') return;
+  if (e.target.dataset.k === 'username' || e.target.dataset.k === 'entryId') findLeagues(); else run();
+});
+
+async function findLeagues() {
+  if (st.busy) return;
+  st.busy = true; setMsg('Looking up your leagues…'); renderConnect();
+  try {
+    const r = await api('/api/leagues', params());
+    st.leagues = r.leagues;
+    if (!r.leagues.length) setMsg('No ' + st.sport.toUpperCase() + ' leagues found for ' + r.user.name + ' this season.', true);
+    else {
+      if (!r.leagues.some((l) => l.id === st.leagueId)) st.leagueId = st.platform === 'fpl' ? (r.leagues.find((l) => l.private) || {}).id || '' : r.leagues[0].id;
+      setMsg('Found ' + r.leagues.length + ' league' + (r.leagues.length > 1 ? 's' : '') + ' for ' + r.user.name + '. Pick one and press Analyze.');
+    }
+  } catch (e) { setMsg(e.message, true); }
+  st.busy = false; save(); renderConnect();
+}
+
+async function run() {
+  if (st.busy) return;
+  st.busy = true; setMsg('Pulling every roster and crunching the numbers. The first run can take 20 seconds.'); renderConnect();
+  try {
+    st.report = await api('/api/analyze', params());
+    st.teams = st.report.teams; st.teamId = st.report.me.id;
+    st.chat = st.report.autoNotes ? [{ role: 'assistant', content: st.report.autoNotes }] : [];
+    setMsg('Updated ' + new Date(st.report.generatedAt).toLocaleTimeString() + '. Stats through ' + st.report.league.statsThrough + '.');
+    renderReport();
+  } catch (e) {
+    if (e.teams) { st.teams = e.teams; setMsg(e.message, true); } else setMsg(e.message, true);
+  }
+  st.busy = false; save(); renderConnect();
+}
+
+/* ---------- coach notes (and optional AI chat on the self-hosted server) ---------- */
+function md(text) {
+  const lines = esc(text).split('\n'), out = []; let list = false;
+  const inline = (s) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/(^|\W)\*(?!\s)(.+?)\*(?=\W|$)/g, '$1<em>$2</em>').replace(/`([^`]+)`/g, '<code>$1</code>');
+  lines.forEach((l) => {
+    const h = l.match(/^\s*#{1,6}\s+(.*)/), li = l.match(/^\s*(?:[-*•]|\d+\.)\s+(.*)/);
+    if (li) { if (!list) { out.push('<ul>'); list = true; } out.push('<li>' + inline(li[1]) + '</li>'); return; }
+    if (list) { out.push('</ul>'); list = false; }
+    if (h) out.push('<h3>' + inline(h[1]) + '</h3>');
+    else if (l.trim()) out.push('<p>' + inline(l) + '</p>');
+  });
+  if (list) out.push('</ul>');
+  return out.join('');
+}
+function renderCoach() {
+  const el = $('coach'); if (!el) return;
+  const h = ['<div class="sec-h">Coach notes</div>'];
+  if (!st.chat.length && !st.aiBusy) h.push('<p class="note">Your plan appears here after you analyze a league.</p>');
+  st.chat.forEach((m) => {
+    if (m.role === 'user' && m.shown !== false) h.push('<div class="q">' + esc(m.content) + '</div>');
+    if (m.role === 'assistant') h.push('<div class="ai">' + md(m.content) + '</div>');
+    if (m.role === 'error') h.push('<p class="msg bad">' + esc(m.content) + '</p>');
+  });
+  if (st.aiBusy) h.push('<p class="loading">The coach is thinking…</p>');
+  if (!WEB) h.push('<div class="askrow"><input id="ask" placeholder="Ask the AI coach, e.g. who should I trade for at WR?" aria-label="Ask the AI coach"' + (st.aiBusy ? ' disabled' : '') + '><button class="ghost" id="askbtn"' + (st.aiBusy ? ' disabled' : '') + '>Ask</button></div>');
+  el.innerHTML = h.join('');
+  stampHeads(el);
+}
+async function askCoach(question) {
+  if (!st.report || st.aiBusy) return;
+  if (question) st.chat.push({ role: 'user', content: question });
+  st.aiBusy = true; renderCoach();
+  try {
+    const messages = st.chat.filter((m) => m.role === 'user' || m.role === 'assistant').map((m) => ({ role: m.role, content: m.content }));
+    const r = await api('/api/coach', { report: st.report, messages });
+    st.chat.push({ role: 'assistant', content: r.text });
+  } catch (e) { st.chat.push({ role: 'error', content: e.message + ' The numbers below still work without it.' }); }
+  st.aiBusy = false; renderCoach();
+}
+document.addEventListener('click', (e) => {
+  if (e.target.id === 'tips') askCoach();
+  if (e.target.id === 'askbtn') { const q = $('ask').value.trim(); if (q) askCoach(q); }
+});
+document.addEventListener('keydown', (e) => { if (e.target.id === 'ask' && e.key === 'Enter') { const q = e.target.value.trim(); if (q) askCoach(q); } });
+
+/* ---------- report ---------- */
+const dial = (score) => '<div class="dial" style="--p:' + (score / 30).toFixed(3) + '" role="img" aria-label="Move Score ' + score + ' of 30"><b>' + score + '</b><small>/30</small></div>';
+const moveCard = (m, meta) => '<article class="move t-' + esc(m.tone) + '">' + (m.score ? dial(m.score) : '') + '<div class="mv-m"><span class="vb v-' + esc(m.tone) + '">' + esc(m.label) + '</span>' + (meta || '') + '</div><h3 class="mv-t">' + esc(m.title) + '</h3><p>' + esc(m.text) + '</p></article>';
+const tag = (p) => (p.health && p.health !== 'healthy' ? ' <span class="pill h-' + p.health + '">' + esc(p.injury || HEALTH_TXT[p.health]) + '</span>' : '');
+
+function renderReport() {
+  const r = st.report; if (!r) return;
+  const S = r.league, mine = r.powerRankings.find((x) => x.isMine) || {}, fpl = S.sport === 'fpl';
+  const h = [];
+  h.push('<section class="card"><div class="sum">' +
+    '<div class="stat"><span class="lbl">' + esc(PLATFORMS[S.platform]) + ' · ' + esc(S.sportName) + (S.type && S.type !== 'redraft' ? ' · ' + esc(S.type) : '') + '</span><b>' + esc(r.me.name) + '</b><span class="note">' + esc(S.name) + '</span></div>' +
+    '<div class="stat"><span class="lbl">Power rank</span><b>' + mine.rank + ' / ' + r.powerRankings.length + '</b><span class="note">by projected lineup</span></div>' +
+    (mine.record ? '<div class="stat"><span class="lbl">' + (fpl ? 'Standing' : 'Record') + '</span><b>' + esc(mine.record.replace('League rank ', '#')) + '</b><span class="note">' + f1(mine.pointsFor) + ' points</span></div>' : '') +
+    '<div class="stat"><span class="lbl">Window</span><b>' + r.window.games + ' ' + esc(r.window.per) + (r.window.games === 1 ? '' : 's') + '</b><span class="note">stats through ' + esc(S.statsThrough) + ', ' + esc(S.scoring) + '</span></div>' +
+    '</div>' + (S.notes.length ? '<p class="note">' + S.notes.map(esc).join(' ') + '</p>' : '') + '</section>');
+
+  if (TRADE_PAGE) {
+    if (fpl || !r.tradeModel || !window.FantasyTrade) h.push('<section class="card"><p class="empty">' + (fpl ? 'Fantasy Premier League has no trades between managers. The main page covers transfers.' : 'Trade data is not available for this league.') + '</p></section>');
+    else {
+      h.push('<section class="card" id="ta" aria-live="polite"></section>');
+      h.push('<section class="card"><div class="sec-h">Trade ideas for you</div>' + (r.trades.length ? '<div class="moves">' + r.trades.map((m, i) => moveCard(m, '<span>with ' + esc(m.partner) + '</span><button class="link" data-open-trade="' + i + '">Open in analyzer</button>')).join('') + '</div>' : '<p class="empty">No fair trade gives you a clear edge right now. Try the trade finder above.</p>') + '</section>');
+    }
+    return finishReport(r, h);
+  }
+  h.push('<section class="card coach" id="coach" aria-live="polite"></section>');
+
+  if (r.alerts.length) h.push('<section class="card"><div class="sec-h">Heads up</div><ul class="al">' + r.alerts.map((a) => '<li>' + esc(a) + '</li>').join('') + '</ul></section>');
+
+  const lc = r.lineup.changes;
+  h.push('<section class="card"><div class="sec-h">' + (fpl ? 'Best XI this gameweek' : 'Lineup this week') + '</div>' +
+    (lc.length ? '<div class="moves">' + lc.map((c) => moveCard({ tone: c.tone || 'good', label: c.label || '', score: c.score, title: 'Start ' + c.start + (c.bench ? ' over ' + c.bench : ''), text: c.text }, '<span>+' + f1(c.gain) + ' pts</span>')).join('') + '</div>'
+      : '<p class="empty">Your current lineup is already the best one by these numbers.</p>') +
+    '<details><summary class="note">Show the full best lineup</summary><div class="tw"><table><thead><tr><th>Slot</th><th>Player</th><th class="n">Proj</th></tr></thead><tbody>' +
+    r.lineup.best.map((x) => '<tr><td>' + esc(x.slot.replace(/_/g, ' ')) + '</td><td>' + (x.name ? esc(x.name) : '<span class="note">empty</span>') + '</td><td class="n">' + f1(x.weekly) + '</td></tr>').join('') + '</tbody></table></div></details></section>');
+
+  h.push('<div class="grid2">');
+  h.push('<section class="card"><div class="sec-h">' + (fpl ? 'Transfers' : 'Waiver pickups') + '</div>' +
+    (r.pickups.length ? '<div class="moves" style="grid-template-columns:minmax(0,1fr)">' + r.pickups.map((m) => moveCard(m, '<span>' + esc(m.pos) + ' · +' + (m.perWeek != null ? f1(m.perWeek) + '/wk' : Math.round(m.gain) + ' pts') + (m.cost ? ' · £' + m.cost.toFixed(1) + 'm' : '') + '</span>')).join('') + '</div>'
+      : '<p class="empty">No ' + (fpl ? 'transfer you can afford' : 'free agent') + ' clearly beats a player you have.</p>') + '</section>');
+  if (fpl) {
+    const F = r.fpl;
+    h.push('<section class="card"><div class="sec-h">Your mini-league</div>' +
+      '<p><span class="lbl">Captain</span><br>' + F.captain.map((c, i) => (i ? 'Vice: ' : '') + '<strong>' + esc(c.name) + '</strong> (' + esc(c.team) + ', ' + f1(c.weekly) + ' proj, fixtures ' + f1(c.fixtures) + ')').join('<br>') + '</p>' +
+      '<p class="lbl">Rivals own, you don\'t</p>' + (F.threats.length ? '<div class="tw"><table><thead><tr><th>Player</th><th class="n">Rivals</th><th class="n">Proj</th><th class="n">£</th></tr></thead><tbody>' +
+        F.threats.map((p) => '<tr><td>' + esc(p.name) + ' <span class="note">' + esc(p.team + ' ' + p.pos) + '</span></td><td class="n">' + p.ownedByRivals + '%</td><td class="n">' + f1(p.weekly) + '</td><td class="n">' + f1(p.cost) + '</td></tr>').join('') + '</tbody></table></div>' : '<p class="note">No widely owned player you are missing.</p>') +
+      '<p class="lbl">Your differentials</p><p>' + (F.differentials.length ? F.differentials.map((p) => esc(p.name) + ' <span class="note">(' + p.ownedByRivals + '%)</span>').join(', ') : '<span class="note">None. Your starters match the template.</span>') + '</p></section>');
+  } else {
+    h.push('<section class="card"><div class="sec-h">Trade ideas</div>' +
+      (r.trades.length ? '<div class="moves" style="grid-template-columns:minmax(0,1fr)">' + r.trades.map((m, i) => moveCard(m, '<span>with ' + esc(m.partner) + ' · +' + (m.perWeek != null ? f1(m.perWeek) + '/wk' : Math.round(m.gain) + ' pts') + '</span>' + (window.FantasyTrade && r.tradeModel ? '<button class="link" data-open-trade="' + i + '">Open in trade analyzer</button>' : ''))).join('') + '</div>'
+        : '<p class="empty">No fair trade gives you a clear edge right now.</p>') + '</section>');
+  }
+  h.push('</div>');
+  if (!fpl && window.FantasyTrade && r.tradeModel) h.push('<section class="card" id="ta" aria-live="polite"></section>');
+
+  const maxPos = Math.max(...r.positions.map((p) => Math.max(p.mine, p.leagueAvg)), 0.1);
+  h.push('<div class="grid2"><section class="card"><div class="sec-h">Where you stand</div><p class="note">Projected points from your top players at each spot. The line is the league average.</p><div class="bars">' +
+    r.positions.map((p) => '<div class="bl"><strong>' + esc(p.pos) + '</strong><div class="tr" role="img" aria-label="' + esc(p.pos) + ': ' + f1(p.mine) + ' against league average ' + f1(p.leagueAvg) + '"><b style="width:' + (100 * p.mine / maxPos).toFixed(1) + '%;' + (p.diff < 0 ? 'background:var(--bad)' : '') + '"></b><i style="left:' + (100 * p.leagueAvg / maxPos).toFixed(1) + '%"></i></div><span class="r">' + ordinal(p.rank) + ' of ' + p.of + '</span></div>').join('') +
+    '</div>' + (r.weak.length ? '<p class="note">Thin at <strong>' + r.weak.join(', ') + '</strong>' + (r.strong.length ? '; deep at <strong>' + r.strong.join(', ') + '</strong>, which is your trade currency.' : '.') + '</p>' : '') + '</section>');
+
+  h.push('<section class="card"><div class="sec-h">Power rankings</div><div class="tw"><table><thead><tr><th class="n">#</th><th>Team</th><th>' + (fpl ? 'Rank' : 'Record') + '</th><th class="n">Proj/' + (fpl ? 'GW' : 'wk') + '</th><th class="n">Pts</th></tr></thead><tbody>' +
+    r.powerRankings.map((t) => '<tr' + (t.isMine ? ' class="me"' : '') + '><td class="n">' + t.rank + '</td><td>' + esc(t.name) + '</td><td>' + esc(t.record.replace('League rank ', '#')) + '</td><td class="n">' + f1(t.strength) + '</td><td class="n">' + f1(t.pointsFor) + '</td></tr>').join('') + '</tbody></table></div></section></div>');
+
+  const nfl = S.sport === 'nfl', dyn = S.type === 'dynasty' || S.type === 'keeper';
+  h.push('<section class="card"><div class="sec-h">Your roster</div><div class="tw"><table><thead><tr><th>Player</th><th>Pos</th><th>Slot</th>' + (dyn ? '<th class="n">Age</th>' : '') + (nfl ? '<th class="n">Bye</th>' : '') + '<th class="n">Season</th><th class="n">Recent</th><th class="n">Proj</th><th class="n">Value</th><th>Notes</th></tr></thead><tbody>' +
+    r.roster.map((p) => '<tr><td>' + esc(p.name) + ' <span class="note">' + esc(p.team) + '</span>' + tag(p) + '</td><td>' + esc(p.pos) + '</td><td>' + esc(p.slot === 'START' ? 'Starter' : p.slot === 'BN' ? 'Bench' : p.slot) + '</td>' + (dyn ? '<td class="n">' + (p.age || '') + '</td>' : '') + (nfl ? '<td class="n">' + (p.bye || '') + '</td>' : '') + '<td class="n">' + f1(p.season) + '</td><td class="n">' + f1(p.recent) + '</td><td class="n">' + f1(p.ppg) + '</td><td class="n">' + Math.round(p.vor) + '</td><td class="note">' + esc([ROLE_TXT[p.role], p.news].filter(Boolean).join(' · ')) + '</td></tr>').join('') +
+    '</tbody></table></div><p class="note">Value is projected points above a typical free agent over the next ' + r.window.games + ' ' + esc(r.window.per) + 's.</p></section>');
+
+  finishReport(r, h);
+}
+function finishReport(r, h) {
+  if (r.moveScale && r.moveScale.labels) {
+    h.push('<details class="card"><summary class="sec-h" style="cursor:pointer">Move Score key</summary><p class="note">Every move gets a score from 1 to 30. It starts from how many points a week the move adds to your best lineup, compared with an average starter in this league (' + f1(r.moveScale.base) + ' a week), then goes down for small samples, injury doubts, trades the other manager is unlikely to accept and, in dynasty, giving up young players. Free lineup changes get a small bonus.</p><div class="tw"><table><thead><tr><th class="n">Score</th><th>Meaning</th></tr></thead><tbody>' +
+      r.moveScale.labels.map((l, i) => i).reverse().map((i) => '<tr><td class="n">' + (i + 1) + '</td><td>' + esc(r.moveScale.labels[i]) + '</td></tr>').join('') + '</tbody></table></div></details>');
+  }
+  $('report').innerHTML = h.join('');
+  stampHeads($('report'));
+  renderTrade();
+  renderCoach();
+}
+/* Each section heading shows the day its numbers were pulled. */
+function stampHeads(root) {
+  const at = st.report && st.report.generatedAt;
+  if (!at) return;
+  const t = 'Updated ' + new Date(at).toLocaleDateString([], { weekday: 'short', month: 'short', day: 'numeric' });
+  root.querySelectorAll('.sec-h').forEach((h) => h.insertAdjacentHTML('beforeend', '<span class="stamp">' + esc(t) + '</span>'));
+}
+/* ---------- trade analyzer: any trade with any team, scored from this league's numbers ---------- */
+const tradeState = { report: null, partnerId: '', give: [], get: [] };
+function tradeFor(r) {
+  if (tradeState.report !== r) Object.assign(tradeState, { report: r, partnerId: (r.tradeModel.teams.find((t) => t.id !== r.tradeModel.myId) || {}).id || '', give: [], get: [] });
+  return tradeState;
+}
+function playerPick(side, p, on) {
+  return '<label class="tp"><input type="checkbox" data-side="' + side + '" value="' + esc(p.id) + '"' + (on ? ' checked' : '') + '>' +
+    '<span>' + esc(p.name) + ' <span class="note">' + esc(p.pos + (p.team ? ' · ' + p.team : '')) + (p.slot === 'IR' ? ' · IR' : '') + '</span>' + tag(p) + '</span>' +
+    '<span class="n">' + f1(p.ros) + '</span></label>';
+}
+function renderTrade() {
+  const el = $('ta'); if (!el || !st.report || !st.report.tradeModel) return;
+  const m = st.report.tradeModel, T = tradeFor(st.report);
+  const me = m.teams.find((t) => t.id === m.myId), them = m.teams.find((t) => t.id === T.partnerId);
+  let res = null, err = '';
+  try { res = them ? window.FantasyTrade.evaluateTrade(m, { partnerId: T.partnerId, giveIds: T.give, getIds: T.get }) : null; } catch (e) { err = e.message; }
+  const h = ['<div class="sec-h">Trade analyzer</div>',
+    '<p class="note">Pick a team, then tick players on each side. Scores use this league\'s rosters, scoring, injuries and byes. The number by each player is projected points a ' + esc(m.per) + '.</p>',
+    '<label class="fld" style="max-width:420px;flex:none"><span>Trade with</span><select id="ta-team">' + m.teams.filter((t) => t.id !== m.myId).map((t) => '<option value="' + esc(t.id) + '"' + (t.id === T.partnerId ? ' selected' : '') + '>' + esc(t.name) + (t.owner ? ' · ' + esc(t.owner) : '') + '</option>').join('') + '</select></label>',
+    '<div class="grid2"><div class="tpl"><p class="lbl">You give</p>' + me.players.map((p) => playerPick('give', p, T.give.indexOf(p.id) >= 0)).join('') + '</div>' +
+    '<div class="tpl"><p class="lbl">You get from ' + esc(them ? them.name : '') + '</p>' + (them ? them.players.map((p) => playerPick('get', p, T.get.indexOf(p.id) >= 0)).join('') : '') + '</div></div>'];
+  if (err) h.push('<p class="msg bad">' + esc(err) + '</p>');
+  else if (!res) {
+    const one = (T.give.length > 0) !== (T.get.length > 0);
+    T.offers = one && them ? window.FantasyTrade.findOffers(m, { partnerId: T.partnerId, giveIds: T.give, getIds: T.get }) : [];
+    if (!one) h.push('<p class="empty">Tick players on each side to score a trade. Or tick only players you want (or only players you would sell) and the trade finder suggests the other side.</p>');
+    else {
+      h.push('<div class="sec-h" style="font-size:22px">Trade finder</div><p class="note">' + (T.get.length ? 'Best packages from your roster for what you picked, the ones ' + esc(them.name) + ' is most likely to accept first.' : 'Best returns from ' + esc(them.name) + ' for what you picked.') + '</p>');
+      h.push(T.offers.length ? '<div class="moves">' + T.offers.map((o, i) => moveCard({ tone: o.tone, label: o.label, score: o.score, title: o.title, text: 'Your lineup ' + (o.myGain >= 0 ? '+' : '−') + f1(Math.abs(o.myGain)) + ', theirs ' + (o.theirGain >= 0 ? '+' : '−') + f1(Math.abs(o.theirGain)) + ' a ' + m.per + '. Chance they accept: ' + o.accept.toLowerCase() + '.' }, '<button class="link" data-use-offer="' + i + '">Use this deal</button>')).join('') + '</div>'
+        : '<p class="empty">No deal with ' + esc(them.name) + ' improves your lineup and has a fair chance of being accepted. Try another team.</p>');
+    }
+  }
+  else h.push('<article class="move t-' + esc(res.tone) + '">' + dial(res.score) + '<div class="mv-m"><span class="vb v-' + esc(res.tone) + '">' + esc(res.label) + '</span><span>Chance they accept: ' + esc(res.accept) + '</span></div>' +
+    '<h3 class="mv-t">' + esc(res.title) + '</h3>' +
+    '<div class="sum"><div class="stat"><span class="lbl">Your lineup</span><b>' + (res.myGain >= 0 ? '+' : '−') + f1(Math.abs(res.myGain)) + '</b><span class="note">per ' + esc(m.per) + '</span></div>' +
+    '<div class="stat"><span class="lbl">Their lineup</span><b>' + (res.theirGain >= 0 ? '+' : '−') + f1(Math.abs(res.theirGain)) + '</b><span class="note">per ' + esc(m.per) + '</span></div>' +
+    '<div class="stat"><span class="lbl">Value</span><b>' + res.giveValue + ' → ' + res.getValue + '</b><span class="note">you give → you get</span></div></div>' +
+    '<ul class="al">' + res.reasons.map((x) => '<li>' + esc(x) + '</li>').join('') + '</ul>' +
+    (T.give.length || T.get.length ? '<button class="link" id="ta-clear">Clear</button>' : '') + '</article>');
+  el.innerHTML = h.join('');
+  stampHeads(el);
+}
+document.addEventListener('change', (e) => {
+  if (!st.report || !st.report.tradeModel) return;
+  const T = tradeFor(st.report);
+  if (e.target.id === 'ta-team') { T.partnerId = e.target.value; T.get = []; renderTrade(); }
+  else if (e.target.dataset && e.target.dataset.side) {
+    const list = T[e.target.dataset.side], id = e.target.value, i = list.indexOf(id);
+    if (e.target.checked && i < 0) list.push(id); if (!e.target.checked && i >= 0) list.splice(i, 1);
+    renderTrade();
+  }
+});
+document.addEventListener('click', (e) => {
+  if (e.target.id === 'ta-clear') { const T = tradeFor(st.report); T.give = []; T.get = []; renderTrade(); }
+  const use = e.target.dataset && e.target.dataset.useOffer;
+  if (use != null && st.report) { const T = tradeFor(st.report), o = (T.offers || [])[Number(use)]; if (o) { T.give = o.giveIds.slice(); T.get = o.getIds.slice(); renderTrade(); } }
+  const open = e.target.dataset && e.target.dataset.openTrade;
+  if (open != null && st.report && st.report.tradeModel) {
+    const idea = st.report.trades[Number(open)], m = st.report.tradeModel, T = tradeFor(st.report);
+    const me = m.teams.find((t) => t.id === m.myId), them = m.teams.find((t) => t.id === idea.partnerId);
+    T.partnerId = idea.partnerId;
+    T.give = me.players.filter((p) => idea.give.indexOf(p.name) >= 0).map((p) => p.id);
+    T.get = them ? them.players.filter((p) => idea.get.indexOf(p.name) >= 0).map((p) => p.id) : [];
+    renderTrade(); $('ta').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+});
+const ordinal = (n) => n + (n % 100 >= 11 && n % 100 <= 13 ? 'th' : ['th', 'st', 'nd', 'rd'][n % 10] || 'th');
+
+renderConnect();
+if (location.protocol === 'file:') setMsg('Start the server (node server/server.js) and open http://localhost:8787. This page needs it to reach your league.', true);
+</script>
+</body>
+</html>

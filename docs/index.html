@@ -147,7 +147,7 @@ tr.me td{font-weight:700;color:var(--accent);background:color-mix(in srgb,var(--
       <p class="eyebrow"><i aria-hidden="true"></i>Sleeper · ESPN · FPL &nbsp;/&nbsp; NFL · NBA · Premier League</p>
       <h1>Fantasy<br><span class="o">Coach</span></h1>
       <p class="sub">Connect your league. Every lineup change, pickup and trade gets a Move Score from 1 to 30, built from your league's own rosters, scoring, injuries and byes.</p>
-      <p class="links"><a href="manual.html">Compare players by hand</a></p>
+      <p class="links"><a href="trade.html">Trade analyzer</a></p>
     </div>
     <aside class="scale" aria-label="Move Score scale">
       <p class="lbl">Move Score</p>
@@ -176,6 +176,8 @@ const save = () => { try { const { platform, sport, username, entryId, leagueId,
 
 /* The web build (docs/) runs the analysis in the browser; the self-hosted server answers /api calls. */
 const WEB = !!window.FantasyCoach;
+/* trade.html is this page with data-page="trade": it shows only the trade tools. */
+const TRADE_PAGE = document.body.dataset.page === 'trade';
 async function api(path, body) {
   if (WEB && path === '/api/leagues') return window.FantasyCoach.leagues(body);
   if (WEB && path === '/api/analyze') return window.FantasyCoach.analyze(body);
@@ -334,6 +336,14 @@ function renderReport() {
     '<div class="stat"><span class="lbl">Window</span><b>' + r.window.games + ' ' + esc(r.window.per) + (r.window.games === 1 ? '' : 's') + '</b><span class="note">stats through ' + esc(S.statsThrough) + ', ' + esc(S.scoring) + '</span></div>' +
     '</div>' + (S.notes.length ? '<p class="note">' + S.notes.map(esc).join(' ') + '</p>' : '') + '</section>');
 
+  if (TRADE_PAGE) {
+    if (fpl || !r.tradeModel || !window.FantasyTrade) h.push('<section class="card"><p class="empty">' + (fpl ? 'Fantasy Premier League has no trades between managers. The main page covers transfers.' : 'Trade data is not available for this league.') + '</p></section>');
+    else {
+      h.push('<section class="card" id="ta" aria-live="polite"></section>');
+      h.push('<section class="card"><div class="sec-h">Trade ideas for you</div>' + (r.trades.length ? '<div class="moves">' + r.trades.map((m, i) => moveCard(m, '<span>with ' + esc(m.partner) + '</span><button class="link" data-open-trade="' + i + '">Open in analyzer</button>')).join('') + '</div>' : '<p class="empty">No fair trade gives you a clear edge right now. Try the trade finder above.</p>') + '</section>');
+    }
+    return finishReport(r, h);
+  }
   h.push('<section class="card coach" id="coach" aria-live="polite"></section>');
 
   if (r.alerts.length) h.push('<section class="card"><div class="sec-h">Heads up</div><ul class="al">' + r.alerts.map((a) => '<li>' + esc(a) + '</li>').join('') + '</ul></section>');
@@ -377,6 +387,9 @@ function renderReport() {
     r.roster.map((p) => '<tr><td>' + esc(p.name) + ' <span class="note">' + esc(p.team) + '</span>' + tag(p) + '</td><td>' + esc(p.pos) + '</td><td>' + esc(p.slot === 'START' ? 'Starter' : p.slot === 'BN' ? 'Bench' : p.slot) + '</td>' + (dyn ? '<td class="n">' + (p.age || '') + '</td>' : '') + (nfl ? '<td class="n">' + (p.bye || '') + '</td>' : '') + '<td class="n">' + f1(p.season) + '</td><td class="n">' + f1(p.recent) + '</td><td class="n">' + f1(p.ppg) + '</td><td class="n">' + Math.round(p.vor) + '</td><td class="note">' + esc([ROLE_TXT[p.role], p.news].filter(Boolean).join(' · ')) + '</td></tr>').join('') +
     '</tbody></table></div><p class="note">Value is projected points above a typical free agent over the next ' + r.window.games + ' ' + esc(r.window.per) + 's.</p></section>');
 
+  finishReport(r, h);
+}
+function finishReport(r, h) {
   if (r.moveScale && r.moveScale.labels) {
     h.push('<details class="card"><summary class="sec-h" style="cursor:pointer">Move Score key</summary><p class="note">Every move gets a score from 1 to 30. It starts from how many points a week the move adds to your best lineup, compared with an average starter in this league (' + f1(r.moveScale.base) + ' a week), then goes down for small samples, injury doubts, trades the other manager is unlikely to accept and, in dynasty, giving up young players. Free lineup changes get a small bonus.</p><div class="tw"><table><thead><tr><th class="n">Score</th><th>Meaning</th></tr></thead><tbody>' +
       r.moveScale.labels.map((l, i) => i).reverse().map((i) => '<tr><td class="n">' + (i + 1) + '</td><td>' + esc(r.moveScale.labels[i]) + '</td></tr>').join('') + '</tbody></table></div></details>');
@@ -416,7 +429,16 @@ function renderTrade() {
     '<div class="grid2"><div class="tpl"><p class="lbl">You give</p>' + me.players.map((p) => playerPick('give', p, T.give.indexOf(p.id) >= 0)).join('') + '</div>' +
     '<div class="tpl"><p class="lbl">You get from ' + esc(them ? them.name : '') + '</p>' + (them ? them.players.map((p) => playerPick('get', p, T.get.indexOf(p.id) >= 0)).join('') : '') + '</div></div>'];
   if (err) h.push('<p class="msg bad">' + esc(err) + '</p>');
-  else if (!res) h.push('<p class="empty">Tick at least one player on each side to see the verdict.</p>');
+  else if (!res) {
+    const one = (T.give.length > 0) !== (T.get.length > 0);
+    T.offers = one && them ? window.FantasyTrade.findOffers(m, { partnerId: T.partnerId, giveIds: T.give, getIds: T.get }) : [];
+    if (!one) h.push('<p class="empty">Tick players on each side to score a trade. Or tick only players you want (or only players you would sell) and the trade finder suggests the other side.</p>');
+    else {
+      h.push('<div class="sec-h" style="font-size:22px">Trade finder</div><p class="note">' + (T.get.length ? 'Best packages from your roster for what you picked, the ones ' + esc(them.name) + ' is most likely to accept first.' : 'Best returns from ' + esc(them.name) + ' for what you picked.') + '</p>');
+      h.push(T.offers.length ? '<div class="moves">' + T.offers.map((o, i) => moveCard({ tone: o.tone, label: o.label, score: o.score, title: o.title, text: 'Your lineup ' + (o.myGain >= 0 ? '+' : '−') + f1(Math.abs(o.myGain)) + ', theirs ' + (o.theirGain >= 0 ? '+' : '−') + f1(Math.abs(o.theirGain)) + ' a ' + m.per + '. Chance they accept: ' + o.accept.toLowerCase() + '.' }, '<button class="link" data-use-offer="' + i + '">Use this deal</button>')).join('') + '</div>'
+        : '<p class="empty">No deal with ' + esc(them.name) + ' improves your lineup and has a fair chance of being accepted. Try another team.</p>');
+    }
+  }
   else h.push('<article class="move t-' + esc(res.tone) + '">' + dial(res.score) + '<div class="mv-m"><span class="vb v-' + esc(res.tone) + '">' + esc(res.label) + '</span><span>Chance they accept: ' + esc(res.accept) + '</span></div>' +
     '<h3 class="mv-t">' + esc(res.title) + '</h3>' +
     '<div class="sum"><div class="stat"><span class="lbl">Your lineup</span><b>' + (res.myGain >= 0 ? '+' : '−') + f1(Math.abs(res.myGain)) + '</b><span class="note">per ' + esc(m.per) + '</span></div>' +
@@ -439,6 +461,8 @@ document.addEventListener('change', (e) => {
 });
 document.addEventListener('click', (e) => {
   if (e.target.id === 'ta-clear') { const T = tradeFor(st.report); T.give = []; T.get = []; renderTrade(); }
+  const use = e.target.dataset && e.target.dataset.useOffer;
+  if (use != null && st.report) { const T = tradeFor(st.report), o = (T.offers || [])[Number(use)]; if (o) { T.give = o.giveIds.slice(); T.get = o.getIds.slice(); renderTrade(); } }
   const open = e.target.dataset && e.target.dataset.openTrade;
   if (open != null && st.report && st.report.tradeModel) {
     const idea = st.report.trades[Number(open)], m = st.report.tradeModel, T = tradeFor(st.report);

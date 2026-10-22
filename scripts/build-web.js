@@ -33,21 +33,33 @@ function bundle(entry) {
     '__require(' + JSON.stringify(path.relative(ROOT, entry)) + ');\n})();\n';
 }
 
+/* trade.html is coach.html in trade mode: same code and look, its own headline, only the trade tools. */
+function tradePage(html) {
+  const swap = (from, to) => { if (html.indexOf(from) < 0) throw new Error('trade page: missing ' + from.slice(0, 40)); html = html.replace(from, to); };
+  swap('<title>Fantasy Coach</title>', '<title>Fantasy Coach Trade Analyzer</title>');
+  swap('<body>', '<body data-page="trade">');
+  swap('Sleeper · ESPN · FPL &nbsp;/&nbsp; NFL · NBA · Premier League</p>', 'Fantasy Coach &nbsp;/&nbsp; Sleeper · ESPN</p>');
+  swap('<h1>Fantasy<br><span class="o">Coach</span></h1>', '<h1>Trade<br><span class="o">Analyzer</span></h1>');
+  html = html.replace(/<p class="sub">[^<]*<\/p>/, '<p class="sub">Load your league, pick a trade partner and see exactly how any deal changes both lineups. Tick only the players you want, or only the ones you would sell, and the trade finder builds the other side.</p>');
+  swap('<p class="links"><a href="trade.html">Trade analyzer</a></p>', '<p class="links"><a href="index.html">Back to Fantasy Coach</a></p>');
+  return html;
+}
+
 function build() {
   fs.mkdirSync(path.join(OUT, 'data'), { recursive: true });
   fs.writeFileSync(path.join(OUT, 'app.js'), bundle(path.join(ROOT, 'web', 'entry.js')));
   fs.writeFileSync(path.join(OUT, 'trade.js'), bundle(path.join(ROOT, 'web', 'trade-entry.js')));
   const coach = fs.readFileSync(path.join(ROOT, 'coach.html'), 'utf8');
   if (coach.indexOf('<script>') < 0) throw new Error('coach.html has no inline script');
-  fs.writeFileSync(path.join(OUT, 'index.html'), coach.replace('<script>', '<script src="app.js"></script>\n<script>'));
-  // On the site the coach is the home page and the hand-compare page is manual.html.
-  fs.writeFileSync(path.join(OUT, 'manual.html'), fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8').replace('href="coach.html"', 'href="index.html"'));
-  fs.copyFileSync(path.join(ROOT, 'engine.js'), path.join(OUT, 'engine.js'));
+  const web = coach.replace('<script>', '<script src="app.js"></script>\n<script>');
+  fs.writeFileSync(path.join(OUT, 'index.html'), web);
+  fs.writeFileSync(path.join(OUT, 'trade.html'), tradePage(web));
+  ['manual.html', 'engine.js'].forEach((f) => { try { fs.unlinkSync(path.join(OUT, f)); } catch (e) { /* already gone */ } });
   fs.readdirSync(path.join(ROOT, 'data')).filter((f) => f.endsWith('.json'))
     .forEach((f) => fs.copyFileSync(path.join(ROOT, 'data', f), path.join(OUT, 'data', f)));
   fs.writeFileSync(path.join(OUT, '.nojekyll'), '');
-  console.log('Built docs/: index.html, manual.html, app.js, trade.js, engine.js and data/');
+  console.log('Built docs/: index.html, trade.html, app.js, trade.js and data/');
 }
 
 if (require.main === module) build();
-module.exports = { bundle, build };
+module.exports = { bundle, build, tradePage };
